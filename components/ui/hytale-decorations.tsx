@@ -58,7 +58,7 @@ export function MagicParticles({ count = 20, className }: { count?: number; clas
               boxShadow: `0 0 ${size * 2}px ${color}40`,
             }}
             animate={{
-              y: [0, -window?.innerHeight || -800],
+              y: [0, -800],
               x: [0, (Math.random() - 0.5) * 100],
               opacity: [0, 0.8, 0.8, 0],
             }}
