@@ -17,68 +17,15 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-emerald-900/50 bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-700 backdrop-blur-md shadow-lg">
-      {/* Subtle blocky grid texture */}
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/90 backdrop-blur-md">
+      {/* Subtle block pattern background */}
       <div 
         className="pointer-events-none absolute inset-0 opacity-5"
         style={{
-          backgroundImage: `
-            linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1) 76%, transparent 77%, transparent),
-            linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1) 76%, transparent 77%, transparent)
-          `,
-          backgroundSize: "50px 50px",
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='10' height='10' stroke='%23000000' stroke-width='1' fill='none'/%3E%3Crect x='10' y='10' width='10' height='10' stroke='%23000000' stroke-width='1' fill='none'/%3E%3C/svg%3E")`,
+          backgroundSize: "20px 20px",
         }}
       />
-
-      {/* Corner decorative blocks - top left */}
-      <div className="pointer-events-none absolute top-1 left-2 w-3 h-3 bg-emerald-400/15 rounded-sm" />
-      <div className="pointer-events-none absolute top-1 left-6 w-2 h-2 bg-emerald-300/10 rounded-sm" />
-      <div className="pointer-events-none absolute top-5 left-2 w-2 h-2 bg-emerald-300/10 rounded-sm" />
-
-      {/* Corner decorative blocks - top right */}
-      <div className="pointer-events-none absolute top-1 right-2 w-3 h-3 bg-emerald-400/15 rounded-sm" />
-      <div className="pointer-events-none absolute top-1 right-6 w-2 h-2 bg-emerald-300/10 rounded-sm" />
-      <div className="pointer-events-none absolute top-5 right-2 w-2 h-2 bg-emerald-300/10 rounded-sm" />
-
-      {/* Horizontal stripe pattern for blocky game aesthetic */}
-      <div 
-        className="pointer-events-none absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: `repeating-linear-gradient(
-            0deg,
-            rgba(0, 0, 0, 0.2) 0px,
-            rgba(0, 0, 0, 0.2) 2px,
-            transparent 2px,
-            transparent 8px
-          )`,
-        }}
-      />
-
-      {/* Vertical column pattern for depth */}
-      <div 
-        className="pointer-events-none absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: `repeating-linear-gradient(
-            90deg,
-            rgba(90, 200, 60, 0.3) 0px,
-            rgba(90, 200, 60, 0.3) 1px,
-            transparent 1px,
-            transparent 10px
-          )`,
-        }}
-      />
-
-      {/* Left deep shadow for 3D effect */}
-      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-r from-black/30 via-black/10 to-transparent" />
-      
-      {/* Right deep shadow for 3D effect */}
-      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-2 bg-gradient-to-l from-black/30 via-black/10 to-transparent" />
-
-      {/* Bottom glow/shadow for layered effect */}
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-b from-transparent via-black/20 to-black/40" />
-
-      {/* Top highlight for magical feel */}
-      <div className="pointer-events-none absolute top-0 left-0 right-0 h-1 bg-gradient-to-b from-emerald-300/30 to-transparent" />
 
       <div className="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
