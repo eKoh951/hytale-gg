@@ -13,6 +13,47 @@ const navItems = [
   { label: "List a Server", href: "/submit" },
 ];
 
+function AnimatedLogo() {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <Link 
+      href="/" 
+      className="flex items-center overflow-hidden"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="relative h-8 w-12">
+        {/* Short logo - h.gg */}
+        <Image
+          src="/h-gg.png"
+          alt="hytale.GG"
+          width={80}
+          height={32}
+          className={cn(
+            "h-8 w-auto absolute transition-all duration-300",
+            isHovered ? "opacity-0" : "opacity-100"
+          )}
+          priority
+        />
+        
+        {/* Full logo - hytale.GG */}
+        <Image
+          src="/hytale-gg.png"
+          alt="hytale.GG"
+          width={120}
+          height={32}
+          className={cn(
+            "h-8 w-auto absolute transition-all duration-300",
+            isHovered ? "opacity-100" : "opacity-0"
+          )}
+          priority
+        />
+      </div>
+    </Link>
+  );
+}
+
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -29,16 +70,7 @@ export function Header() {
 
       <div className="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
-          <Image
-            src="/h-gg.png"
-            alt="hytale.GG"
-            width={80}
-            height={32}
-            className="h-8 w-auto"
-            priority
-          />
-        </Link>
+        <AnimatedLogo />
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-8 md:flex">
