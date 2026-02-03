@@ -25,28 +25,28 @@ function AnimatedLogo() {
     >
       <div 
         className={cn(
-          "relative h-8 overflow-hidden transition-all duration-500 ease-out w-auto",
+          "relative h-8 transition-all duration-500 ease-out",
           isHovered ? "w-[180px]" : "w-[66px]"
         )}
       >
-        {/* Short logo - h.gg - stays visible */}
+        {/* Short logo - h.gg - fades out first with slight scale */}
         <Image
           src="/h-gg.png"
           alt="hytale.GG"
           width={80}
           height={32}
           className={cn(
-            "h-8 w-auto absolute left-0 transition-opacity duration-500",
-            isHovered ? "opacity-0" : "opacity-100"
+            "h-8 w-auto absolute left-0 transition-all duration-300 ease-in",
+            isHovered ? "opacity-0 scale-95" : "opacity-100 scale-100"
           )}
           priority
         />
         
-        {/* Full logo - hytale.GG - reveals from left to right */}
+        {/* Full logo - hytale.GG - reveals from left to right after fade */}
         <div 
           className={cn(
-            "absolute left-0 h-8 transition-all duration-500 ease-out overflow-hidden",
-            isHovered ? "w-[180px]" : "w-0"
+            "absolute left-0 top-0 h-8 overflow-hidden transition-all ease-out",
+            isHovered ? "w-[180px] opacity-100 delay-150 duration-500" : "w-0 opacity-0 duration-200"
           )}
         >
           <Image
@@ -54,7 +54,10 @@ function AnimatedLogo() {
             alt="hytale.GG"
             width={180}
             height={32}
-            className="h-8 w-auto"
+            className={cn(
+              "h-8 w-auto transition-transform duration-500 ease-out",
+              isHovered ? "translate-x-0" : "-translate-x-4"
+            )}
             priority
           />
         </div>
