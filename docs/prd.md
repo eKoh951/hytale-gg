@@ -613,38 +613,264 @@ CREATE TABLE servers (
 
 ### Overview
 
-The implementation is divided into 4 phases over approximately 16-20 weeks. Each phase builds upon the previous, with clear deliverables and dependencies.
+The implementation is divided into 5 phases over approximately 18-22 weeks. **Phase 0 (Foundational)** establishes the visual identity and backend services before feature development begins. Each subsequent phase builds upon the previous, with clear deliverables and dependencies.
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
 │                        IMPLEMENTATION TIMELINE                          │
 ├────────────────────────────────────────────────────────────────────────┤
 │                                                                         │
-│  Phase 1: MVP Foundation          Phase 2: Differentiation              │
+│  Phase 0: Foundation              Phase 1: MVP Foundation               │
 │  ┌─────────────────────┐          ┌─────────────────────┐              │
-│  │ Weeks 1-6           │          │ Weeks 7-12          │              │
+│  │ Weeks 1-2           │          │ Weeks 3-8           │              │
 │  │                     │          │                     │              │
-│  │ • Core Infrastructure│    ──►  │ • AI Assistant      │              │
-│  │ • Server Directory  │          │ • Creator Reviews   │              │
-│  │ • User Accounts     │          │ • Recommendations   │              │
-│  │ • Mobile PWA        │          │ • Enhanced UX       │              │
+│  │ • Visual Prototype  │    ──►   │ • Core Infrastructure│             │
+│  │ • Design System     │          │ • Server Directory  │              │
+│  │ • Backend Services  │          │ • User Accounts     │              │
+│  │ • Auth Setup        │          │ • Mobile PWA        │              │
 │  └─────────────────────┘          └─────────────────────┘              │
 │                                                                         │
-│  Phase 3: Expansion               Phase 4: Growth                       │
+│  Phase 2: Differentiation         Phase 3: Expansion                    │
 │  ┌─────────────────────┐          ┌─────────────────────┐              │
-│  │ Weeks 13-16         │          │ Weeks 17-20         │              │
+│  │ Weeks 9-14          │          │ Weeks 15-18         │              │
 │  │                     │          │                     │              │
-│  │ • Mod Discovery     │    ──►   │ • Analytics         │              │
-│  │ • Community Tools   │          │ • Optimization      │              │
-│  │ • Events System     │          │ • Marketing Launch  │              │
+│  │ • AI Assistant      │    ──►   │ • Mod Discovery     │              │
+│  │ • Creator Reviews   │          │ • Community Tools   │              │
+│  │ • Recommendations   │          │ • Events System     │              │
+│  │ • Enhanced UX       │          │                     │              │
 │  └─────────────────────┘          └─────────────────────┘              │
+│                                                                         │
+│  Phase 4: Growth                                                        │
+│  ┌─────────────────────┐                                               │
+│  │ Weeks 19-22         │                                               │
+│  │                     │                                               │
+│  │ • Analytics         │                                               │
+│  │ • Optimization      │                                               │
+│  │ • Marketing Launch  │                                               │
+│  └─────────────────────┘                                               │
 │                                                                         │
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-### Phase 1: MVP Foundation (Weeks 1-6)
+### Phase 0: Foundation (Weeks 1-2)
+
+**Goal**: Establish the visual identity, design system, and backend infrastructure before feature development begins. This phase prioritizes rapid iteration on design direction and ensures backend services are properly configured.
+
+#### Week 1: Visual Prototype & Design System
+
+**Objective**: Create a high-fidelity visual prototype that establishes the look and feel of hytale.gg, enabling stakeholder feedback before committing to implementation.
+
+**Deliverables**:
+- [ ] Landing page visual prototype (fully interactive mockup)
+- [ ] Design system documentation
+- [ ] Component library foundation (Button, Card, Input, etc.)
+- [ ] Color palette implementation (brand colors to CSS variables)
+- [ ] Typography system (Inter + Press Start 2P integration)
+- [ ] Dark mode as default theme (gaming audience preference)
+- [ ] Responsive breakpoint strategy
+- [ ] Animation and interaction patterns
+
+**Design Principles**:
+```
+1. Dark-first: Gaming audiences prefer dark themes
+2. Mobile-first: Primary target is mobile users (60%+ target)
+3. Voxel aesthetic: Subtle nods to Hytale's blocky art style
+4. Performance: Design for speed (minimal assets, optimized images)
+5. Accessibility: WCAG 2.1 AA compliance from the start
+```
+
+**Visual Prototype Scope**:
+The landing page prototype should showcase:
+- Hero section with value proposition
+- Server discovery preview (mock server cards)
+- Feature highlights (ping testing, tags, creator reviews)
+- Mobile navigation pattern
+- CTA for server owners and players
+- Footer with links and branding
+
+**Design Tokens Implementation**:
+```css
+/* Core brand colors from branding.md */
+--primary: #8B4FC1;      /* Purple - brand primary */
+--secondary: #FFB800;    /* Yellow - accent, CTAs */
+--background: #0A0A0A;   /* Very dark - gaming theme */
+--card: #1F2937;         /* Darker card surfaces */
+--grass: #7CBD3E;        /* Hytale grass block green */
+--dirt: #8B6F47;         /* Hytale dirt brown */
+```
+
+**Acceptance Criteria**:
+- [ ] Landing page visually approved by stakeholder
+- [ ] Design system covers 80%+ of anticipated UI needs
+- [ ] All components support dark mode
+- [ ] Responsive design works on 320px - 1920px viewports
+- [ ] Lighthouse accessibility score > 90
+
+---
+
+#### Week 2: Backend Services Setup
+
+**Objective**: Configure all backend services required for MVP development, ensuring authentication and data persistence are ready before feature implementation.
+
+**Deliverables**:
+- [ ] Supabase project setup and configuration
+- [ ] Database schema deployment (core tables)
+- [ ] Authentication system (Google OAuth + Discord OAuth)
+- [ ] Upstash Redis integration for caching
+- [ ] Environment variables documented and configured
+- [ ] API route structure established
+- [ ] Rate limiting middleware
+- [ ] Error handling patterns
+
+**Backend Services Architecture**:
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                      BACKEND SERVICES                            │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  ┌─────────────────┐    ┌─────────────────┐                     │
+│  │    Supabase     │    │  Upstash Redis  │                     │
+│  │                 │    │                 │                     │
+│  │ • PostgreSQL DB │    │ • Session Cache │                     │
+│  │ • Auth (OAuth)  │    │ • Rate Limiting │                     │
+│  │ • Row Level Sec │    │ • Real-time     │                     │
+│  │ • Real-time     │    │ • Job Queues    │                     │
+│  └────────┬────────┘    └────────┬────────┘                     │
+│           │                      │                               │
+│           └──────────┬───────────┘                               │
+│                      │                                           │
+│           ┌──────────▼──────────┐                               │
+│           │   Next.js 16 API    │                               │
+│           │   (Route Handlers)  │                               │
+│           └─────────────────────┘                               │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Supabase Configuration Tasks**:
+```
+1. Create Supabase project
+2. Configure OAuth providers:
+   - Google OAuth (primary)
+   - Discord OAuth (gaming community preferred)
+3. Deploy initial schema:
+   - users table with profiles
+   - servers table (ready for Phase 1)
+   - user_roles enum
+4. Configure Row Level Security (RLS) policies
+5. Set up database triggers for updated_at
+6. Create storage buckets for avatars
+```
+
+**Upstash Redis Configuration Tasks**:
+```
+1. Create Upstash Redis database
+2. Configure rate limiting:
+   - API endpoints: 100 req/min per IP
+   - Auth endpoints: 10 req/min per IP
+   - Search: 30 req/min per user
+3. Set up session caching strategy
+4. Prepare pub/sub for real-time updates (Phase 1)
+```
+
+**Authentication Flow**:
+```
+┌─────────────┐      ┌─────────────┐      ┌─────────────┐
+│   User      │      │  Next.js    │      │  Supabase   │
+│  (Browser)  │      │   App       │      │    Auth     │
+└──────┬──────┘      └──────┬──────┘      └──────┬──────┘
+       │                    │                     │
+       │ Click "Login"      │                     │
+       │───────────────────►│                     │
+       │                    │ Redirect to OAuth   │
+       │                    │────────────────────►│
+       │                    │                     │
+       │◄───────────────────│◄────────────────────│
+       │  OAuth Provider    │  Provider Login     │
+       │    (Google/Discord)│                     │
+       │                    │                     │
+       │ Auth callback      │                     │
+       │───────────────────►│ Exchange code       │
+       │                    │────────────────────►│
+       │                    │                     │
+       │                    │◄────────────────────│
+       │                    │  Session + User     │
+       │◄───────────────────│                     │
+       │  Authenticated     │                     │
+       └────────────────────┴─────────────────────┘
+```
+
+**Environment Variables Required**:
+```
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+
+# Upstash Redis
+UPSTASH_REDIS_REST_URL=
+UPSTASH_REDIS_REST_TOKEN=
+
+# OAuth (configured in Supabase dashboard)
+# - Google Client ID/Secret
+# - Discord Client ID/Secret
+```
+
+**Acceptance Criteria**:
+- [ ] User can sign up/login with Google OAuth
+- [ ] User can sign up/login with Discord OAuth
+- [ ] User profile created automatically on first login
+- [ ] Session persists across page refreshes
+- [ ] Rate limiting active on API routes
+- [ ] Redis caching operational
+- [ ] Database schema deployed and accessible
+- [ ] RLS policies prevent unauthorized data access
+
+---
+
+**Phase 0 Exit Criteria**:
+- [ ] Visual prototype approved for implementation
+- [ ] Design system documented and components ready
+- [ ] Supabase fully configured with auth working
+- [ ] Upstash Redis integrated and tested
+- [ ] All environment variables documented
+- [ ] Development environment ready for Phase 1
+
+**Phase 0 Dependencies Graph**:
+```
+Week 1                              Week 2
+┌─────────────────────────┐        ┌─────────────────────────┐
+│ Visual Prototype        │        │ Backend Services        │
+├─────────────────────────┤        ├─────────────────────────┤
+│                         │        │                         │
+│ Day 1-2: Design tokens  │───────►│ Day 1-2: Supabase setup │
+│          Brand colors   │        │          Schema deploy  │
+│          Typography     │        │                         │
+│                         │        │ Day 3-4: Auth config    │
+│ Day 3-4: Components     │───────►│          Google OAuth   │
+│          Button, Card   │        │          Discord OAuth  │
+│          Input, etc.    │        │                         │
+│                         │        │ Day 5: Redis setup      │
+│ Day 5-7: Landing page   │───────►│       Rate limiting     │
+│          Full prototype │        │       Caching           │
+│          Responsive     │        │                         │
+│          Interactions   │        │ Day 6-7: Integration    │
+│                         │        │          Testing        │
+└─────────────────────────┘        └─────────────────────────┘
+```
+
+**Risks & Mitigations**:
+| Risk | Probability | Impact | Mitigation |
+|------|-------------|--------|------------|
+| Design iteration delays | Medium | Medium | Set clear feedback deadline, limit revision rounds |
+| OAuth configuration issues | Low | High | Follow Supabase docs exactly, test on staging first |
+| Redis connection issues | Low | Medium | Use Upstash REST API (more reliable than TCP) |
+
+---
+
+### Phase 1: MVP Foundation (Weeks 3-8)
 
 **Goal**: Launch a functional server directory with core features that users can immediately benefit from.
 

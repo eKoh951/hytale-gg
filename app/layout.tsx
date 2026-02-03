@@ -1,24 +1,32 @@
-import { Geist, Geist_Mono, Montserrat } from "next/font/google";
+import { Inter, JetBrains_Mono, Press_Start_2P } from "next/font/google";
 import React, { type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
 import "@/app/globals.css";
 
-const GeistSans = Geist({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
-const GeistMono = Geist_Mono({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
 });
 
-const MontserratSerif = Montserrat({
+const pressStart = Press_Start_2P({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-serif",
+  variable: "--font-pixel",
 });
+
+export const metadata = {
+  title: "hytale.GG - Find Your Perfect Hytale Server",
+  description:
+    "The premier mobile-first server directory for Hytale. Discover servers, test your ping, watch creator reviews, and find your perfect community.",
+  keywords: ["hytale", "server", "directory", "gaming", "minecraft", "servers"],
+};
 
 export default function RootLayout({
   children,
@@ -29,17 +37,13 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(
-        GeistSans.variable,
-        GeistMono.variable,
-        MontserratSerif.variable,
-        "bg-background text-foreground",
+        inter.variable,
+        jetbrainsMono.variable,
+        pressStart.variable,
+        "bg-background text-foreground antialiased",
       )}
     >
-      <body>
-        <main className="mt-16 flex w-full justify-center">
-          <div className="container">{children}</div>
-        </main>
-      </body>
+      <body className="min-h-screen bg-background">{children}</body>
     </html>
   );
 }
