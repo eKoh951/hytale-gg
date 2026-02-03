@@ -5,12 +5,12 @@ import { cn } from "@/lib/utils";
 
 /**
  * Minecraft/Hytale-style terrain grass divider
- * Creates a wavy grass effect between sections
+ * Creates a blocky, voxel-like grass effect between sections
  */
 export function TerrainDivider({ className, flip = false }: { className?: string; flip?: boolean }) {
   return (
     <div className={cn("relative w-full overflow-hidden", flip && "rotate-180", className)}>
-      {/* Grass layer */}
+      {/* Grass layer - voxel/blocky style */}
       <svg
         className="w-full"
         viewBox="0 0 1200 24"
@@ -18,7 +18,7 @@ export function TerrainDivider({ className, flip = false }: { className?: string
         fill="none"
       >
         <path
-          d="M0 24V12c20 0 20-8 40-8s20 8 40 8 20-10 40-10 20 10 40 10 20-6 40-6 20 6 40 6 20-12 40-12 20 12 40 12 20-4 40-4 20 4 40 4 20-8 40-8 20 8 40 8 20-6 40-6 20 6 40 6 20-10 40-10 20 10 40 10 20-8 40-8 20 8 40 8 20-4 40-4 20 4 40 4 20-12 40-12 20 12 40 12 20-6 40-6 20 6 40 6 20-8 40-8 20 8 40 8 20-10 40-10 20 10 40 10V24H0Z"
+          d="M0 24V16h20V12h20V8h20V12h20V16h20V20h20V16h20V12h20V8h20V12h20V16h20V20h20V16h20V12h20V8h20V12h20V16h20V20h20V16h20V12h20V8h20V12h20V16h20V20h20V16h20V12h20V8h20V12h20V16h20V20h20V16h20V12h20V8h20V12h20V16h20V20h20V16h20V12h20V8h20V12h20V16h20V20h20V16h20V12h20V8h20V12h20V16h20V20h20V16h20V12h20V8h20V12h20V16h20V20h20V16h20V12h20V8h20V12h20V16h20V24H0Z"
           className="fill-grass"
         />
       </svg>
