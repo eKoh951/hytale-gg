@@ -112,11 +112,7 @@ export function TerrainDivider({ className, flip = false }: { className?: string
         <rect x="1080" y="16" width="40" height="8" fill="#7A6341" />
         <rect x="1120" y="16" width="40" height="8" fill="#6E5839" />
         <rect x="1160" y="16" width="40" height="8" fill="#7A6341" />
-      </svg>
-    </div>
-  );
-}
-
+        
         {/* Layer 4: Deeper dirt blocks - darker brown tones */}
         <rect x="0" y="24" width="50" height="8" fill="#7A6341" />
         <rect x="50" y="24" width="38" height="8" fill="#6E5839" />
