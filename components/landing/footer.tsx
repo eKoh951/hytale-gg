@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Github, Twitter } from "lucide-react";
 
 const footerLinks = {
@@ -34,13 +35,14 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2">
-              <span className="font-[var(--font-pixel)] text-sm text-primary">
-                hytale
-              </span>
-              <span className="flex h-5 w-5 items-center justify-center rounded-sm bg-grass text-[10px] font-bold text-background">
-                GG
-              </span>
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/hytale-gg.png"
+                alt="hytale.GG"
+                width={140}
+                height={32}
+                className="h-8 w-auto"
+              />
             </Link>
             <p className="mt-4 text-sm text-muted-foreground">
               The premier mobile-first server directory for the Hytale

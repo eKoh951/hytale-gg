@@ -1,11 +1,20 @@
-import { ArrowRight, Server, Users } from "lucide-react";
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowRight, Server, Users, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function CTA() {
   return (
     <section className="py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-2xl">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative overflow-hidden rounded-2xl"
+        >
           {/* Background */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/80 to-secondary/60" />
           <div
@@ -42,13 +51,17 @@ export function CTA() {
                   variant="outline"
                   className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
                 >
-                  <Server className="mr-2 h-4 w-4" />
-                  List Your Server
+                  <Plus className="mr-2 h-4 w-4" />
+                  List a Server
                 </Button>
               </div>
+
+              <p className="mt-6 text-sm text-primary-foreground/60">
+                Community-driven. Anyone can add servers to the directory.
+              </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
