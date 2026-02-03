@@ -1,8 +1,6 @@
 import { Header } from "@/components/landing/header";
 import { Hero } from "@/components/landing/hero";
-import { Features } from "@/components/landing/features";
-import { ServerShowcase } from "@/components/landing/server-showcase";
-import { CTA } from "@/components/landing/cta";
+import { Reviews } from "@/components/landing/reviews";
 import { Footer } from "@/components/landing/footer";
 
 export default function Home() {
@@ -11,9 +9,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Features />
-        <ServerShowcase />
-        <CTA />
+        <Reviews />
       </main>
       <Footer />
     </>
