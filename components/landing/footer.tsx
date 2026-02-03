@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Github, Twitter } from "lucide-react";
-import { TerrainDivider, IconDivider } from "@/components/ui/hytale-decorations";
+import { IconDivider } from "@/components/ui/hytale-decorations";
 
 const footerLinks = {
   Platform: [
@@ -31,25 +31,22 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="relative bg-gradient-to-b from-[#3D1F1F] via-[#5C2A2A] to-[#2D1515] text-foreground">
-      <TerrainDivider flip />
-      
-      {/* Nether fog/particle effect */}
+    <footer className="relative bg-[#7A7A7A] text-foreground">
+      {/* Minecraft stone/rock texture overlay */}
       <div 
-        className="pointer-events-none absolute inset-0 opacity-10"
+        className="pointer-events-none absolute inset-0 opacity-30"
         style={{
-          backgroundImage: `radial-gradient(circle at 20% 50%, rgba(255, 87, 51, 0.3) 0%, transparent 50%), 
-                           radial-gradient(circle at 80% 50%, rgba(255, 138, 51, 0.2) 0%, transparent 50%),
-                           radial-gradient(circle at 50% 80%, rgba(200, 50, 50, 0.2) 0%, transparent 50%)`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.5'%3E%3Crect x='0' y='0' width='20' height='20'/%3E%3Crect x='25' y='15' width='18' height='18'/%3E%3Crect x='50' y='5' width='22' height='22'/%3E%3Crect x='10' y='40' width='25' height='20'/%3E%3Crect x='45' y='35' width='20' height='25'/%3E%3Crect x='0' y='65' width='30' height='15'/%3E%3Crect x='35' y='60' width='20' height='20'/%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: "80px 80px",
         }}
       />
       
-      {/* Netherrack texture overlay */}
+      {/* Subtle crack texture */}
       <div 
-        className="pointer-events-none absolute inset-0 opacity-5"
+        className="pointer-events-none absolute inset-0 opacity-10"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.6'%3E%3Cpath d='M0 15h10v10H0zM15 0h10v10H15zM30 20h10v10H30zM10 30h10v10H10zM45 10h10v10H45zM20 45h10v10H20z'/%3E%3C/g%3E%3C/svg%3E")`,
-          backgroundSize: "60px 60px",
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 Q 30 20 50 15 T 90 10' stroke='%23000000' stroke-width='0.5' fill='none'/%3E%3Cpath d='M5 40 Q 25 45 45 40 T 95 38' stroke='%23000000' stroke-width='0.5' fill='none'/%3E%3Cpath d='M15 70 Q 35 75 55 70 T 95 68' stroke='%23000000' stroke-width='0.5' fill='none'/%3E%3C/svg%3E")`,
+          backgroundSize: "100px 100px",
         }}
       />
 
