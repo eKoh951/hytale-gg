@@ -189,9 +189,11 @@ function ServerCard({ server, index }: { server: typeof mockServers[0]; index: n
             </div>
 
             {/* Copy IP */}
-            <button
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={copyIP}
-              className="flex items-center gap-1.5 rounded px-2 py-1 text-xs text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              className="h-auto px-2 py-1 text-xs"
             >
               {copied ? (
                 <>
@@ -204,7 +206,7 @@ function ServerCard({ server, index }: { server: typeof mockServers[0]; index: n
                   <span className="hidden font-mono sm:inline">{server.ip}</span>
                 </>
               )}
-            </button>
+            </Button>
           </div>
         </div>
       </StoneCard>
