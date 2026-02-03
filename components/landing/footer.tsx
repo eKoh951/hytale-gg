@@ -31,22 +31,22 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="relative bg-[#3F3F3F] text-foreground">
-      {/* Minecraft stone/rock texture overlay */}
+    <footer className="relative bg-muted text-foreground">
+      {/* Minecraft cobblestone texture overlay */}
       <div 
-        className="pointer-events-none absolute inset-0 opacity-30"
+        className="pointer-events-none absolute inset-0 opacity-20"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.5'%3E%3Crect x='0' y='0' width='20' height='20'/%3E%3Crect x='25' y='15' width='18' height='18'/%3E%3Crect x='50' y='5' width='22' height='22'/%3E%3Crect x='10' y='40' width='25' height='20'/%3E%3Crect x='45' y='35' width='20' height='25'/%3E%3Crect x='0' y='65' width='30' height='15'/%3E%3Crect x='35' y='60' width='20' height='20'/%3E%3C/g%3E%3C/svg%3E")`,
-          backgroundSize: "80px 80px",
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.4'%3E%3Cpath d='M2 2h18v18H2zM22 8h16v16H22zM8 24h14v14H8zM26 26h12v12H26z'/%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: "40px 40px",
         }}
       />
       
-      {/* Subtle crack texture */}
+      {/* Subtle seams/cracks for depth */}
       <div 
         className="pointer-events-none absolute inset-0 opacity-10"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 Q 30 20 50 15 T 90 10' stroke='%23000000' stroke-width='0.5' fill='none'/%3E%3Cpath d='M5 40 Q 25 45 45 40 T 95 38' stroke='%23000000' stroke-width='0.5' fill='none'/%3E%3Cpath d='M15 70 Q 35 75 55 70 T 95 68' stroke='%23000000' stroke-width='0.5' fill='none'/%3E%3C/svg%3E")`,
-          backgroundSize: "100px 100px",
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='0' y1='20' x2='40' y2='20' stroke='%23000000' stroke-width='0.5'/%3E%3Cline x1='20' y1='0' x2='20' y2='40' stroke='%23000000' stroke-width='0.5'/%3E%3Cline x1='0' y1='0' x2='40' y2='40' stroke='%23000000' stroke-width='0.3' opacity='0.5'/%3E%3C/svg%3E")`,
+          backgroundSize: "40px 40px",
         }}
       />
 
