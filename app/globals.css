@@ -2,98 +2,92 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* hytale.GG - Dark-first gaming theme */
 :root {
-  /* Light mode (optional - mainly for preview) */
-  --background: oklch(1.0 0 0);
-  --foreground: oklch(0.15 0.01 264);
+  /* Dark theme as default (gaming audience preference) */
+  --background: #050505;
+  --foreground: #F9FAFB;
 
-  --card: oklch(0.98 0.01 264);
-  --card-foreground: oklch(0.15 0.01 264);
+  --card: #111111;
+  --card-foreground: #F9FAFB;
 
-  --popover: oklch(1.0 0 0);
-  --popover-foreground: oklch(0.15 0.01 264);
+  --popover: #111111;
+  --popover-foreground: #F9FAFB;
 
-  --primary: oklch(0.58 0.18 295); /* Purple #8B4FC1 */
-  --primary-foreground: oklch(1.0 0 0);
+  --primary: #8B4FC1; /* Purple - brand primary */
+  --primary-foreground: #FFFFFF;
 
-  --secondary: oklch(0.82 0.15 85); /* Yellow #FFB800 */
-  --secondary-foreground: oklch(0.15 0.01 264);
+  --secondary: #FFB800; /* Yellow - accent/CTA */
+  --secondary-foreground: #050505;
 
-  --muted: oklch(0.96 0.005 264);
-  --muted-foreground: oklch(0.45 0.01 264);
+  --muted: #1A1A1A;
+  --muted-foreground: #9CA3AF;
 
-  --accent: oklch(0.58 0.18 295); /* Purple for hover/accent */
-  --accent-foreground: oklch(1.0 0 0);
+  --accent: #8B4FC1;
+  --accent-foreground: #FFFFFF;
 
-  --destructive: oklch(0.62 0.22 27);
-  --destructive-foreground: oklch(1.0 0 0);
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
 
-  --border: oklch(0.88 0.005 264);
-  --input: oklch(0.96 0.005 264);
-  --ring: oklch(0.58 0.18 295); /* Purple */
+  --border: #262626;
+  --input: #1A1A1A;
+  --ring: #8B4FC1;
 
-  --chart-1: oklch(0.58 0.18 295); /* Purple */
-  --chart-2: oklch(0.82 0.15 85); /* Yellow */
-  --chart-3: oklch(0.68 0.16 295); /* Purple lighter */
-  --chart-4: oklch(0.75 0.12 85); /* Yellow lighter */
-  --chart-5: oklch(0.48 0.20 295); /* Purple darker */
+  /* Brand-specific colors */
+  --grass: #7CBD3E;
+  --grass-dark: #5A9C27;
+  --dirt: #8B6F47;
+  --highlight: #FFB800;
 
-  --sidebar: oklch(0.98 0.01 264);
-  --sidebar-foreground: oklch(0.15 0.01 264);
-  --sidebar-primary: oklch(0.58 0.18 295);
-  --sidebar-primary-foreground: oklch(1.0 0 0);
-  --sidebar-accent: oklch(0.58 0.18 295);
-  --sidebar-accent-foreground: oklch(1.0 0 0);
-  --sidebar-border: oklch(0.88 0.005 264);
-  --sidebar-ring: oklch(0.58 0.18 295);
+  /* Chart colors */
+  --chart-1: #8B4FC1;
+  --chart-2: #FFB800;
+  --chart-3: #7CBD3E;
+  --chart-4: #A855F7;
+  --chart-5: #F59E0B;
 
-  --radius: 0.5rem;
+  --sidebar: #0A0A0A;
+  --sidebar-foreground: #F9FAFB;
+  --sidebar-primary: #8B4FC1;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #1A1A1A;
+  --sidebar-accent-foreground: #F9FAFB;
+  --sidebar-border: #262626;
+  --sidebar-ring: #8B4FC1;
+
+  --radius: 0.625rem;
 }
 
-.dark {
-  /* Dark gaming theme - hytale.GG */
-  --background: oklch(0.10 0.005 264); /* Very dark #0A0A0A */
-  --foreground: oklch(0.98 0.005 264); /* #F9FAFB */
+/* Light mode override (optional) */
+.light {
+  --background: #FAFAFA;
+  --foreground: #111111;
 
-  --card: oklch(0.18 0.01 264); /* Darker card #1F2937 */
-  --card-foreground: oklch(0.98 0.005 264);
+  --card: #FFFFFF;
+  --card-foreground: #111111;
 
-  --popover: oklch(0.18 0.01 264);
-  --popover-foreground: oklch(0.98 0.005 264);
+  --popover: #FFFFFF;
+  --popover-foreground: #111111;
 
-  --primary: oklch(0.58 0.18 295); /* Purple #8B4FC1 */
-  --primary-foreground: oklch(1.0 0 0);
+  --primary: #8B4FC1;
+  --primary-foreground: #FFFFFF;
 
-  --secondary: oklch(0.82 0.15 85); /* Yellow #FFB800 */
-  --secondary-foreground: oklch(0.10 0.005 264);
+  --secondary: #FFB800;
+  --secondary-foreground: #111111;
 
-  --muted: oklch(0.25 0.01 264); /* Darker muted */
-  --muted-foreground: oklch(0.60 0.01 264);
+  --muted: #F3F4F6;
+  --muted-foreground: #6B7280;
 
-  --accent: oklch(0.58 0.18 295); /* Purple for hover/accent */
-  --accent-foreground: oklch(1.0 0 0);
+  --accent: #8B4FC1;
+  --accent-foreground: #FFFFFF;
 
-  --destructive: oklch(0.62 0.22 27);
-  --destructive-foreground: oklch(0.98 0.005 264);
+  --border: #E5E7EB;
+  --input: #F3F4F6;
+  --ring: #8B4FC1;
 
-  --border: oklch(0.30 0.01 264); /* Slightly lighter border */
-  --input: oklch(0.25 0.01 264);
-  --ring: oklch(0.58 0.18 295); /* Purple */
-
-  --chart-1: oklch(0.58 0.18 295); /* Purple */
-  --chart-2: oklch(0.82 0.15 85); /* Yellow */
-  --chart-3: oklch(0.68 0.16 295); /* Purple lighter */
-  --chart-4: oklch(0.75 0.12 85); /* Yellow lighter */
-  --chart-5: oklch(0.48 0.20 295); /* Purple darker */
-
-  --sidebar: oklch(0.13 0.005 264);
-  --sidebar-foreground: oklch(0.98 0.005 264);
-  --sidebar-primary: oklch(0.58 0.18 295);
-  --sidebar-primary-foreground: oklch(1.0 0 0);
-  --sidebar-accent: oklch(0.58 0.18 295);
-  --sidebar-accent-foreground: oklch(1.0 0 0);
-  --sidebar-border: oklch(0.30 0.01 264);
-  --sidebar-ring: oklch(0.58 0.18 295);
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #111111;
+  --sidebar-border: #E5E7EB;
 }
 
 @theme inline {
@@ -122,6 +116,12 @@
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
 
+  /* Brand-specific colors */
+  --color-grass: var(--grass);
+  --color-grass-dark: var(--grass-dark);
+  --color-dirt: var(--dirt);
+  --color-highlight: var(--highlight);
+
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -145,15 +145,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-
-  --shadow-2xs: var(--shadow-2xs);
-  --shadow-xs: var(--shadow-xs);
-  --shadow-sm: var(--shadow-sm);
-  --shadow: var(--shadow);
-  --shadow-md: var(--shadow-md);
-  --shadow-lg: var(--shadow-lg);
-  --shadow-xl: var(--shadow-xl);
-  --shadow-2xl: var(--shadow-2xl);
+  --radius-2xl: calc(var(--radius) + 8px);
 }
 
 @layer base {
