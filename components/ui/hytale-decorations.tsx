@@ -4,17 +4,17 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 /**
- * Minecraft/Hytale-style terrain block divider
- * Creates a layered grass-dirt-stone effect between sections
+ * Minecraft/Hytale-style terrain grass divider
+ * Creates a wavy grass effect between sections
  */
 export function TerrainDivider({ className, flip = false }: { className?: string; flip?: boolean }) {
   return (
-    <div className={cn("relative h-16 w-full overflow-hidden", flip && "rotate-180", className)}>
+    <div className={cn("relative w-full overflow-hidden", flip && "rotate-180", className)}>
       {/* Grass layer */}
       <svg
-        className="absolute inset-x-0 top-0 h-6 w-full"
+        className="w-full"
         viewBox="0 0 1200 24"
-        preserveAspectRatio="xMidYMid slice"
+        preserveAspectRatio="none"
         fill="none"
       >
         <path
@@ -22,10 +22,6 @@ export function TerrainDivider({ className, flip = false }: { className?: string
           className="fill-grass"
         />
       </svg>
-      {/* Dirt layer */}
-      <div className="absolute inset-x-0 top-5 h-6 bg-dirt" />
-      {/* Stone layer - solid color, no gradient */}
-      <div className="absolute inset-x-0 top-10 h-6 bg-[#5C5C5C]" />
     </div>
   );
 }
