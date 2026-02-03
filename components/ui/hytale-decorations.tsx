@@ -5,22 +5,51 @@ import { cn } from "@/lib/utils";
 
 /**
  * Minecraft/Hytale-style terrain grass divider
- * Creates a blocky, voxel-like grass effect between sections
+ * Creates rectangular grass blocks with varying green tones and dirt layer
  */
 export function TerrainDivider({ className, flip = false }: { className?: string; flip?: boolean }) {
   return (
     <div className={cn("relative w-full overflow-hidden", flip && "rotate-180", className)}>
-      {/* Grass layer - voxel/blocky style */}
+      {/* Grass layer - rectangular blocks with varying green tones */}
       <svg
         className="w-full"
-        viewBox="0 0 1200 24"
+        viewBox="0 0 1200 32"
         preserveAspectRatio="none"
         fill="none"
       >
-        <path
-          d="M0 24V16h20V12h20V8h20V12h20V16h20V20h20V16h20V12h20V8h20V12h20V16h20V20h20V16h20V12h20V8h20V12h20V16h20V20h20V16h20V12h20V8h20V12h20V16h20V20h20V16h20V12h20V8h20V12h20V16h20V20h20V16h20V12h20V8h20V12h20V16h20V20h20V16h20V12h20V8h20V12h20V16h20V20h20V16h20V12h20V8h20V12h20V16h20V20h20V16h20V12h20V8h20V12h20V16h20V20h20V16h20V12h20V8h20V12h20V16h20V24H0Z"
-          className="fill-grass"
-        />
+        {/* Grass blocks - alternating heights and green shades */}
+        <rect x="0" y="8" width="40" height="8" fill="#7CBD3E" />
+        <rect x="40" y="4" width="40" height="12" fill="#6BA833" />
+        <rect x="80" y="6" width="40" height="10" fill="#7CBD3E" />
+        <rect x="120" y="2" width="40" height="14" fill="#5A9C27" />
+        <rect x="160" y="8" width="40" height="8" fill="#7CBD3E" />
+        <rect x="200" y="5" width="40" height="11" fill="#6BA833" />
+        <rect x="240" y="9" width="40" height="7" fill="#7CBD3E" />
+        <rect x="280" y="3" width="40" height="13" fill="#5A9C27" />
+        <rect x="320" y="7" width="40" height="9" fill="#7CBD3E" />
+        <rect x="360" y="4" width="40" height="12" fill="#6BA833" />
+        <rect x="400" y="8" width="40" height="8" fill="#7CBD3E" />
+        <rect x="440" y="6" width="40" height="10" fill="#5A9C27" />
+        <rect x="480" y="5" width="40" height="11" fill="#7CBD3E" />
+        <rect x="520" y="2" width="40" height="14" fill="#6BA833" />
+        <rect x="560" y="9" width="40" height="7" fill="#7CBD3E" />
+        <rect x="600" y="4" width="40" height="12" fill="#5A9C27" />
+        <rect x="640" y="8" width="40" height="8" fill="#7CBD3E" />
+        <rect x="680" y="3" width="40" height="13" fill="#6BA833" />
+        <rect x="720" y="6" width="40" height="10" fill="#7CBD3E" />
+        <rect x="760" y="7" width="40" height="9" fill="#5A9C27" />
+        <rect x="800" y="4" width="40" height="12" fill="#7CBD3E" />
+        <rect x="840" y="8" width="40" height="8" fill="#6BA833" />
+        <rect x="880" y="5" width="40" height="11" fill="#7CBD3E" />
+        <rect x="920" y="2" width="40" height="14" fill="#5A9C27" />
+        <rect x="960" y="9" width="40" height="7" fill="#7CBD3E" />
+        <rect x="1000" y="6" width="40" height="10" fill="#6BA833" />
+        <rect x="1040" y="3" width="40" height="13" fill="#7CBD3E" />
+        <rect x="1080" y="7" width="40" height="9" fill="#5A9C27" />
+        <rect x="1120" y="8" width="80" height="8" fill="#7CBD3E" />
+        
+        {/* Dirt layer below grass */}
+        <rect x="0" y="16" width="1200" height="16" fill="#8B6F47" />
       </svg>
     </div>
   );
