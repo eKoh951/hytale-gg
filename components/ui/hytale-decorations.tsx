@@ -5,15 +5,15 @@ import { cn } from "@/lib/utils";
 
 /**
  * Minecraft/Hytale-style terrain grass divider
- * Creates 3 uniform layers (1 grass + 2 dirt) with consistent 40px block widths
+ * Creates 3 uniform layers of grass and 3 uniform layers of dirt with consistent 40px block widths
  */
 export function TerrainDivider({ className, flip = false }: { className?: string; flip?: boolean }) {
   return (
     <div className={cn("relative w-full overflow-hidden", flip && "rotate-180", className)}>
-      {/* Terrain layers - uniform 40px blocks with varying tones */}
+      {/* Terrain layers - 3 grass + 3 dirt with uniform 40px blocks */}
       <svg
         className="w-full"
-        viewBox="0 0 1200 24"
+        viewBox="0 0 1200 48"
         preserveAspectRatio="none"
         fill="none"
       >
@@ -49,98 +49,169 @@ export function TerrainDivider({ className, flip = false }: { className?: string
         <rect x="1120" y="0" width="40" height="8" fill="#7CBD3E" />
         <rect x="1160" y="0" width="40" height="8" fill="#5A9C27" />
 
-        {/* Layer 2: First dirt layer - 40px width, varying brown tones */}
-        <rect x="0" y="8" width="40" height="8" fill="#8B6F47" />
-        <rect x="40" y="8" width="40" height="8" fill="#9D7C4F" />
-        <rect x="80" y="8" width="40" height="8" fill="#7A6341" />
-        <rect x="120" y="8" width="40" height="8" fill="#8B6F47" />
-        <rect x="160" y="8" width="40" height="8" fill="#6E5839" />
-        <rect x="200" y="8" width="40" height="8" fill="#8B6F47" />
-        <rect x="240" y="8" width="40" height="8" fill="#9D7C4F" />
-        <rect x="280" y="8" width="40" height="8" fill="#7A6341" />
-        <rect x="320" y="8" width="40" height="8" fill="#8B6F47" />
-        <rect x="360" y="8" width="40" height="8" fill="#6E5839" />
-        <rect x="400" y="8" width="40" height="8" fill="#8B6F47" />
-        <rect x="440" y="8" width="40" height="8" fill="#9D7C4F" />
-        <rect x="480" y="8" width="40" height="8" fill="#7A6341" />
-        <rect x="520" y="8" width="40" height="8" fill="#8B6F47" />
-        <rect x="560" y="8" width="40" height="8" fill="#6E5839" />
-        <rect x="600" y="8" width="40" height="8" fill="#8B6F47" />
-        <rect x="640" y="8" width="40" height="8" fill="#9D7C4F" />
-        <rect x="680" y="8" width="40" height="8" fill="#7A6341" />
-        <rect x="720" y="8" width="40" height="8" fill="#8B6F47" />
-        <rect x="760" y="8" width="40" height="8" fill="#6E5839" />
-        <rect x="800" y="8" width="40" height="8" fill="#8B6F47" />
-        <rect x="840" y="8" width="40" height="8" fill="#9D7C4F" />
-        <rect x="880" y="8" width="40" height="8" fill="#7A6341" />
-        <rect x="920" y="8" width="40" height="8" fill="#8B6F47" />
-        <rect x="960" y="8" width="40" height="8" fill="#6E5839" />
-        <rect x="1000" y="8" width="40" height="8" fill="#8B6F47" />
-        <rect x="1040" y="8" width="40" height="8" fill="#9D7C4F" />
-        <rect x="1080" y="8" width="40" height="8" fill="#7A6341" />
-        <rect x="1120" y="8" width="40" height="8" fill="#8B6F47" />
-        <rect x="1160" y="8" width="40" height="8" fill="#6E5839" />
+        {/* Layer 2: Second grass layer - 40px width, varying green tones */}
+        <rect x="0" y="8" width="40" height="8" fill="#6BA833" />
+        <rect x="40" y="8" width="40" height="8" fill="#8FCF4F" />
+        <rect x="80" y="8" width="40" height="8" fill="#7CBD3E" />
+        <rect x="120" y="8" width="40" height="8" fill="#5A9C27" />
+        <rect x="160" y="8" width="40" height="8" fill="#7CBD3E" />
+        <rect x="200" y="8" width="40" height="8" fill="#6BA833" />
+        <rect x="240" y="8" width="40" height="8" fill="#8FCF4F" />
+        <rect x="280" y="8" width="40" height="8" fill="#7CBD3E" />
+        <rect x="320" y="8" width="40" height="8" fill="#5A9C27" />
+        <rect x="360" y="8" width="40" height="8" fill="#6BA833" />
+        <rect x="400" y="8" width="40" height="8" fill="#8FCF4F" />
+        <rect x="440" y="8" width="40" height="8" fill="#7CBD3E" />
+        <rect x="480" y="8" width="40" height="8" fill="#5A9C27" />
+        <rect x="520" y="8" width="40" height="8" fill="#6BA833" />
+        <rect x="560" y="8" width="40" height="8" fill="#8FCF4F" />
+        <rect x="600" y="8" width="40" height="8" fill="#7CBD3E" />
+        <rect x="640" y="8" width="40" height="8" fill="#5A9C27" />
+        <rect x="680" y="8" width="40" height="8" fill="#6BA833" />
+        <rect x="720" y="8" width="40" height="8" fill="#7CBD3E" />
+        <rect x="760" y="8" width="40" height="8" fill="#8FCF4F" />
+        <rect x="800" y="8" width="40" height="8" fill="#7CBD3E" />
+        <rect x="840" y="8" width="40" height="8" fill="#5A9C27" />
+        <rect x="880" y="8" width="40" height="8" fill="#6BA833" />
+        <rect x="920" y="8" width="40" height="8" fill="#8FCF4F" />
+        <rect x="960" y="8" width="40" height="8" fill="#7CBD3E" />
+        <rect x="1000" y="8" width="40" height="8" fill="#5A9C27" />
+        <rect x="1040" y="8" width="40" height="8" fill="#6BA833" />
+        <rect x="1080" y="8" width="40" height="8" fill="#7CBD3E" />
+        <rect x="1120" y="8" width="40" height="8" fill="#8FCF4F" />
+        <rect x="1160" y="8" width="40" height="8" fill="#7CBD3E" />
 
-        {/* Layer 3: Second dirt layer - 40px width, darker brown tones */}
-        <rect x="0" y="16" width="40" height="8" fill="#7A6341" />
-        <rect x="40" y="16" width="40" height="8" fill="#6E5839" />
-        <rect x="80" y="16" width="40" height="8" fill="#5C4A31" />
-        <rect x="120" y="16" width="40" height="8" fill="#7A6341" />
-        <rect x="160" y="16" width="40" height="8" fill="#6E5839" />
-        <rect x="200" y="16" width="40" height="8" fill="#7A6341" />
-        <rect x="240" y="16" width="40" height="8" fill="#5C4A31" />
-        <rect x="280" y="16" width="40" height="8" fill="#7A6341" />
-        <rect x="320" y="16" width="40" height="8" fill="#6E5839" />
-        <rect x="360" y="16" width="40" height="8" fill="#7A6341" />
-        <rect x="400" y="16" width="40" height="8" fill="#5C4A31" />
-        <rect x="440" y="16" width="40" height="8" fill="#7A6341" />
-        <rect x="480" y="16" width="40" height="8" fill="#6E5839" />
-        <rect x="520" y="16" width="40" height="8" fill="#7A6341" />
-        <rect x="560" y="16" width="40" height="8" fill="#5C4A31" />
-        <rect x="600" y="16" width="40" height="8" fill="#7A6341" />
-        <rect x="640" y="16" width="40" height="8" fill="#6E5839" />
-        <rect x="680" y="16" width="40" height="8" fill="#7A6341" />
-        <rect x="720" y="16" width="40" height="8" fill="#5C4A31" />
-        <rect x="760" y="16" width="40" height="8" fill="#7A6341" />
-        <rect x="800" y="16" width="40" height="8" fill="#6E5839" />
-        <rect x="840" y="16" width="40" height="8" fill="#7A6341" />
-        <rect x="880" y="16" width="40" height="8" fill="#5C4A31" />
-        <rect x="920" y="16" width="40" height="8" fill="#7A6341" />
-        <rect x="960" y="16" width="40" height="8" fill="#6E5839" />
-        <rect x="1000" y="16" width="40" height="8" fill="#7A6341" />
-        <rect x="1040" y="16" width="40" height="8" fill="#5C4A31" />
-        <rect x="1080" y="16" width="40" height="8" fill="#7A6341" />
-        <rect x="1120" y="16" width="40" height="8" fill="#6E5839" />
-        <rect x="1160" y="16" width="40" height="8" fill="#7A6341" />
-        
-        {/* Layer 4: Deeper dirt blocks - darker brown tones */}
-        <rect x="0" y="24" width="50" height="8" fill="#7A6341" />
-        <rect x="50" y="24" width="38" height="8" fill="#6E5839" />
-        <rect x="88" y="24" width="45" height="8" fill="#8B6F47" />
-        <rect x="133" y="24" width="40" height="8" fill="#5C4A31" />
-        <rect x="173" y="24" width="48" height="8" fill="#7A6341" />
-        <rect x="221" y="24" width="36" height="8" fill="#6E5839" />
-        <rect x="257" y="24" width="50" height="8" fill="#8B6F47" />
-        <rect x="307" y="24" width="34" height="8" fill="#7A6341" />
-        <rect x="341" y="24" width="46" height="8" fill="#5C4A31" />
-        <rect x="387" y="24" width="44" height="8" fill="#6E5839" />
-        <rect x="431" y="24" width="50" height="8" fill="#8B6F47" />
-        <rect x="481" y="24" width="40" height="8" fill="#7A6341" />
-        <rect x="521" y="24" width="38" height="8" fill="#5C4A31" />
-        <rect x="559" y="24" width="48" height="8" fill="#6E5839" />
-        <rect x="607" y="24" width="36" height="8" fill="#8B6F47" />
-        <rect x="643" y="24" width="50" height="8" fill="#7A6341" />
-        <rect x="693" y="24" width="34" height="8" fill="#6E5839" />
-        <rect x="727" y="24" width="46" height="8" fill="#5C4A31" />
-        <rect x="773" y="24" width="44" height="8" fill="#8B6F47" />
-        <rect x="817" y="24" width="50" height="8" fill="#7A6341" />
-        <rect x="867" y="24" width="40" height="8" fill="#6E5839" />
-        <rect x="907" y="24" width="38" height="8" fill="#5C4A31" />
-        <rect x="945" y="24" width="48" height="8" fill="#8B6F47" />
-        <rect x="993" y="24" width="36" height="8" fill="#7A6341" />
-        <rect x="1029" y="24" width="50" height="8" fill="#6E5839" />
-        <rect x="1079" y="24" width="34" height="8" fill="#5C4A31" />
-        <rect x="1113" y="24" width="87" height="8" fill="#8B6F47" />
+        {/* Layer 3: Third grass layer - 40px width, varying green tones */}
+        <rect x="0" y="16" width="40" height="8" fill="#8FCF4F" />
+        <rect x="40" y="16" width="40" height="8" fill="#7CBD3E" />
+        <rect x="80" y="16" width="40" height="8" fill="#5A9C27" />
+        <rect x="120" y="16" width="40" height="8" fill="#6BA833" />
+        <rect x="160" y="16" width="40" height="8" fill="#7CBD3E" />
+        <rect x="200" y="16" width="40" height="8" fill="#8FCF4F" />
+        <rect x="240" y="16" width="40" height="8" fill="#7CBD3E" />
+        <rect x="280" y="16" width="40" height="8" fill="#5A9C27" />
+        <rect x="320" y="16" width="40" height="8" fill="#6BA833" />
+        <rect x="360" y="16" width="40" height="8" fill="#8FCF4F" />
+        <rect x="400" y="16" width="40" height="8" fill="#7CBD3E" />
+        <rect x="440" y="16" width="40" height="8" fill="#5A9C27" />
+        <rect x="480" y="16" width="40" height="8" fill="#6BA833" />
+        <rect x="520" y="16" width="40" height="8" fill="#7CBD3E" />
+        <rect x="560" y="16" width="40" height="8" fill="#8FCF4F" />
+        <rect x="600" y="16" width="40" height="8" fill="#7CBD3E" />
+        <rect x="640" y="16" width="40" height="8" fill="#5A9C27" />
+        <rect x="680" y="16" width="40" height="8" fill="#6BA833" />
+        <rect x="720" y="16" width="40" height="8" fill="#8FCF4F" />
+        <rect x="760" y="16" width="40" height="8" fill="#7CBD3E" />
+        <rect x="800" y="16" width="40" height="8" fill="#5A9C27" />
+        <rect x="840" y="16" width="40" height="8" fill="#6BA833" />
+        <rect x="880" y="16" width="40" height="8" fill="#7CBD3E" />
+        <rect x="920" y="16" width="40" height="8" fill="#8FCF4F" />
+        <rect x="960" y="16" width="40" height="8" fill="#7CBD3E" />
+        <rect x="1000" y="16" width="40" height="8" fill="#5A9C27" />
+        <rect x="1040" y="16" width="40" height="8" fill="#6BA833" />
+        <rect x="1080" y="16" width="40" height="8" fill="#8FCF4F" />
+        <rect x="1120" y="16" width="40" height="8" fill="#7CBD3E" />
+        <rect x="1160" y="16" width="40" height="8" fill="#5A9C27" />
+
+        {/* Layer 4: First dirt layer - 40px width, varying brown tones */}
+        <rect x="0" y="24" width="40" height="8" fill="#8B6F47" />
+        <rect x="40" y="24" width="40" height="8" fill="#9D7C4F" />
+        <rect x="80" y="24" width="40" height="8" fill="#7A6341" />
+        <rect x="120" y="24" width="40" height="8" fill="#8B6F47" />
+        <rect x="160" y="24" width="40" height="8" fill="#6E5839" />
+        <rect x="200" y="24" width="40" height="8" fill="#8B6F47" />
+        <rect x="240" y="24" width="40" height="8" fill="#9D7C4F" />
+        <rect x="280" y="24" width="40" height="8" fill="#7A6341" />
+        <rect x="320" y="24" width="40" height="8" fill="#8B6F47" />
+        <rect x="360" y="24" width="40" height="8" fill="#6E5839" />
+        <rect x="400" y="24" width="40" height="8" fill="#8B6F47" />
+        <rect x="440" y="24" width="40" height="8" fill="#9D7C4F" />
+        <rect x="480" y="24" width="40" height="8" fill="#7A6341" />
+        <rect x="520" y="24" width="40" height="8" fill="#8B6F47" />
+        <rect x="560" y="24" width="40" height="8" fill="#6E5839" />
+        <rect x="600" y="24" width="40" height="8" fill="#8B6F47" />
+        <rect x="640" y="24" width="40" height="8" fill="#9D7C4F" />
+        <rect x="680" y="24" width="40" height="8" fill="#7A6341" />
+        <rect x="720" y="24" width="40" height="8" fill="#8B6F47" />
+        <rect x="760" y="24" width="40" height="8" fill="#6E5839" />
+        <rect x="800" y="24" width="40" height="8" fill="#8B6F47" />
+        <rect x="840" y="24" width="40" height="8" fill="#9D7C4F" />
+        <rect x="880" y="24" width="40" height="8" fill="#7A6341" />
+        <rect x="920" y="24" width="40" height="8" fill="#8B6F47" />
+        <rect x="960" y="24" width="40" height="8" fill="#6E5839" />
+        <rect x="1000" y="24" width="40" height="8" fill="#8B6F47" />
+        <rect x="1040" y="24" width="40" height="8" fill="#9D7C4F" />
+        <rect x="1080" y="24" width="40" height="8" fill="#7A6341" />
+        <rect x="1120" y="24" width="40" height="8" fill="#8B6F47" />
+        <rect x="1160" y="24" width="40" height="8" fill="#6E5839" />
+
+        {/* Layer 5: Second dirt layer - 40px width, darker brown tones */}
+        <rect x="0" y="32" width="40" height="8" fill="#7A6341" />
+        <rect x="40" y="32" width="40" height="8" fill="#6E5839" />
+        <rect x="80" y="32" width="40" height="8" fill="#5C4A31" />
+        <rect x="120" y="32" width="40" height="8" fill="#7A6341" />
+        <rect x="160" y="32" width="40" height="8" fill="#6E5839" />
+        <rect x="200" y="32" width="40" height="8" fill="#7A6341" />
+        <rect x="240" y="32" width="40" height="8" fill="#5C4A31" />
+        <rect x="280" y="32" width="40" height="8" fill="#7A6341" />
+        <rect x="320" y="32" width="40" height="8" fill="#6E5839" />
+        <rect x="360" y="32" width="40" height="8" fill="#7A6341" />
+        <rect x="400" y="32" width="40" height="8" fill="#5C4A31" />
+        <rect x="440" y="32" width="40" height="8" fill="#7A6341" />
+        <rect x="480" y="32" width="40" height="8" fill="#6E5839" />
+        <rect x="520" y="32" width="40" height="8" fill="#7A6341" />
+        <rect x="560" y="32" width="40" height="8" fill="#5C4A31" />
+        <rect x="600" y="32" width="40" height="8" fill="#7A6341" />
+        <rect x="640" y="32" width="40" height="8" fill="#6E5839" />
+        <rect x="680" y="32" width="40" height="8" fill="#7A6341" />
+        <rect x="720" y="32" width="40" height="8" fill="#5C4A31" />
+        <rect x="760" y="32" width="40" height="8" fill="#7A6341" />
+        <rect x="800" y="32" width="40" height="8" fill="#6E5839" />
+        <rect x="840" y="32" width="40" height="8" fill="#7A6341" />
+        <rect x="880" y="32" width="40" height="8" fill="#5C4A31" />
+        <rect x="920" y="32" width="40" height="8" fill="#7A6341" />
+        <rect x="960" y="32" width="40" height="8" fill="#6E5839" />
+        <rect x="1000" y="32" width="40" height="8" fill="#7A6341" />
+        <rect x="1040" y="32" width="40" height="8" fill="#5C4A31" />
+        <rect x="1080" y="32" width="40" height="8" fill="#7A6341" />
+        <rect x="1120" y="32" width="40" height="8" fill="#6E5839" />
+        <rect x="1160" y="32" width="40" height="8" fill="#7A6341" />
+
+        {/* Layer 6: Third dirt layer - 40px width, deepest brown tones */}
+        <rect x="0" y="40" width="40" height="8" fill="#5C4A31" />
+        <rect x="40" y="40" width="40" height="8" fill="#6E5839" />
+        <rect x="80" y="40" width="40" height="8" fill="#7A6341" />
+        <rect x="120" y="40" width="40" height="8" fill="#5C4A31" />
+        <rect x="160" y="40" width="40" height="8" fill="#6E5839" />
+        <rect x="200" y="40" width="40" height="8" fill="#5C4A31" />
+        <rect x="240" y="40" width="40" height="8" fill="#7A6341" />
+        <rect x="280" y="40" width="40" height="8" fill="#5C4A31" />
+        <rect x="320" y="40" width="40" height="8" fill="#6E5839" />
+        <rect x="360" y="40" width="40" height="8" fill="#5C4A31" />
+        <rect x="400" y="40" width="40" height="8" fill="#7A6341" />
+        <rect x="440" y="40" width="40" height="8" fill="#5C4A31" />
+        <rect x="480" y="40" width="40" height="8" fill="#6E5839" />
+        <rect x="520" y="40" width="40" height="8" fill="#5C4A31" />
+        <rect x="560" y="40" width="40" height="8" fill="#7A6341" />
+        <rect x="600" y="40" width="40" height="8" fill="#5C4A31" />
+        <rect x="640" y="40" width="40" height="8" fill="#6E5839" />
+        <rect x="680" y="40" width="40" height="8" fill="#5C4A31" />
+        <rect x="720" y="40" width="40" height="8" fill="#7A6341" />
+        <rect x="760" y="40" width="40" height="8" fill="#5C4A31" />
+        <rect x="800" y="40" width="40" height="8" fill="#6E5839" />
+        <rect x="840" y="40" width="40" height="8" fill="#5C4A31" />
+        <rect x="880" y="40" width="40" height="8" fill="#7A6341" />
+        <rect x="920" y="40" width="40" height="8" fill="#5C4A31" />
+        <rect x="960" y="40" width="40" height="8" fill="#6E5839" />
+        <rect x="1000" y="40" width="40" height="8" fill="#5C4A31" />
+        <rect x="1040" y="40" width="40" height="8" fill="#7A6341" />
+        <rect x="1080" y="40" width="40" height="8" fill="#5C4A31" />
+        <rect x="1120" y="40" width="40" height="8" fill="#6E5839" />
+        <rect x="1160" y="40" width="40" height="8" fill="#5C4A31" />
+      </svg>
+    </div>
+  );
+}
       </svg>
     </div>
   );
