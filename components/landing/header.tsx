@@ -18,6 +18,28 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-emerald-900/50 bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-700 backdrop-blur-md shadow-lg">
+      {/* Subtle blocky grid texture */}
+      <div 
+        className="pointer-events-none absolute inset-0 opacity-5"
+        style={{
+          backgroundImage: `
+            linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1) 76%, transparent 77%, transparent),
+            linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.1) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1) 76%, transparent 77%, transparent)
+          `,
+          backgroundSize: "50px 50px",
+        }}
+      />
+
+      {/* Corner decorative blocks - top left */}
+      <div className="pointer-events-none absolute top-1 left-2 w-3 h-3 bg-emerald-400/15 rounded-sm" />
+      <div className="pointer-events-none absolute top-1 left-6 w-2 h-2 bg-emerald-300/10 rounded-sm" />
+      <div className="pointer-events-none absolute top-5 left-2 w-2 h-2 bg-emerald-300/10 rounded-sm" />
+
+      {/* Corner decorative blocks - top right */}
+      <div className="pointer-events-none absolute top-1 right-2 w-3 h-3 bg-emerald-400/15 rounded-sm" />
+      <div className="pointer-events-none absolute top-1 right-6 w-2 h-2 bg-emerald-300/10 rounded-sm" />
+      <div className="pointer-events-none absolute top-5 right-2 w-2 h-2 bg-emerald-300/10 rounded-sm" />
+
       {/* Horizontal stripe pattern for blocky game aesthetic */}
       <div 
         className="pointer-events-none absolute inset-0 opacity-20"
