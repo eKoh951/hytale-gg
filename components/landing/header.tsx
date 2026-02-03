@@ -17,13 +17,13 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/90 backdrop-blur-md">
-      {/* Subtle block pattern background */}
+    <header className="fixed top-0 left-0 right-0 z-50 border-b-2 border-border bg-background/95 backdrop-blur-md">
+      {/* Subtle pixelated block pattern background */}
       <div 
-        className="pointer-events-none absolute inset-0 opacity-5"
+        className="pointer-events-none absolute inset-0 opacity-3"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='10' height='10' stroke='%23000000' stroke-width='1' fill='none'/%3E%3Crect x='10' y='10' width='10' height='10' stroke='%23000000' stroke-width='1' fill='none'/%3E%3C/svg%3E")`,
-          backgroundSize: "20px 20px",
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='20' height='20' stroke='%23000000' stroke-width='1' fill='none'/%3E%3Crect x='20' y='20' width='20' height='20' stroke='%23000000' stroke-width='1' fill='none'/%3E%3C/svg%3E")`,
+          backgroundSize: "40px 40px",
         }}
       />
 
@@ -46,60 +46,24 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="group relative text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {item.label}
-              <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-secondary transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
         </nav>
 
         {/* Desktop Auth Buttons */}
         <div className="hidden items-center gap-3 md:flex">
-          <button
-            className="group relative px-4 py-2 text-sm font-medium text-foreground transition-all duration-150 active:translate-y-1"
-            style={{
-              border: "3px solid hsl(var(--border))",
-              background: "transparent",
-              boxShadow: "0 4px 0 hsl(var(--border))",
-            }}
-            onMouseDown={(e) => {
-              e.currentTarget.style.boxShadow = "0 1px 0 hsl(var(--border))";
-              e.currentTarget.style.transform = "translateY(3px)";
-            }}
-            onMouseUp={(e) => {
-              e.currentTarget.style.boxShadow = "0 4px 0 hsl(var(--border))";
-              e.currentTarget.style.transform = "translateY(0)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = "0 4px 0 hsl(var(--border))";
-              e.currentTarget.style.transform = "translateY(0)";
-            }}
-          >
+          <Button variant="ghost" size="sm">
             Sign In
-          </button>
-          <button
-            className="group relative px-6 py-2 text-sm font-bold text-secondary-foreground transition-all duration-150 active:translate-y-1"
-            style={{
-              background: "hsl(var(--secondary))",
-              border: "3px solid hsl(var(--secondary))",
-              boxShadow: "0 6px 0 rgba(0, 0, 0, 0.2), 0 4px 0 hsl(var(--secondary))",
-            }}
-            onMouseDown={(e) => {
-              e.currentTarget.style.boxShadow = "0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 hsl(var(--secondary))";
-              e.currentTarget.style.transform = "translateY(5px)";
-            }}
-            onMouseUp={(e) => {
-              e.currentTarget.style.boxShadow = "0 6px 0 rgba(0, 0, 0, 0.2), 0 4px 0 hsl(var(--secondary))";
-              e.currentTarget.style.transform = "translateY(0)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = "0 6px 0 rgba(0, 0, 0, 0.2), 0 4px 0 hsl(var(--secondary))";
-              e.currentTarget.style.transform = "translateY(0)";
-            }}
+          </Button>
+          <Button
+            size="sm"
+            className="bg-secondary text-secondary-foreground hover:bg-secondary/90"
           >
             Get Started
-          </button>
+          </Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -136,26 +100,15 @@ export function Header() {
             </Link>
           ))}
           <div className="mt-4 flex flex-col gap-2 border-t border-border pt-4">
-            <button
-              className="px-4 py-2 text-sm font-medium text-foreground transition-all"
-              style={{
-                border: "3px solid hsl(var(--border))",
-                background: "transparent",
-                boxShadow: "0 4px 0 hsl(var(--border))",
-              }}
-            >
+            <Button variant="ghost" size="sm" className="justify-start">
               Sign In
-            </button>
-            <button
-              className="px-6 py-2 text-sm font-bold text-secondary-foreground transition-all"
-              style={{
-                background: "hsl(var(--secondary))",
-                border: "3px solid hsl(var(--secondary))",
-                boxShadow: "0 6px 0 rgba(0, 0, 0, 0.2), 0 4px 0 hsl(var(--secondary))",
-              }}
+            </Button>
+            <Button
+              size="sm"
+              className="bg-secondary text-secondary-foreground hover:bg-secondary/90"
             >
               Get Started
-            </button>
+            </Button>
           </div>
         </nav>
       </div>
