@@ -19,36 +19,45 @@ function AnimatedLogo() {
   return (
     <Link 
       href="/" 
-      className="flex items-center overflow-hidden"
+      className="flex items-center"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative h-8 w-12">
-        {/* Short logo - h.gg */}
+      <div 
+        className={cn(
+          "relative h-8 overflow-hidden transition-all duration-500 ease-out",
+          isHovered ? "w-[120px]" : "w-[48px]"
+        )}
+      >
+        {/* Short logo - h.gg - stays visible */}
         <Image
           src="/h-gg.png"
           alt="hytale.GG"
           width={80}
           height={32}
           className={cn(
-            "h-8 w-auto absolute transition-all duration-300",
+            "h-8 w-auto absolute left-0 transition-opacity duration-500",
             isHovered ? "opacity-0" : "opacity-100"
           )}
           priority
         />
         
-        {/* Full logo - hytale.GG */}
-        <Image
-          src="/hytale-gg.png"
-          alt="hytale.GG"
-          width={120}
-          height={32}
+        {/* Full logo - hytale.GG - reveals from left to right */}
+        <div 
           className={cn(
-            "h-8 w-auto absolute transition-all duration-300",
-            isHovered ? "opacity-100" : "opacity-0"
+            "absolute left-0 h-8 transition-all duration-500 ease-out overflow-hidden",
+            isHovered ? "w-[120px]" : "w-0"
           )}
-          priority
-        />
+        >
+          <Image
+            src="/hytale-gg.png"
+            alt="hytale.GG"
+            width={120}
+            height={32}
+            className="h-8 w-auto"
+            priority
+          />
+        </div>
       </div>
     </Link>
   );
