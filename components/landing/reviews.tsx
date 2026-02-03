@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Play, Star, CheckCircle, ThumbsUp, MessageSquare, User } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { IconDivider, StoneCard, TorchGlow } from "@/components/ui/hytale-decorations";
 import { cn } from "@/lib/utils";
 
 // Creator video reviews
@@ -99,8 +100,8 @@ function CreatorReviewCard({ review, index }: { review: typeof creatorReviews[0]
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
-      className="group overflow-hidden rounded-lg border border-border bg-card transition-all hover:border-secondary/40"
     >
+      <StoneCard glowColor="secondary" className="group overflow-hidden">
       {/* Video thumbnail */}
       <div className="relative aspect-video bg-gradient-to-br from-primary/20 via-card to-secondary/20">
         <div className="absolute inset-0 flex items-center justify-center">
@@ -135,6 +136,7 @@ function CreatorReviewCard({ review, index }: { review: typeof creatorReviews[0]
 
         <p className="mt-2 text-xs text-muted-foreground">{review.views} views</p>
       </div>
+      </StoneCard>
     </motion.div>
   );
 }
@@ -145,8 +147,8 @@ function PlayerReviewCard({ review, index }: { review: typeof playerReviews[0]; 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
-      className="rounded-lg border border-border bg-card p-4 transition-all hover:border-primary/40"
     >
+      <StoneCard glowColor="primary" className="p-4">
       {/* Header */}
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-2">
@@ -193,6 +195,7 @@ function PlayerReviewCard({ review, index }: { review: typeof playerReviews[0]; 
           <span>Reply</span>
         </button>
       </div>
+      </StoneCard>
     </motion.div>
   );
 }
@@ -201,8 +204,14 @@ export function Reviews() {
   const [activeTab, setActiveTab] = useState<ReviewTab>("creator");
 
   return (
-    <section className="border-t border-border bg-background py-16 sm:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative bg-background py-16 sm:py-24">
+      {/* Torch glows on sides */}
+      <TorchGlow position="left" className="top-1/3 opacity-30" />
+      <TorchGlow position="right" className="top-2/3 opacity-30" />
+      
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Icon divider at top */}
+        <IconDivider icon="sword" className="mb-12" />
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

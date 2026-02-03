@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Github, Twitter } from "lucide-react";
+import { TerrainDivider, IconDivider } from "@/components/ui/hytale-decorations";
 
 const footerLinks = {
   Platform: [
@@ -30,7 +31,8 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-card">
+    <footer className="bg-card">
+      <TerrainDivider flip />
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
           {/* Brand */}
@@ -107,12 +109,11 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 border-t border-border pt-8">
-          <p className="text-center text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} hytale.GG. All rights reserved.
-            Not affiliated with Hypixel Studios.
-          </p>
-        </div>
+        <IconDivider icon="pickaxe" className="mt-12 mb-8" />
+        <p className="text-center text-xs text-muted-foreground">
+          &copy; {new Date().getFullYear()} hytale.GG. All rights reserved.
+          Not affiliated with Hypixel Studios.
+        </p>
       </div>
     </footer>
   );

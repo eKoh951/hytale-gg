@@ -18,6 +18,12 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { 
+  MagicParticles, 
+  GlyphPattern, 
+  TerrainDivider,
+  StoneCard 
+} from "@/components/ui/hytale-decorations";
 import { cn } from "@/lib/utils";
 
 // Server categories/game modes
@@ -105,39 +111,6 @@ function getPingBars(ping: number) {
   return 1;
 }
 
-// Floating particles - subtle version
-function FloatingParticles() {
-  return (
-    <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
-      {[...Array(15)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute rounded-full"
-          style={{
-            width: Math.random() * 3 + 1,
-            height: Math.random() * 3 + 1,
-            background: `radial-gradient(circle, ${
-              ["#8B4FC1", "#FFB800", "#7CBD3E"][Math.floor(Math.random() * 3)]
-            } 0%, transparent 70%)`,
-            left: `${Math.random() * 100}%`,
-          }}
-          initial={{ y: "100vh", opacity: 0 }}
-          animate={{
-            y: "-10vh",
-            opacity: [0, 0.5, 0.5, 0],
-          }}
-          transition={{
-            duration: Math.random() * 20 + 15,
-            repeat: Infinity,
-            delay: Math.random() * 10,
-            ease: "linear",
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
 // Server card component
 function ServerCard({ server, index }: { server: typeof mockServers[0]; index: number }) {
   const [copied, setCopied] = useState(false);
@@ -153,84 +126,85 @@ function ServerCard({ server, index }: { server: typeof mockServers[0]; index: n
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
-      className="group relative overflow-hidden rounded-lg border border-border bg-card/80 backdrop-blur-sm transition-all hover:border-primary/40 hover:bg-card"
     >
-      <div className="p-4">
-        {/* Header row */}
-        <div className="flex items-start justify-between gap-3">
-          <div className="min-w-0 flex-1">
-            <div className="flex items-center gap-2">
-              <h3 className="truncate font-semibold text-foreground">{server.name}</h3>
-              <span className="flex h-2 w-2 shrink-0 rounded-full bg-grass shadow-sm shadow-grass/50" />
-            </div>
-            <p className="mt-1 line-clamp-1 text-sm text-muted-foreground">
-              {server.description}
-            </p>
-          </div>
-          <Badge variant="outline" className="shrink-0 text-xs">
-            {server.region}
-          </Badge>
-        </div>
-
-        {/* Tags */}
-        <div className="mt-3 flex flex-wrap gap-1.5">
-          {server.categories.map((cat) => (
-            <Badge key={cat} variant="secondary" className="bg-muted/80 text-xs">
-              {cat}
-            </Badge>
-          ))}
-          <Badge variant="secondary" className="bg-muted/80 text-xs">
-            {server.language}
-          </Badge>
-        </div>
-
-        {/* Stats footer */}
-        <div className="mt-3 flex items-center justify-between border-t border-border/50 pt-3">
-          <div className="flex items-center gap-4">
-            {/* Players */}
-            <div className="flex items-center gap-1.5 text-sm">
-              <Users className="h-4 w-4 text-muted-foreground" />
-              <span className="text-foreground">{server.players}</span>
-              <span className="text-muted-foreground">/ {server.maxPlayers}</span>
-            </div>
-
-            {/* Ping */}
-            <div className="flex items-center gap-1.5 text-sm">
-              <div className="flex items-end gap-0.5">
-                {[1, 2, 3, 4].map((bar) => (
-                  <div
-                    key={bar}
-                    className={cn(
-                      "w-1 rounded-sm transition-colors",
-                      bar <= getPingBars(server.ping) ? getPingColor(server.ping).replace("text-", "bg-") : "bg-muted"
-                    )}
-                    style={{ height: `${bar * 3 + 4}px` }}
-                  />
-                ))}
+      <StoneCard className="transition-all hover:border-primary/40">
+        <div className="p-4">
+          {/* Header row */}
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0 flex-1">
+              <div className="flex items-center gap-2">
+                <h3 className="truncate font-semibold text-foreground">{server.name}</h3>
+                <span className="flex h-2 w-2 shrink-0 rounded-full bg-grass shadow-sm shadow-grass/50" />
               </div>
-              <span className={getPingColor(server.ping)}>{server.ping}ms</span>
+              <p className="mt-1 line-clamp-1 text-sm text-muted-foreground">
+                {server.description}
+              </p>
             </div>
+            <Badge variant="outline" className="shrink-0 border-[#4A4A4A] text-xs">
+              {server.region}
+            </Badge>
           </div>
 
-          {/* Copy IP */}
-          <button
-            onClick={copyIP}
-            className="flex items-center gap-1.5 rounded px-2 py-1 text-xs text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-          >
-            {copied ? (
-              <>
-                <Check className="h-3.5 w-3.5 text-grass" />
-                <span className="text-grass">Copied!</span>
-              </>
-            ) : (
-              <>
-                <Copy className="h-3.5 w-3.5" />
-                <span className="hidden font-mono sm:inline">{server.ip}</span>
-              </>
-            )}
-          </button>
+          {/* Tags */}
+          <div className="mt-3 flex flex-wrap gap-1.5">
+            {server.categories.map((cat) => (
+              <Badge key={cat} variant="secondary" className="bg-muted/80 text-xs">
+                {cat}
+              </Badge>
+            ))}
+            <Badge variant="secondary" className="bg-muted/80 text-xs">
+              {server.language}
+            </Badge>
+          </div>
+
+          {/* Stats footer */}
+          <div className="mt-3 flex items-center justify-between border-t border-border/50 pt-3">
+            <div className="flex items-center gap-4">
+              {/* Players */}
+              <div className="flex items-center gap-1.5 text-sm">
+                <Users className="h-4 w-4 text-muted-foreground" />
+                <span className="text-foreground">{server.players}</span>
+                <span className="text-muted-foreground">/ {server.maxPlayers}</span>
+              </div>
+
+              {/* Ping */}
+              <div className="flex items-center gap-1.5 text-sm">
+                <div className="flex items-end gap-0.5">
+                  {[1, 2, 3, 4].map((bar) => (
+                    <div
+                      key={bar}
+                      className={cn(
+                        "w-1 rounded-sm transition-colors",
+                        bar <= getPingBars(server.ping) ? getPingColor(server.ping).replace("text-", "bg-") : "bg-muted"
+                      )}
+                      style={{ height: `${bar * 3 + 4}px` }}
+                    />
+                  ))}
+                </div>
+                <span className={getPingColor(server.ping)}>{server.ping}ms</span>
+              </div>
+            </div>
+
+            {/* Copy IP */}
+            <button
+              onClick={copyIP}
+              className="flex items-center gap-1.5 rounded px-2 py-1 text-xs text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+            >
+              {copied ? (
+                <>
+                  <Check className="h-3.5 w-3.5 text-grass" />
+                  <span className="text-grass">Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="h-3.5 w-3.5" />
+                  <span className="hidden font-mono sm:inline">{server.ip}</span>
+                </>
+              )}
+            </button>
+          </div>
         </div>
-      </div>
+      </StoneCard>
     </motion.div>
   );
 }
@@ -241,22 +215,27 @@ export function Hero() {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
-      {/* Background */}
+    <section className="relative overflow-hidden">
+      {/* Background with Hytale wallpaper */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/hytale-assets/hero-bg.jpg"
+          src="/hytale-assets/wallpapers-1.jpg"
           alt=""
           fill
-          className="object-cover"
+          className="object-cover object-top"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
+        {/* Dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
       </div>
 
-      <FloatingParticles />
+      {/* Subtle glyph pattern */}
+      <GlyphPattern opacity={0.02} />
+      
+      {/* Floating particles */}
+      <MagicParticles count={15} className="z-[1]" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 pt-24 pb-16 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 pt-24 pb-8 sm:px-6 sm:pb-12 lg:px-8">
         {/* Minimal header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -287,7 +266,7 @@ export function Hero() {
               placeholder="Search servers by name, IP, or description..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="h-12 w-full rounded-lg border border-border bg-card/80 pl-12 pr-4 text-foreground placeholder:text-muted-foreground backdrop-blur-sm transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+              className="h-12 w-full rounded-lg border-2 border-[#3A3A3A] bg-card/90 pl-12 pr-4 text-foreground placeholder:text-muted-foreground backdrop-blur-sm transition-colors focus:border-primary focus:outline-none"
             />
           </div>
 
@@ -300,10 +279,10 @@ export function Hero() {
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat.id)}
                   className={cn(
-                    "flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition-all",
+                    "flex items-center gap-1.5 rounded-full border-2 px-4 py-2 text-sm font-medium transition-all",
                     selectedCategory === cat.id
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-card/80 text-muted-foreground hover:bg-card hover:text-foreground"
+                      ? "border-primary bg-primary text-primary-foreground"
+                      : "border-[#3A3A3A] bg-card/80 text-muted-foreground hover:border-[#4A4A4A] hover:text-foreground"
                   )}
                 >
                   <Icon className="h-4 w-4" />
@@ -320,10 +299,10 @@ export function Hero() {
                 key={region.id}
                 onClick={() => setSelectedRegion(region.id)}
                 className={cn(
-                  "rounded-full px-3 py-1.5 text-xs font-medium transition-all",
+                  "rounded-full border px-3 py-1.5 text-xs font-medium transition-all",
                   selectedRegion === region.id
-                    ? "bg-secondary text-secondary-foreground"
-                    : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
+                    ? "border-secondary bg-secondary text-secondary-foreground"
+                    : "border-border bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
                 )}
               >
                 {region.label}
@@ -354,7 +333,7 @@ export function Hero() {
           <Button size="lg" className="bg-primary px-8 hover:bg-primary/90">
             Browse all servers
           </Button>
-          <Button size="lg" variant="outline" className="border-border hover:bg-muted">
+          <Button size="lg" variant="outline" className="border-[#3A3A3A] hover:border-[#4A4A4A] hover:bg-muted">
             List a server you know
           </Button>
         </motion.div>
@@ -363,6 +342,9 @@ export function Hero() {
           Anyone can add servers to the directory. Help others discover great communities.
         </p>
       </div>
+
+      {/* Terrain divider at bottom */}
+      <TerrainDivider className="relative z-10" />
     </section>
   );
 }
