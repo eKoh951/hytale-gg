@@ -25,6 +25,7 @@ import {
   StoneCard,
   PixelCorner 
 } from "@/components/ui/hytale-decorations";
+import { HeroBackground } from "@/components/ui/section-backgrounds";
 import { cn } from "@/lib/utils";
 
 // Server categories/game modes
@@ -220,20 +221,7 @@ export function Hero() {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <section className="relative overflow-hidden">
-      {/* Background with Hytale wallpaper */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/hytale-assets/wallpapers-1.jpg"
-          alt=""
-          fill
-          className="object-cover object-top"
-          priority
-        />
-        {/* Dark gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
-      </div>
-
+    <HeroBackground backgroundImage="/hytale-assets/wallpapers-1.jpg" showParticles={false}>
       {/* Subtle glyph pattern */}
       <GlyphPattern opacity={0.02} />
       
@@ -280,19 +268,19 @@ export function Hero() {
             {categories.map((cat) => {
               const Icon = cat.icon;
               return (
-                <button
+                <Button
                   key={cat.id}
+                  variant={selectedCategory === cat.id ? "default" : "outline"}
+                  size="sm"
                   onClick={() => setSelectedCategory(cat.id)}
                   className={cn(
-                    "flex items-center gap-1.5 rounded-full border-2 px-4 py-2 text-sm font-medium transition-all",
-                    selectedCategory === cat.id
-                      ? "border-primary bg-primary text-primary-foreground"
-                      : "border-[#3A3A3A] bg-card/80 text-muted-foreground hover:border-[#4A4A4A] hover:text-foreground"
+                    "rounded-full",
+                    selectedCategory === cat.id && "border-primary"
                   )}
                 >
                   <Icon className="h-4 w-4" />
                   {cat.label}
-                </button>
+                </Button>
               );
             })}
           </div>
@@ -300,18 +288,15 @@ export function Hero() {
           {/* Region filter */}
           <div className="flex flex-wrap items-center justify-center gap-2">
             {regions.map((region) => (
-              <button
+              <Button
                 key={region.id}
+                variant={selectedRegion === region.id ? "default" : "outline"}
+                size="sm"
                 onClick={() => setSelectedRegion(region.id)}
-                className={cn(
-                  "rounded-full border px-3 py-1.5 text-xs font-medium transition-all",
-                  selectedRegion === region.id
-                    ? "border-secondary bg-secondary text-secondary-foreground"
-                    : "border-border bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
-                )}
+                className="rounded-full text-xs"
               >
                 {region.label}
-              </button>
+              </Button>
             ))}
           </div>
         </motion.div>
@@ -350,6 +335,6 @@ export function Hero() {
 
       {/* Terrain divider at bottom */}
       <TerrainDivider className="relative z-10" />
-    </section>
+    </HeroBackground>
   );
 }

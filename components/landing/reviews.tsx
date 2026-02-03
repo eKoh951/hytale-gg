@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Play, Star, CheckCircle, ThumbsUp, MessageSquare, User } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { IconDivider, StoneCard, TorchGlow, PixelCorner } from "@/components/ui/hytale-decorations";
+import { DirtBackground } from "@/components/ui/section-backgrounds";
 import { cn } from "@/lib/utils";
 
 // Creator video reviews
@@ -189,15 +190,15 @@ function PlayerReviewCard({ review, index }: { review: typeof playerReviews[0]; 
       </p>
 
       {/* Footer */}
-      <div className="mt-4 flex items-center gap-4 text-xs text-muted-foreground">
-        <button className="flex items-center gap-1 transition-colors hover:text-foreground">
+      <div className="mt-4 flex items-center gap-2">
+        <Button variant="ghost" size="sm" className="h-auto px-0 text-xs text-muted-foreground hover:text-foreground">
           <ThumbsUp className="h-3.5 w-3.5" />
           <span>{review.likes} helpful</span>
-        </button>
-        <button className="flex items-center gap-1 transition-colors hover:text-foreground">
+        </Button>
+        <Button variant="ghost" size="sm" className="h-auto px-0 text-xs text-muted-foreground hover:text-foreground">
           <MessageSquare className="h-3.5 w-3.5" />
           <span>Reply</span>
-        </button>
+        </Button>
       </div>
       </StoneCard>
     </motion.div>
@@ -205,22 +206,13 @@ function PlayerReviewCard({ review, index }: { review: typeof playerReviews[0]; 
 }
 
 export function Reviews() {
-  const [activeTab, setActiveTab] = useState<ReviewTab>("creator");
-
   return (
-    <section className="relative bg-[#6B5744] py-16 sm:py-24">
-      {/* Subtle dirt texture overlay */}
-      <div 
-        className="pointer-events-none absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.4'%3E%3Cpath d='M0 10h10v10H0zM20 0h10v10H20zM10 20h10v10H10zM30 10h10v10H30zM20 30h10v10H20z'/%3E%3C/g%3E%3C/svg%3E")`,
-          backgroundSize: "40px 40px",
-        }}
-      />
+    <DirtBackground className="py-16 sm:py-24">
       {/* Torch glows on sides */}
       <TorchGlow position="left" className="top-1/3 opacity-30" />
       <TorchGlow position="right" className="top-2/3 opacity-30" />
       
+      {/* Content container - CONSTRAINED WIDTH */}
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Icon divider at top */}
         <IconDivider icon="sword" className="mb-12" />
@@ -248,50 +240,36 @@ export function Reviews() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="mt-8 flex justify-center"
         >
-          <div className="inline-flex rounded-lg border border-border bg-card p-1">
-            <button
-              onClick={() => setActiveTab("creator")}
-              className={cn(
-                "flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-all",
-                activeTab === "creator"
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:text-foreground"
-              )}
-            >
-              <Play className="h-4 w-4" />
-              Creator Reviews
-            </button>
-            <button
-              onClick={() => setActiveTab("player")}
-              className={cn(
-                "flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-all",
-                activeTab === "player"
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:text-foreground"
-              )}
-            >
-              <User className="h-4 w-4" />
-              Player Reviews
-            </button>
-          </div>
-        </motion.div>
+          <Tabs defaultValue="creator" className="w-full">
+            <TabsList className="mx-auto">
+              <TabsTrigger value="creator" className="flex items-center gap-2">
+                <Play className="h-4 w-4" />
+                Creator Reviews
+              </TabsTrigger>
+              <TabsTrigger value="player" className="flex items-center gap-2">
+                <User className="h-4 w-4" />
+                Player Reviews
+              </TabsTrigger>
+            </TabsList>
 
-        {/* Reviews grid */}
-        <div className="mt-8">
-          {activeTab === "creator" ? (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {creatorReviews.map((review, index) => (
-                <CreatorReviewCard key={review.id} review={review} index={index} />
-              ))}
-            </div>
-          ) : (
-            <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-2">
-              {playerReviews.map((review, index) => (
-                <PlayerReviewCard key={review.id} review={review} index={index} />
-              ))}
-            </div>
-          )}
-        </div>
+            {/* Reviews grid */}
+            <TabsContent value="creator" className="mt-8">
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {creatorReviews.map((review, index) => (
+                  <CreatorReviewCard key={review.id} review={review} index={index} />
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="player" className="mt-8">
+              <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-2">
+                {playerReviews.map((review, index) => (
+                  <PlayerReviewCard key={review.id} review={review} index={index} />
+                ))}
+              </div>
+            </TabsContent>
+          </Tabs>
+        </motion.div>
 
         {/* CTA */}
         <motion.div
@@ -306,6 +284,6 @@ export function Reviews() {
           </Button>
         </motion.div>
       </div>
-    </section>
+    </DirtBackground>
   );
 }

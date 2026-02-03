@@ -70,16 +70,20 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b-2 border-border bg-background/95 backdrop-blur-md">
-      {/* Subtle pixelated block pattern background */}
-      <div 
-        className="pointer-events-none absolute inset-0 opacity-3"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='20' height='20' stroke='%23000000' stroke-width='1' fill='none'/%3E%3Crect x='20' y='20' width='20' height='20' stroke='%23000000' stroke-width='1' fill='none'/%3E%3C/svg%3E")`,
-          backgroundSize: "40px 40px",
-        }}
-      />
+    <header className="fixed top-0 left-0 right-0 z-50 border-b-2 border-border">
+      {/* Full-width background */}
+      <div className="absolute inset-0 bg-background/95 backdrop-blur-md">
+        {/* Subtle pixelated block pattern background */}
+        <div 
+          className="pointer-events-none absolute inset-0 opacity-3"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='20' height='20' stroke='%23000000' stroke-width='1' fill='none'/%3E%3Crect x='20' y='20' width='20' height='20' stroke='%23000000' stroke-width='1' fill='none'/%3E%3C/svg%3E")`,
+            backgroundSize: "40px 40px",
+          }}
+        />
+      </div>
 
+      {/* Content container - CONSTRAINED WIDTH */}
       <div className="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <AnimatedLogo />
@@ -111,18 +115,19 @@ export function Header() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          type="button"
-          className="inline-flex items-center justify-center rounded-lg p-2 text-foreground md:hidden"
+        <Button
+          variant="ghost"
+          size="icon"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
+          className="md:hidden"
         >
           {mobileMenuOpen ? (
             <X className="h-6 w-6" />
           ) : (
             <Menu className="h-6 w-6" />
           )}
-        </button>
+        </Button>
       </div>
 
       {/* Mobile Menu */}

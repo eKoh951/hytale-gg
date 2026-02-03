@@ -1279,16 +1279,16 @@ export function TorchGlow({
   return (
     <motion.div
       className={cn(
-        "pointer-events-none absolute top-1/2 h-32 w-32 -translate-y-1/2 rounded-full",
-        position === "left" ? "-left-16" : "-right-16",
+        "pointer-events-none absolute top-1/2 h-48 w-48 -translate-y-1/2 rounded-full",
+        position === "left" ? "-left-24" : "-right-24",
         className
       )}
       style={{
-        background: "radial-gradient(circle, rgba(255,184,0,0.15) 0%, transparent 70%)",
+        background: "radial-gradient(circle, rgba(255,184,0,0.4) 0%, rgba(255,184,0,0.15) 40%, transparent 70%)",
       }}
       animate={{
-        scale: [1, 1.1, 1],
-        opacity: [0.5, 0.8, 0.5],
+        scale: [1, 1.15, 1],
+        opacity: [0.7, 1, 0.7],
       }}
       transition={{
         duration: 3,
