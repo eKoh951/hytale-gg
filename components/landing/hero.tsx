@@ -22,7 +22,8 @@ import {
   MagicParticles, 
   GlyphPattern, 
   TerrainDivider,
-  StoneCard 
+  StoneCard,
+  PixelCorner 
 } from "@/components/ui/hytale-decorations";
 import { cn } from "@/lib/utils";
 
@@ -127,7 +128,9 @@ function ServerCard({ server, index }: { server: typeof mockServers[0]; index: n
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
     >
-      <StoneCard className="transition-all hover:border-primary/40">
+      <StoneCard className="relative transition-all hover:border-primary/40">
+        <PixelCorner type="torch" position="top-right" />
+        <PixelCorner type="gem" position="bottom-left" />
         <div className="p-4">
           {/* Header row */}
           <div className="flex items-start justify-between gap-3">

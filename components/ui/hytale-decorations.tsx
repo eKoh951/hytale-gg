@@ -194,6 +194,94 @@ export function StoneCard({
 }
 
 /**
+ * Pixel art corner accent (torch, crystal, gem)
+ */
+export function PixelCorner({ 
+  type = "torch",
+  position = "top-left",
+  className 
+}: { 
+  type?: "torch" | "crystal" | "gem";
+  position?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
+  className?: string;
+}) {
+  const positionClasses = {
+    "top-left": "top-2 left-2",
+    "top-right": "top-2 right-2",
+    "bottom-left": "bottom-2 left-2",
+    "bottom-right": "bottom-2 right-2",
+  };
+
+  const icons = {
+    torch: (
+      <motion.div
+        className="relative"
+        animate={{
+          filter: ["brightness(1)", "brightness(1.3)", "brightness(1)"],
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        {/* Torch flame */}
+        <div className="h-2 w-2 bg-secondary rounded-sm shadow-[0_0_8px_rgba(255,184,0,0.6)]" />
+        {/* Torch stick */}
+        <div className="mx-auto mt-0.5 h-3 w-1 bg-dirt" />
+      </motion.div>
+    ),
+    crystal: (
+      <motion.div
+        animate={{
+          filter: ["brightness(1)", "brightness(1.5)", "brightness(1)"],
+          rotate: [0, 5, 0, -5, 0],
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        {/* Crystal structure */}
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M8 2L12 6L8 14L4 6L8 2Z" fill="#8B4FC1" opacity="0.8" />
+          <path d="M8 2L12 6L8 8L4 6L8 2Z" fill="#A855F7" />
+          <path d="M8 2L8 8" stroke="#C084FC" strokeWidth="0.5" />
+        </svg>
+      </motion.div>
+    ),
+    gem: (
+      <motion.div
+        animate={{
+          scale: [1, 1.1, 1],
+        }}
+        transition={{
+          duration: 2.5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        {/* Pixelated gem */}
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <rect x="4" y="0" width="4" height="4" fill="#5CC8E8" />
+          <rect x="2" y="4" width="8" height="4" fill="#4FB3D4" />
+          <rect x="4" y="8" width="4" height="4" fill="#3A8FA8" />
+          {/* Shine effect */}
+          <rect x="5" y="1" width="2" height="2" fill="#FFFFFF" opacity="0.6" />
+        </svg>
+      </motion.div>
+    ),
+  };
+
+  return (
+    <div className={cn("pointer-events-none absolute", positionClasses[position], className)}>
+      {icons[type]}
+    </div>
+  );
+}
+
+/**
  * Animated torch/lantern glow effect
  */
 export function TorchGlow({ 

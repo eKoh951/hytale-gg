@@ -31,9 +31,29 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="bg-card">
+    <footer className="relative bg-gradient-to-b from-[#3D1F1F] via-[#5C2A2A] to-[#2D1515] text-foreground">
       <TerrainDivider flip />
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+      
+      {/* Nether fog/particle effect */}
+      <div 
+        className="pointer-events-none absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: `radial-gradient(circle at 20% 50%, rgba(255, 87, 51, 0.3) 0%, transparent 50%), 
+                           radial-gradient(circle at 80% 50%, rgba(255, 138, 51, 0.2) 0%, transparent 50%),
+                           radial-gradient(circle at 50% 80%, rgba(200, 50, 50, 0.2) 0%, transparent 50%)`,
+        }}
+      />
+      
+      {/* Netherrack texture overlay */}
+      <div 
+        className="pointer-events-none absolute inset-0 opacity-5"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.6'%3E%3Cpath d='M0 15h10v10H0zM15 0h10v10H15zM30 20h10v10H30zM10 30h10v10H10zM45 10h10v10H45zM20 45h10v10H20z'/%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: "60px 60px",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">

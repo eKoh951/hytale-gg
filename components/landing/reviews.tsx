@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Play, Star, CheckCircle, ThumbsUp, MessageSquare, User } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { IconDivider, StoneCard, TorchGlow } from "@/components/ui/hytale-decorations";
+import { IconDivider, StoneCard, TorchGlow, PixelCorner } from "@/components/ui/hytale-decorations";
 import { cn } from "@/lib/utils";
 
 // Creator video reviews
@@ -101,7 +101,9 @@ function CreatorReviewCard({ review, index }: { review: typeof creatorReviews[0]
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
     >
-      <StoneCard glowColor="secondary" className="group overflow-hidden">
+      <StoneCard glowColor="secondary" className="group relative overflow-hidden">
+      <PixelCorner type="torch" position="top-left" />
+      <PixelCorner type="gem" position="top-right" />
       {/* Video thumbnail */}
       <div className="relative aspect-video bg-gradient-to-br from-primary/20 via-card to-secondary/20">
         <div className="absolute inset-0 flex items-center justify-center">
@@ -148,7 +150,9 @@ function PlayerReviewCard({ review, index }: { review: typeof playerReviews[0]; 
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
     >
-      <StoneCard glowColor="primary" className="p-4">
+      <StoneCard glowColor="primary" className="relative p-4">
+      <PixelCorner type="crystal" position="top-left" />
+      <PixelCorner type="crystal" position="bottom-right" />
       {/* Header */}
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-2">
@@ -204,7 +208,15 @@ export function Reviews() {
   const [activeTab, setActiveTab] = useState<ReviewTab>("creator");
 
   return (
-    <section className="relative bg-background py-16 sm:py-24">
+    <section className="relative bg-[#6B5744] py-16 sm:py-24">
+      {/* Subtle dirt texture overlay */}
+      <div 
+        className="pointer-events-none absolute inset-0 opacity-20"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.4'%3E%3Cpath d='M0 10h10v10H0zM20 0h10v10H20zM10 20h10v10H10zM30 10h10v10H30zM20 30h10v10H20z'/%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: "40px 40px",
+        }}
+      />
       {/* Torch glows on sides */}
       <TorchGlow position="left" className="top-1/3 opacity-30" />
       <TorchGlow position="right" className="top-2/3 opacity-30" />
