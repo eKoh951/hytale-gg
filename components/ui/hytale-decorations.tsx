@@ -14,7 +14,7 @@ export function TerrainDivider({ className, flip = false }: { className?: string
       <svg
         className="absolute inset-x-0 top-0 h-6 w-full"
         viewBox="0 0 1200 24"
-        preserveAspectRatio="none"
+        preserveAspectRatio="xMidYMid slice"
         fill="none"
       >
         <path
@@ -24,8 +24,8 @@ export function TerrainDivider({ className, flip = false }: { className?: string
       </svg>
       {/* Dirt layer */}
       <div className="absolute inset-x-0 top-5 h-6 bg-dirt" />
-      {/* Stone layer with pixel pattern */}
-      <div className="absolute inset-x-0 top-10 h-6 bg-gradient-to-b from-dirt to-[#5C5C5C]" />
+      {/* Stone layer - solid color, no gradient */}
+      <div className="absolute inset-x-0 top-10 h-6 bg-[#5C5C5C]" />
     </div>
   );
 }
