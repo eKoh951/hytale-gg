@@ -5,110 +5,137 @@ import { cn } from "@/lib/utils";
 
 /**
  * Minecraft/Hytale-style terrain grass divider
- * Creates multiple layers of grass and dirt blocks with varying tones
+ * Creates 2 layers of grass and 2 layers of dirt blocks with varying tones
  */
 export function TerrainDivider({ className, flip = false }: { className?: string; flip?: boolean }) {
   return (
     <div className={cn("relative w-full overflow-hidden", flip && "rotate-180", className)}>
-      {/* Terrain layers - grass and dirt with varying tones */}
+      {/* Terrain layers - 2 grass + 2 dirt with varying tones */}
       <svg
         className="w-full"
-        viewBox="0 0 1200 48"
+        viewBox="0 0 1200 32"
         preserveAspectRatio="none"
         fill="none"
       >
         {/* Layer 1: Grass blocks - varying green tones */}
-        <rect x="0" y="0" width="35" height="12" fill="#7CBD3E" />
-        <rect x="35" y="0" width="50" height="12" fill="#6BA833" />
-        <rect x="85" y="0" width="28" height="12" fill="#8FCF4F" />
-        <rect x="113" y="0" width="42" height="12" fill="#7CBD3E" />
-        <rect x="155" y="0" width="38" height="12" fill="#5A9C27" />
-        <rect x="193" y="0" width="45" height="12" fill="#7CBD3E" />
-        <rect x="238" y="0" width="32" height="12" fill="#6BA833" />
-        <rect x="270" y="0" width="48" height="12" fill="#8FCF4F" />
-        <rect x="318" y="0" width="40" height="12" fill="#7CBD3E" />
-        <rect x="358" y="0" width="35" height="12" fill="#5A9C27" />
-        <rect x="393" y="0" width="52" height="12" fill="#6BA833" />
-        <rect x="445" y="0" width="30" height="12" fill="#7CBD3E" />
-        <rect x="475" y="0" width="46" height="12" fill="#8FCF4F" />
-        <rect x="521" y="0" width="38" height="12" fill="#7CBD3E" />
-        <rect x="559" y="0" width="41" height="12" fill="#5A9C27" />
-        <rect x="600" y="0" width="35" height="12" fill="#6BA833" />
-        <rect x="635" y="0" width="50" height="12" fill="#7CBD3E" />
-        <rect x="685" y="0" width="32" height="12" fill="#8FCF4F" />
-        <rect x="717" y="0" width="44" height="12" fill="#7CBD3E" />
-        <rect x="761" y="0" width="39" height="12" fill="#5A9C27" />
-        <rect x="800" y="0" width="48" height="12" fill="#6BA833" />
-        <rect x="848" y="0" width="30" height="12" fill="#7CBD3E" />
-        <rect x="878" y="0" width="52" height="12" fill="#8FCF4F" />
-        <rect x="930" y="0" width="36" height="12" fill="#7CBD3E" />
-        <rect x="966" y="0" width="42" height="12" fill="#5A9C27" />
-        <rect x="1008" y="0" width="38" height="12" fill="#6BA833" />
-        <rect x="1046" y="0" width="50" height="12" fill="#7CBD3E" />
-        <rect x="1096" y="0" width="31" height="12" fill="#8FCF4F" />
-        <rect x="1127" y="0" width="73" height="12" fill="#7CBD3E" />
+        <rect x="0" y="0" width="35" height="8" fill="#7CBD3E" />
+        <rect x="35" y="0" width="50" height="8" fill="#6BA833" />
+        <rect x="85" y="0" width="28" height="8" fill="#8FCF4F" />
+        <rect x="113" y="0" width="42" height="8" fill="#7CBD3E" />
+        <rect x="155" y="0" width="38" height="8" fill="#5A9C27" />
+        <rect x="193" y="0" width="45" height="8" fill="#7CBD3E" />
+        <rect x="238" y="0" width="32" height="8" fill="#6BA833" />
+        <rect x="270" y="0" width="48" height="8" fill="#8FCF4F" />
+        <rect x="318" y="0" width="40" height="8" fill="#7CBD3E" />
+        <rect x="358" y="0" width="35" height="8" fill="#5A9C27" />
+        <rect x="393" y="0" width="52" height="8" fill="#6BA833" />
+        <rect x="445" y="0" width="30" height="8" fill="#7CBD3E" />
+        <rect x="475" y="0" width="46" height="8" fill="#8FCF4F" />
+        <rect x="521" y="0" width="38" height="8" fill="#7CBD3E" />
+        <rect x="559" y="0" width="41" height="8" fill="#5A9C27" />
+        <rect x="600" y="0" width="35" height="8" fill="#6BA833" />
+        <rect x="635" y="0" width="50" height="8" fill="#7CBD3E" />
+        <rect x="685" y="0" width="32" height="8" fill="#8FCF4F" />
+        <rect x="717" y="0" width="44" height="8" fill="#7CBD3E" />
+        <rect x="761" y="0" width="39" height="8" fill="#5A9C27" />
+        <rect x="800" y="0" width="48" height="8" fill="#6BA833" />
+        <rect x="848" y="0" width="30" height="8" fill="#7CBD3E" />
+        <rect x="878" y="0" width="52" height="8" fill="#8FCF4F" />
+        <rect x="930" y="0" width="36" height="8" fill="#7CBD3E" />
+        <rect x="966" y="0" width="42" height="8" fill="#5A9C27" />
+        <rect x="1008" y="0" width="38" height="8" fill="#6BA833" />
+        <rect x="1046" y="0" width="50" height="8" fill="#7CBD3E" />
+        <rect x="1096" y="0" width="31" height="8" fill="#8FCF4F" />
+        <rect x="1127" y="0" width="73" height="8" fill="#7CBD3E" />
 
-        {/* Layer 2: Dirt blocks - varying brown tones */}
-        <rect x="0" y="12" width="42" height="12" fill="#8B6F47" />
-        <rect x="42" y="12" width="48" height="12" fill="#9D7C4F" />
-        <rect x="90" y="12" width="35" height="12" fill="#7A6341" />
-        <rect x="125" y="12" width="50" height="12" fill="#8B6F47" />
-        <rect x="175" y="12" width="38" height="12" fill="#9D7C4F" />
-        <rect x="213" y="12" width="40" height="12" fill="#6E5839" />
-        <rect x="253" y="12" width="45" height="12" fill="#8B6F47" />
-        <rect x="298" y="12" width="32" height="12" fill="#7A6341" />
-        <rect x="330" y="12" width="50" height="12" fill="#9D7C4F" />
-        <rect x="380" y="12" width="36" height="12" fill="#8B6F47" />
-        <rect x="416" y="12" width="44" height="12" fill="#6E5839" />
-        <rect x="460" y="12" width="38" height="12" fill="#7A6341" />
-        <rect x="498" y="12" width="48" height="12" fill="#8B6F47" />
-        <rect x="546" y="12" width="34" height="12" fill="#9D7C4F" />
-        <rect x="580" y="12" width="50" height="12" fill="#7A6341" />
-        <rect x="630" y="12" width="40" height="12" fill="#8B6F47" />
-        <rect x="670" y="12" width="46" height="12" fill="#6E5839" />
-        <rect x="716" y="12" width="36" height="12" fill="#9D7C4F" />
-        <rect x="752" y="12" width="50" height="12" fill="#8B6F47" />
-        <rect x="802" y="12" width="32" height="12" fill="#7A6341" />
-        <rect x="834" y="12" width="48" height="12" fill="#9D7C4F" />
-        <rect x="882" y="12" width="38" height="12" fill="#8B6F47" />
-        <rect x="920" y="12" width="44" height="12" fill="#6E5839" />
-        <rect x="964" y="12" width="50" height="12" fill="#7A6341" />
-        <rect x="1014" y="12" width="36" height="12" fill="#8B6F47" />
-        <rect x="1050" y="12" width="46" height="12" fill="#9D7C4F" />
-        <rect x="1096" y="12" width="34" height="12" fill="#6E5839" />
-        <rect x="1130" y="12" width="70" height="12" fill="#8B6F47" />
+        {/* Layer 2: Second grass layer - varied green tones */}
+        <rect x="0" y="8" width="42" height="8" fill="#6BA833" />
+        <rect x="42" y="8" width="48" height="8" fill="#8FCF4F" />
+        <rect x="90" y="8" width="35" height="8" fill="#7CBD3E" />
+        <rect x="125" y="8" width="50" height="8" fill="#5A9C27" />
+        <rect x="175" y="8" width="38" height="8" fill="#7CBD3E" />
+        <rect x="213" y="8" width="40" height="8" fill="#6BA833" />
+        <rect x="253" y="8" width="45" height="8" fill="#8FCF4F" />
+        <rect x="298" y="8" width="32" height="8" fill="#7CBD3E" />
+        <rect x="330" y="8" width="50" height="8" fill="#5A9C27" />
+        <rect x="380" y="8" width="36" height="8" fill="#6BA833" />
+        <rect x="416" y="8" width="44" height="8" fill="#8FCF4F" />
+        <rect x="460" y="8" width="38" height="8" fill="#7CBD3E" />
+        <rect x="498" y="8" width="48" height="8" fill="#5A9C27" />
+        <rect x="546" y="8" width="34" height="8" fill="#6BA833" />
+        <rect x="580" y="8" width="50" height="8" fill="#8FCF4F" />
+        <rect x="630" y="8" width="40" height="8" fill="#7CBD3E" />
+        <rect x="670" y="8" width="46" height="8" fill="#5A9C27" />
+        <rect x="716" y="8" width="36" height="8" fill="#6BA833" />
+        <rect x="752" y="8" width="50" height="8" fill="#7CBD3E" />
+        <rect x="802" y="8" width="32" height="8" fill="#8FCF4F" />
+        <rect x="834" y="8" width="48" height="8" fill="#5A9C27" />
+        <rect x="882" y="8" width="38" height="8" fill="#6BA833" />
+        <rect x="920" y="8" width="44" height="8" fill="#8FCF4F" />
+        <rect x="964" y="8" width="50" height="8" fill="#7CBD3E" />
+        <rect x="1014" y="8" width="36" height="8" fill="#5A9C27" />
+        <rect x="1050" y="8" width="46" height="8" fill="#6BA833" />
+        <rect x="1096" y="8" width="34" height="8" fill="#8FCF4F" />
+        <rect x="1130" y="8" width="70" height="8" fill="#7CBD3E" />
 
-        {/* Layer 3: Deeper dirt blocks - darker brown tones */}
-        <rect x="0" y="24" width="50" height="12" fill="#7A6341" />
-        <rect x="50" y="24" width="38" height="12" fill="#6E5839" />
-        <rect x="88" y="24" width="45" height="12" fill="#8B6F47" />
-        <rect x="133" y="24" width="40" height="12" fill="#5C4A31" />
-        <rect x="173" y="24" width="48" height="12" fill="#7A6341" />
-        <rect x="221" y="24" width="36" height="12" fill="#6E5839" />
-        <rect x="257" y="24" width="50" height="12" fill="#8B6F47" />
-        <rect x="307" y="24" width="34" height="12" fill="#7A6341" />
-        <rect x="341" y="24" width="46" height="12" fill="#5C4A31" />
-        <rect x="387" y="24" width="44" height="12" fill="#6E5839" />
-        <rect x="431" y="24" width="50" height="12" fill="#8B6F47" />
-        <rect x="481" y="24" width="40" height="12" fill="#7A6341" />
-        <rect x="521" y="24" width="38" height="12" fill="#5C4A31" />
-        <rect x="559" y="24" width="48" height="12" fill="#6E5839" />
-        <rect x="607" y="24" width="36" height="12" fill="#8B6F47" />
-        <rect x="643" y="24" width="50" height="12" fill="#7A6341" />
-        <rect x="693" y="24" width="34" height="12" fill="#6E5839" />
-        <rect x="727" y="24" width="46" height="12" fill="#5C4A31" />
-        <rect x="773" y="24" width="44" height="12" fill="#8B6F47" />
-        <rect x="817" y="24" width="50" height="12" fill="#7A6341" />
-        <rect x="867" y="24" width="40" height="12" fill="#6E5839" />
-        <rect x="907" y="24" width="38" height="12" fill="#5C4A31" />
-        <rect x="945" y="24" width="48" height="12" fill="#8B6F47" />
-        <rect x="993" y="24" width="36" height="12" fill="#7A6341" />
-        <rect x="1029" y="24" width="50" height="12" fill="#6E5839" />
-        <rect x="1079" y="24" width="34" height="12" fill="#5C4A31" />
-        <rect x="1113" y="24" width="87" height="12" fill="#8B6F47" />
+        {/* Layer 3: Dirt blocks - varying brown tones */}
+        <rect x="0" y="16" width="42" height="8" fill="#8B6F47" />
+        <rect x="42" y="16" width="48" height="8" fill="#9D7C4F" />
+        <rect x="90" y="16" width="35" height="8" fill="#7A6341" />
+        <rect x="125" y="16" width="50" height="8" fill="#8B6F47" />
+        <rect x="175" y="16" width="38" height="8" fill="#9D7C4F" />
+        <rect x="213" y="16" width="40" height="8" fill="#6E5839" />
+        <rect x="253" y="16" width="45" height="8" fill="#8B6F47" />
+        <rect x="298" y="16" width="32" height="8" fill="#7A6341" />
+        <rect x="330" y="16" width="50" height="8" fill="#9D7C4F" />
+        <rect x="380" y="16" width="36" height="8" fill="#8B6F47" />
+        <rect x="416" y="16" width="44" height="8" fill="#6E5839" />
+        <rect x="460" y="16" width="38" height="8" fill="#7A6341" />
+        <rect x="498" y="16" width="48" height="8" fill="#8B6F47" />
+        <rect x="546" y="16" width="34" height="8" fill="#9D7C4F" />
+        <rect x="580" y="16" width="50" height="8" fill="#7A6341" />
+        <rect x="630" y="16" width="40" height="8" fill="#8B6F47" />
+        <rect x="670" y="16" width="46" height="8" fill="#6E5839" />
+        <rect x="716" y="16" width="36" height="8" fill="#9D7C4F" />
+        <rect x="752" y="16" width="50" height="8" fill="#8B6F47" />
+        <rect x="802" y="16" width="32" height="8" fill="#7A6341" />
+        <rect x="834" y="16" width="48" height="8" fill="#9D7C4F" />
+        <rect x="882" y="16" width="38" height="8" fill="#8B6F47" />
+        <rect x="920" y="16" width="44" height="8" fill="#6E5839" />
+        <rect x="964" y="16" width="50" height="8" fill="#7A6341" />
+        <rect x="1014" y="16" width="36" height="8" fill="#8B6F47" />
+        <rect x="1050" y="16" width="46" height="8" fill="#9D7C4F" />
+        <rect x="1096" y="16" width="34" height="8" fill="#6E5839" />
+        <rect x="1130" y="16" width="70" height="8" fill="#8B6F47" />
 
-        {/* Layer 4: Deepest dirt blocks - darkest brown tones */}
-        <rect x="0" y="36" width="1200" height="12" fill="#6E5839" />
+        {/* Layer 4: Deeper dirt blocks - darker brown tones */}
+        <rect x="0" y="24" width="50" height="8" fill="#7A6341" />
+        <rect x="50" y="24" width="38" height="8" fill="#6E5839" />
+        <rect x="88" y="24" width="45" height="8" fill="#8B6F47" />
+        <rect x="133" y="24" width="40" height="8" fill="#5C4A31" />
+        <rect x="173" y="24" width="48" height="8" fill="#7A6341" />
+        <rect x="221" y="24" width="36" height="8" fill="#6E5839" />
+        <rect x="257" y="24" width="50" height="8" fill="#8B6F47" />
+        <rect x="307" y="24" width="34" height="8" fill="#7A6341" />
+        <rect x="341" y="24" width="46" height="8" fill="#5C4A31" />
+        <rect x="387" y="24" width="44" height="8" fill="#6E5839" />
+        <rect x="431" y="24" width="50" height="8" fill="#8B6F47" />
+        <rect x="481" y="24" width="40" height="8" fill="#7A6341" />
+        <rect x="521" y="24" width="38" height="8" fill="#5C4A31" />
+        <rect x="559" y="24" width="48" height="8" fill="#6E5839" />
+        <rect x="607" y="24" width="36" height="8" fill="#8B6F47" />
+        <rect x="643" y="24" width="50" height="8" fill="#7A6341" />
+        <rect x="693" y="24" width="34" height="8" fill="#6E5839" />
+        <rect x="727" y="24" width="46" height="8" fill="#5C4A31" />
+        <rect x="773" y="24" width="44" height="8" fill="#8B6F47" />
+        <rect x="817" y="24" width="50" height="8" fill="#7A6341" />
+        <rect x="867" y="24" width="40" height="8" fill="#6E5839" />
+        <rect x="907" y="24" width="38" height="8" fill="#5C4A31" />
+        <rect x="945" y="24" width="48" height="8" fill="#8B6F47" />
+        <rect x="993" y="24" width="36" height="8" fill="#7A6341" />
+        <rect x="1029" y="24" width="50" height="8" fill="#6E5839" />
+        <rect x="1079" y="24" width="34" height="8" fill="#5C4A31" />
+        <rect x="1113" y="24" width="87" height="8" fill="#8B6F47" />
       </svg>
     </div>
   );
