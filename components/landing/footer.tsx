@@ -31,7 +31,7 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="relative bg-[#7A7A7A] text-foreground">
+    <footer className="relative bg-[#3F3F3F] text-foreground">
       {/* Minecraft stone/rock texture overlay */}
       <div 
         className="pointer-events-none absolute inset-0 opacity-30"
