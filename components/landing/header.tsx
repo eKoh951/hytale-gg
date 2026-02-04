@@ -5,7 +5,24 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/components/auth/auth-provider";
+import { UserProfileMenu } from "@/components/auth/user-profile-menu";
+
+async function handleSignIn() {
+  const response = await fetch('/auth/signin', { method: 'POST' })
+  const data = await response.json()
+  
+  if (data.error) {
+    console.error('Sign in error:', data.error)
+    return
+  }
+  
+  if (data.url) {
+    window.location.href = data.url
+  }
+}
 
 const navItems = [
   { label: "Servers", href: "/servers" },
@@ -68,6 +85,7 @@ function AnimatedLogo() {
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { state: { user, isLoading }, actions: { signIn, signOut } } = useAuth();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b-2 border-border">
@@ -103,15 +121,15 @@ export function Header() {
 
         {/* Desktop Auth Buttons */}
         <div className="hidden items-center gap-3 md:flex">
-          <Button variant="ghost" size="sm">
-            Sign In
-          </Button>
-          <Button
-            size="sm"
-            className="bg-secondary text-secondary-foreground hover:bg-secondary/90"
-          >
-            Get Started
-          </Button>
+          {isLoading ? (
+            <Skeleton className="h-8 w-8 rounded-full" />
+          ) : user ? (
+            <UserProfileMenu />
+          ) : (
+            <Button variant="ghost" size="sm" onClick={signIn}>
+              Sign In
+            </Button>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -149,15 +167,38 @@ export function Header() {
             </Link>
           ))}
           <div className="mt-4 flex flex-col gap-2 border-t border-border pt-4">
-            <Button variant="ghost" size="sm" className="justify-start">
-              Sign In
-            </Button>
-            <Button
-              size="sm"
-              className="bg-secondary text-secondary-foreground hover:bg-secondary/90"
-            >
-              Get Started
-            </Button>
+            {isLoading ? (
+              <Skeleton className="h-8 w-full rounded" />
+            ) : user ? (
+              <>
+                <Link
+                  href="/profile"
+                  className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Profile
+                </Link>
+                <Link
+                  href="/settings"
+                  className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Settings
+                </Link>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="justify-start text-destructive hover:bg-destructive/10 hover:text-destructive"
+                  onClick={() => signOut()}
+                >
+                  Sign Out
+                </Button>
+              </>
+            ) : (
+              <Button variant="ghost" size="sm" className="justify-start" onClick={signIn}>
+                Sign In
+              </Button>
+            )}
           </div>
         </nav>
       </div>

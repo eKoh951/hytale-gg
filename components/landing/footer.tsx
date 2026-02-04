@@ -1,3 +1,5 @@
+'use client'
+
 import Link from "next/link";
 import Image from "next/image";
 import { Github, Twitter } from "lucide-react";
@@ -11,6 +13,7 @@ const footerLinks = {
     { label: "Events", href: "/events" },
   ],
   Resources: [
+    { label: "Brand Guidelines", href: "/branding" },
     { label: "Getting Started", href: "/guide" },
     { label: "API", href: "/api" },
     { label: "Blog", href: "/blog" },
