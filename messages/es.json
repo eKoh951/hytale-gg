@@ -7,7 +7,8 @@
     "signOut": "Cerrar Sesión",
     "profile": "Perfil",
     "settings": "Configuración",
-    "branding": "Guías de Marca"
+    "branding": "Guías de Marca",
+    "changeLanguage": "Cambiar idioma"
   },
   "hero": {
     "title": "Encuentra tu servidor de Hytale",
@@ -228,7 +229,7 @@
     "serverName": "Nombre del Servidor",
     "serverNamePlaceholder": "Ingresa el nombre de tu servidor",
     "serverIP": "IP del Servidor",
-    "description": "Descripción",
+    "serverDescription": "Descripción",
     "descriptionPlaceholder": "Describe las características y el juego de tu servidor",
     "submitServer": "Enviar Servidor"
   },

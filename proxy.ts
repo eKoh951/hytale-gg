@@ -10,63 +10,93 @@ import { isSupportedLocale, detectLocaleFromBrowserCode, DEFAULT_LOCALE, type Lo
 const handleI18nRouting = createMiddleware(routing);
 
 export async function proxy(request: NextRequest) {
+  let detectedLocale: Locale | null = null;
+  
   // Step 1: Check cookie first (fastest - 0ms)
   const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value;
   
-  // If we have a cookie with supported locale, use it and proceed with normal routing
   if (cookieLocale && isSupportedLocale(cookieLocale)) {
-    const i18nResponse = handleI18nRouting(request);
-    return await updateSession(request);
+    detectedLocale = cookieLocale;
   }
   
-  // Step 2: Check if user is logged in (parallel with i18n routing)
-  try {
-    const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
-    
-    // Step 3: Fetch from Supabase if user is logged in
-    if (user) {
-      const preferences = await getUserPreferences(user.id);
+  // Step 2: Check if user is logged in and has preferences (only if no cookie)
+  if (!detectedLocale) {
+    try {
+      const supabase = await createClient();
+      const { data: { user } } = await supabase.auth.getUser();
       
-      if (preferences && preferences.preferred_locale) {
-        // Create response with cookie set
-        const response = NextResponse.next();
-        response.cookies.set('NEXT_LOCALE', preferences.preferred_locale, {
-          maxAge: 31536000, // 1 year
-          path: '/',
-          sameSite: 'lax'
-        });
+      if (user) {
+        const preferences = await getUserPreferences(user.id);
         
-        // Redirect to preferred locale if needed
-        const currentLocale = request.nextUrl.pathname.split('/')[1];
-        if (currentLocale !== preferences.preferred_locale) {
-          const newUrl = request.nextUrl.clone();
-          newUrl.pathname = newUrl.pathname.replace(`/${currentLocale}`, `/${preferences.preferred_locale}`);
-          return NextResponse.redirect(newUrl);
+        if (preferences && preferences.preferred_locale && isSupportedLocale(preferences.preferred_locale)) {
+          detectedLocale = preferences.preferred_locale;
         }
-        
-        return await updateSession(request);
       }
+    } catch (error) {
+      console.error('[Middleware] Error fetching user preferences:', error);
     }
-  } catch (error) {
-    console.error('Error in language detection middleware:', error);
   }
   
-  // Step 4: Apply smart detection for Latino users (browser language)
-  const acceptLanguage = request.headers.get('accept-language') || '';
-  const detectedLocale = detectLocaleFromBrowser(acceptLanguage);
+  // Step 3: Apply smart detection from browser (only if no cookie and no user preference)
+  if (!detectedLocale) {
+    const acceptLanguage = request.headers.get('accept-language') || '';
+    detectedLocale = detectLocaleFromBrowser(acceptLanguage);
+  }
   
-  // Set cookie for future requests
-  const response = handleI18nRouting(request);
-  if (response) {
+  // Step 4: Handle routing with detected locale
+  const pathname = request.nextUrl.pathname;
+  const pathnameHasLocale = pathname.startsWith('/en') || pathname.startsWith('/es');
+  
+  // If root path, set header and let page component handle redirect
+  if (pathname === '/') {
+    const response = NextResponse.next();
+    
+    // Set x-locale header for root page to read
+    response.headers.set('x-locale', detectedLocale);
+    
+    // Set cookie for future requests
     response.cookies.set('NEXT_LOCALE', detectedLocale, {
+      maxAge: 31536000, // 1 year
+      path: '/',
+      sameSite: 'lax'
+    });
+    
+    return response;
+  }
+  
+  // If path has locale but it's different from detected, redirect
+  if (pathnameHasLocale) {
+    const currentLocale = pathname.split('/')[1];
+    if (currentLocale !== detectedLocale && !cookieLocale) {
+      // Only redirect if there's no cookie (user hasn't explicitly chosen)
+      const url = request.nextUrl.clone();
+      url.pathname = url.pathname.replace(`/${currentLocale}`, `/${detectedLocale}`);
+      const response = NextResponse.redirect(url);
+      
+      // Set cookie for future requests
+      response.cookies.set('NEXT_LOCALE', detectedLocale, {
+        maxAge: 31536000, // 1 year
+        path: '/',
+        sameSite: 'lax'
+      });
+      
+      return response;
+    }
+  }
+  
+  // Normal routing with i18n
+  const i18nResponse = handleI18nRouting(request);
+  
+  // Set cookie if not already set
+  if (i18nResponse && !cookieLocale) {
+    i18nResponse.cookies.set('NEXT_LOCALE', detectedLocale, {
       maxAge: 31536000, // 1 year
       path: '/',
       sameSite: 'lax'
     });
   }
   
-  // Then, handle Supabase session management
+  // Handle Supabase session management
   return await updateSession(request);
 }
 

@@ -64,3 +64,11 @@ export function detectLocaleFromBrowserCode(code: string): Locale | null {
 export function getLocaleDisplayName(locale: Locale, inLocale: Locale = locale): string {
   return LOCALE_METADATA[locale].nativeName;
 }
+
+// Helper to get locale metadata
+export function getLocaleMetadata(locale: Locale) {
+  return {
+    ...LOCALE_METADATA[locale],
+    code: locale
+  };
+}

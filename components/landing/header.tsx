@@ -11,6 +11,7 @@ import { useAuth } from "@/components/auth/auth-provider";
 import { UserProfileMenu } from "@/components/auth/user-profile-menu";
 import { Link as I18nLink } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
+import { LanguageSwitcher } from '@/components/language-switcher';
 
 async function handleSignIn() {
   const response = await fetch('/auth/signin', { method: 'POST' })
@@ -130,6 +131,7 @@ export function Header() {
 
         {/* Desktop Auth Buttons */}
         <div className="hidden items-center gap-3 md:flex">
+          <LanguageSwitcher />
           {isLoading ? (
             <Skeleton className="h-8 w-8 rounded-full" />
           ) : user ? (
@@ -176,6 +178,9 @@ export function Header() {
             </I18nLink>
           ))}
           <div className="mt-4 flex flex-col gap-2 border-t border-border pt-4">
+            <div className="px-3 py-2">
+              <LanguageSwitcher />
+            </div>
             {isLoading ? (
               <Skeleton className="h-8 w-full rounded" />
             ) : user ? (
