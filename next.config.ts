@@ -13,7 +13,27 @@ const nextConfig: NextConfig = {
         source: '/es/prueba',
         destination: '/es/test',
       },
-      // Add more as needed
+      // New localized pathnames for SEO
+      {
+        source: '/es/servidores',
+        destination: '/es/servers',
+      },
+      {
+        source: '/es/creadores',
+        destination: '/es/creators',
+      },
+      {
+        source: '/es/agregar',
+        destination: '/es/submit',
+      },
+      {
+        source: '/es/perfil',
+        destination: '/es/profile',
+      },
+      {
+        source: '/es/configuracion',
+        destination: '/es/settings',
+      },
     ];
   },
 };

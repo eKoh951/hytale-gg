@@ -9,6 +9,8 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/components/auth/auth-provider";
 import { UserProfileMenu } from "@/components/auth/user-profile-menu";
+import { Link as I18nLink } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
 
 async function handleSignIn() {
   const response = await fetch('/auth/signin', { method: 'POST' })
@@ -86,6 +88,13 @@ function AnimatedLogo() {
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { state: { user, isLoading }, actions: { signIn, signOut } } = useAuth();
+  const t = useTranslations('navigation');
+
+  const navItems = [
+    { label: t('servers'), href: "/servers" as const },
+    { label: t('creators'), href: "/creators" as const },
+    { label: t('listServer'), href: "/submit" as const },
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b-2 border-border">
@@ -109,13 +118,13 @@ export function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => (
-            <Link
+            <I18nLink
               key={item.href}
               href={item.href}
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {item.label}
-            </Link>
+            </I18nLink>
           ))}
         </nav>
 
@@ -127,7 +136,7 @@ export function Header() {
             <UserProfileMenu />
           ) : (
             <Button variant="ghost" size="sm" onClick={signIn}>
-              Sign In
+              {t('signIn')}
             </Button>
           )}
         </div>
@@ -157,46 +166,46 @@ export function Header() {
       >
         <nav className="flex flex-col gap-1 px-4 py-4">
           {navItems.map((item) => (
-            <Link
+            <I18nLink
               key={item.href}
               href={item.href}
               className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
               onClick={() => setMobileMenuOpen(false)}
             >
               {item.label}
-            </Link>
+            </I18nLink>
           ))}
           <div className="mt-4 flex flex-col gap-2 border-t border-border pt-4">
             {isLoading ? (
               <Skeleton className="h-8 w-full rounded" />
             ) : user ? (
               <>
-                <Link
+                <I18nLink
                   href="/profile"
                   className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Profile
-                </Link>
-                <Link
+                  {t('profile')}
+                </I18nLink>
+                <I18nLink
                   href="/settings"
                   className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Settings
-                </Link>
+                  {t('settings')}
+                </I18nLink>
                 <Button
                   variant="ghost"
                   size="sm"
                   className="justify-start text-destructive hover:bg-destructive/10 hover:text-destructive"
                   onClick={() => signOut()}
                 >
-                  Sign Out
+                  {t('signOut')}
                 </Button>
               </>
             ) : (
               <Button variant="ghost" size="sm" className="justify-start" onClick={signIn}>
-                Sign In
+                {t('signIn')}
               </Button>
             )}
           </div>

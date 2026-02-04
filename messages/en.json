@@ -215,6 +215,25 @@
     "helpful": "helpful",
     "reply": "Reply"
   },
+  "servers": {
+    "title": "Servers",
+    "description": "Discover the best Hytale servers with real-time ping testing and detailed information."
+  },
+  "creators": {
+    "title": "Creators",
+    "description": "Find talented Hytale content creators and their amazing builds, tutorials, and gameplay videos."
+  },
+  "submit": {
+    "title": "List a Server",
+    "description": "Share your Hytale server with our community and help players discover amazing gaming experiences.",
+    "serverInfo": "Server Information",
+    "serverName": "Server Name",
+    "serverNamePlaceholder": "Enter your server name",
+    "serverIP": "Server IP",
+    "description": "Description",
+    "descriptionPlaceholder": "Describe your server features and gameplay",
+    "submitServer": "Submit Server"
+  },
   "metadata": {
     "home": {
       "title": "hytale.GG - Find Your Perfect Server",
@@ -231,6 +250,18 @@
     "settings": {
       "title": "Settings | hytale.GG",
       "description": "Manage your account settings, preferences, and privacy options."
+    },
+    "servers": {
+      "title": "Servers | hytale.GG",
+      "description": "Discover the best Hytale servers with real-time ping testing and detailed information."
+    },
+    "creators": {
+      "title": "Creators | hytale.GG",
+      "description": "Find talented Hytale content creators and their amazing builds, tutorials, and gameplay videos."
+    },
+    "submit": {
+      "title": "List a Server | hytale.GG",
+      "description": "Share your Hytale server with our community and help players discover amazing gaming experiences."
     }
   }
 }

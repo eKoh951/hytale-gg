@@ -28,15 +28,17 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   // Load messages for the current locale
-  const messages = await getMessages({locale});
+  const messages = await getMessages({ locale });
 
   return (
     <>
       <AuthProvider>
-        <Header />
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
+          <Header />
+          {children}
+          <Footer />
+        </NextIntlClientProvider>
       </AuthProvider>
-      <Footer />
     </>
   );
 }

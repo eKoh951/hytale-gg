@@ -213,6 +213,25 @@
     "helpful": "útiles",
     "reply": "Responder"
   },
+  "servers": {
+    "title": "Servidores",
+    "description": "Descubre los mejores servidores de Hytale con pruebas de ping en tiempo real e información detallada."
+  },
+  "creators": {
+    "title": "Creadores",
+    "description": "Encuentra creadores de contenido de Hytale talentosos y sus increíbles construcciones, tutoriales y videos de juego."
+  },
+  "submit": {
+    "title": "Agregar un Servidor",
+    "description": "Comparte tu servidor de Hytale con nuestra comunidad y ayuda a los jugadores a descubrir experiencias de juego increíbles.",
+    "serverInfo": "Información del Servidor",
+    "serverName": "Nombre del Servidor",
+    "serverNamePlaceholder": "Ingresa el nombre de tu servidor",
+    "serverIP": "IP del Servidor",
+    "description": "Descripción",
+    "descriptionPlaceholder": "Describe las características y el juego de tu servidor",
+    "submitServer": "Enviar Servidor"
+  },
   "metadata": {
     "home": {
       "title": "hytale.GG - Encuentra tu Servidor Perfecto",
@@ -229,6 +248,18 @@
     "settings": {
       "title": "Configuración | hytale.GG",
       "description": "Administra la configuración de tu cuenta, preferencias y opciones de privacidad."
+    },
+    "servers": {
+      "title": "Servidores | hytale.GG",
+      "description": "Descubre los mejores servidores de Hytale con pruebas de ping en tiempo real e información detallada."
+    },
+    "creators": {
+      "title": "Creadores | hytale.GG",
+      "description": "Encuentra creadores de contenido de Hytale talentosos y sus increíbles construcciones, tutoriales y videos de juego."
+    },
+    "submit": {
+      "title": "Agregar un Servidor | hytale.GG",
+      "description": "Comparte tu servidor de Hytale con nuestra comunidad y ayuda a los jugadores a descubrir experiencias de juego increíbles."
     }
   }
 }
