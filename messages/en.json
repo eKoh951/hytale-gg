@@ -6,36 +6,8 @@
     "signIn": "Sign In",
     "signOut": "Sign Out",
     "profile": "Profile",
-    "settings": "Settings"
-  },
-  "hero": {
-    "title": "Find your Hytale server",
-    "description": "Search by game mode, region, or language. Test your ping before you join.",
-    "searchPlaceholder": "Search servers by name, IP, or description...",
-    "browseAll": "Browse all servers",
-    "listServer": "List a server you know",
-    "anyoneCanAdd": "Anyone can add servers to the directory. Help others discover great communities."
-  },
-  "categories": {
-    "all": "All",
-    "survival": "Survival",
-    "pvp": "PvP",
-    "creative": "Creative",
-    "rpg": "RPG",
-    "minigames": "Minigames"
-  },
-  "regions": {
-    "all": "Any Region",
-    "na": "North America",
-    "eu": "Europe",
-    "asia": "Asia",
-    "latam": "Latin America",
-    "oce": "Oceania"
-  },
-  "server": {
-    "copied": "Copied!",
-    "players": "players",
-    "language": "Language"
+    "settings": "Settings",
+    "branding": "Brand Guidelines"
   },
   "footer": {
     "platform": "Platform",
@@ -44,6 +16,16 @@
     "legal": "Legal",
     "description": "The premier mobile-first server directory for the Hytale community.",
     "copyright": " {year} hytale.GG. All rights reserved. Not affiliated with Hypixel Studios."
+  },
+  "home": {
+    "hero": {
+      "title": "Find your Hytale server",
+      "description": "Search by game mode, region, or language. Test your ping before you join.",
+      "searchPlaceholder": "Search servers by name, IP, or description...",
+      "browseAll": "Browse all servers",
+      "listServer": "List a server you know",
+      "anyoneCanAdd": "Anyone can add servers to the directory. Help others discover great communities."
+    }
   },
   "branding": {
     "title": "Brand Guidelines",
@@ -145,6 +127,85 @@
       }
     }
   },
+  "auth": {
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "signin": {
+      "title": "Sign In",
+      "description": "Sign in to your account to access your profile and settings.",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign In",
+      "noAccount": "Don't have an account?",
+      "signUpLink": "Sign up"
+    },
+    "signUp": {
+      "title": "Sign Up",
+      "description": "Create an account to join servers and manage your profile.",
+      "emailLabel": "Email",
+      "passwordLabel": "Password",
+      "confirmPassword": "Confirm Password",
+      "submit": "Sign Up",
+      "hasAccount": "Already have an account?",
+      "signInLink": "Sign in"
+    }
+  },
+  "server": {
+    "copied": "Copied!",
+    "players": "players",
+    "language": "Language",
+    "ping": "Ping",
+    "status": {
+      "online": "Online",
+      "offline": "Offline",
+      "maintenance": "Maintenance"
+    },
+    "actions": {
+      "copy": "Copy IP",
+      "join": "Join Server",
+      "favorite": "Add to Favorites"
+    }
+  },
+  "categories": {
+    "all": "All",
+    "survival": "Survival",
+    "pvp": "PvP",
+    "creative": "Creative",
+    "rpg": "RPG",
+    "minigames": "Minigames"
+  },
+  "regions": {
+    "all": "Any Region",
+    "na": "North America",
+    "eu": "Europe",
+    "asia": "Asia",
+    "latam": "Latin America",
+    "oce": "Oceania"
+  },
+  "profile": {
+    "title": "Profile",
+    "edit": "Edit Profile",
+    "stats": {
+      "serversJoined": "Servers Joined",
+      "favorites": "Favorites",
+      "reviews": "Reviews"
+    },
+    "achievements": {
+      "title": "Achievements",
+      "unlocked": "Unlocked",
+      "locked": "Locked"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "profile": "Profile Settings",
+    "account": "Account Settings",
+    "preferences": "Preferences",
+    "notifications": "Notifications",
+    "privacy": "Privacy",
+    "language": "Language",
+    "theme": "Theme"
+  },
   "metadata": {
     "home": {
       "title": "hytale.GG - Find Your Perfect Server",
@@ -153,6 +214,14 @@
     "branding": {
       "title": "Brand Guidelines | hytale.GG",
       "description": "Essential assets and standards for the hytale.GG brand identity"
+    },
+    "profile": {
+      "title": "Profile | hytale.GG",
+      "description": "View and manage your Hytale server profile, favorites, and achievements."
+    },
+    "settings": {
+      "title": "Settings | hytale.GG",
+      "description": "Manage your account settings, preferences, and privacy options."
     }
   }
 }

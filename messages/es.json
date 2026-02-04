@@ -6,7 +6,8 @@
     "signIn": "Iniciar Sesión",
     "signOut": "Cerrar Sesión",
     "profile": "Perfil",
-    "settings": "Configuración"
+    "settings": "Configuración",
+    "branding": "Guías de Marca"
   },
   "hero": {
     "title": "Encuentra tu servidor de Hytale",
@@ -35,7 +36,18 @@
   "server": {
     "copied": "¡Copiado!",
     "players": "jugadores",
-    "language": "Idioma"
+    "language": "Idioma",
+    "ping": "Ping",
+    "status": {
+      "online": "En línea",
+      "offline": "Desconectado",
+      "maintenance": "Mantenimiento"
+    },
+    "actions": {
+      "copy": "Copiar IP",
+      "join": "Unirse al Servidor",
+      "favorite": "Agregar a Favoritos"
+    }
   },
   "footer": {
     "platform": "Plataforma",
@@ -43,7 +55,7 @@
     "serverOwners": "Dueños de Servidores",
     "legal": "Legal",
     "description": "El directorio de servidores móvil líder para la comunidad de Hytale.",
-    "copyright": " hytale.GG. Todos los derechos reservados. No afiliado con Hypixel Studios."
+    "copyright": " {year} hytale.GG. Todos los derechos reservados. No afiliado con Hypixel Studios."
   },
   "branding": {
     "title": "Guías de Marca",
@@ -145,6 +157,53 @@
       }
     }
   },
+  "auth": {
+    "signIn": "Iniciar Sesión",
+    "signOut": "Cerrar Sesión",
+    "signin": {
+      "title": "Iniciar Sesión",
+      "description": "Inicia sesión en tu cuenta para acceder a tu perfil y configuración.",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "submit": "Iniciar Sesión",
+      "noAccount": "¿No tienes una cuenta?",
+      "signUpLink": "Registrarse"
+    },
+    "signUp": {
+      "title": "Registrarse",
+      "description": "Crea una cuenta para unirte a servidores y administrar tu perfil.",
+      "emailLabel": "Correo electrónico",
+      "passwordLabel": "Contraseña",
+      "confirmPassword": "Confirmar Contraseña",
+      "submit": "Registrarse",
+      "hasAccount": "¿Ya tienes una cuenta?",
+      "signInLink": "Iniciar Sesión"
+    }
+  },
+  "profile": {
+    "title": "Perfil",
+    "edit": "Editar Perfil",
+    "stats": {
+      "serversJoined": "Servidores Unidos",
+      "favorites": "Favoritos",
+      "reviews": "Reseñas"
+    },
+    "achievements": {
+      "title": "Logros",
+      "unlocked": "Desbloqueados",
+      "locked": "Bloqueados"
+    }
+  },
+  "settings": {
+    "title": "Configuración",
+    "profile": "Configuración del Perfil",
+    "account": "Configuración de la Cuenta",
+    "preferences": "Preferencias",
+    "notifications": "Notificaciones",
+    "privacy": "Privacidad",
+    "language": "Idioma",
+    "theme": "Tema"
+  },
   "metadata": {
     "home": {
       "title": "hytale.GG - Encuentra tu Servidor Perfecto",
@@ -153,6 +212,14 @@
     "branding": {
       "title": "Guías de Marca | hytale.GG",
       "description": "Recursos esenciales y estándares para la identidad de marca de hytale.GG"
+    },
+    "profile": {
+      "title": "Perfil | hytale.GG",
+      "description": "Ver y administrar tu perfil de servidor Hytale, favoritos y logros."
+    },
+    "settings": {
+      "title": "Configuración | hytale.GG",
+      "description": "Administra la configuración de tu cuenta, preferencias y opciones de privacidad."
     }
   }
 }
