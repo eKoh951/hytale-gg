@@ -13,6 +13,7 @@ const footerLinks = {
     { label: "Events", href: "/events" },
   ],
   Resources: [
+    { label: "Brand Guidelines", href: "/branding" },
     { label: "Getting Started", href: "/guide" },
     { label: "API", href: "/api" },
     { label: "Blog", href: "/blog" },
