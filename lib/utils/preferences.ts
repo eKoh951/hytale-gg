@@ -82,7 +82,7 @@ export async function detectLanguage(
     const preferences = await getUserPreferences(userId);
     if (preferences) {
       return { 
-        locale: preferences.preferred_locale, 
+        locale: preferences.preferred_locale as Locale, 
         source: 'user_preference' 
       };
     }
