@@ -3,21 +3,41 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { HeaderClient } from "./header-client";
-import { createClient } from "@/lib/supabase/server";
+
+async function handleSignIn() {
+  const response = await fetch('/auth/signin', { method: 'POST' })
+  const data = await response.json()
+  
+  if (data.error) {
+    console.error('Sign in error:', data.error)
+    return
+  }
+  
+  if (data.url) {
+    window.location.href = data.url
+  }
+}
+
+const navItems = [
+  { label: "Servers", href: "/servers" },
+  { label: "Creators", href: "/creators" },
+  { label: "List a Server", href: "/submit" },
+];
 
 function AnimatedLogo() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <Link
-      href="/"
+    <Link 
+      href="/" 
       className="flex items-center"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div
+      <div 
         className={cn(
           "relative h-8 transition-all duration-500 ease-out",
           isHovered ? "w-[180px]" : "w-[66px]"
@@ -35,14 +55,12 @@ function AnimatedLogo() {
           )}
           priority
         />
-
+        
         {/* Full logo - hytale.GG - reveals from left to right after fade */}
-        <div
+        <div 
           className={cn(
             "absolute left-0 top-0 h-8 overflow-hidden transition-all ease-out",
-            isHovered
-              ? "w-[180px] opacity-100 delay-150 duration-500"
-              : "w-0 opacity-0 duration-200"
+            isHovered ? "w-[180px] opacity-100 delay-150 duration-500" : "w-0 opacity-0 duration-200"
           )}
         >
           <Image
@@ -62,18 +80,15 @@ function AnimatedLogo() {
   );
 }
 
-export async function Header() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+export function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b-2 border-border">
       {/* Full-width background */}
       <div className="absolute inset-0 bg-background/95 backdrop-blur-md">
         {/* Subtle pixelated block pattern background */}
-        <div
+        <div 
           className="pointer-events-none absolute inset-0 opacity-3"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='20' height='20' stroke='%23000000' stroke-width='1' fill='none'/%3E%3Crect x='20' y='20' width='20' height='20' stroke='%23000000' stroke-width='1' fill='none'/%3E%3C/svg%3E")`,
@@ -87,8 +102,78 @@ export async function Header() {
         {/* Logo */}
         <AnimatedLogo />
 
-        {/* Client-side components with user state */}
-        <HeaderClient user={user} />
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center gap-8 md:flex">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Desktop Auth Buttons */}
+        <div className="hidden items-center gap-3 md:flex">
+          <Button variant="ghost" size="sm" onClick={handleSignIn}>
+            Sign In
+          </Button>
+          <Button
+            size="sm"
+            className="bg-secondary text-secondary-foreground hover:bg-secondary/90"
+          >
+            Get Started
+          </Button>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+          className="md:hidden"
+        >
+          {mobileMenuOpen ? (
+            <X className="h-6 w-6" />
+          ) : (
+            <Menu className="h-6 w-6" />
+          )}
+        </Button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={cn(
+          "border-b border-border bg-background md:hidden",
+          mobileMenuOpen ? "block" : "hidden",
+        )}
+      >
+        <nav className="flex flex-col gap-1 px-4 py-4">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {item.label}
+            </Link>
+          ))}
+          <div className="mt-4 flex flex-col gap-2 border-t border-border pt-4">
+            <Button variant="ghost" size="sm" className="justify-start" onClick={handleSignIn}>
+              Sign In
+            </Button>
+            <Button
+              size="sm"
+              className="bg-secondary text-secondary-foreground hover:bg-secondary/90"
+            >
+              Get Started
+            </Button>
+          </div>
+        </nav>
       </div>
     </header>
   );
