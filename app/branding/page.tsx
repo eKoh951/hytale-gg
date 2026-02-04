@@ -4,8 +4,9 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Copy, Check } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Check } from "lucide-react";
+import { ColorCard } from "@/components/branding/color-card";
+import { TokenRow } from "@/components/branding/token-row";
 
 export default function BrandingPage() {
   return (
@@ -296,55 +297,3 @@ export default function BrandingPage() {
   );
 }
 
-// Color Card Component
-function ColorCard({
-  name,
-  hex,
-  usage,
-  bgColor,
-}: {
-  name: string;
-  hex: string;
-  usage: string;
-  bgColor: string;
-}) {
-  return (
-    <Card className="overflow-hidden border-2 border-border bg-card">
-      <div className={cn("h-32 w-full", bgColor)} />
-      <div className="p-4">
-        <h3 className="mb-1 font-semibold text-foreground">{name}</h3>
-        <div className="mb-2 flex items-center gap-2">
-          <code className="rounded bg-muted px-2 py-1 font-mono text-xs text-foreground">{hex}</code>
-          <CopyButton text={hex} />
-        </div>
-        <p className="text-xs text-muted-foreground">{usage}</p>
-      </div>
-    </Card>
-  );
-}
-
-// Token Row Component
-function TokenRow({ name, value }: { name: string; value: string }) {
-  return (
-    <div className="flex items-center justify-between rounded-lg border border-border bg-background px-3 py-2">
-      <span className="text-muted-foreground">{name}</span>
-      <div className="flex items-center gap-2">
-        <span className="text-foreground">{value}</span>
-        <CopyButton text={value} />
-      </div>
-    </div>
-  );
-}
-
-// Copy Button Component
-function CopyButton({ text }: { text: string }) {
-  return (
-    <button
-      onClick={() => navigator.clipboard.writeText(text)}
-      className="rounded p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-      aria-label="Copy to clipboard"
-    >
-      <Copy className="h-3 w-3" />
-    </button>
-  );
-}
