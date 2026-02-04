@@ -1,0 +1,58 @@
+{
+  "navigation": {
+    "servers": "Servers",
+    "creators": "Creators",
+    "listServer": "List a Server",
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "profile": "Profile",
+    "settings": "Settings"
+  },
+  "hero": {
+    "title": "Find your Hytale server",
+    "description": "Search by game mode, region, or language. Test your ping before you join.",
+    "searchPlaceholder": "Search servers by name, IP, or description...",
+    "browseAll": "Browse all servers",
+    "listServer": "List a server you know",
+    "anyoneCanAdd": "Anyone can add servers to the directory. Help others discover great communities."
+  },
+  "categories": {
+    "all": "All",
+    "survival": "Survival",
+    "pvp": "PvP",
+    "creative": "Creative",
+    "rpg": "RPG",
+    "minigames": "Minigames"
+  },
+  "regions": {
+    "all": "Any Region",
+    "na": "North America",
+    "eu": "Europe",
+    "asia": "Asia",
+    "latam": "Latin America",
+    "oce": "Oceania"
+  },
+  "server": {
+    "copied": "Copied!",
+    "players": "players",
+    "language": "Language"
+  },
+  "footer": {
+    "platform": "Platform",
+    "resources": "Resources",
+    "serverOwners": "Server Owners",
+    "legal": "Legal",
+    "description": "The premier mobile-first server directory for the Hytale community.",
+    "copyright": "© {year} hytale.GG. All rights reserved. Not affiliated with Hypixel Studios."
+  },
+  "metadata": {
+    "home": {
+      "title": "hytale.GG - Find Your Perfect Server",
+      "description": "Discover the best Hytale servers with real-time ping testing, creator reviews, and mobile-optimized browsing. Find your perfect gaming community today."
+    },
+    "branding": {
+      "title": "Brand Guidelines | hytale.GG",
+      "description": "Essential assets and standards for the hytale.GG brand identity"
+    }
+  }
+}

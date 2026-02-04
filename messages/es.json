@@ -1,0 +1,58 @@
+{
+  "navigation": {
+    "servers": "Servidores",
+    "creators": "Creadores",
+    "listServer": "Agregar un Servidor",
+    "signIn": "Iniciar Sesión",
+    "signOut": "Cerrar Sesión",
+    "profile": "Perfil",
+    "settings": "Configuración"
+  },
+  "hero": {
+    "title": "Encuentra tu servidor de Hytale",
+    "description": "Busca por modo de juego, región o idioma. Prueba tu ping antes de unirte.",
+    "searchPlaceholder": "Buscar servidores por nombre, IP o descripción...",
+    "browseAll": "Ver todos los servidores",
+    "listServer": "Agregar un servidor que conoces",
+    "anyoneCanAdd": "Cualquiera puede agregar servidores al directorio. Ayuda a otros a descubrir grandes comunidades."
+  },
+  "categories": {
+    "all": "Todos",
+    "survival": "Supervivencia",
+    "pvp": "PvP",
+    "creative": "Creativo",
+    "rpg": "RPG",
+    "minigames": "Minijuegos"
+  },
+  "regions": {
+    "all": "Cualquier Región",
+    "na": "Norteamérica",
+    "eu": "Europa",
+    "asia": "Asia",
+    "latam": "Latinoamérica",
+    "oce": "Oceanía"
+  },
+  "server": {
+    "copied": "¡Copiado!",
+    "players": "jugadores",
+    "language": "Idioma"
+  },
+  "footer": {
+    "platform": "Plataforma",
+    "resources": "Recursos",
+    "serverOwners": "Dueños de Servidores",
+    "legal": "Legal",
+    "description": "El directorio de servidores móvil líder para la comunidad de Hytale.",
+    "copyright": "© {year} hytale.GG. Todos los derechos reservados. No afiliado con Hypixel Studios."
+  },
+  "metadata": {
+    "home": {
+      "title": "hytale.GG - Encuentra tu Servidor Perfecto",
+      "description": "Descubre los mejores servidores de Hytale con pruebas de ping en tiempo real, reseñas de creadores y navegación optimizada para móviles. Encuentra tu comunidad de juego perfecta hoy."
+    },
+    "branding": {
+      "title": "Guías de Marca | hytale.GG",
+      "description": "Recursos esenciales y estándares para la identidad de marca de hytale.GG"
+    }
+  }
+}
