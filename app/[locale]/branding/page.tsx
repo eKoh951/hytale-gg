@@ -27,7 +27,10 @@ export async function generateMetadata(): Promise<Metadata> {
 export const dynamic = 'force-static';
 export const revalidate = 86400; // Revalidate once per day
 
-export default function BrandingPage() {
+export default async function BrandingPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'branding' });
+  
   return (
       <main className="min-h-screen bg-background pt-24 pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Suspense 

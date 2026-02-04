@@ -108,11 +108,53 @@ export function Header() {
 - All internal links must use `@/i18n/navigation` imports
 - Layout restructuring: move everything under `[locale]` segment
 
+## Critical Bug Fix - February 4, 2026
+
+### **Issue**: Server Components Not Using Correct Locale
+**Problem**: When calling `getTranslations()` without locale parameter in Server Components, next-intl falls back to default locale (English) instead of using the current URL locale.
+
+### **Root Cause**: 
+```typescript
+// WRONG - Uses default locale (English)
+const t = await getTranslations('branding');
+
+// CORRECT - Uses current locale from params
+const { locale } = await params;
+const t = await getTranslations({ locale, namespace: 'branding' });
+```
+
+### **Solution**: 
+Always pass the `locale` parameter to `getTranslations()` in Server Components:
+
+```typescript
+export default async function BrandingPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'branding' });
+  // Now correctly uses Spanish for /es/branding
+}
+```
+
+### **Key Learning**: 
+- **Server Components**: Must use `getTranslations({ locale, namespace })` with explicit locale
+- **Client Components**: Use `useTranslations('namespace')` - rely on NextIntlClientProvider
+- **Layout**: Must pass `messages={await getMessages({locale})}` to NextIntlClientProvider
+
+### **Files Updated**:
+- `app/[locale]/branding/page.tsx` - Fixed Server Component locale usage
+- `app/[locale]/layout.tsx` - Added proper message passing to client components
+
+### **Result**: 
+- `/es/branding` now shows Spanish translations
+- `/en/branding` continues to show English translations
+- Both Server and Client Components work correctly
+
 ## Implementation Status
-- ✅ Dependencies installed (next-intl 4.8.2)
-- ✅ Plan created and approved
-- ✅ Next.js 16 proxy pattern researched
-- ⏳ Ready to begin Phase 1: Foundation Setup
+- Dependencies installed (next-intl 4.8.2)
+- Plan created and approved
+- Next.js 16 proxy pattern researched
+- **CRITICAL BUG FIXED** - Server Components now use correct locale
+- Branding page fully internationalized
+- Ready to continue with remaining pages
 
 ## Next Steps
 1. Create i18n configuration files (routing.ts, request.ts, navigation.ts)
