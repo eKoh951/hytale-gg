@@ -5,18 +5,27 @@ import { Suspense } from "react";
 import { ComponentRegistry } from "./components/component-registry";
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
+import { generateHreflangAlternates, generateOGLocales, getOGLocale } from '@/lib/utils/seo';
+import type { Locale } from '@/i18n/locales';
 
 // Generate metadata using translations
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations('metadata.branding');
+  
+  // Generate hreflang alternates (automatically scales with new languages)
+  const alternates = generateHreflangAlternates('/branding');
   
   return {
     title: t('title'),
     description: t('description'),
+    alternates, // Hreflang tags for all supported locales
     openGraph: {
       title: t('title'),
       description: t('description'),
       type: 'website',
+      locale: getOGLocale(locale as Locale),
+      alternateLocale: generateOGLocales(locale as Locale),
     },
     keywords: ['brand guidelines', 'hytale', 'gaming', 'design system', 'logo', 'colors'],
     authors: [{ name: 'hytale.GG' }],

@@ -133,6 +133,20 @@ await saveUserPreference(userId, 'pt'); // ✅ Works
 if (isSupportedLocale('pt')) { ... } // ✅ Works
 ```
 
+### ✅ Hreflang Tags (SEO)
+```typescript
+// Automatically generates for all supported locales
+generateHreflangAlternates('/branding');
+// Returns: { languages: { en: '/en/branding', es: '/es/guia-de-marca', pt: '/pt/...', 'x-default': '/en/branding' } }
+```
+
+### ✅ Open Graph Locales
+```typescript
+// Automatically includes all alternate locales
+generateOGLocales('es');
+// Returns: ['en_US', 'pt_BR'] (all except current)
+```
+
 ## 📊 Comparison: Before vs After
 
 ### ❌ Before (Hardcoded)
