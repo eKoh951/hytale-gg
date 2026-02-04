@@ -20,35 +20,42 @@ import { createClient } from '@/lib/supabase/client'
 export function UserProfileMenu() {
   const { state: { user }, actions: { signOut } } = useAuth()
   const [profileAvatarUrl, setProfileAvatarUrl] = useState<string | null>(null)
+  const [profileDisplayName, setProfileDisplayName] = useState<string | null>(null)
 
   useEffect(() => {
     if (!user) return
 
-    const fetchProfileAvatar = async () => {
+    const fetchProfileData = async () => {
       try {
         const supabase = createClient()
         const { data, error } = await supabase
           .from('profiles')
-          .select('avatar_url')
+          .select('avatar_url, display_name')
           .eq('id', user.id)
           .single()
 
-        if (!error && data?.avatar_url) {
-          setProfileAvatarUrl(data.avatar_url)
+        if (!error && data) {
+          if (data.avatar_url) {
+            setProfileAvatarUrl(data.avatar_url)
+          }
+          if (data.display_name) {
+            setProfileDisplayName(data.display_name)
+          }
         }
       } catch (err) {
-        console.error('Error fetching profile avatar:', err)
+        console.error('Error fetching profile data:', err)
       }
     }
 
-    fetchProfileAvatar()
+    fetchProfileData()
   }, [user])
 
   if (!user) {
     return null
   }
 
-  const displayName = getDisplayName(user)
+  // Use display_name from profiles table, fallback to Google metadata, then email
+  const displayName = profileDisplayName || getDisplayName(user)
   const initials = getInitials(displayName)
   // Use profile avatar from database, fallback to user metadata, then initials
   const avatarUrl = profileAvatarUrl || user.user_metadata?.avatar_url
@@ -85,13 +92,6 @@ export function UserProfileMenu() {
           <Link href="/profile" className="flex items-center gap-2 cursor-pointer">
             <User className="h-4 w-4" />
             <span>Profile</span>
-          </Link>
-        </DropdownMenuItem>
-
-        <DropdownMenuItem asChild>
-          <Link href="/settings" className="flex items-center gap-2 cursor-pointer">
-            <Settings className="h-4 w-4" />
-            <span>Settings</span>
           </Link>
         </DropdownMenuItem>
 
