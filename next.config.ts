@@ -1,7 +1,43 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from 'next-intl/plugin';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async rewrites() {
+    return [
+      // Spanish localized pathnames
+      {
+        source: '/es/guia-de-marca',
+        destination: '/es/branding',
+      },
+      {
+        source: '/es/prueba',
+        destination: '/es/test',
+      },
+      // New localized pathnames for SEO
+      {
+        source: '/es/servidores',
+        destination: '/es/servers',
+      },
+      {
+        source: '/es/creadores',
+        destination: '/es/creators',
+      },
+      {
+        source: '/es/agregar',
+        destination: '/es/submit',
+      },
+      {
+        source: '/es/perfil',
+        destination: '/es/profile',
+      },
+      {
+        source: '/es/configuracion',
+        destination: '/es/settings',
+      },
+    ];
+  },
 };
 
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin();
+
+export default withNextIntl(nextConfig);

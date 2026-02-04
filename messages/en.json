@@ -1,0 +1,288 @@
+{
+  "navigation": {
+    "servers": "Servers",
+    "creators": "Creators",
+    "listServer": "List a Server",
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "profile": "Profile",
+    "settings": "Settings",
+    "branding": "Brand Guidelines",
+    "changeLanguage": "Change language",
+    "userMenu": "User menu"
+  },
+  "footer": {
+    "platform": "Platform",
+    "resources": "Resources",
+    "serverOwners": "Server Owners",
+    "legal": "Legal",
+    "description": "The premier mobile-first server directory for the Hytale community.",
+    "copyright": " {year} hytale.GG. All rights reserved. Not affiliated with Hypixel Studios.",
+    "servers": "Servers",
+    "creators": "Creators",
+    "mods": "Mods",
+    "events": "Events",
+    "branding": "Brand Guidelines",
+    "gettingStarted": "Getting Started",
+    "api": "API",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "listServer": "List Your Server",
+    "dashboard": "Dashboard",
+    "analytics": "Analytics",
+    "verification": "Verification",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "contact": "Contact",
+    "twitter": "Twitter",
+    "github": "GitHub",
+    "discord": "Discord"
+  },
+  "home": {
+    "hero": {
+      "title": "Find your Hytale server",
+      "description": "Search by game mode, region, or language. Test your ping before you join.",
+      "searchPlaceholder": "Search servers by name, IP, or description...",
+      "browseAll": "Browse all servers",
+      "listServer": "List a server you know",
+      "anyoneCanAdd": "Anyone can add servers to the directory. Help others discover great communities."
+    }
+  },
+  "branding": {
+    "title": "Brand Guidelines",
+    "description": "Essential assets and standards for the hytale.GG brand identity",
+    "hero": {
+      "title": "Brand Guidelines",
+      "subtitle": "Essential assets and standards for the hytale.GG brand identity"
+    },
+    "logo": {
+      "title": "Logo",
+      "variants": {
+        "hytaleGG": {
+          "name": "hytale.GG",
+          "alt": "hytale.GG Full Logo",
+          "useCase": "Headers, marketing materials, large displays"
+        },
+        "hGG": {
+          "name": "h.GG",
+          "alt": "h.GG Short Logo",
+          "useCase": "Favicon, social profiles, compact spaces"
+        }
+      },
+      "guidelines": {
+        "title": "Usage Guidelines",
+        "dos": {
+          "title": "Do's",
+          "darkBackground": "Use on dark backgrounds (#1F2937 or darker)",
+          "aspectRatio": "Maintain aspect ratio when scaling",
+          "clearSpace": "Keep clear space around logo"
+        },
+        "donts": {
+          "title": "Don'ts",
+          "rotate": "Don't rotate or distort",
+          "colors": "Don't change colors",
+          "effects": "Don't add effects (shadows, glows)"
+        }
+      }
+    },
+    "colors": {
+      "title": "Color Palette",
+      "purple": {
+        "name": "Purple",
+        "usage": "hytale text, brand primary"
+      },
+      "yellow": {
+        "name": "Yellow",
+        "usage": "GG text, accents, CTAs"
+      },
+      "darkGray": {
+        "name": "Dark Gray",
+        "usage": "Outlines, borders"
+      },
+      "grass": {
+        "name": "Grass",
+        "usage": "Block top"
+      },
+      "grassDark": {
+        "name": "Grass Dark",
+        "usage": "Block sides"
+      },
+      "dirt": {
+        "name": "Dirt",
+        "usage": "Block bottom"
+      }
+    },
+    "typography": {
+      "title": "Typography",
+      "logoFonts": {
+        "title": "Logo Fonts",
+        "hytaleFont": "Press Start 2P (hytale)",
+        "ggFont": "Minecraft/Minecrafter (GG)"
+      },
+      "websiteFonts": {
+        "title": "Website Fonts",
+        "bodyFont": "Geist Sans (Body)",
+        "headingFont": "Montserrat (Headings)",
+        "codeFont": "Geist Mono (Code)"
+      },
+      "sampleText": {
+        "body": "The quick brown fox jumps over the lazy dog",
+        "heading": "Heading Example",
+        "code": "play.hytale.gg:25565"
+      }
+    },
+    "tokens": {
+      "title": "Design Tokens",
+      "core": "Core Tokens",
+      "brand": "Brand-Specific Tokens"
+    },
+    "registry": {
+      "title": "Component Registry",
+      "name": "Hytale.GG Component Registry",
+      "description": "Explore our complete component library with interactive examples, live previews, and customizable design system components built specifically for Hytale.GG.",
+      "openRegistry": "Open Registry",
+      "features": {
+        "components": "{count}+ components available",
+        "theme": "Gaming-themed design system",
+        "tech": "Built with shadcn/ui & Next.js 16"
+      }
+    }
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "signin": {
+      "title": "Sign In",
+      "description": "Sign in to your account to access your profile and settings.",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign In",
+      "noAccount": "Don't have an account?",
+      "signUpLink": "Sign up"
+    },
+    "signUp": {
+      "title": "Sign Up",
+      "description": "Create an account to join servers and manage your profile.",
+      "emailLabel": "Email",
+      "passwordLabel": "Password",
+      "confirmPassword": "Confirm Password",
+      "submit": "Sign Up",
+      "hasAccount": "Already have an account?",
+      "signInLink": "Sign in"
+    }
+  },
+  "server": {
+    "copied": "Copied!",
+    "players": "players",
+    "language": "Language",
+    "ping": "Ping",
+    "status": {
+      "online": "Online",
+      "offline": "Offline",
+      "maintenance": "Maintenance"
+    },
+    "actions": {
+      "copy": "Copy IP",
+      "join": "Join Server",
+      "favorite": "Add to Favorites"
+    }
+  },
+  "categories": {
+    "all": "All",
+    "survival": "Survival",
+    "pvp": "PvP",
+    "creative": "Creative",
+    "rpg": "RPG",
+    "minigames": "Minigames"
+  },
+  "regions": {
+    "all": "Any Region",
+    "na": "North America",
+    "eu": "Europe",
+    "asia": "Asia",
+    "latam": "Latin America",
+    "oce": "Oceania"
+  },
+  "profile": {
+    "title": "Profile",
+    "edit": "Edit Profile",
+    "stats": {
+      "serversJoined": "Servers Joined",
+      "favorites": "Favorites",
+      "reviews": "Reviews"
+    },
+    "achievements": {
+      "title": "Achievements",
+      "unlocked": "Unlocked",
+      "locked": "Locked"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "profile": "Profile Settings",
+    "account": "Account Settings",
+    "preferences": "Preferences",
+    "notifications": "Notifications",
+    "privacy": "Privacy",
+    "language": "Language",
+    "theme": "Theme"
+  },
+  "reviews": {
+    "title": "What players are saying",
+    "description": "Real reviews from creators and players in the community.",
+    "creatorReviews": "Creator Reviews",
+    "playerReviews": "Player Reviews",
+    "viewAll": "View all reviews",
+    "helpful": "helpful",
+    "reply": "Reply"
+  },
+  "servers": {
+    "title": "Servers",
+    "description": "Discover the best Hytale servers with real-time ping testing and detailed information."
+  },
+  "creators": {
+    "title": "Creators",
+    "description": "Find talented Hytale content creators and their amazing builds, tutorials, and gameplay videos."
+  },
+  "submit": {
+    "title": "List a Server",
+    "description": "Share your Hytale server with our community and help players discover amazing gaming experiences.",
+    "serverInfo": "Server Information",
+    "serverName": "Server Name",
+    "serverNamePlaceholder": "Enter your server name",
+    "serverIP": "Server IP",
+    "description": "Description",
+    "descriptionPlaceholder": "Describe your server features and gameplay",
+    "submitServer": "Submit Server"
+  },
+  "metadata": {
+    "home": {
+      "title": "hytale.GG - Find Your Perfect Server",
+      "description": "Discover the best Hytale servers with real-time ping testing, creator reviews, and mobile-optimized browsing. Find your perfect gaming community today."
+    },
+    "branding": {
+      "title": "Brand Guidelines | hytale.GG",
+      "description": "Essential assets and standards for the hytale.GG brand identity"
+    },
+    "profile": {
+      "title": "Profile | hytale.GG",
+      "description": "View and manage your Hytale server profile, favorites, and achievements."
+    },
+    "settings": {
+      "title": "Settings | hytale.GG",
+      "description": "Manage your account settings, preferences, and privacy options."
+    },
+    "servers": {
+      "title": "Servers | hytale.GG",
+      "description": "Discover the best Hytale servers with real-time ping testing and detailed information."
+    },
+    "creators": {
+      "title": "Creators | hytale.GG",
+      "description": "Find talented Hytale content creators and their amazing builds, tutorials, and gameplay videos."
+    },
+    "submit": {
+      "title": "List a Server | hytale.GG",
+      "description": "Share your Hytale server with our community and help players discover amazing gaming experiences."
+    }
+  }
+}

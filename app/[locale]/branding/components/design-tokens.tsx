@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { TokenRow } from "./token-row";
+import { useTranslations } from 'next-intl';
 
 const coreTokens = [
   { name: "--background", value: "var(--background)" },
@@ -18,13 +19,15 @@ const brandTokens = [
 ];
 
 export function DesignTokens() {
+  const t = useTranslations('branding.tokens');
+  
   return (
     <section className="mb-20">
-      <h2 className="mb-6 font-serif text-3xl font-bold text-foreground">Design Tokens</h2>
+      <h2 className="mb-6 font-serif text-3xl font-bold text-foreground">{t('title')}</h2>
       <Card className="border-2 border-border bg-card p-6">
         <div className="grid gap-6 lg:grid-cols-2">
           <div>
-            <h3 className="mb-4 font-mono text-sm font-bold text-foreground">Core Tokens</h3>
+            <h3 className="mb-4 font-mono text-sm font-bold text-foreground">{t('core')}</h3>
             <div className="space-y-2">
               {coreTokens.map((token) => (
                 <TokenRow key={token.name} name={token.name} value={token.value} />
@@ -33,7 +36,7 @@ export function DesignTokens() {
           </div>
           <div>
             <h3 className="mb-4 font-mono text-sm font-bold text-foreground">
-              Brand-Specific Tokens
+              {t('brand')}
             </h3>
             <div className="space-y-2">
               {brandTokens.map((token) => (

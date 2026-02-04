@@ -16,11 +16,13 @@ import {
 import { useAuth } from './auth-provider'
 import { getDisplayName, getInitials } from '@/lib/utils/user'
 import { createClient } from '@/lib/supabase/client'
+import { useTranslations } from 'next-intl'
 
 export function UserProfileMenu() {
   const { state: { user }, actions: { signOut } } = useAuth()
   const [profileAvatarUrl, setProfileAvatarUrl] = useState<string | null>(null)
   const [profileDisplayName, setProfileDisplayName] = useState<string | null>(null)
+  const t = useTranslations('navigation')
 
   useEffect(() => {
     if (!user) return
@@ -67,7 +69,7 @@ export function UserProfileMenu() {
           variant="ghost"
           size="icon"
           className="h-8 w-8 rounded-full focus-visible:ring-2 focus-visible:ring-offset-2"
-          aria-label="User menu"
+          aria-label={t('userMenu')}
         >
           <Avatar className="h-8 w-8">
             {avatarUrl ? (
@@ -91,7 +93,7 @@ export function UserProfileMenu() {
         <DropdownMenuItem asChild>
           <Link href="/profile" className="flex items-center gap-2 cursor-pointer">
             <User className="h-4 w-4" />
-            <span>Profile</span>
+            <span>{t('profile')}</span>
           </Link>
         </DropdownMenuItem>
 
@@ -103,7 +105,7 @@ export function UserProfileMenu() {
           className="flex items-center gap-2 cursor-pointer"
         >
           <LogOut className="h-4 w-4" />
-          <span>Sign Out</span>
+          <span>{t('signOut')}</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

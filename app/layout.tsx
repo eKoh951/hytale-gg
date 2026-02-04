@@ -1,11 +1,8 @@
 import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import React, { type ReactNode } from "react";
-import { Header } from "@/components/landing/header";
-import { Footer } from "@/components/landing/footer";
 
 import { cn } from "@/lib/utils";
 import { AuthProvider } from "@/components/auth/auth-provider";
-
 import "@/app/globals.css";
 
 const GeistSans = Geist({
@@ -30,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="es"
       className={cn(
         GeistSans.variable,
         GeistMono.variable,
@@ -40,10 +37,8 @@ export default function RootLayout({
     >
       <body className="min-h-screen bg-background">
         <AuthProvider>
-        <Header />
           {children}
         </AuthProvider>
-        <Footer />
       </body>
     </html>
   );

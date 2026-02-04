@@ -1,0 +1,286 @@
+{
+  "navigation": {
+    "servers": "Servidores",
+    "creators": "Creadores",
+    "listServer": "Agregar un Servidor",
+    "signIn": "Iniciar Sesión",
+    "signOut": "Cerrar Sesión",
+    "profile": "Perfil",
+    "settings": "Configuración",
+    "branding": "Guías de Marca",
+    "changeLanguage": "Cambiar idioma",
+    "userMenu": "Menú de usuario"
+  },
+  "hero": {
+    "title": "Encuentra tu servidor de Hytale",
+    "description": "Busca por modo de juego, región o idioma. Prueba tu ping antes de unirte.",
+    "searchPlaceholder": "Buscar servidores por nombre, IP o descripción...",
+    "browseAll": "Ver todos los servidores",
+    "listServer": "Agregar un servidor que conoces",
+    "anyoneCanAdd": "Cualquiera puede agregar servidores al directorio. Ayuda a otros a descubrir grandes comunidades."
+  },
+  "categories": {
+    "all": "Todos",
+    "survival": "Supervivencia",
+    "pvp": "PvP",
+    "creative": "Creativo",
+    "rpg": "RPG",
+    "minigames": "Minijuegos"
+  },
+  "regions": {
+    "all": "Cualquier Región",
+    "na": "Norteamérica",
+    "eu": "Europa",
+    "asia": "Asia",
+    "latam": "Latinoamérica",
+    "oce": "Oceanía"
+  },
+  "server": {
+    "copied": "¡Copiado!",
+    "players": "jugadores",
+    "language": "Idioma",
+    "ping": "Ping",
+    "status": {
+      "online": "En línea",
+      "offline": "Desconectado",
+      "maintenance": "Mantenimiento"
+    },
+    "actions": {
+      "copy": "Copiar IP",
+      "join": "Unirse al Servidor",
+      "favorite": "Agregar a Favoritos"
+    }
+  },
+  "footer": {
+    "platform": "Plataforma",
+    "resources": "Recursos",
+    "serverOwners": "Dueños de Servidores",
+    "legal": "Legal",
+    "description": "El directorio de servidores móvil líder para la comunidad de Hytale.",
+    "copyright": " {year} hytale.GG. Todos los derechos reservados. No afiliado con Hypixel Studios.",
+    "servers": "Servidores",
+    "creators": "Creadores",
+    "mods": "Mods",
+    "events": "Eventos",
+    "branding": "Guías de Marca",
+    "gettingStarted": "Guía de Inicio",
+    "api": "API",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "listServer": "Listar tu Servidor",
+    "dashboard": "Panel de Control",
+    "analytics": "Analíticas",
+    "verification": "Verificación",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "contact": "Contacto",
+    "twitter": "Twitter",
+    "github": "GitHub",
+    "discord": "Discord"
+  },
+  "branding": {
+    "title": "Guías de Marca",
+    "description": "Recursos esenciales y estándares para la identidad de marca de hytale.GG",
+    "hero": {
+      "title": "Guías de Marca",
+      "subtitle": "Recursos esenciales y estándares para la identidad de marca de hytale.GG"
+    },
+    "logo": {
+      "title": "Logo",
+      "variants": {
+        "hytaleGG": {
+          "name": "hytale.GG",
+          "alt": "Logo Completo hytale.GG",
+          "useCase": "Encabezados, materiales de marketing, pantallas grandes"
+        },
+        "hGG": {
+          "name": "h.GG",
+          "alt": "Logo Corto h.GG",
+          "useCase": "Favicon, perfiles sociales, espacios compactos"
+        }
+      },
+      "guidelines": {
+        "title": "Pautas de Uso",
+        "dos": {
+          "title": "Permitido",
+          "darkBackground": "Usar en fondos oscuros (#1F2937 o más oscuros)",
+          "aspectRatio": "Mantener la relación de aspecto al escalar",
+          "clearSpace": "Mantener espacio libre alrededor del logo"
+        },
+        "donts": {
+          "title": "Prohibido",
+          "rotate": "No rotar o distorsionar",
+          "colors": "No cambiar colores",
+          "effects": "No agregar efectos (sombras, brillos)"
+        }
+      }
+    },
+    "colors": {
+      "title": "Paleta de Colores",
+      "purple": {
+        "name": "Púrpura",
+        "usage": "Texto hytale, marca principal"
+      },
+      "yellow": {
+        "name": "Amarillo",
+        "usage": "Texto GG, acentos, llamadas a la acción"
+      },
+      "darkGray": {
+        "name": "Gris Oscuro",
+        "usage": "Contornos, bordes"
+      },
+      "grass": {
+        "name": "Hierba",
+        "usage": "Parte superior del bloque"
+      },
+      "grassDark": {
+        "name": "Hierba Oscura",
+        "usage": "Lados del bloque"
+      },
+      "dirt": {
+        "name": "Tierra",
+        "usage": "Parte inferior del bloque"
+      }
+    },
+    "typography": {
+      "title": "Tipografía",
+      "logoFonts": {
+        "title": "Fuentes del Logo",
+        "hytaleFont": "Press Start 2P (hytale)",
+        "ggFont": "Minecraft/Minecrafter (GG)"
+      },
+      "websiteFonts": {
+        "title": "Fuentes del Sitio Web",
+        "bodyFont": "Geist Sans (Cuerpo)",
+        "headingFont": "Montserrat (Encabezados)",
+        "codeFont": "Geist Mono (Código)"
+      },
+      "sampleText": {
+        "body": "El rápido zorro marrón salta sobre el perro perezoso",
+        "heading": "Ejemplo de Encabezado",
+        "code": "play.hytale.gg:25565"
+      }
+    },
+    "tokens": {
+      "title": "Tokens de Diseño",
+      "core": "Tokens Principales",
+      "brand": "Tokens Específicos de Marca"
+    },
+    "registry": {
+      "title": "Registro de Componentes",
+      "name": "Registro de Componentes Hytale.GG",
+      "description": "Explora nuestra biblioteca completa de componentes con ejemplos interactivos, vistas previas en vivo y componentes de sistema de diseño personalizables construidos específicamente para Hytale.GG.",
+      "openRegistry": "Abrir Registro",
+      "features": {
+        "components": "{count}+ componentes disponibles",
+        "theme": "Sistema de diseño temático de juegos",
+        "tech": "Construido con shadcn/ui y Next.js 16"
+      }
+    }
+  },
+  "auth": {
+    "signIn": "Iniciar Sesión",
+    "signOut": "Cerrar Sesión",
+    "signin": {
+      "title": "Iniciar Sesión",
+      "description": "Inicia sesión en tu cuenta para acceder a tu perfil y configuración.",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "submit": "Iniciar Sesión",
+      "noAccount": "¿No tienes una cuenta?",
+      "signUpLink": "Registrarse"
+    },
+    "signUp": {
+      "title": "Registrarse",
+      "description": "Crea una cuenta para unirte a servidores y administrar tu perfil.",
+      "emailLabel": "Correo electrónico",
+      "passwordLabel": "Contraseña",
+      "confirmPassword": "Confirmar Contraseña",
+      "submit": "Registrarse",
+      "hasAccount": "¿Ya tienes una cuenta?",
+      "signInLink": "Iniciar Sesión"
+    }
+  },
+  "profile": {
+    "title": "Perfil",
+    "edit": "Editar Perfil",
+    "stats": {
+      "serversJoined": "Servidores Unidos",
+      "favorites": "Favoritos",
+      "reviews": "Reseñas"
+    },
+    "achievements": {
+      "title": "Logros",
+      "unlocked": "Desbloqueados",
+      "locked": "Bloqueados"
+    }
+  },
+  "settings": {
+    "title": "Configuración",
+    "profile": "Configuración del Perfil",
+    "account": "Configuración de la Cuenta",
+    "preferences": "Preferencias",
+    "notifications": "Notificaciones",
+    "privacy": "Privacidad",
+    "language": "Idioma",
+    "theme": "Tema"
+  },
+  "reviews": {
+    "title": "Lo que dicen los jugadores",
+    "description": "Reseñas reales de creadores y jugadores en la comunidad.",
+    "creatorReviews": "Reseñas de Creadores",
+    "playerReviews": "Reseñas de Jugadores",
+    "viewAll": "Ver todas las reseñas",
+    "helpful": "útiles",
+    "reply": "Responder"
+  },
+  "servers": {
+    "title": "Servidores",
+    "description": "Descubre los mejores servidores de Hytale con pruebas de ping en tiempo real e información detallada."
+  },
+  "creators": {
+    "title": "Creadores",
+    "description": "Encuentra creadores de contenido de Hytale talentosos y sus increíbles construcciones, tutoriales y videos de juego."
+  },
+  "submit": {
+    "title": "Agregar un Servidor",
+    "description": "Comparte tu servidor de Hytale con nuestra comunidad y ayuda a los jugadores a descubrir experiencias de juego increíbles.",
+    "serverInfo": "Información del Servidor",
+    "serverName": "Nombre del Servidor",
+    "serverNamePlaceholder": "Ingresa el nombre de tu servidor",
+    "serverIP": "IP del Servidor",
+    "serverDescription": "Descripción",
+    "descriptionPlaceholder": "Describe las características y el juego de tu servidor",
+    "submitServer": "Enviar Servidor"
+  },
+  "metadata": {
+    "home": {
+      "title": "hytale.GG - Encuentra tu Servidor Perfecto",
+      "description": "Descubre los mejores servidores de Hytale con pruebas de ping en tiempo real, reseñas de creadores y navegación optimizada para móviles. Encuentra tu comunidad de juego perfecta hoy."
+    },
+    "branding": {
+      "title": "Guías de Marca | hytale.GG",
+      "description": "Recursos esenciales y estándares para la identidad de marca de hytale.GG"
+    },
+    "profile": {
+      "title": "Perfil | hytale.GG",
+      "description": "Ver y administrar tu perfil de servidor Hytale, favoritos y logros."
+    },
+    "settings": {
+      "title": "Configuración | hytale.GG",
+      "description": "Administra la configuración de tu cuenta, preferencias y opciones de privacidad."
+    },
+    "servers": {
+      "title": "Servidores | hytale.GG",
+      "description": "Descubre los mejores servidores de Hytale con pruebas de ping en tiempo real e información detallada."
+    },
+    "creators": {
+      "title": "Creadores | hytale.GG",
+      "description": "Encuentra creadores de contenido de Hytale talentosos y sus increíbles construcciones, tutoriales y videos de juego."
+    },
+    "submit": {
+      "title": "Agregar un Servidor | hytale.GG",
+      "description": "Comparte tu servidor de Hytale con nuestra comunidad y ayuda a los jugadores a descubrir experiencias de juego increíbles."
+    }
+  }
+}
