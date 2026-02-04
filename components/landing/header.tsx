@@ -130,12 +130,6 @@ export function Header() {
               Sign In
             </Button>
           )}
-          <Button
-            size="sm"
-            className="bg-secondary text-secondary-foreground hover:bg-secondary/90"
-          >
-            Get Started
-          </Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -205,12 +199,6 @@ export function Header() {
                 Sign In
               </Button>
             )}
-            <Button
-              size="sm"
-              className="bg-secondary text-secondary-foreground hover:bg-secondary/90"
-            >
-              Get Started
-            </Button>
           </div>
         </nav>
       </div>
