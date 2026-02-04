@@ -8,7 +8,8 @@
     "profile": "Perfil",
     "settings": "Configuración",
     "branding": "Guías de Marca",
-    "changeLanguage": "Cambiar idioma"
+    "changeLanguage": "Cambiar idioma",
+    "userMenu": "Menú de usuario"
   },
   "hero": {
     "title": "Encuentra tu servidor de Hytale",

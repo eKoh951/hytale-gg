@@ -13,26 +13,6 @@ import { Link as I18nLink } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { LanguageSwitcher } from '@/components/language-switcher';
 
-async function handleSignIn() {
-  const response = await fetch('/auth/signin', { method: 'POST' })
-  const data = await response.json()
-  
-  if (data.error) {
-    console.error('Sign in error:', data.error)
-    return
-  }
-  
-  if (data.url) {
-    window.location.href = data.url
-  }
-}
-
-const navItems = [
-  { label: "Servers", href: "/servers" },
-  { label: "Creators", href: "/creators" },
-  { label: "List a Server", href: "/submit" },
-];
-
 function AnimatedLogo() {
   const [isHovered, setIsHovered] = useState(false);
 
