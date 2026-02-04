@@ -296,9 +296,10 @@ export async function uploadAvatar(
       }
     }
 
-    // Generate file path: avatars/{userId}/avatar.{ext}
+    // Generate file path with timestamp to prevent caching: avatars/{userId}/avatar-{timestamp}.{ext}
     const ext = file.name.split('.').pop()?.toLowerCase() || 'jpg'
-    const filePath = `${userId}/avatar.${ext}`
+    const timestamp = Date.now()
+    const filePath = `${userId}/avatar-${timestamp}.${ext}`
 
     // Delete old avatar if it exists
     const { data: existingFiles } = await supabase.storage

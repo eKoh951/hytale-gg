@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import { LogOut, Settings, User } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
@@ -14,9 +15,34 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { useAuth } from './auth-provider'
 import { getDisplayName, getInitials } from '@/lib/utils/user'
+import { createClient } from '@/lib/supabase/client'
 
 export function UserProfileMenu() {
   const { state: { user }, actions: { signOut } } = useAuth()
+  const [profileAvatarUrl, setProfileAvatarUrl] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!user) return
+
+    const fetchProfileAvatar = async () => {
+      try {
+        const supabase = createClient()
+        const { data, error } = await supabase
+          .from('profiles')
+          .select('avatar_url')
+          .eq('id', user.id)
+          .single()
+
+        if (!error && data?.avatar_url) {
+          setProfileAvatarUrl(data.avatar_url)
+        }
+      } catch (err) {
+        console.error('Error fetching profile avatar:', err)
+      }
+    }
+
+    fetchProfileAvatar()
+  }, [user])
 
   if (!user) {
     return null
@@ -24,7 +50,8 @@ export function UserProfileMenu() {
 
   const displayName = getDisplayName(user)
   const initials = getInitials(displayName)
-  const avatarUrl = user.user_metadata?.avatar_url
+  // Use profile avatar from database, fallback to user metadata, then initials
+  const avatarUrl = profileAvatarUrl || user.user_metadata?.avatar_url
 
   return (
     <DropdownMenu>

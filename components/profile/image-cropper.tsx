@@ -108,7 +108,7 @@ export function ImageCropper({
           disabled={isProcessing}
           className="bg-primary text-primary-foreground hover:bg-primary/90"
         >
-          {isProcessing ? 'Processing...' : 'Crop & Upload'}
+          {isProcessing ? 'Processing...' : 'Upload'}
         </Button>
         <Button
           onClick={onCancel}

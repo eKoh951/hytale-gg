@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { Camera } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { getInitials } from '@/lib/utils/user'
 import { AvatarUploadDialog } from './avatar-upload-dialog'
@@ -61,6 +62,13 @@ export function ProfileAvatar({
           {isOwnProfile && (
             <div className="absolute inset-0 rounded-full bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
               <span className="text-white text-sm font-medium">Upload</span>
+            </div>
+          )}
+
+          {/* Edit Icon - Only show when editing own profile */}
+          {isOwnProfile && (
+            <div className="absolute -top-1 -right-1 flex h-8 w-8 items-center justify-center rounded-full border-2 border-border bg-primary shadow-lg">
+              <Camera className="h-4 w-4 text-primary-foreground" />
             </div>
           )}
 
