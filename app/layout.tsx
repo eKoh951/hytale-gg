@@ -1,7 +1,5 @@
 import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import React, { type ReactNode } from "react";
-import { Header } from "@/components/landing/header";
-import { Footer } from "@/components/landing/footer";
 
 import { cn } from "@/lib/utils";
 import { AuthProvider } from "@/components/auth/auth-provider";
@@ -39,10 +37,8 @@ export default function RootLayout({
     >
       <body className="min-h-screen bg-background">
         <AuthProvider>
-          <Header />
           {children}
         </AuthProvider>
-        <Footer />
       </body>
     </html>
   );

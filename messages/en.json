@@ -206,6 +206,15 @@
     "language": "Language",
     "theme": "Theme"
   },
+  "reviews": {
+    "title": "What players are saying",
+    "description": "Real reviews from creators and players in the community.",
+    "creatorReviews": "Creator Reviews",
+    "playerReviews": "Player Reviews",
+    "viewAll": "View all reviews",
+    "helpful": "helpful",
+    "reply": "Reply"
+  },
   "metadata": {
     "home": {
       "title": "hytale.GG - Find Your Perfect Server",

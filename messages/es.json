@@ -204,6 +204,15 @@
     "language": "Idioma",
     "theme": "Tema"
   },
+  "reviews": {
+    "title": "Lo que dicen los jugadores",
+    "description": "Reseñas reales de creadores y jugadores en la comunidad.",
+    "creatorReviews": "Reseñas de Creadores",
+    "playerReviews": "Reseñas de Jugadores",
+    "viewAll": "Ver todas las reseñas",
+    "helpful": "útiles",
+    "reply": "Responder"
+  },
   "metadata": {
     "home": {
       "title": "hytale.GG - Encuentra tu Servidor Perfecto",
