@@ -11,5 +11,16 @@ export default async function ProfilePage() {
     redirect('/auth/signin')
   }
 
-  redirect(`/profile/${user.id}`)
+  // Get user's username
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('username')
+    .eq('id', user.id)
+    .single()
+
+  if (!profile?.username) {
+    redirect('/auth/signin')
+  }
+
+  redirect(`/profile/${profile.username}`)
 }

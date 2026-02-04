@@ -8,7 +8,26 @@ type UserAchievement = Database['public']['Tables']['user_achievements']['Row']
 type UserActivity = Database['public']['Tables']['user_activity']['Row']
 
 /**
- * Fetch user profile
+ * Get user ID by username
+ */
+export async function getUserIdByUsername(username: string): Promise<string> {
+  const supabase = await createClient()
+  const { data, error } = await supabase
+    .from('profiles')
+    .select('id')
+    .eq('username', username.toLowerCase())
+    .single()
+
+  if (error) {
+    console.error('Error fetching user by username:', error)
+    throw new Error('User not found')
+  }
+
+  return data.id
+}
+
+/**
+ * Fetch user profile by ID
  */
 export async function getProfile(userId: string) {
   const supabase = await createClient()

@@ -30,6 +30,8 @@ export function ProfileInformationCard({
     discord_id: profile.discord_id || '',
   })
 
+  const username = profile.username || 'username_not_set'
+
   const [state, formAction, isPending] = useActionState(
     async (prevState: any, formData: FormData) => {
       const data = {
@@ -68,6 +70,16 @@ export function ProfileInformationCard({
       <CardContent className="space-y-4">
         <form action={formAction} className="space-y-4">
           <div className="grid gap-4 sm:grid-cols-2">
+            <div className="space-y-2">
+              <Label htmlFor="username">Username</Label>
+              <Input
+                id="username"
+                value={username}
+                disabled
+                className="disabled:opacity-100"
+              />
+              <p className="text-xs text-muted-foreground">Username cannot be changed</p>
+            </div>
             <div className="space-y-2">
               <Label htmlFor="display_name">Display Name</Label>
               <Input

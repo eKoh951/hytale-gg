@@ -4,6 +4,7 @@ import { ProfileHero } from '@/components/profile/profile-hero'
 import { RecentActivityCard } from '@/components/profile/recent-activity-card'
 import { GamingStatsCard } from '@/components/profile/gaming-stats-card'
 import { AchievementsCard } from '@/components/profile/achievements-card'
+import { getUserIdByUsername } from '@/lib/data/profile'
 import {
   ProfileHeroSkeleton,
   ActivitySkeleton,
@@ -13,12 +14,15 @@ import {
 
 interface ProfilePageProps {
   params: Promise<{
-    id: string
+    username: string
   }>
 }
 
 export default async function ProfilePage({ params }: ProfilePageProps) {
-  const { id } = await params
+  const { username } = await params
+  
+  // Look up user ID by username
+  const userId = await getUserIdByUsername(username)
 
   // TODO: Get current user from auth to determine if viewing own profile
   const isOwnProfile = false
@@ -27,7 +31,7 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
     <div className="min-h-screen bg-background">
       {/* Hero Section - Cached */}
       <Suspense fallback={<ProfileHeroSkeleton />}>
-        <ProfileHero userId={id} isOwnProfile={isOwnProfile} />
+        <ProfileHero userId={userId} isOwnProfile={isOwnProfile} />
       </Suspense>
 
       <TerrainDivider />
@@ -39,7 +43,7 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
           <div className="space-y-6 lg:col-span-2">
             {/* Recent Activity - Dynamic (Suspense) */}
             <Suspense fallback={<ActivitySkeleton />}>
-              <RecentActivityCard userId={id} />
+              <RecentActivityCard userId={userId} />
             </Suspense>
           </div>
 
@@ -47,12 +51,12 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
           <div className="space-y-6">
             {/* Gaming Stats - Cached */}
             <Suspense fallback={<StatsCardSkeleton />}>
-              <GamingStatsCard userId={id} />
+              <GamingStatsCard userId={userId} />
             </Suspense>
 
             {/* Achievements - Cached */}
             <Suspense fallback={<AchievementsSkeleton />}>
-              <AchievementsCard userId={id} />
+              <AchievementsCard userId={userId} />
             </Suspense>
           </div>
         </div>
