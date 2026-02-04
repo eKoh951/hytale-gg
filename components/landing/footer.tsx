@@ -15,6 +15,7 @@ const footerLinks = {
     { label: "API", href: "/api" },
     { label: "Blog", href: "/blog" },
     { label: "FAQ", href: "/faq" },
+    { label: "Branding", href: "/branding" },
   ],
   "Server Owners": [
     { label: "List Your Server", href: "/submit" },
