@@ -112,22 +112,6 @@ const { state: { user, isLoading }, actions: { signIn, signOut } } = useAuth()
 
 ---
 
-## Next.js Configuration
-
-### Experimental Features
-```typescript
-experimental: {
-  cacheComponents: true,
-}
-```
-
-### Cache Invalidation Strategy
-- Uses `updateTag()` from `next/cache` for immediate cache invalidation
-- Profile data tagged with `profile-{userId}`
-- Stats tagged with `stats-{userId}`
-- Achievements tagged with `achievements-{userId}`
-- Activity is dynamic (not cached) and streams in
-
 ### Middleware
 - `proxy.ts` handles session updates
 - Matcher excludes static files, images, favicon
