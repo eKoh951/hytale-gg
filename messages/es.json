@@ -43,7 +43,107 @@
     "serverOwners": "Dueños de Servidores",
     "legal": "Legal",
     "description": "El directorio de servidores móvil líder para la comunidad de Hytale.",
-    "copyright": "© {year} hytale.GG. Todos los derechos reservados. No afiliado con Hypixel Studios."
+    "copyright": " hytale.GG. Todos los derechos reservados. No afiliado con Hypixel Studios."
+  },
+  "branding": {
+    "title": "Guías de Marca",
+    "description": "Recursos esenciales y estándares para la identidad de marca de hytale.GG",
+    "hero": {
+      "title": "Guías de Marca",
+      "subtitle": "Recursos esenciales y estándares para la identidad de marca de hytale.GG"
+    },
+    "logo": {
+      "title": "Logo",
+      "variants": {
+        "hytaleGG": {
+          "name": "hytale.GG",
+          "alt": "Logo Completo hytale.GG",
+          "useCase": "Encabezados, materiales de marketing, pantallas grandes"
+        },
+        "hGG": {
+          "name": "h.GG",
+          "alt": "Logo Corto h.GG",
+          "useCase": "Favicon, perfiles sociales, espacios compactos"
+        }
+      },
+      "guidelines": {
+        "title": "Pautas de Uso",
+        "dos": {
+          "title": "Permitido",
+          "darkBackground": "Usar en fondos oscuros (#1F2937 o más oscuros)",
+          "aspectRatio": "Mantener la relación de aspecto al escalar",
+          "clearSpace": "Mantener espacio libre alrededor del logo"
+        },
+        "donts": {
+          "title": "Prohibido",
+          "rotate": "No rotar o distorsionar",
+          "colors": "No cambiar colores",
+          "effects": "No agregar efectos (sombras, brillos)"
+        }
+      }
+    },
+    "colors": {
+      "title": "Paleta de Colores",
+      "purple": {
+        "name": "Púrpura",
+        "usage": "Texto hytale, marca principal"
+      },
+      "yellow": {
+        "name": "Amarillo",
+        "usage": "Texto GG, acentos, llamadas a la acción"
+      },
+      "darkGray": {
+        "name": "Gris Oscuro",
+        "usage": "Contornos, bordes"
+      },
+      "grass": {
+        "name": "Hierba",
+        "usage": "Parte superior del bloque"
+      },
+      "grassDark": {
+        "name": "Hierba Oscura",
+        "usage": "Lados del bloque"
+      },
+      "dirt": {
+        "name": "Tierra",
+        "usage": "Parte inferior del bloque"
+      }
+    },
+    "typography": {
+      "title": "Tipografía",
+      "logoFonts": {
+        "title": "Fuentes del Logo",
+        "hytaleFont": "Press Start 2P (hytale)",
+        "ggFont": "Minecraft/Minecrafter (GG)"
+      },
+      "websiteFonts": {
+        "title": "Fuentes del Sitio Web",
+        "bodyFont": "Geist Sans (Cuerpo)",
+        "headingFont": "Montserrat (Encabezados)",
+        "codeFont": "Geist Mono (Código)"
+      },
+      "sampleText": {
+        "body": "El rápido zorro marrón salta sobre el perro perezoso",
+        "heading": "Ejemplo de Encabezado",
+        "code": "play.hytale.gg:25565"
+      }
+    },
+    "tokens": {
+      "title": "Tokens de Diseño",
+      "core": "Tokens Principales",
+      "brand": "Tokens Específicos de Marca"
+    },
+    "registry": {
+      "title": "Registro de Componentes",
+      "name": "Registro de Componentes Hytale.GG",
+      "description": "Explora nuestra biblioteca completa de componentes con ejemplos interactivos, vistas previas en vivo y componentes de sistema de diseño personalizables construidos específicamente para Hytale.GG.",
+      "openRegistry": "Abrir Registro",
+      "features": {
+        "components": "{count}+ componentes disponibles",
+        "theme": "Sistema de diseño temático de juegos",
+        "tech": "Construido con shadcn/ui y Next.js 16"
+      }
+    }
   },
   "metadata": {
     "home": {

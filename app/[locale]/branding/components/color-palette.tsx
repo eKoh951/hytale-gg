@@ -1,50 +1,59 @@
 import { ColorCard } from "./color-card";
+import { useTranslations } from 'next-intl';
 
 const colors = [
   {
-    name: "Purple",
+    nameKey: "purple",
     hex: "var(--primary)",
-    usage: "hytale text, brand primary",
+    usageKey: "purple.usage",
     bgColor: "bg-primary",
   },
   {
-    name: "Yellow",
+    nameKey: "yellow",
     hex: "var(--secondary)",
-    usage: "GG text, accents, CTAs",
+    usageKey: "yellow.usage",
     bgColor: "bg-secondary",
   },
   {
-    name: "Dark Gray",
+    nameKey: "darkGray",
     hex: "var(--border)",
-    usage: "Outlines, borders",
+    usageKey: "darkGray.usage",
     bgColor: "bg-border",
   },
   {
-    name: "Grass",
+    nameKey: "grass",
     hex: "var(--grass)",
-    usage: "Block top",
+    usageKey: "grass.usage",
     bgColor: "bg-[var(--grass)]",
   },
   {
-    name: "Grass Dark",
+    nameKey: "grassDark",
     hex: "var(--grass-dark)",
-    usage: "Block sides",
+    usageKey: "grassDark.usage",
     bgColor: "bg-[var(--grass-dark)]",
   },
   {
-    name: "Dirt",
+    nameKey: "dirt",
     hex: "var(--dirt)",
-    usage: "Block bottom",
+    usageKey: "dirt.usage",
     bgColor: "bg-[var(--dirt)]",
   },
 ];
 
 export function ColorPalette() {
+  const t = useTranslations('branding.colors');
+  
+  const colorsWithTranslations = colors.map(color => ({
+    ...color,
+    name: t(`${color.nameKey}.name`),
+    usage: t(`${color.usageKey}`),
+  }));
+  
   return (
     <section className="mb-20">
-      <h2 className="mb-6 font-serif text-3xl font-bold text-foreground">Color Palette</h2>
+      <h2 className="mb-6 font-serif text-3xl font-bold text-foreground">{t('title')}</h2>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {colors.map((color) => (
+        {colorsWithTranslations.map((color) => (
           <ColorCard
             key={color.name}
             name={color.name}

@@ -13,7 +13,7 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
-export default async function RootLayout({
+export default async function LocaleLayout({
   children,
   params
 }: Readonly<Props>) {

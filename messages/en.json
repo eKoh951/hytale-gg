@@ -43,7 +43,107 @@
     "serverOwners": "Server Owners",
     "legal": "Legal",
     "description": "The premier mobile-first server directory for the Hytale community.",
-    "copyright": "© {year} hytale.GG. All rights reserved. Not affiliated with Hypixel Studios."
+    "copyright": " {year} hytale.GG. All rights reserved. Not affiliated with Hypixel Studios."
+  },
+  "branding": {
+    "title": "Brand Guidelines",
+    "description": "Essential assets and standards for the hytale.GG brand identity",
+    "hero": {
+      "title": "Brand Guidelines",
+      "subtitle": "Essential assets and standards for the hytale.GG brand identity"
+    },
+    "logo": {
+      "title": "Logo",
+      "variants": {
+        "hytaleGG": {
+          "name": "hytale.GG",
+          "alt": "hytale.GG Full Logo",
+          "useCase": "Headers, marketing materials, large displays"
+        },
+        "hGG": {
+          "name": "h.GG",
+          "alt": "h.GG Short Logo",
+          "useCase": "Favicon, social profiles, compact spaces"
+        }
+      },
+      "guidelines": {
+        "title": "Usage Guidelines",
+        "dos": {
+          "title": "Do's",
+          "darkBackground": "Use on dark backgrounds (#1F2937 or darker)",
+          "aspectRatio": "Maintain aspect ratio when scaling",
+          "clearSpace": "Keep clear space around logo"
+        },
+        "donts": {
+          "title": "Don'ts",
+          "rotate": "Don't rotate or distort",
+          "colors": "Don't change colors",
+          "effects": "Don't add effects (shadows, glows)"
+        }
+      }
+    },
+    "colors": {
+      "title": "Color Palette",
+      "purple": {
+        "name": "Purple",
+        "usage": "hytale text, brand primary"
+      },
+      "yellow": {
+        "name": "Yellow",
+        "usage": "GG text, accents, CTAs"
+      },
+      "darkGray": {
+        "name": "Dark Gray",
+        "usage": "Outlines, borders"
+      },
+      "grass": {
+        "name": "Grass",
+        "usage": "Block top"
+      },
+      "grassDark": {
+        "name": "Grass Dark",
+        "usage": "Block sides"
+      },
+      "dirt": {
+        "name": "Dirt",
+        "usage": "Block bottom"
+      }
+    },
+    "typography": {
+      "title": "Typography",
+      "logoFonts": {
+        "title": "Logo Fonts",
+        "hytaleFont": "Press Start 2P (hytale)",
+        "ggFont": "Minecraft/Minecrafter (GG)"
+      },
+      "websiteFonts": {
+        "title": "Website Fonts",
+        "bodyFont": "Geist Sans (Body)",
+        "headingFont": "Montserrat (Headings)",
+        "codeFont": "Geist Mono (Code)"
+      },
+      "sampleText": {
+        "body": "The quick brown fox jumps over the lazy dog",
+        "heading": "Heading Example",
+        "code": "play.hytale.gg:25565"
+      }
+    },
+    "tokens": {
+      "title": "Design Tokens",
+      "core": "Core Tokens",
+      "brand": "Brand-Specific Tokens"
+    },
+    "registry": {
+      "title": "Component Registry",
+      "name": "Hytale.GG Component Registry",
+      "description": "Explore our complete component library with interactive examples, live previews, and customizable design system components built specifically for Hytale.GG.",
+      "openRegistry": "Open Registry",
+      "features": {
+        "components": "{count}+ components available",
+        "theme": "Gaming-themed design system",
+        "tech": "Built with shadcn/ui & Next.js 16"
+      }
+    }
   },
   "metadata": {
     "home": {

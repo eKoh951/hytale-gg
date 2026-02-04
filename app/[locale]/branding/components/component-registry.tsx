@@ -1,11 +1,14 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Palette } from "lucide-react";
+import { useTranslations } from 'next-intl';
 
 export function ComponentRegistry() {
+  const t = useTranslations('branding.registry');
+  
   return (
     <section className="mb-20">
-      <h2 className="mb-6 font-serif text-3xl font-bold text-foreground">Component Registry</h2>
+      <h2 className="mb-6 font-serif text-3xl font-bold text-foreground">{t('title')}</h2>
       <Card className="border-2 border-border bg-card p-8 text-center">
         <div className="mx-auto max-w-2xl">
           <div className="mb-6 flex justify-center">
@@ -15,13 +18,11 @@ export function ComponentRegistry() {
           </div>
           
           <h3 className="mb-4 text-xl font-semibold text-foreground">
-            Hytale.GG Component Registry
+            {t('name')}
           </h3>
           
           <p className="mb-6 text-muted-foreground">
-            Explore our complete component library with interactive examples, 
-            live previews, and customizable design system components built 
-            specifically for Hytale.GG.
+            {t('description')}
           </p>
 
           <div className="space-y-4">
@@ -33,14 +34,14 @@ export function ComponentRegistry() {
                 className="flex items-center gap-2"
               >
                 <ExternalLink className="h-4 w-4" />
-                Open Registry
+                {t('openRegistry')}
               </a>
             </Button>
             
             <div className="text-sm text-muted-foreground">
-              <p>✨ 43+ components available</p>
-              <p>🎨 Gaming-themed design system</p>
-              <p>⚡ Built with shadcn/ui & Next.js 16</p>
+              <p>✨ {t('features.components', { count: 43 })}</p>
+              <p>🎨 {t('features.theme')}</p>
+              <p>⚡ {t('features.tech')}</p>
             </div>
           </div>
         </div>

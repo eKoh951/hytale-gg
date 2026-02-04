@@ -3,22 +3,28 @@ import { Footer } from "@/components/landing/footer";
 import { BrandGuidelines } from "./components/brand-guidelines";
 import { Suspense } from "react";
 import { ComponentRegistry } from "./components/component-registry";
+import { getTranslations } from 'next-intl/server';
+import type { Metadata } from 'next';
 
-// Static metadata for the branding page
-export const metadata = {
-  title: "Brand Guidelines | hytale.GG",
-  description: "Essential assets and standards for the hytale.GG brand identity",
-  openGraph: {
-    title: "Brand Guidelines | hytale.GG",
-    description: "Essential assets and standards for the hytale.GG brand identity",
-    type: "website",
-  },
-  keywords: ["brand guidelines", "hytale", "gaming", "design system", "logo", "colors"],
-  authors: [{ name: "hytale.GG" }],
-};
+// Generate metadata using translations
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('metadata.branding');
+  
+  return {
+    title: t('title'),
+    description: t('description'),
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      type: 'website',
+    },
+    keywords: ['brand guidelines', 'hytale', 'gaming', 'design system', 'logo', 'colors'],
+    authors: [{ name: 'hytale.GG' }],
+  };
+}
 
 // Force static generation for this page with revalidation
-export const dynamic = "force-static";
+export const dynamic = 'force-static';
 export const revalidate = 86400; // Revalidate once per day
 
 export default function BrandingPage() {
