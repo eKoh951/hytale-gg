@@ -12,28 +12,28 @@ export function Footer() {
 
   const footerLinks = {
     platform: [
-      { label: t('servers'), href: "/servers" },
-      { label: t('creators'), href: "/creators" },
-      { label: t('mods'), href: "/mods" },
-      { label: t('events'), href: "/events" },
+      { label: t('servers'), href: "/servers" as const },
+      { label: t('creators'), href: "/creators" as const },
+      { label: t('mods'), href: "/mods" as const },
+      { label: t('events'), href: "/events" as const },
     ],
     resources: [
-      { label: t('branding'), href: "/branding" },
-      { label: t('gettingStarted'), href: "/guide" },
-      { label: t('api'), href: "/api" },
-      { label: t('blog'), href: "/blog" },
-      { label: t('faq'), href: "/faq" },
+      { label: t('branding'), href: "/branding" as const },
+      { label: t('gettingStarted'), href: "/guide" as const },
+      { label: t('api'), href: "/api" as const },
+      { label: t('blog'), href: "/blog" as const },
+      { label: t('faq'), href: "/faq" as const },
     ],
     serverOwners: [
-      { label: t('listServer'), href: "/submit" },
-      { label: t('dashboard'), href: "/dashboard" },
-      { label: t('analytics'), href: "/analytics" },
-      { label: t('verification'), href: "/verify" },
+      { label: t('listServer'), href: "/submit" as const },
+      { label: t('dashboard'), href: "/dashboard" as const },
+      { label: t('analytics'), href: "/analytics" as const },
+      { label: t('verification'), href: "/verify" as const },
     ],
     legal: [
-      { label: t('privacy'), href: "/privacy" },
-      { label: t('terms'), href: "/terms" },
-      { label: t('contact'), href: "/contact" },
+      { label: t('privacy'), href: "/privacy" as const },
+      { label: t('terms'), href: "/terms" as const },
+      { label: t('contact'), href: "/contact" as const },
     ],
   };
 
