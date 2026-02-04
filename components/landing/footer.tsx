@@ -4,35 +4,39 @@ import Link from "next/link";
 import Image from "next/image";
 import { Github, Twitter } from "lucide-react";
 import { IconDivider, FooterTerrainDivider } from "@/components/ui/hytale-decorations";
-
-const footerLinks = {
-  Platform: [
-    { label: "Servers", href: "/servers" },
-    { label: "Creators", href: "/creators" },
-    { label: "Mods", href: "/mods" },
-    { label: "Events", href: "/events" },
-  ],
-  Resources: [
-    { label: "Brand Guidelines", href: "/branding" },
-    { label: "Getting Started", href: "/guide" },
-    { label: "API", href: "/api" },
-    { label: "Blog", href: "/blog" },
-    { label: "FAQ", href: "/faq" },
-  ],
-  "Server Owners": [
-    { label: "List Your Server", href: "/submit" },
-    { label: "Dashboard", href: "/dashboard" },
-    { label: "Analytics", href: "/analytics" },
-    { label: "Verification", href: "/verify" },
-  ],
-  Legal: [
-    { label: "Privacy", href: "/privacy" },
-    { label: "Terms", href: "/terms" },
-    { label: "Contact", href: "/contact" },
-  ],
-};
+import { useTranslations } from 'next-intl';
+import { Link as I18nLink } from '@/i18n/navigation';
 
 export function Footer() {
+  const t = useTranslations('footer');
+
+  const footerLinks = {
+    platform: [
+      { label: t('servers'), href: "/servers" },
+      { label: t('creators'), href: "/creators" },
+      { label: t('mods'), href: "/mods" },
+      { label: t('events'), href: "/events" },
+    ],
+    resources: [
+      { label: t('branding'), href: "/branding" },
+      { label: t('gettingStarted'), href: "/guide" },
+      { label: t('api'), href: "/api" },
+      { label: t('blog'), href: "/blog" },
+      { label: t('faq'), href: "/faq" },
+    ],
+    serverOwners: [
+      { label: t('listServer'), href: "/submit" },
+      { label: t('dashboard'), href: "/dashboard" },
+      { label: t('analytics'), href: "/analytics" },
+      { label: t('verification'), href: "/verify" },
+    ],
+    legal: [
+      { label: t('privacy'), href: "/privacy" },
+      { label: t('terms'), href: "/terms" },
+      { label: t('contact'), href: "/contact" },
+    ],
+  };
+
   return (
     <footer className="relative bg-muted text-foreground">
       {/* Minecraft cobblestone texture overlay */}
@@ -78,8 +82,7 @@ export function Footer() {
               />
             </Link>
             <p className="mt-4 text-sm text-muted-foreground">
-              The premier mobile-first server directory for the Hytale
-              community.
+              {t('description')}
             </p>
             <div className="mt-4 flex gap-4">
               <a
@@ -87,7 +90,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground transition-colors hover:text-foreground"
-                aria-label="Twitter"
+                aria-label={t('twitter')}
               >
                 <Twitter className="h-5 w-5" />
               </a>
@@ -96,7 +99,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground transition-colors hover:text-foreground"
-                aria-label="GitHub"
+                aria-label={t('github')}
               >
                 <Github className="h-5 w-5" />
               </a>
@@ -105,7 +108,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground transition-colors hover:text-foreground"
-                aria-label="Discord"
+                aria-label={t('discord')}
               >
                 <svg
                   className="h-5 w-5"
@@ -120,30 +123,72 @@ export function Footer() {
           </div>
 
           {/* Links */}
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h3 className="text-sm font-semibold text-foreground">{title}</h3>
-              <ul className="mt-4 space-y-3">
-                {links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div>
+            <h3 className="text-sm font-semibold text-foreground">{t('platform')}</h3>
+            <ul className="mt-4 space-y-3">
+              {footerLinks.platform.map((link) => (
+                <li key={link.href}>
+                  <I18nLink
+                    href={link.href}
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {link.label}
+                  </I18nLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold text-foreground">{t('resources')}</h3>
+            <ul className="mt-4 space-y-3">
+              {footerLinks.resources.map((link) => (
+                <li key={link.href}>
+                  <I18nLink
+                    href={link.href}
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {link.label}
+                  </I18nLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold text-foreground">{t('serverOwners')}</h3>
+            <ul className="mt-4 space-y-3">
+              {footerLinks.serverOwners.map((link) => (
+                <li key={link.href}>
+                  <I18nLink
+                    href={link.href}
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {link.label}
+                  </I18nLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold text-foreground">{t('legal')}</h3>
+            <ul className="mt-4 space-y-3">
+              {footerLinks.legal.map((link) => (
+                <li key={link.href}>
+                  <I18nLink
+                    href={link.href}
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {link.label}
+                  </I18nLink>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         {/* Bottom */}
         <IconDivider icon="pickaxe" className="mt-12 mb-8" />
         <p className="text-center text-xs text-muted-foreground">
-          &copy; {new Date().getFullYear()} hytale.GG. All rights reserved.
-          Not affiliated with Hypixel Studios.
+          {t('copyright', { year: new Date().getFullYear() })}
         </p>
       </div>
     </footer>

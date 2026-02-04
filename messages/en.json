@@ -17,7 +17,26 @@
     "serverOwners": "Server Owners",
     "legal": "Legal",
     "description": "The premier mobile-first server directory for the Hytale community.",
-    "copyright": " {year} hytale.GG. All rights reserved. Not affiliated with Hypixel Studios."
+    "copyright": " {year} hytale.GG. All rights reserved. Not affiliated with Hypixel Studios.",
+    "servers": "Servers",
+    "creators": "Creators",
+    "mods": "Mods",
+    "events": "Events",
+    "branding": "Brand Guidelines",
+    "gettingStarted": "Getting Started",
+    "api": "API",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "listServer": "List Your Server",
+    "dashboard": "Dashboard",
+    "analytics": "Analytics",
+    "verification": "Verification",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "contact": "Contact",
+    "twitter": "Twitter",
+    "github": "GitHub",
+    "discord": "Discord"
   },
   "home": {
     "hero": {
