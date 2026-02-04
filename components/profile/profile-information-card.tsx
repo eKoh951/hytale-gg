@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
-import { updateProfile, checkUsernameAvailability, updateUsername } from '@/app/profile/actions'
+import { updateProfile, checkUsernameAvailability, updateUsername } from '@/app/[locale]/profile/actions'
 import type { Database } from '@/lib/types/database.types'
 
 type Profile = Database['public']['Tables']['profiles']['Row']
