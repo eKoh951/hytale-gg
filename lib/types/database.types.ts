@@ -198,7 +198,7 @@ export type Database = {
           id?: string
           preferred_locale?: string
           updated_at?: string
-          user_id?: string
+          user_id: string
         }
         Update: {
           auto_detect?: boolean
@@ -256,7 +256,7 @@ export type Database = {
       generate_username: { Args: { display_name: string }; Returns: string }
     }
     Enums: {
-      [_ in never]: never
+      locale_enum: "en" | "es"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -383,6 +383,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      locale_enum: ["en", "es"],
+    },
   },
 } as const
