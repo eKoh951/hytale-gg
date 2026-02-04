@@ -3,7 +3,7 @@ import { Footer } from "@/components/landing/footer";
 import { BrandGuidelines } from "./components/brand-guidelines";
 import { Suspense } from "react";
 import { ComponentRegistry } from "./components/component-registry";
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
 
 // Generate metadata using translations
@@ -27,8 +27,17 @@ export async function generateMetadata(): Promise<Metadata> {
 export const dynamic = 'force-static';
 export const revalidate = 86400; // Revalidate once per day
 
+// Generate static params for all locales
+export async function generateStaticParams() {
+  return [{ locale: 'en' }, { locale: 'es' }];
+}
+
 export default async function BrandingPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  
+  // Enable static rendering
+  setRequestLocale(locale);
+  
   const t = await getTranslations({ locale, namespace: 'branding' });
   
   return (

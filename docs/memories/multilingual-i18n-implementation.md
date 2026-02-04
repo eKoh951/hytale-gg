@@ -148,6 +148,74 @@ export default async function BrandingPage({ params }: { params: Promise<{ local
 - `/en/branding` continues to show English translations
 - Both Server and Client Components work correctly
 
+## Critical Discovery - next-intl Pathnames Implementation
+
+### **Issue**: next-intl Pathnames Not Working with Direct URL Navigation
+**Problem**: Despite correct configuration, localized pathnames like `/es/guia-de-marca` returned 404 errors when accessed directly via URL bar.
+
+### **Root Cause Analysis**:
+Through extensive debugging, we discovered that:
+1. **next-intl middleware runs correctly** and processes the request
+2. **Pathnames configuration is loaded properly** 
+3. **But no internal rewrite occurs** - the URL stays `/es/guia-de-marca` instead of being rewritten to `/es/branding`
+4. **next-intl pathnames are designed for navigation components** (`Link`, `useRouter`) rather than direct URL navigation
+
+### **Debug Evidence**:
+```javascript
+// Middleware logs showed:
+🔍 Middleware running for: /es/guia-de-marca  ✅
+routing { '/branding': { en: '/branding', es: '/guia-de-marca' } }  ✅
+🔍 After i18n routing, URL is still: /es/guia-de-marca  ❌ No rewrite!
+🔍 i18nResponse status: 200  ✅
+GET /es/guia-de-marca 404 in 71ms  ❌ Next.js serves 404
+```
+
+### **Solution**: Next.js Rewrites + next-intl Navigation
+**Hybrid Approach**: Use Next.js rewrites for direct URL navigation + keep next-intl for navigation components.
+
+```typescript
+// next.config.ts
+const nextConfig: NextConfig = {
+  async rewrites() {
+    return [
+      // Spanish localized pathnames
+      {
+        source: '/es/guia-de-marca',
+        destination: '/es/branding',
+      },
+      {
+        source: '/es/prueba',
+        destination: '/es/test',
+      },
+      // Add more as needed
+    ];
+  },
+};
+```
+
+### **How It Works**:
+1. **User types**: `/es/guia-de-marca`
+2. **Next.js rewrite**: `/es/guia-de-marca` → `/es/branding` (internal)
+3. **Next.js serves**: Content from `/es/branding` page
+4. **User sees**: `/es/guia-de-marca` in browser (URL unchanged)
+5. **Navigation components**: Still use next-intl `Link` with internal paths
+
+### **Key Learning**:
+- **next-intl pathnames**: Work great for navigation components but not direct URL access
+- **Next.js rewrites**: Handle direct URL navigation and browser refresh scenarios
+- **Hybrid approach**: Best of both worlds - SEO-friendly URLs + reliable navigation
+
+### **Files Updated**:
+- `next.config.ts` - Added rewrites for localized pathnames
+- `i18n/routing.ts` - Simplified back to basic configuration (removed pathnames)
+- `proxy.ts` - Cleaned up debug logs
+
+### **Result**:
+- ✅ `/es/guia-de-marca` now works via direct URL navigation
+- ✅ `/es/branding` continues to work
+- ✅ Navigation components still use next-intl properly
+- ✅ SEO-friendly Spanish URLs achieved
+
 ## Implementation Status
 - Dependencies installed (next-intl 4.8.2)
 - Plan created and approved
