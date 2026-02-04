@@ -7,6 +7,20 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
+async function handleSignIn() {
+  const response = await fetch('/auth/signin', { method: 'POST' })
+  const data = await response.json()
+  
+  if (data.error) {
+    console.error('Sign in error:', data.error)
+    return
+  }
+  
+  if (data.url) {
+    window.location.href = data.url
+  }
+}
+
 const navItems = [
   { label: "Servers", href: "/servers" },
   { label: "Creators", href: "/creators" },
@@ -103,7 +117,7 @@ export function Header() {
 
         {/* Desktop Auth Buttons */}
         <div className="hidden items-center gap-3 md:flex">
-          <Button variant="ghost" size="sm">
+          <Button variant="ghost" size="sm" onClick={handleSignIn}>
             Sign In
           </Button>
           <Button
@@ -149,7 +163,7 @@ export function Header() {
             </Link>
           ))}
           <div className="mt-4 flex flex-col gap-2 border-t border-border pt-4">
-            <Button variant="ghost" size="sm" className="justify-start">
+            <Button variant="ghost" size="sm" className="justify-start" onClick={handleSignIn}>
               Sign In
             </Button>
             <Button
