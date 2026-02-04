@@ -259,6 +259,105 @@ export async function logActivity(
 }
 
 /**
+ * Upload avatar to Supabase Storage
+ */
+export async function uploadAvatar(
+  userId: string,
+  file: File
+): Promise<UpdateProfileResult> {
+  try {
+    const supabase = await createClient()
+
+    // Verify user
+    const {
+      data: { user },
+      error: authError,
+    } = await supabase.auth.getUser()
+
+    if (authError || !user || user.id !== userId) {
+      return {
+        success: false,
+        error: 'Unauthorized',
+      }
+    }
+
+    // Validate file
+    if (!file.type.startsWith('image/')) {
+      return {
+        success: false,
+        error: 'File must be an image',
+      }
+    }
+
+    if (file.size > 2 * 1024 * 1024) {
+      return {
+        success: false,
+        error: 'File size must be less than 2MB',
+      }
+    }
+
+    // Generate file path: avatars/{userId}/avatar.{ext}
+    const ext = file.name.split('.').pop()?.toLowerCase() || 'jpg'
+    const filePath = `${userId}/avatar.${ext}`
+
+    // Delete old avatar if it exists
+    const { data: existingFiles } = await supabase.storage
+      .from('avatars')
+      .list(userId)
+
+    if (existingFiles && existingFiles.length > 0) {
+      const oldFiles = existingFiles.map((f) => `${userId}/${f.name}`)
+      await supabase.storage.from('avatars').remove(oldFiles)
+    }
+
+    // Upload new avatar
+    const { error: uploadError } = await supabase.storage
+      .from('avatars')
+      .upload(filePath, file, { upsert: true })
+
+    if (uploadError) {
+      console.error('Error uploading avatar:', uploadError)
+      return {
+        success: false,
+        error: 'Failed to upload avatar',
+      }
+    }
+
+    // Get public URL
+    const { data } = supabase.storage.from('avatars').getPublicUrl(filePath)
+    const avatarUrl = data.publicUrl
+
+    // Update profile with new avatar URL
+    const { error: updateError } = await supabase
+      .from('profiles')
+      .update({ avatar_url: avatarUrl })
+      .eq('id', userId)
+
+    if (updateError) {
+      console.error('Error updating profile avatar:', updateError)
+      return {
+        success: false,
+        error: 'Failed to update profile',
+      }
+    }
+
+    // Invalidate profile cache
+    updateTag(`profile-${userId}`)
+
+    return {
+      success: true,
+      message: 'Avatar uploaded successfully',
+    }
+  } catch (error) {
+    console.error('Unexpected error uploading avatar:', error)
+    return {
+      success: false,
+      error: 'An unexpected error occurred',
+    }
+  }
+}
+
+/**
  * Check username availability
  */
 export async function checkUsernameAvailability(

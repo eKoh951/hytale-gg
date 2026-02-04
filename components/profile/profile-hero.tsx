@@ -30,7 +30,12 @@ export async function ProfileHero({
       <div className="container relative mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-end">
           {/* Avatar with Level Badge */}
-          <ProfileAvatar profile={profile} level={profile.level || 1} />
+          <ProfileAvatar
+            profile={profile}
+            level={profile.level || 1}
+            userId={userId}
+            isOwnProfile={isOwnProfile}
+          />
 
           {/* User Info */}
           <ProfileInfo profile={profile} stats={stats} />
