@@ -5,7 +5,6 @@ import { Footer } from "@/components/landing/footer";
 
 import { cn } from "@/lib/utils";
 import { AuthProvider } from "@/components/auth/auth-provider";
-import { NextIntlClientProvider } from "next-intl";
 import "@/app/globals.css";
 
 const GeistSans = Geist({
@@ -40,8 +39,8 @@ export default function RootLayout({
     >
       <body className="min-h-screen bg-background">
         <AuthProvider>
-        <Header />
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <Header />
+          {children}
         </AuthProvider>
         <Footer />
       </body>
