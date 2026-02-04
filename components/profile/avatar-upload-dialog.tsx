@@ -5,7 +5,7 @@ import { Upload, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ImageCropper } from './image-cropper'
-import { uploadAvatar } from '@/app/[locale]/profile/actions'
+import { uploadAvatar } from '@/app/profile/actions'
 
 interface AvatarUploadDialogProps {
   userId: string
