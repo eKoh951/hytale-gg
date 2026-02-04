@@ -15,7 +15,7 @@ export default function Loading() {
       <TerrainDivider />
 
       {/* Main Content */}
-      <div className="container mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="container mx-auto pt-16 max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-3">
           {/* Left Column */}
           <div className="space-y-6 lg:col-span-2">

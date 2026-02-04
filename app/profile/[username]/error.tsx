@@ -16,7 +16,7 @@ export default function Error({
   }, [error])
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen pt-16 bg-background">
       <div className="container mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <Card className="border-2 border-destructive">
           <CardHeader>

@@ -1,6 +1,7 @@
 'use server'
 
 import { updateTag } from 'next/cache'
+import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import type { TablesUpdate } from '@/lib/types/database.types'
 
@@ -250,6 +251,146 @@ export async function logActivity(
     }
   } catch (error) {
     console.error('Unexpected error logging activity:', error)
+    return {
+      success: false,
+      error: 'An unexpected error occurred',
+    }
+  }
+}
+
+/**
+ * Check username availability
+ */
+export async function checkUsernameAvailability(
+  username: string,
+  excludeUserId?: string
+): Promise<{ available: boolean; error?: string }> {
+  try {
+    // Validate username format
+    const usernameRegex = /^[a-z0-9_]{3,20}$/
+    if (!usernameRegex.test(username)) {
+      return {
+        available: false,
+        error: 'Username must be 3-20 characters, lowercase letters, numbers, and underscores only',
+      }
+    }
+
+    const supabase = await createClient()
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('id')
+      .eq('username', username.toLowerCase())
+      .single()
+
+    // If error is "no rows", username is available
+    if (error?.code === 'PGRST116') {
+      return { available: true }
+    }
+
+    // If we found a user, check if it's the same user
+    if (data && excludeUserId && data.id === excludeUserId) {
+      return { available: true }
+    }
+
+    // Username is taken
+    if (data) {
+      return {
+        available: false,
+        error: 'Username is already taken',
+      }
+    }
+
+    // Other error
+    if (error) {
+      console.error('Error checking username:', error)
+      return {
+        available: false,
+        error: 'Failed to check username availability',
+      }
+    }
+
+    return { available: true }
+  } catch (error) {
+    console.error('Unexpected error checking username:', error)
+    return {
+      available: false,
+      error: 'An unexpected error occurred',
+    }
+  }
+}
+
+/**
+ * Update user username
+ */
+export async function updateUsername(
+  userId: string,
+  newUsername: string
+): Promise<UpdateProfileResult> {
+  try {
+    const supabase = await createClient()
+
+    // Verify user
+    const {
+      data: { user },
+      error: authError,
+    } = await supabase.auth.getUser()
+
+    if (authError || !user || user.id !== userId) {
+      return {
+        success: false,
+        error: 'Unauthorized',
+      }
+    }
+
+    // Validate username format
+    const usernameRegex = /^[a-z0-9_]{3,20}$/
+    if (!usernameRegex.test(newUsername)) {
+      return {
+        success: false,
+        error: 'Username must be 3-20 characters, lowercase letters, numbers, and underscores only',
+      }
+    }
+
+    // Check availability
+    const { data: existing } = await supabase
+      .from('profiles')
+      .select('id')
+      .eq('username', newUsername.toLowerCase())
+      .single()
+
+    if (existing && existing.id !== userId) {
+      return {
+        success: false,
+        error: 'Username is already taken',
+      }
+    }
+
+    // Update username
+    const { error } = await supabase
+      .from('profiles')
+      .update({ username: newUsername.toLowerCase() })
+      .eq('id', userId)
+
+    if (error) {
+      console.error('Error updating username:', error)
+      return {
+        success: false,
+        error: 'Failed to update username',
+      }
+    }
+
+    // Invalidate profile cache
+    updateTag(`profile-${userId}`)
+
+    // Redirect to new profile URL
+    redirect(`/profile/${newUsername.toLowerCase()}`)
+  } catch (error) {
+    // Rethrow redirect errors (they're not actual errors, just Next.js flow control)
+    if (error instanceof Error && error.message === 'NEXT_REDIRECT') {
+      throw error
+    }
+    
+    console.error('Unexpected error updating username:', error)
     return {
       success: false,
       error: 'An unexpected error occurred',

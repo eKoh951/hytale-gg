@@ -6,13 +6,11 @@ import { getProfile, getUserStats } from '@/lib/data/profile'
 interface ProfileHeroProps {
   userId: string
   isOwnProfile: boolean
-  onEditClick?: () => void
 }
 
 export async function ProfileHero({
   userId,
   isOwnProfile,
-  onEditClick,
 }: ProfileHeroProps) {
   const profile = await getProfile(userId)
   const stats = await getUserStats(userId)
@@ -36,17 +34,6 @@ export async function ProfileHero({
 
           {/* User Info */}
           <ProfileInfo profile={profile} stats={stats} />
-
-          {/* Edit Button */}
-          {isOwnProfile && (
-            <Button
-              onClick={onEditClick}
-              variant="outline"
-              className="hover:bg-secondary hover:text-secondary-foreground"
-            >
-              Edit Profile
-            </Button>
-          )}
         </div>
       </div>
     </div>

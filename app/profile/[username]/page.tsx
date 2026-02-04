@@ -4,7 +4,9 @@ import { ProfileHero } from '@/components/profile/profile-hero'
 import { RecentActivityCard } from '@/components/profile/recent-activity-card'
 import { GamingStatsCard } from '@/components/profile/gaming-stats-card'
 import { AchievementsCard } from '@/components/profile/achievements-card'
-import { getUserIdByUsername } from '@/lib/data/profile'
+import { ProfileInformationCard } from '@/components/profile/profile-information-card'
+import { getProfile, getUserIdByUsername } from '@/lib/data/profile'
+import { createClient } from '@/lib/supabase/server'
 import {
   ProfileHeroSkeleton,
   ActivitySkeleton,
@@ -23,12 +25,20 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
   
   // Look up user ID by username
   const userId = await getUserIdByUsername(username)
+  
+  // Get profile data for ProfileInformationCard
+  const profile = await getProfile(userId)
 
-  // TODO: Get current user from auth to determine if viewing own profile
-  const isOwnProfile = false
+  // Get current user from auth to determine if viewing own profile
+  const supabase = await createClient()
+  const {
+    data: { user: currentUser },
+  } = await supabase.auth.getUser()
+
+  const isOwnProfile = currentUser?.id === userId
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen pt-16 bg-background">
       {/* Hero Section - Cached */}
       <Suspense fallback={<ProfileHeroSkeleton />}>
         <ProfileHero userId={userId} isOwnProfile={isOwnProfile} />
@@ -41,6 +51,11 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
         <div className="grid gap-8 lg:grid-cols-3">
           {/* Left Column - Profile Info */}
           <div className="space-y-6 lg:col-span-2">
+            {/* Profile Information Card */}
+            {isOwnProfile && (
+              <ProfileInformationCard userId={userId} profile={profile} />
+            )}
+
             {/* Recent Activity - Dynamic (Suspense) */}
             <Suspense fallback={<ActivitySkeleton />}>
               <RecentActivityCard userId={userId} />
