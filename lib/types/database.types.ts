@@ -41,6 +41,41 @@ export type Database = {
         }
         Relationships: []
       }
+      avatar_uploads: {
+        Row: {
+          file_size: number | null
+          id: string
+          mime_type: string | null
+          storage_path: string
+          uploaded_at: string | null
+          user_id: string
+        }
+        Insert: {
+          file_size?: number | null
+          id?: string
+          mime_type?: string | null
+          storage_path: string
+          uploaded_at?: string | null
+          user_id: string
+        }
+        Update: {
+          file_size?: number | null
+          id?: string
+          mime_type?: string | null
+          storage_path?: string
+          uploaded_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "avatar_uploads_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -148,6 +183,33 @@ export type Database = {
           },
         ]
       }
+      user_preferences: {
+        Row: {
+          auto_detect: boolean
+          created_at: string
+          id: string
+          preferred_locale: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          auto_detect?: boolean
+          created_at?: string
+          id?: string
+          preferred_locale?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          auto_detect?: boolean
+          created_at?: string
+          id?: string
+          preferred_locale?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       user_stats: {
         Row: {
           achievements_unlocked: number | null
@@ -191,7 +253,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      generate_username: { Args: { display_name: string }; Returns: string }
     }
     Enums: {
       [_ in never]: never
