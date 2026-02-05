@@ -7,11 +7,16 @@ import { Footer } from "@/components/landing/footer";
 import { AuthProvider } from "@/components/auth/auth-provider";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
 import "@/app/globals.css";
 
 type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
+};
+
+export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://hytale.gg'),
 };
 
 export default async function LocaleLayout({

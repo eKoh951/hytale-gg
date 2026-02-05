@@ -1,9 +1,31 @@
 import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import React, { type ReactNode } from "react";
+import type { Metadata, Viewport } from "next";
 
 import { cn } from "@/lib/utils";
 import { AuthProvider } from "@/components/auth/auth-provider";
 import "@/app/globals.css";
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+};
+
+export const metadata: Metadata = {
+  title: 'hytale.GG',
+  description: 'Discover and join the best Hytale servers. Find gaming communities, creators, and server guides.',
+  applicationName: 'hytale.GG',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'hytale.GG',
+  },
+  formatDetection: {
+    telephone: false,
+  },
+};
 
 const GeistSans = Geist({
   subsets: ["latin"],
@@ -27,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="es"
+      lang="en"
       className={cn(
         GeistSans.variable,
         GeistMono.variable,
