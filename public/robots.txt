@@ -1,0 +1,13 @@
+# Allow all bots to crawl the site
+User-agent: *
+Allow: /
+
+# Disallow private/admin areas
+Disallow: /api/
+Disallow: /auth/signin
+Disallow: /auth/signout
+Disallow: /auth/callback
+Disallow: /settings
+
+# Sitemap reference
+Sitemap: https://hytale.gg/sitemap.xml
