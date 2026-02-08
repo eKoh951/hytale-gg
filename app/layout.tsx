@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import React, { type ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import { cn } from "@/lib/utils";
 import { AuthProvider } from "@/components/auth/auth-provider";
@@ -62,6 +63,7 @@ export default function RootLayout({
           {children}
         </AuthProvider>
       </body>
+      <GoogleAnalytics gaId="G-P6SGHKDNHJ" />
     </html>
   );
 }
