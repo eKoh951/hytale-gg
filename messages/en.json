@@ -8,6 +8,7 @@
     "profile": "Profile",
     "settings": "Settings",
     "branding": "Brand Guidelines",
+    "surveys": "Surveys",
     "changeLanguage": "Change language",
     "userMenu": "User menu"
   },
@@ -31,6 +32,7 @@
     "dashboard": "Dashboard",
     "analytics": "Analytics",
     "verification": "Verification",
+    "surveys": "Surveys",
     "privacy": "Privacy",
     "terms": "Terms",
     "contact": "Contact",
@@ -282,9 +284,21 @@
     "submit": {
       "title": "List a Server | hytale.GG",
       "description": "Share your Hytale server with our community and help players discover amazing gaming experiences."
+    },
+    "surveys": {
+      "title": "Surveys | hytale.GG",
+      "description": "Share your feedback and help shape the future of the Hytale server directory."
     }
   },
   "survey": {
+    "listing": {
+      "title": "Active Surveys",
+      "subtitle": "Help us build a better Hytale experience. Your feedback directly shapes what we build next.",
+      "estimatedTime": "~{minutes} min",
+      "questions": "{count} questions",
+      "takeSurvey": "Take Survey",
+      "noSurveys": "No active surveys right now. Check back soon!"
+    },
     "common": {
       "next": "Next",
       "back": "Back",

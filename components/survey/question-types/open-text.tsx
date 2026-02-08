@@ -13,7 +13,7 @@ interface OpenTextProps {
 export function OpenText({ question, value, onChange }: OpenTextProps) {
   const t = useTranslations()
 
-  const maxLength = question.constraints?.maxLength || 500
+  const maxLength = question.constraints?.max || 500
   const currentLength = value?.length || 0
 
   const placeholder = question.subtitleKey

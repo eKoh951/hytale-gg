@@ -15,6 +15,10 @@ export function getSurveySlugs(): string[] {
   return Object.keys(SURVEYS)
 }
 
+export function getAllSurveyConfigs(): SurveyConfig[] {
+  return Object.values(SURVEYS)
+}
+
 export function getTotalQuestions(config: SurveyConfig): number {
   return config.sections.reduce((sum, section) => sum + section.questions.length, 0)
 }

@@ -35,6 +35,10 @@ const nextConfig: NextConfig = {
         destination: '/es/settings',
       },
       {
+        source: '/es/encuestas',
+        destination: '/es/survey',
+      },
+      {
         source: '/es/encuesta/:slug',
         destination: '/es/survey/:slug',
       },

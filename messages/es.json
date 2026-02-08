@@ -8,6 +8,7 @@
     "profile": "Perfil",
     "settings": "Configuración",
     "branding": "Guías de Marca",
+    "surveys": "Encuestas",
     "changeLanguage": "Cambiar idioma",
     "userMenu": "Menú de usuario"
   },
@@ -281,9 +282,21 @@
     "submit": {
       "title": "Agregar un Servidor | hytale.GG",
       "description": "Comparte tu servidor de Hytale con nuestra comunidad y ayuda a los jugadores a descubrir experiencias de juego increíbles."
+    },
+    "surveys": {
+      "title": "Encuestas | hytale.GG",
+      "description": "Comparte tu opinión y ayuda a dar forma al futuro del directorio de servidores de Hytale."
     }
   },
   "survey": {
+    "listing": {
+      "title": "Encuestas Activas",
+      "subtitle": "Ayúdanos a construir una mejor experiencia Hytale. Tu opinión da forma directamente a lo que construimos.",
+      "estimatedTime": "~{minutes} min",
+      "questions": "{count} preguntas",
+      "takeSurvey": "Tomar Encuesta",
+      "noSurveys": "No hay encuestas activas en este momento. ¡Vuelve pronto!"
+    },
     "common": {
       "next": "Siguiente",
       "back": "Atrás",

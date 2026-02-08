@@ -6,10 +6,10 @@ import { motion } from 'framer-motion'
 import { CheckCircle2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import type { Survey } from '@/lib/surveys/types'
+import type { SurveyConfig } from '@/lib/surveys/types'
 
 interface SurveyThankYouProps {
-  survey: Survey
+  survey: SurveyConfig
   onSaveDiscord?: (username: string) => Promise<void>
 }
 

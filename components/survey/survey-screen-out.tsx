@@ -5,10 +5,10 @@ import { motion } from 'framer-motion'
 import { XCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import type { Survey } from '@/lib/surveys/types'
+import type { SurveyConfig } from '@/lib/surveys/types'
 
 interface SurveyScreenOutProps {
-  survey: Survey
+  survey: SurveyConfig
 }
 
 export function SurveyScreenOut({ survey }: SurveyScreenOutProps) {

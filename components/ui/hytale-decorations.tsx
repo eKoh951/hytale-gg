@@ -1166,7 +1166,7 @@ export function StoneCard({
   return (
     <div className={cn(
       "relative overflow-hidden rounded-lg border-2 border-[#3A3A3A] bg-card transition-all",
-      "before:absolute before:inset-0 before:rounded-lg before:border before:border-[#5C5C5C]/30",
+      "before:pointer-events-none before:absolute before:inset-0 before:rounded-lg before:border before:border-[#5C5C5C]/30",
       "hover:border-[#4A4A4A]",
       glowColors[glowColor],
       className

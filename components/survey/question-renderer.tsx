@@ -7,7 +7,7 @@ import { CsatScale } from './question-types/csat-scale'
 import { Maxdiff } from './question-types/maxdiff'
 import { PointAllocation } from './question-types/point-allocation'
 import { OpenText } from './question-types/open-text'
-import type { Question } from '@/lib/surveys/types'
+import type { Question, SurveyAnswer } from '@/lib/surveys/types'
 
 interface QuestionRendererProps {
   question: Question
@@ -18,7 +18,7 @@ export function QuestionRenderer({ question }: QuestionRendererProps) {
 
   const value = state.answers[question.key] || null
 
-  const handleChange = (newValue: unknown) => {
+  const handleChange = (newValue: SurveyAnswer) => {
     actions.setAnswer(question.key, newValue)
   }
 
@@ -43,7 +43,10 @@ export function QuestionRenderer({ question }: QuestionRendererProps) {
 
     case 'csat_scale':
       return (
-        <CsatScale value={value as number | null} onChange={handleChange} />
+        <CsatScale
+          value={(value as unknown as { value: number } | null)?.value ?? null}
+          onChange={(v: number) => handleChange({ value: v })}
+        />
       )
 
     case 'maxdiff':
@@ -61,8 +64,8 @@ export function QuestionRenderer({ question }: QuestionRendererProps) {
       return (
         <PointAllocation
           question={question}
-          value={value as Record<string, number> | null}
-          onChange={handleChange}
+          value={(value as unknown as { points: Record<string, number> } | null)?.points ?? null}
+          onChange={(v: Record<string, number>) => handleChange({ points: v })}
         />
       )
 
@@ -70,8 +73,8 @@ export function QuestionRenderer({ question }: QuestionRendererProps) {
       return (
         <OpenText
           question={question}
-          value={value as string | null}
-          onChange={handleChange}
+          value={(value as unknown as { text: string } | null)?.text ?? null}
+          onChange={(v: string) => handleChange({ text: v })}
         />
       )
 

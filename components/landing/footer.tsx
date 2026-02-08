@@ -12,23 +12,8 @@ export function Footer() {
 
   const footerLinks = {
     platform: [
-      { label: t('servers'), href: "/servers" as const },
-      { label: t('creators'), href: "/creators" as const },
-      { label: t('mods'), href: "/mods" as const },
-      { label: t('events'), href: "/events" as const },
-    ],
-    resources: [
+      { label: t('surveys'), href: "/survey" as const },
       { label: t('branding'), href: "/branding" as const },
-      { label: t('gettingStarted'), href: "/guide" as const },
-      { label: t('api'), href: "/api" as const },
-      { label: t('blog'), href: "/blog" as const },
-      { label: t('faq'), href: "/faq" as const },
-    ],
-    serverOwners: [
-      { label: t('listServer'), href: "/submit" as const },
-      { label: t('dashboard'), href: "/dashboard" as const },
-      { label: t('analytics'), href: "/analytics" as const },
-      { label: t('verification'), href: "/verify" as const },
     ],
     legal: [
       { label: t('privacy'), href: "/privacy" as const },
@@ -69,9 +54,9 @@ export function Footer() {
       <FooterTerrainDivider className="h-10" />
 
       <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
+          <div className="col-span-2">
             <Link href="/" className="flex items-center">
               <Image
                 src="/hytale-gg.png"
@@ -122,7 +107,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Links */}
+          {/* Platform links */}
           <div>
             <h3 className="text-sm font-semibold text-foreground">{t('platform')}</h3>
             <ul className="mt-4 space-y-3">
@@ -138,36 +123,8 @@ export function Footer() {
               ))}
             </ul>
           </div>
-          <div>
-            <h3 className="text-sm font-semibold text-foreground">{t('resources')}</h3>
-            <ul className="mt-4 space-y-3">
-              {footerLinks.resources.map((link) => (
-                <li key={link.href}>
-                  <I18nLink
-                    href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {link.label}
-                  </I18nLink>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold text-foreground">{t('serverOwners')}</h3>
-            <ul className="mt-4 space-y-3">
-              {footerLinks.serverOwners.map((link) => (
-                <li key={link.href}>
-                  <I18nLink
-                    href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {link.label}
-                  </I18nLink>
-                </li>
-              ))}
-            </ul>
-          </div>
+
+          {/* Legal links */}
           <div>
             <h3 className="text-sm font-semibold text-foreground">{t('legal')}</h3>
             <ul className="mt-4 space-y-3">
