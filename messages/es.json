@@ -302,17 +302,20 @@
       "next": "Siguiente",
       "back": "Atrás",
       "submit": "Enviar",
+      "complete": "completado",
+      "questionNumber": "Pregunta {current} de {total}",
       "progress": "Pregunta {current} de {total}",
       "progressSection": "Sección {current} de {total}",
-      "alreadyCompleted": "Ya completaste esta encuesta. ¡Gracias!",
+      "alreadyCompleted": {
+        "title": "Ya Completado",
+        "description": "¡Ya completaste esta encuesta. Gracias por tu tiempo!",
+        "returnHome": "Volver al Inicio"
+      },
       "otherPlaceholder": "Por favor especifica...",
       "optional": "(opcional)",
-      "pointsRemaining": "{points} puntos restantes",
-      "pointsOver": "{points} puntos de más",
-      "selectedCount": "{count} de {max} seleccionados",
-      "selectedExact": "Selecciona exactamente {count}",
-      "mostImportant": "Más Importante",
-      "leastImportant": "Menos Importante",
+      "selectUpTo": "{current} de {max} seleccionados",
+      "selectExact": "Selecciona exactamente {count}",
+      "selectAtLeast": "Selecciona al menos {count}",
       "validation": {
         "required": "Por favor responde esta pregunta para continuar.",
         "exactN": "Por favor selecciona exactamente {count} opciones.",
@@ -331,7 +334,34 @@
         "2": "Insatisfecho",
         "3": "Neutral",
         "4": "Satisfecho",
-        "5": "Muy satisfecho"
+        "5": "Muy satisfecho",
+        "lowLabel": "Menos Satisfecho",
+        "highLabel": "Más Satisfecho"
+      },
+      "maxdiff": {
+        "most": "Más Importante",
+        "least": "Menos Importante",
+        "feature": "Característica"
+      },
+      "pointAllocation": {
+        "totalPoints": "Puntos totales: {total}",
+        "remaining": "{points} restantes",
+        "exceeded": "{points} de más",
+        "complete": "Todos los puntos asignados"
+      },
+      "thankYou": {
+        "title": "¡Gracias!",
+        "description": "Tus respuestas se han enviado exitosamente.",
+        "discordPrompt": "¿Quieres unirte a nuestros beta testers? Deja tu nombre de usuario de Discord:",
+        "discordPlaceholder": "usuario#1234",
+        "save": "Guardar",
+        "saving": "Guardando...",
+        "saved": "¡Guardado! Te contactaremos pronto."
+      },
+      "screenOut": {
+        "title": "Gracias por tu Interés",
+        "description": "Basado en tus respuestas, esta encuesta no es la adecuada. ¡Apreciamos tu tiempo!",
+        "returnHome": "Volver al Inicio"
       }
     },
     "player": {
