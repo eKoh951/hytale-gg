@@ -33,35 +33,25 @@ export function generateHreflangAlternates(pathname: string) {
  * @returns Localized URL (e.g., '/es/guia-de-marca')
  */
 function getLocalizedPath(pathname: string, locale: Locale): string {
-  console.log(`[SEO] getLocalizedPath - pathname: ${pathname}, locale: ${locale}`);
-  
   // Check if this pathname has localized variants
   const pathnames = routing.pathnames as Record<string, any>;
-  console.log('[SEO] getLocalizedPath - pathnames config:', pathnames);
   
   if (pathnames && pathnames[pathname]) {
     const localeConfig = pathnames[pathname];
-    console.log(`[SEO] getLocalizedPath - localeConfig for ${pathname}:`, localeConfig);
     
     // If it's an object with locale keys, get the localized path
     if (typeof localeConfig === 'object' && localeConfig[locale]) {
-      const result = `/${locale}${localeConfig[locale]}`;
-      console.log(`[SEO] getLocalizedPath - object result: ${result}`);
-      return result;
+      return `/${locale}${localeConfig[locale]}`;
     }
     
     // If it's a string (same path for all locales)
     if (typeof localeConfig === 'string') {
-      const result = `/${locale}${localeConfig}`;
-      console.log(`[SEO] getLocalizedPath - string result: ${result}`);
-      return result;
+      return `/${locale}${localeConfig}`;
     }
   }
   
   // Default: use the pathname as-is with locale prefix
-  const result = `/${locale}${pathname}`;
-  console.log(`[SEO] getLocalizedPath - default result: ${result}`);
-  return result;
+  return `/${locale}${pathname}`;
 }
 
 /**
