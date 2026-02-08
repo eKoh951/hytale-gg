@@ -115,6 +115,121 @@ export type Database = {
         }
         Relationships: []
       }
+      survey_answers: {
+        Row: {
+          answer: Json
+          answered_at: string | null
+          id: number
+          question_key: string
+          response_id: number
+        }
+        Insert: {
+          answer: Json
+          answered_at?: string | null
+          id?: never
+          question_key: string
+          response_id: number
+        }
+        Update: {
+          answer?: Json
+          answered_at?: string | null
+          id?: never
+          question_key?: string
+          response_id?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "survey_answers_response_id_fkey"
+            columns: ["response_id"]
+            isOneToOne: false
+            referencedRelation: "survey_responses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      survey_responses: {
+        Row: {
+          completed_at: string | null
+          created_at: string | null
+          current_step: number
+          id: number
+          locale: string
+          metadata: Json | null
+          respondent_id: string | null
+          screened_out: boolean | null
+          session_token: string
+          started_at: string | null
+          survey_id: number
+          total_steps: number
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string | null
+          current_step?: number
+          id?: never
+          locale?: string
+          metadata?: Json | null
+          respondent_id?: string | null
+          screened_out?: boolean | null
+          session_token: string
+          started_at?: string | null
+          survey_id: number
+          total_steps: number
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string | null
+          current_step?: number
+          id?: never
+          locale?: string
+          metadata?: Json | null
+          respondent_id?: string | null
+          screened_out?: boolean | null
+          session_token?: string
+          started_at?: string | null
+          survey_id?: number
+          total_steps?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "survey_responses_survey_id_fkey"
+            columns: ["survey_id"]
+            isOneToOne: false
+            referencedRelation: "surveys"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      surveys: {
+        Row: {
+          created_at: string | null
+          description: string | null
+          id: number
+          slug: string
+          status: string
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          id?: never
+          slug: string
+          status?: string
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          id?: never
+          slug?: string
+          status?: string
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       user_achievements: {
         Row: {
           achievement_id: string

@@ -34,6 +34,10 @@ const nextConfig: NextConfig = {
         source: '/es/configuracion',
         destination: '/es/settings',
       },
+      {
+        source: '/es/encuesta/:slug',
+        destination: '/es/survey/:slug',
+      },
     ];
   },
 };

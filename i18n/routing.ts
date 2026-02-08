@@ -33,6 +33,10 @@ export const routing = defineRouting({
       en: '/settings',
       es: '/configuracion'
     },
+    '/survey/[slug]': {
+      en: '/survey/[slug]',
+      es: '/encuesta/[slug]'
+    },
     // Additional footer pages
     '/mods': '/mods',
     '/events': '/events',
