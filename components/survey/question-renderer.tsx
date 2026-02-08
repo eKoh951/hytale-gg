@@ -1,5 +1,6 @@
 'use client'
 
+import { useMemo } from 'react'
 import { useSurvey } from './survey-provider'
 import { SingleSelect } from './question-types/single-select'
 import { MultiSelect } from './question-types/multi-select'
@@ -7,14 +8,51 @@ import { CsatScale } from './question-types/csat-scale'
 import { Maxdiff } from './question-types/maxdiff'
 import { PointAllocation } from './question-types/point-allocation'
 import { OpenText } from './question-types/open-text'
-import type { Question, SurveyAnswer } from '@/lib/surveys/types'
+import type { Question, SurveyAnswer, Option } from '@/lib/surveys/types'
 
 interface QuestionRendererProps {
   question: Question
 }
 
+function useResolvedQuestion(question: Question): Question {
+  const { state, survey } = useSurvey()
+
+  return useMemo(() => {
+    if (!question.dependsOn?.useSelectedAsOptions) return question
+
+    const depAnswer = state.answers[question.dependsOn.questionKey] as
+      | { selected: string[]; other?: string }
+      | null
+
+    if (!depAnswer?.selected?.length) return question
+
+    // Find the source question to get its option labels
+    let sourceOptions: Option[] = []
+    for (const section of survey.sections) {
+      const found = section.questions.find(
+        (q) => q.key === question.dependsOn!.questionKey
+      )
+      if (found?.options) {
+        sourceOptions = found.options
+        break
+      }
+    }
+
+    // Build dynamic options from the selected keys
+    const dynamicOptions: Option[] = depAnswer.selected
+      .filter((key) => key !== 'other')
+      .map((key) => {
+        const source = sourceOptions.find((o) => o.key === key)
+        return source ?? { key, labelKey: key }
+      })
+
+    return { ...question, options: dynamicOptions }
+  }, [question, state.answers, survey.sections])
+}
+
 export function QuestionRenderer({ question }: QuestionRendererProps) {
   const { state, actions } = useSurvey()
+  const resolvedQuestion = useResolvedQuestion(question)
 
   const value = state.answers[question.key] || null
 
@@ -26,7 +64,7 @@ export function QuestionRenderer({ question }: QuestionRendererProps) {
     case 'single_select':
       return (
         <SingleSelect
-          question={question}
+          question={resolvedQuestion}
           value={value as { selected: string; other?: string } | null}
           onChange={handleChange}
         />

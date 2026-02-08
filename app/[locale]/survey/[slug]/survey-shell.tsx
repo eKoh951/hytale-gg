@@ -20,6 +20,7 @@ import {
   screenOutSurvey,
   getExistingResponse,
 } from '../actions'
+import { saveDiscordUsername } from '@/app/actions/survey-actions'
 import type { SurveyAnswer } from '@/lib/surveys/types'
 
 interface SurveyShellProps {
@@ -68,7 +69,11 @@ function SurveyContent() {
   }
 
   if (state.isComplete) {
-    return <SurveyThankYou survey={survey} />
+    const handleSaveDiscord = async (username: string) => {
+      if (!state.responseId) return
+      await saveDiscordUsername(state.responseId, username)
+    }
+    return <SurveyThankYou survey={survey} onSaveDiscord={handleSaveDiscord} />
   }
 
   if (state.isScreenedOut) {
