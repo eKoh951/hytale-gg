@@ -127,7 +127,24 @@ The Discovery System enables players to find servers that match their preference
 
 ---
 
-### US-008: Best This Week (Phase 2)
+### US-008: Hidden Gems
+**Description:** As a player, I want to discover underrated servers so I can find great communities that aren't on every top list.
+
+**Acceptance Criteria:**
+- [ ] "Hidden Gems" section on homepage shows 4 servers
+- [ ] Eligible servers: rating >= 3.5, fewer than 20 reviews, never been in Featured Today, online in last 24h
+- [ ] Sorted by Quality Score (same algorithm as Featured, but inverted feature-count weight — less exposure = higher boost)
+- [ ] Refreshes daily alongside Featured Today cron
+- [ ] "Hidden Gem" badge displayed on qualifying server cards
+- [ ] Section title: "Hidden Gems — Great servers you haven't heard of"
+- [ ] Typecheck/lint passes
+- [ ] Verify in browser using dev-browser skill
+
+> **Rationale**: Competitive analysis shows NO competitor has a Hidden Gems section. This is a stated differentiator in `server-directory-competitive-analysis-feb-2026.md`. Directly addresses the "same servers always at the top" frustration (survey Q6). Gives new/small servers a path to visibility without gaming votes.
+
+---
+
+### US-009: Best This Week (Phase 2)
 **Description:** As a player, I want to see the best servers from the past week so I can find trending quality servers.
 
 **Acceptance Criteria:**

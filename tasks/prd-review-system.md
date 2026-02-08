@@ -1,5 +1,9 @@
 # PRD: Review System
 
+> ⚠️ **SURVEY DEPENDENCY**: This PRD assumes multi-criteria 1-5 star ratings. Player survey Q15 tests whether players prefer Steam-style binary (Recommend/Don't Recommend), Amazon-style stars, or our multi-criteria approach. **Do NOT begin implementation until Q15 results are in.** If binary wins, the schema, weighted formula, and all acceptance criteria need restructuring.
+>
+> Additionally, survey Q14 tests whether "reviewer's username and playtime are visible" is a top trust signal. If it is, reviews MUST show identity (not anonymous) — see Open Question #3.
+
 ## Introduction
 
 The Review System enables players and creators to rate and review servers using a unified 4-dimension rating system. Creator reviews (with video content) receive higher visibility and weight in the quality score, incentivizing content creation while maintaining consistent rating criteria across all review types.
@@ -167,7 +171,7 @@ The Review System enables players and creators to rate and review servers using 
 
 ## Non-Goals (Out of Scope)
 
-- **Verified Playtime** - Requires Hytale API integration (Phase 2)
+- **Verified Playtime** - Requires Hytale API integration (Phase 2). ⚠️ *If survey Q14 confirms playtime is the #1 trust signal, implement a Phase 1 workaround: self-reported hours or "time since first review on this server" as a proxy.*
 - **Creator Verification Badges** - Phase 2 (follower count check)
 - **Sentiment Analysis** - Phase 3 (SaaS feature)
 - **Review Photos/Screenshots** - Phase 2
@@ -420,5 +424,5 @@ const VIDEO_PATTERNS = {
 
 1. Should we require minimum account age before reviewing?
 2. How do we verify creator follower counts for badges?
-3. Should reviews be anonymous or always show username?
+3. Should reviews be anonymous or always show username? → *Survey Q14 now tests this directly ("reviewer's username and playtime are visible" option). Decision blocked on survey results.*
 4. Do we need a "Report Inaccurate" option separate from "Report Abuse"?

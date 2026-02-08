@@ -13,7 +13,7 @@
 - 1K daily active users
 - 500+ listed servers
 - 5 creator reviews per week
-- 60%+ mobile traffic
+- 60%+ mobile traffic ⚠️ *Unvalidated — Hytale is PC-only. Survey Q16 tests whether players browse on mobile. Adjust target after survey results.*
 
 ---
 
@@ -71,20 +71,20 @@
 - ✅ Tag suggestions improve with usage
 
 #### **Feature: Mobile-First Design**
-**User Story**: As a mobile user, I want a fast, intuitive experience so I can discover servers while playing or on the go
+**User Story**: As a mobile user, I want a fast, intuitive experience so I can discover and research servers on my phone before joining from PC
+
+> ⚠️ **Assumption at risk**: Hytale is PC-only. Mobile-first assumes players browse/research servers on mobile even though they play on PC. Survey Q16 includes a mobile browsing option to validate this. If <20% select it, deprioritize PWA and focus on responsive web.
 
 **Requirements**:
 - Progressive Web App (PWA) functionality
 - Touch-optimized interface
 - Offline server list caching
-- Push notifications for favorite servers
 - Mobile-specific gestures and interactions
 
 **Acceptance Criteria**:
 - ✅ PWA installs successfully on mobile devices
 - ✅ Interface works smoothly on screens 4" and larger
 - ✅ Cached data loads offline within 2 seconds
-- ✅ Notifications trigger for server status changes
 
 ---
 

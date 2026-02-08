@@ -1,280 +1,287 @@
-# Hytale Player Server Discovery Survey
+# Player Server Discovery Survey
 
-**Goal:** Validate discovery methods, player priorities, and feature needs for hytale.gg directory
+Survey designed to validate hytale.gg assumptions and fill knowledge gaps. Follows survey science best practices (CSAT over NPS, single-variable questions, forced prioritization, MaxDiff).
 
-**Target Respondents:** 100+ Hytale/Minecraft players who joined a new server in the last 3-6 months
-
-**Distribution:** Reddit (r/hytale, r/HytaleInfo), Discord servers, Twitter/X, TikTok
-
-**Survey Length:** 5-7 minutes (12 questions)
+**Goal**: Validate our rating criteria, feature priorities, and discovery assumptions with real Hytale players.
+**Target**: Hytale players who have played multiplayer in the last 30 days.
+**Length**: ~4 minutes (17 questions).
+**Distribution**: Reddit r/HytaleInfo, r/hytale, Hytale Discord servers, Twitter/X.
 
 ---
 
-## Section 1: Discovery Validation (Critical)
+## Survey Design Principles Applied
 
-### Q1: How did you discover the LAST Hytale/Minecraft server you joined?
-*Select ONE option*
+| Principle | How We Apply It |
+|-----------|----------------|
+| **No NPS** (Judd Antin) | Use CSAT 5-point scales instead |
+| **Force prioritization** (Nicole Forsgren) | "Pick your top 3" + frequency questions |
+| **Single-variable questions** (Nicole Forsgren) | One concept per question, no double-barrels |
+| **MaxDiff for features** (Madhavan Ramanujam) | Most/least important feature sets |
+| **Right timing** (Gia Laudi) | Target players with 2+ weeks multiplayer experience |
+| **Mobile-friendly** (Judd Antin) | All scales visible without scrolling, max 5 options |
 
-- [ ] Friend or family member told me
-- [ ] YouTube video or stream
-- [ ] TikTok video
-- [ ] Discord server or invite
-- [ ] Instagram post
-- [ ] Twitter/X post
-- [ ] Reddit post or comment
+---
+
+## Section 1: Screening (2 questions)
+
+### Q1. How long have you been playing Hytale multiplayer?
+*Single select*
+- [ ] I haven't played multiplayer yet → **End survey** (thank you screen)
+- [ ] Less than 1 week
+- [ ] 1-2 weeks
+- [ ] 3-4 weeks
+- [ ] More than a month
+
+> **Design note**: Options are evergreen (relative time, not calendar-anchored). EA launched Jan 13, 2026 — calendar-specific options like "1-3 months" would be impossible to select and make the survey look out of touch.
+
+### Q2. How many different Hytale servers have you tried?
+*Single select*
+- [ ] 1
+- [ ] 2-3
+- [ ] 4-6
+- [ ] 7-10
+- [ ] More than 10
+
+### Q3. What game mode do you primarily play?
+*Single select — critical for segmenting all other answers*
+- [ ] Survival / SMP
+- [ ] PvP / Factions
+- [ ] RPG / Adventure
+- [ ] Creative / Building
+- [ ] Minigames
+- [ ] I play multiple modes equally
+- [ ] Other: ___
+
+> **Design note**: Added because a PvP player's priorities differ massively from a Creative builder's. Every competitor has gamemode filters. Without this we can't segment ANY answer.
+
+---
+
+## Section 2: Discovery (3 questions)
+
+**Knowledge gap**: How do Hytale players specifically find servers today?
+
+### Q4. How did you find the server(s) you play on? (Select all that apply)
+*Multi-select, max 3*
+- [ ] Friend/word of mouth
+- [ ] YouTube video or tutorial
+- [ ] TikTok or short-form video
 - [ ] Twitch stream
-- [ ] Server directory website (TopMinecraftServers, etc.)
+- [ ] Discord server
+- [ ] Reddit post
+- [ ] Server listing website (e.g., HytaleTop100, HyServers)
 - [ ] In-game server browser
-- [ ] Google search
-- [ ] Other: ___________
-
-**Why this question:** Single-choice forces prioritization. Focuses on LAST server for fresh memory (Gia Laudi principle).
-
----
-
-### Q2: In the past 6 months, which platforms have you used to find servers? 
-*Select up to 3 options*
-
-- [ ] YouTube
-- [ ] TikTok
-- [ ] Discord
-- [ ] Instagram
 - [ ] Twitter/X
-- [ ] Reddit
-- [ ] Twitch
-- [ ] Server directory websites
-- [ ] Google search
-- [ ] Friend recommendations (word of mouth)
-- [ ] In-game browser
-- [ ] Other: ___________
+- [ ] Other: ___
 
-**Why this question:** Limited to 3 choices (Nicole Forsgren principle) to force prioritization.
+> **Design note**: Split "YouTube/TikTok" — they're different discovery behaviors (long-form reviews vs short-form clips). Added Twitch. Removed Twitter/X (low signal from research). If we want to know whether to invest in YouTube server reviews vs TikTok clips, we need them separate.
+
+### Q5. How satisfied are you with how easy it is to find good Hytale servers?
+*5-point CSAT scale*
+- [ ] 1 - Very dissatisfied
+- [ ] 2 - Dissatisfied
+- [ ] 3 - Neutral
+- [ ] 4 - Satisfied
+- [ ] 5 - Very satisfied
+
+### Q6. What is the SINGLE biggest frustration when looking for a server?
+*Single select — forces prioritization*
+- [ ] Too many options, hard to know which is good
+- [ ] Can't tell if a server is active or dead
+- [ ] Servers don't match their description
+- [ ] Can't find servers for my playstyle
+- [ ] Same servers always at the top of lists
+- [ ] No reviews or reliable info about the server before joining
+- [ ] Server listings feel outdated or abandoned
+- [ ] Server is too laggy after joining
+- [ ] Don't know anyone on the server
+- [ ] Other: ___
+
+> **Design note**: Added "Same servers always at the top" — directly validates our core thesis that vote-based ranking is broken. Added "No reviews or reliable info" — validates review system need. Added "Listings feel outdated" — validates competitor weakness. Removed nothing — just expanded options.
 
 ---
 
-### Q3: When looking for a new server, how often do you use server directory websites?
-*Select ONE*
+## Section 3: What Matters in a Server (3 questions)
 
-- [ ] Every time I look for a server
-- [ ] Most times
-- [ ] Sometimes
-- [ ] Rarely
-- [ ] Never
+**Knowledge gap**: Validate our 4 rating dimensions and weights.
 
-**Why this question:** Measures frequency of directory usage baseline.
-
----
-
-## Section 2: Player Priorities (Critical)
-
-### Q4: When choosing a server to join, select your TOP 3 most important factors
-*Select EXACTLY 3 - no more, no less*
-
-- [ ] Active, friendly community
-- [ ] Good moderation/staff
-- [ ] Low lag/high performance
-- [ ] Server stability/uptime
-- [ ] Unique gameplay or mods
+### Q7. When choosing a server, pick your TOP 3 most important factors:
+*Multi-select, exactly 3 — Nicole Forsgren's "pick three" method*
+- [ ] Friendly community & helpful staff
+- [ ] Low lag and stable performance
+- [ ] Unique gameplay or custom content
+- [ ] Mod/plugin variety and support
 - [ ] No pay-to-win mechanics
-- [ ] High player count
-- [ ] Friends are playing there
-- [ ] Content creator recommended it
-- [ ] Regular updates and events
-- [ ] Region/ping (server location)
-- [ ] Mobile-friendly
-- [ ] Discord community
-- [ ] Server reputation/reviews
+- [ ] Active player count (people are actually online)
+- [ ] Good moderation (no hackers/griefers)
+- [ ] Server region close to me (low ping)
+- [ ] Regular updates and new content
+- [ ] Other: ___
 
-**Why this question:** Forces prioritization with exactly 3 (Nicole Forsgren principle). Avoids "rate everything high."
+> **Design note**: Added "Server region close to me" — region filters are table stakes (HyServers, Universe, hytale-servers all have them). Region/ping is a separate concern from "Low lag and stable performance" — a well-optimized server can still be geographically far.
 
----
+### Q8. Of your top 3, which one would make you LEAVE a server if it was bad?
+*Single select from Q7 answers — identifies dealbreakers*
+- [ ] (Dynamic: shows only their Q7 selections)
 
-### Q5: Of the 3 factors you selected above, which ONE is most important?
-*Select ONE from your previous 3 choices*
+### Q9. How often do you switch servers?
+*Single select*
+- [ ] I stick with one server
+- [ ] Every few weeks
+- [ ] Every few days
+- [ ] I play on multiple servers regularly
+- [ ] I haven't found a server I like yet
 
-**Why this question:** Double-validates top priority through forced ranking.
-
----
-
-### Q6: How often do these factors affect your decision to JOIN a server?
-*For the top 3 you selected in Q4, rate frequency*
-
-| Factor | Hourly | Daily | Weekly | Monthly | Rarely |
-|--------|--------|-------|--------|---------|--------|
-| Factor 1 (auto-filled) | ○ | ○ | ○ | ○ | ○ |
-| Factor 2 (auto-filled) | ○ | ○ | ○ | ○ | ○ |
-| Factor 3 (auto-filled) | ○ | ○ | ○ | ○ | ○ |
-
-**Why this question:** Measures frequency to weight impact (Nicole Forsgren principle).
+> **Design note**: Added "Haven't found one I like" — captures the unsatisfied market, the exact people hytale.gg is built for.
 
 ---
 
-## Section 3: Pain Points & Leaving Reasons
+## Section 4: Feature Prioritization — MaxDiff (3 questions)
 
-### Q7: What is the PRIMARY reason you left your last server?
-*Select ONE option*
+**Knowledge gap**: Which features would players actually USE?
 
-- [ ] High lag or performance issues
-- [ ] Server crashes/downtime
-- [ ] Toxic players or staff
-- [ ] Pay-to-win mechanics
-- [ ] Got bored/nothing to do
-- [ ] Friends stopped playing
-- [ ] Server shut down
-- [ ] Found a better server
-- [ ] Over-moderation (too strict)
-- [ ] Under-moderation (no rules)
-- [ ] Other: ___________
+> **Design note**: Each set has 4 options testing a different dimension of our value proposition. All options are plausible for a PC game. Removed: QR code (Hytale is PC-only), push notifications for server activity (servers are on VPS/24/7), "server is online" (table stakes, not a differentiator — competitors already have it).
 
-**Why this question:** Single choice avoids double-barreled issues. Fresh memory (3-6 months).
+### Q10. MaxDiff Set 1 — Information before joining:
+*"Which is MOST important and LEAST important to you?" Pick one most, one least.*
 
----
+| Feature | Most Important | Least Important |
+|---------|:-:|:-:|
+| Read player reviews with specific ratings (community, performance, fairness) | ○ | ○ |
+| Watch a video review showing actual gameplay on the server | ○ | ○ |
+| See real-time player count and peak hours | ○ | ○ |
+| Server "vibe tags" (e.g., "Chill builders", "Hardcore PvP", "Beginner-friendly") | ○ | ○ |
 
-### Q8: How often did this issue affect your gameplay before you left?
-*Select ONE*
+> Tests: text reviews vs video reviews vs hard data vs categorization
 
-- [ ] Constantly (every session)
-- [ ] Daily
-- [ ] A few times per week
-- [ ] Weekly
-- [ ] Occasionally
-- [ ] Rarely, but it was severe
+### Q11. MaxDiff Set 2 — How servers should surface to you:
+*"Which is MOST important and LEAST important to you?" Pick one most, one least.*
 
-**Why this question:** Frequency measurement for weighting.
+| Feature | Most Important | Least Important |
+|---------|:-:|:-:|
+| Rotating "Server of the Day" spotlights (not always the same servers on top) | ○ | ○ |
+| Filter servers by difficulty level (beginner-friendly vs. expert) | ○ | ○ |
+| "Looking for Group" board to find teammates | ○ | ○ |
+| See what servers your friends play on | ○ | ○ |
 
----
+> Tests: algorithmic discovery vs filtering vs social LFG vs friend-based discovery
 
-## Section 4: Server Directory Pain Points
+### Q12. MaxDiff Set 3 — Trust & quality signals:
+*"Which is MOST important and LEAST important to you?" Pick one most, one least.*
 
-### Q9: What problems have you experienced with server directory websites?
-*Select up to 3 options*
+| Feature | Most Important | Least Important |
+|---------|:-:|:-:|
+| Reviews show how many hours the reviewer played on that server | ○ | ○ |
+| Server owner can respond to reviews | ○ | ○ |
+| See a server's player retention rate (do people keep coming back?) | ○ | ○ |
+| Filter to hide pay-to-win servers | ○ | ○ |
+| The server is actively updated with new content or events | ○ | ○ |
 
-- [ ] Outdated/dead servers listed
-- [ ] Fake player counts
-- [ ] Fake reviews or ratings
-- [ ] Same servers always on top
-- [ ] Hard to find specific types of servers
-- [ ] Poor mobile experience
-- [ ] Too many ads
-- [ ] No real-time server status
-- [ ] Can't filter by important features
-- [ ] No Discord integration
-- [ ] I don't use directory websites
-- [ ] Other: ___________
-
-**Why this question:** Limited to 3 to force prioritization of biggest pain points.
+> Tests: verified experience vs owner engagement vs retention data vs fairness filtering vs active maintenance. Added "actively updated" — Roblox's algorithm heavily weights recency/update frequency. Steam players check "last updated" dates. If this ranks high, update frequency should factor into the Quality Score.
 
 ---
 
-## Section 5: Feature Validation (MaxDiff)
+## Section 5: Reviews & Trust (3 questions)
 
-### Q10: From this list of potential directory features, which is MOST important to you and which is LEAST important?
-*Select ONE most important and ONE least important*
+**Knowledge gap**: Would players write reviews? What makes reviews valuable?
 
-**Features:**
-- Real-time server status (online/offline)
-- Discord server link integration
-- Regional ping testing
-- Friend activity feed (see what friends play)
-- Creator reviews (YouTube/TikTok)
-- Mobile-optimized interface
-- LFG (Looking for Group) boards
-- Server performance ratings
-- No pay-to-win badge
-- Hosting provider information
+> **Design note**: Modeled after trust patterns from **Steam**, Amazon, and Google Maps. Steam: hours played badge, helpful votes, aggregate sentiment labels ("Mostly Positive"), Curators as separate section. Amazon: verified purchase → verified playtime. Google Maps: owner responses, specific aspect ratings. Applied the strongest patterns to server reviews.
 
-**Most Important:** ___________  
-**Least Important:** ___________
+### Q13. How likely are you to write a review for a server you've played on?
+*Single select — clean behavior question, no mixing with trust*
+- [ ] Very likely — I like sharing my experience
+- [ ] Only if I had a strong experience (really great or really bad)
+- [ ] Unlikely — I'd read reviews but not write them
+- [ ] Not interested in reviews at all
 
-**Why this question:** MaxDiff method (Madhavan Ramanujam principle) for feature prioritization.
+### Q14. What makes a server review trustworthy? (Pick top 2)
+*Multi-select, max 2 — tests Steam/Amazon/Google Maps trust patterns*
+- [ ] Shows how many hours the reviewer played on that server (Steam's hours played badge)
+- [ ] Rates specific aspects separately (community, performance, fairness — not just 1-5 stars)
+- [ ] Includes screenshots or video of actual gameplay
+- [ ] The review is recent (less than 2 weeks old)
+- [ ] Other players voted the review as "helpful" (Steam's helpful system)
+- [ ] An overall sentiment summary like "Mostly Positive" or "Mixed" based on all reviews (Steam's aggregate label)
+- [ ] The reviewer's username and playtime are visible (not anonymous)
+- [ ] Separate "recent" and "all-time" review scores so you can see if a server improved (Steam's dual score)
 
-*(Repeat Q10 with randomized feature pairs 2-3 more times for robust MaxDiff data)*
+> **Design note**: Swapped out "server owner responded" — already tested in Q12 MaxDiff ("Server owner can respond to reviews"). Replaced with Steam's aggregate sentiment label, which is a powerful trust shortcut: players see "Overwhelmingly Positive" and trust immediately without reading individual reviews. Added "username and playtime visible" — directly answers Review PRD open question #3 (anonymous vs named reviews). If this ranks high, reviews MUST show identity. Added "recent vs all-time" dual score (Steam pattern) — if this ranks high, we need to implement split scoring so servers that improved aren't punished by old reviews.
 
----
+### Q15. What review format would be most useful for evaluating a server?
+*Single select — fundamental design decision, tests Steam vs Amazon vs multi-criteria*
+- [ ] Simple "Recommend / Don't Recommend" with a text comment (Steam style)
+- [ ] 1-5 star rating with a text comment (Amazon/Google style)
+- [ ] Rate specific aspects separately — community, performance, content, fairness (multi-criteria)
+- [ ] Just show me an overall label like "Mostly Positive" — I don't read individual reviews
 
-## Section 6: Demographics & Device Usage
-
-### Q11: What device do you primarily use to browse for servers?
-*Select ONE*
-
-- [ ] Desktop/PC
-- [ ] Mobile phone
-- [ ] Tablet
-- [ ] About equal PC and mobile
-- [ ] Gaming console
-
-**Why this question:** Validates mobile-first assumption.
+> **Design note**: Replaced creator trust question (already covered by Q10 MaxDiff: "Watch a video review showing actual gameplay"). This question tests a critical design decision we had ZERO data on: Steam uses binary thumbs up/down, Amazon uses stars, we assumed multi-criteria. The answer fundamentally shapes our review UI. Creator review *placement* (separate section like Steam Curators vs mixed with player reviews) is a design decision we can make based on Q10 results + Steam's proven pattern.
 
 ---
 
-### Q12: What is your age range?
-*Select ONE*
+## Section 6: Research Behavior & Demographics (2 questions)
 
-- [ ] Under 13
-- [ ] 13-17
-- [ ] 18-24
-- [ ] 25-34
-- [ ] 35-44
-- [ ] 45+
+**Knowledge gap**: What do players do between hearing about a server and joining it? Language preference.
 
-**Why this question:** Age segmentation for platform preferences.
+> **Design note**: Q16 was reframed from "how do you discover servers" (which overlapped with Q4) to "what do you do AFTER hearing about a server" — captures the research step between discovery and join. This is a genuinely different variable.
+
+### Q16. After you hear about a server, what do you do before joining? (Pick top 2)
+*Multi-select, max 2 — captures research behavior*
+- [ ] Just join it and see for myself
+- [ ] Check the server's listing page (player count, description, reviews)
+- [ ] Join their Discord to get a feel for the community
+- [ ] Look for YouTube/Twitch content about the server
+- [ ] Ask friends or other players about it
+- [ ] Browse server listing sites on my phone, then join from PC later
+- [ ] Save/bookmark it to try later when I have time
+- [ ] Follow the server to get notified about updates or events
+
+> **Design note**: Added mobile browsing option to implicitly capture mobile research behavior. The roadmap targets 60% mobile traffic but we have zero data. If this option ranks high, it validates mobile-first investment. If nobody picks it, we can deprioritize PWA. Added "save/bookmark" (Steam wishlist pattern) — if high, bookmarks become both a feature AND a quality score signal. Added "follow for notifications" (Steam follow pattern) — tests whether players want persistent server relationships, which validates event notifications and update alerts.
+
+### Q17. What language do you prefer for gaming content?
+*Single select*
+- [ ] English
+- [ ] Spanish
+- [ ] Portuguese
+- [ ] French
+- [ ] German
+- [ ] Other: ___
 
 ---
 
-### Q13 (Optional): Any other feedback on finding Hytale/Minecraft servers?
-*Open text field*
+## Thank You Screen
 
-**Why this question:** Captures unexpected insights not covered in structured questions.
-
----
-
-## Survey Distribution Strategy
-
-### Where to Post
-1. **Reddit:** r/hytale, r/HytaleInfo, r/Minecraft, r/admincraft
-2. **Discord:** Major Hytale/Minecraft community servers
-3. **Twitter/X:** #Hytale hashtag, gaming influencers
-4. **TikTok:** Comment on popular Hytale videos
-5. **YouTube:** Community posts on Hytale channels
-
-### Incentive
-- **Raffle:** 3x $25 Steam/Discord Nitro gift cards
-- **Value exchange:** "Help us build a better server directory"
-
-### Target: 100-200 responses minimum
+> Thanks for helping us build a better way to find Hytale servers!
+> Follow @pixelkoh for updates.
+> [Optional] Leave your Discord username to join our beta testers.
 
 ---
 
 ## Analysis Plan
 
-### Discovery Methods
-- Calculate % for each platform (Q1)
-- Cross-reference with multi-select (Q2)
-- Segment by age (Q12)
+| Question | Knowledge Gap It Fills | Decision It Informs |
+|----------|----------------------|---------------------|
+| Q1-Q2 | Player experience level | Segment by experience |
+| Q3 | Game mode preference | Segment ALL other answers by playstyle |
+| Q4 | How players find servers (by channel) | Where to promote hytale.gg, YouTube vs TikTok vs Twitch |
+| Q5 | Satisfaction with current options | Market opportunity size |
+| Q6 | #1 frustration (incl. vote manipulation, no reviews) | What to solve first, validates core thesis |
+| Q7-Q8 | Rating criteria validation (incl. region) | Confirm/adjust 35/30/25/10 weights |
+| Q9 | Server switching + unsatisfied market size | Retention metric design, TAM for discovery |
+| Q10 | Info before joining: text vs video reviews vs data vs tags | Review system design, vibe tags priority |
+| Q11 | Discovery method: algorithmic vs filter vs social vs friends | Featured rotation, LFG, friend feed priority |
+| Q12 | Trust signals: verified playtime vs owner response vs retention vs P2W filter vs active updates (Roblox) | Quality score formula, review design, **update frequency in algorithm** |
+| Q13 | Review writing likelihood | Review system viability |
+| Q14 | Which trust patterns matter (Steam/Amazon/Google Maps) + anonymous vs named + recent vs all-time (Steam dual score) | Review UI design, aggregate labels, helpful votes, **Review PRD open Q #3**, split scoring |
+| Q15 | Review FORMAT preference (Steam binary vs Amazon stars vs multi-criteria) | **Fundamental review system architecture — blocks Review PRD** |
+| Q16 | Research behavior + mobile browsing + bookmarks (Steam wishlist) + follow for notifications (Steam follow) | Listing page design, Discord integration, **mobile-first PWA**, bookmark feature, server follow/notify |
+| Q17 | Language preference | Bilingual priority |
 
-### Player Priorities
-- Rank by frequency selected in top 3 (Q4)
-- Weight by "most important" votes (Q5)
-- Factor in frequency impact (Q6)
+### Statistical Targets
+- **Minimum responses**: 50 for directional insights, 200 for statistical significance
+- **Confidence level**: 95% with ±7% margin at n=200
+- **MaxDiff analysis**: Requires minimum 30 responses per set
 
-### Pain Points
-- Rank leaving reasons by % (Q7)
-- Weight by frequency (Q8)
-- Identify patterns by age/device
-
-### Feature Prioritization
-- Use MaxDiff scoring algorithm
-- Generate ranked feature list
-- Validate against top priorities
-
----
-
-## Success Metrics
-
-**Survey is successful if:**
-- ✅ 100+ responses
-- ✅ Discovery method percentages have <10% margin of error
-- ✅ Clear top 3 player priorities emerge
-- ✅ MaxDiff feature ranking is statistically significant
-- ✅ Mobile vs desktop split is clear
-- ✅ Age-based patterns are identifiable
+### Segmentation Plan
+- **By game mode (Q3)**: PvP players vs Creative builders vs Survival vs RPG
+- **By experience (Q1-Q2)**: New players vs veterans, single-server vs multi-server
+- **By satisfaction (Q5)**: Dissatisfied (opportunity) vs Satisfied (what's working)
+- **By switching (Q9)**: Loyal vs explorers vs unsatisfied
