@@ -72,9 +72,7 @@ export function Header() {
   const t = useTranslations('navigation');
 
   const navItems = [
-    { label: t('servers'), href: "/servers" as const },
-    { label: t('creators'), href: "/creators" as const },
-    { label: t('listServer'), href: "/submit" as const },
+    { label: t('surveys'), href: "/survey" as const },
   ];
 
   return (

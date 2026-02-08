@@ -8,6 +8,7 @@
     "profile": "Profile",
     "settings": "Settings",
     "branding": "Brand Guidelines",
+    "surveys": "Surveys",
     "changeLanguage": "Change language",
     "userMenu": "User menu"
   },
@@ -31,6 +32,7 @@
     "dashboard": "Dashboard",
     "analytics": "Analytics",
     "verification": "Verification",
+    "surveys": "Surveys",
     "privacy": "Privacy",
     "terms": "Terms",
     "contact": "Contact",
@@ -246,7 +248,6 @@
   },
   "submit": {
     "title": "List a Server",
-    "description": "Share your Hytale server with our community and help players discover amazing gaming experiences.",
     "serverInfo": "Server Information",
     "serverName": "Server Name",
     "serverNamePlaceholder": "Enter your server name",
@@ -283,6 +284,527 @@
     "submit": {
       "title": "List a Server | hytale.GG",
       "description": "Share your Hytale server with our community and help players discover amazing gaming experiences."
+    },
+    "surveys": {
+      "title": "Surveys | hytale.GG",
+      "description": "Share your feedback and help shape the future of the Hytale server directory."
+    }
+  },
+  "survey": {
+    "listing": {
+      "title": "Active Surveys",
+      "subtitle": "Help us build a better Hytale experience. Your feedback directly shapes what we build next.",
+      "estimatedTime": "~{minutes} min",
+      "questions": "{count} questions",
+      "takeSurvey": "Take Survey",
+      "noSurveys": "No active surveys right now. Check back soon!"
+    },
+    "common": {
+      "next": "Next",
+      "back": "Back",
+      "submit": "Submit",
+      "complete": "complete",
+      "questionNumber": "Question {current} of {total}",
+      "progress": "Question {current} of {total}",
+      "progressSection": "Section {current} of {total}",
+      "alreadyCompleted": {
+        "title": "Already Completed",
+        "description": "You've already completed this survey. Thank you for your time!",
+        "returnHome": "Return Home"
+      },
+      "otherPlaceholder": "Please specify...",
+      "optional": "(optional)",
+      "selectUpTo": "{current} of {max} selected",
+      "selectExact": "Select exactly {count}",
+      "selectAtLeast": "Select at least {count}",
+      "validation": {
+        "required": "Please answer this question to continue.",
+        "exactN": "Please select exactly {count} options.",
+        "minN": "Please select at least {count} options.",
+        "maxN": "You can select up to {count} options.",
+        "otherRequired": "Please specify your answer in the text field.",
+        "invalidScale": "Please select a rating.",
+        "maxdiffBoth": "Please select both a most and least important option.",
+        "maxdiffSame": "Most and least important cannot be the same option.",
+        "pointsSum": "Your points must add up to exactly {sum}.",
+        "pointsNegative": "Points cannot be negative.",
+        "unknownType": "Unknown question type."
+      },
+      "csat": {
+        "1": "Very dissatisfied",
+        "2": "Dissatisfied",
+        "3": "Neutral",
+        "4": "Satisfied",
+        "5": "Very satisfied",
+        "lowLabel": "Least Satisfied",
+        "highLabel": "Most Satisfied"
+      },
+      "maxdiff": {
+        "most": "Most Important",
+        "least": "Least Important",
+        "feature": "Feature"
+      },
+      "pointAllocation": {
+        "totalPoints": "Total points: {total}",
+        "remaining": "{points} remaining",
+        "exceeded": "{points} over",
+        "complete": "All points allocated"
+      },
+      "thankYou": {
+        "title": "Thank You!",
+        "description": "Your responses have been submitted successfully.",
+        "discordPrompt": "Want to join our beta testers? Leave your Discord username:",
+        "discordPlaceholder": "username#1234",
+        "save": "Save",
+        "saving": "Saving...",
+        "saved": "Saved! We'll reach out soon."
+      },
+      "screenOut": {
+        "title": "Thanks for Your Interest",
+        "description": "Based on your responses, this survey isn't the right fit. We appreciate your time!",
+        "returnHome": "Return Home"
+      }
+    },
+    "player": {
+      "title": "Player Server Discovery Survey",
+      "description": "Help us build a better way to find Hytale servers. Takes ~4 minutes.",
+      "thankYou": {
+        "title": "Thanks for helping us build a better way to find Hytale servers!",
+        "description": "Follow @pixelkoh for updates. Leave your Discord username to join our beta testers."
+      },
+      "screenOut": {
+        "title": "Thanks for your interest!",
+        "description": "This survey is for players who have tried Hytale multiplayer. Check back once you've played!"
+      },
+      "sections": {
+        "screening": { "title": "About You" },
+        "discovery": { "title": "Finding Servers", "description": "How do you find servers today?" },
+        "what_matters": { "title": "What Matters", "description": "What do you look for in a server?" },
+        "feature_prioritization": { "title": "Features", "description": "Which features would you actually use?" },
+        "reviews_trust": { "title": "Reviews & Trust", "description": "What makes reviews useful?" },
+        "research_demographics": { "title": "Almost Done" }
+      },
+      "q1": {
+        "title": "How long have you been playing Hytale multiplayer?",
+        "options": {
+          "not_played": "I haven't played multiplayer yet",
+          "less_1_week": "Less than 1 week",
+          "1_2_weeks": "1–2 weeks",
+          "3_4_weeks": "3–4 weeks",
+          "more_than_month": "More than a month"
+        }
+      },
+      "q2": {
+        "title": "How many different Hytale servers have you tried?",
+        "options": {
+          "1": "1",
+          "2_3": "2–3",
+          "4_6": "4–6",
+          "7_10": "7–10",
+          "more_than_10": "More than 10"
+        }
+      },
+      "q3": {
+        "title": "What game mode do you primarily play?",
+        "subtitle": "Pick the one you play most",
+        "options": {
+          "survival_smp": "Survival / SMP",
+          "pvp_factions": "PvP / Factions",
+          "rpg_adventure": "RPG / Adventure",
+          "creative_building": "Creative / Building",
+          "minigames": "Minigames",
+          "multiple_equally": "I play multiple modes equally",
+          "other": "Other"
+        }
+      },
+      "q4": {
+        "title": "How did you find the server(s) you play on?",
+        "subtitle": "Select up to 3",
+        "options": {
+          "friend_wom": "Friend / word of mouth",
+          "youtube": "YouTube video or tutorial",
+          "tiktok": "TikTok or short-form video",
+          "twitch": "Twitch stream",
+          "discord": "Discord server",
+          "reddit": "Reddit post",
+          "server_listing": "Server listing website (e.g., HytaleTop100, HyServers)",
+          "ingame_browser": "In-game server browser",
+          "twitter": "Twitter/X",
+          "other": "Other"
+        }
+      },
+      "q5": {
+        "title": "How satisfied are you with how easy it is to find good Hytale servers?"
+      },
+      "q6": {
+        "title": "What is the SINGLE biggest frustration when looking for a server?",
+        "subtitle": "Pick the one that bothers you most",
+        "options": {
+          "too_many_options": "Too many options, hard to know which is good",
+          "cant_tell_active": "Can't tell if a server is active or dead",
+          "dont_match_description": "Servers don't match their description",
+          "cant_find_playstyle": "Can't find servers for my playstyle",
+          "same_servers_top": "Same servers always at the top of lists",
+          "no_reviews": "No reviews or reliable info about the server before joining",
+          "listings_outdated": "Server listings feel outdated or abandoned",
+          "too_laggy": "Server is too laggy after joining",
+          "dont_know_anyone": "Don't know anyone on the server",
+          "other": "Other"
+        }
+      },
+      "q7": {
+        "title": "When choosing a server, pick your TOP 3 most important factors:",
+        "subtitle": "Select exactly 3",
+        "options": {
+          "friendly_community": "Friendly community & helpful staff",
+          "low_lag": "Low lag and stable performance",
+          "unique_gameplay": "Unique gameplay or custom content",
+          "mod_variety": "Mod/plugin variety and support",
+          "no_p2w": "No pay-to-win mechanics",
+          "active_players": "Active player count (people are actually online)",
+          "good_moderation": "Good moderation (no hackers/griefers)",
+          "close_region": "Server region close to me (low ping)",
+          "regular_updates": "Regular updates and new content",
+          "other": "Other"
+        }
+      },
+      "q8": {
+        "title": "Of your top 3, which one would make you LEAVE a server if it was bad?",
+        "subtitle": "Pick the dealbreaker"
+      },
+      "q9": {
+        "title": "How often do you switch servers?",
+        "options": {
+          "stick_with_one": "I stick with one server",
+          "every_few_weeks": "Every few weeks",
+          "every_few_days": "Every few days",
+          "multiple_regularly": "I play on multiple servers regularly",
+          "havent_found": "I haven't found a server I like yet"
+        }
+      },
+      "q10": {
+        "title": "Information before joining",
+        "subtitle": "Which is MOST important and LEAST important to you?",
+        "options": {
+          "text_reviews": "Read player reviews with specific ratings (community, performance, fairness)",
+          "video_review": "Watch a video review showing actual gameplay on the server",
+          "realtime_count": "See real-time player count and peak hours",
+          "vibe_tags": "Server \"vibe tags\" (e.g., \"Chill builders\", \"Hardcore PvP\", \"Beginner-friendly\")"
+        }
+      },
+      "q11": {
+        "title": "How servers should surface to you",
+        "subtitle": "Which is MOST important and LEAST important to you?",
+        "options": {
+          "server_of_day": "Rotating \"Server of the Day\" spotlights (not always the same servers on top)",
+          "difficulty_filter": "Filter servers by difficulty level (beginner-friendly vs. expert)",
+          "lfg_board": "\"Looking for Group\" board to find teammates",
+          "friends_play": "See what servers your friends play on"
+        }
+      },
+      "q12": {
+        "title": "Trust & quality signals",
+        "subtitle": "Which is MOST important and LEAST important to you?",
+        "options": {
+          "reviewer_hours": "Reviews show how many hours the reviewer played on that server",
+          "owner_responds": "Server owner can respond to reviews",
+          "retention_rate": "See a server's player retention rate (do people keep coming back?)",
+          "hide_p2w": "Filter to hide pay-to-win servers",
+          "actively_updated": "The server is actively updated with new content or events"
+        }
+      },
+      "q13": {
+        "title": "How likely are you to write a review for a server you've played on?",
+        "options": {
+          "very_likely": "Very likely — I like sharing my experience",
+          "strong_experience": "Only if I had a strong experience (really great or really bad)",
+          "unlikely": "Unlikely — I'd read reviews but not write them",
+          "not_interested": "Not interested in reviews at all"
+        }
+      },
+      "q14": {
+        "title": "What makes a server review trustworthy?",
+        "subtitle": "Pick top 2",
+        "options": {
+          "hours_played": "Shows how many hours the reviewer played on that server",
+          "specific_aspects": "Rates specific aspects separately (community, performance, fairness)",
+          "screenshots_video": "Includes screenshots or video of actual gameplay",
+          "recent_review": "The review is recent (less than 2 weeks old)",
+          "helpful_votes": "Other players voted the review as \"helpful\"",
+          "sentiment_summary": "An overall sentiment summary like \"Mostly Positive\" or \"Mixed\"",
+          "username_visible": "The reviewer's username and playtime are visible (not anonymous)",
+          "recent_vs_alltime": "Separate \"recent\" and \"all-time\" review scores"
+        }
+      },
+      "q15": {
+        "title": "What review format would be most useful for evaluating a server?",
+        "options": {
+          "binary_steam": "Simple \"Recommend / Don't Recommend\" with a text comment (Steam style)",
+          "stars_amazon": "1–5 star rating with a text comment (Amazon/Google style)",
+          "multi_criteria": "Rate specific aspects separately — community, performance, content, fairness",
+          "just_label": "Just show me an overall label like \"Mostly Positive\" — I don't read individual reviews"
+        }
+      },
+      "q16": {
+        "title": "After you hear about a server, what do you do before joining?",
+        "subtitle": "Pick top 2",
+        "options": {
+          "just_join": "Just join it and see for myself",
+          "check_listing": "Check the server's listing page (player count, description, reviews)",
+          "join_discord": "Join their Discord to get a feel for the community",
+          "youtube_twitch": "Look for YouTube/Twitch content about the server",
+          "ask_friends": "Ask friends or other players about it",
+          "mobile_browse": "Browse server listing sites on my phone, then join from PC later",
+          "save_bookmark": "Save/bookmark it to try later when I have time",
+          "follow_updates": "Follow the server to get notified about updates or events"
+        }
+      },
+      "q17": {
+        "title": "What language do you prefer for gaming content?",
+        "options": {
+          "english": "English",
+          "spanish": "Spanish",
+          "portuguese": "Portuguese",
+          "french": "French",
+          "german": "German",
+          "other": "Other"
+        }
+      }
+    },
+    "owner": {
+      "title": "Server Owner Survey",
+      "description": "Help us understand what server owners need. Takes ~5 minutes.",
+      "thankYou": {
+        "title": "Thanks for helping us understand what server owners need!",
+        "description": "Your answers will directly shape the tools we build. Leave your Discord username if you'd like to be notified when results are published."
+      },
+      "screenOut": {
+        "title": "Thanks for your interest!",
+        "description": "This survey is for people who run or manage a Hytale server."
+      },
+      "sections": {
+        "screening_profile": { "title": "About Your Server" },
+        "discovery_pain": { "title": "Discovery & Challenges", "description": "Where are you listed and what's hard?" },
+        "listing_friction": { "title": "Listing Experience", "description": "What makes listing painful?" },
+        "feature_prioritization": { "title": "Features & Analytics", "description": "What would make you list on a new directory?" },
+        "reviews_trust": { "title": "Reviews & Trust", "description": "How do you feel about player reviews?" },
+        "final": { "title": "One Last Thing" }
+      },
+      "q1": {
+        "title": "What is your role?",
+        "subtitle": "This survey is for server owners and admins",
+        "options": {
+          "owner": "Server owner",
+          "admin_coowner": "Server admin / co-owner",
+          "staff_moderator": "Staff / moderator",
+          "not_managing": "I don't run or manage a server"
+        }
+      },
+      "q2": {
+        "title": "How long has your Hytale server been running?",
+        "options": {
+          "less_1_week": "Less than 1 week",
+          "1_2_weeks": "1–2 weeks",
+          "3_4_weeks": "3–4 weeks",
+          "more_than_month": "More than a month",
+          "before_ea": "Since before Early Access (testing/pre-launch)"
+        }
+      },
+      "q3": {
+        "title": "What is your server's average daily player count?",
+        "options": {
+          "1_5": "1–5 players",
+          "6_20": "6–20 players",
+          "21_50": "21–50 players",
+          "51_100": "51–100 players",
+          "100_plus": "100+ players"
+        }
+      },
+      "q4": {
+        "title": "What is your primary game mode?",
+        "options": {
+          "survival_smp": "Survival / SMP",
+          "pvp_factions": "PvP / Factions",
+          "rpg_adventure": "RPG / Adventure",
+          "creative_building": "Creative / Building",
+          "minigames": "Minigames",
+          "multiple_modes": "Multiple modes (Survival + PvP, etc.)",
+          "other": "Other"
+        }
+      },
+      "q5": {
+        "title": "What hosting provider do you use?",
+        "subtitle": "This helps us understand the hosting landscape",
+        "options": {
+          "self_hosted": "Self-hosted (own hardware or VPS)",
+          "oracle_free": "Oracle Free Tier",
+          "gportal": "GPORTAL",
+          "ghostcap": "Ghostcap",
+          "game_host_bros": "Game Host Bros",
+          "dathost": "DatHost",
+          "pine_hosting": "Pine Hosting",
+          "wasabi_hosting": "Wasabi Hosting",
+          "no_disclose": "I don't want to disclose",
+          "other": "Other"
+        }
+      },
+      "q6": {
+        "title": "How much do you spend monthly on your server?",
+        "subtitle": "Including hosting, plugins, etc.",
+        "options": {
+          "free": "$0 (free tier / self-hosted)",
+          "1_10": "$1–10/month",
+          "11_25": "$11–25/month",
+          "26_50": "$26–50/month",
+          "50_plus": "$50+/month",
+          "no_disclose": "I don't want to disclose"
+        }
+      },
+      "q7": {
+        "title": "Where is your server currently listed?",
+        "subtitle": "Select all that apply",
+        "options": {
+          "hytaletop100": "HytaleTop100",
+          "hyservers": "HyServers.gg",
+          "hytale_universe": "Hytale Universe",
+          "hytale_servers_com": "hytale-servers.com",
+          "serverlist_gg": "serverlist.gg",
+          "reddit": "Reddit posts",
+          "discord": "Discord servers",
+          "ingame_browser": "In-game server browser",
+          "own_website": "My own website / landing page",
+          "not_listed": "Not listed anywhere",
+          "other": "Other"
+        }
+      },
+      "q8": {
+        "title": "How satisfied are you with your current server listing platform(s)?"
+      },
+      "q9": {
+        "title": "What are your TOP 3 biggest challenges in growing your server?",
+        "subtitle": "Select exactly 3",
+        "options": {
+          "getting_new_players": "Getting new players to find my server",
+          "keeping_players": "Keeping players coming back after they join",
+          "standing_out": "Standing out from other servers",
+          "getting_feedback": "Getting honest feedback from players",
+          "competing_paid": "Competing with servers that buy votes or pay for top spots",
+          "figuring_wants": "Figuring out what players actually want",
+          "technical_problems": "Technical problems (lag, hosting, DDoS)",
+          "managing_staff": "Managing staff and moderators",
+          "other": "Other"
+        }
+      },
+      "q10": {
+        "title": "What is the most annoying part of listing or advertising your server on directories?",
+        "subtitle": "Pick the one that bothers you most",
+        "options": {
+          "writing_description": "Writing a compelling description",
+          "creating_banners": "Creating banners, images, or promotional graphics",
+          "vote_rewards": "Setting up vote rewards (Votifier, vote links, etc.)",
+          "multiple_sites": "Listing on multiple sites with different requirements",
+          "keeping_updated": "Keeping information up-to-date across all platforms",
+          "initial_visibility": "Getting initial visibility before anyone knows about my server",
+          "verification": "The verification / ownership claiming process",
+          "not_listed": "I'm not listed anywhere, so I haven't experienced this",
+          "other": "Other"
+        }
+      },
+      "q11": {
+        "title": "Imagine a new directory automatically found your server from your existing listings and created a listing for you. How would you feel?",
+        "subtitle": "This would pull info from sites like HytaleTop100, HyServers, etc.",
+        "options": {
+          "love_it": "Love it — one less site I have to manually set up",
+          "great_can_edit": "Great, as long as I can claim and edit it afterward",
+          "approve_first": "OK, but I'd want to approve it before it goes live",
+          "rather_myself": "I'd rather add my server myself",
+          "not_listed_elsewhere": "I'm not listed anywhere else, so this doesn't apply to me"
+        }
+      },
+      "q12": {
+        "title": "Pick your TOP 3 most important features in a server directory:",
+        "subtitle": "Select exactly 3",
+        "options": {
+          "fair_ranking": "Fair ranking that doesn't favor big/paying servers",
+          "detailed_analytics": "Detailed analytics (who visits, where they come from)",
+          "player_reviews": "Player reviews visible on my listing",
+          "respond_reviews": "Ability to respond to player reviews publicly",
+          "creator_reviews": "Creator/YouTuber reviews of my server",
+          "status_monitoring": "Automated server status monitoring",
+          "discord_notifications": "Discord notifications (new review alerts, server status updates)",
+          "easy_claiming": "Easy server claiming and verified owner badge",
+          "auto_imported": "Auto-imported listing from other directories (zero setup)",
+          "other": "Other"
+        }
+      },
+      "q13": {
+        "title": "Imagine a server directory gives you a free dashboard. You have 100 points to spend on what info matters most to you.",
+        "subtitle": "Distribute 100 points — more points = more important to you",
+        "options": {
+          "traffic_sources": "Where your players come from (which sites, searches, or links bring people to your listing)",
+          "listing_conversion": "How well your listing converts (how many people see it vs. how many actually click to join)",
+          "player_retention": "Whether players stick around (how many come back after their first time on your server)",
+          "review_themes": "What players say about you (common themes from reviews — what people love and what they complain about)",
+          "competitor_comparison": "How you compare to similar servers (see your stats next to servers in your same category)",
+          "promotion_tracking": "Track which promotions work (custom links for Discord/Reddit/TikTok so you know which posts actually bring players)"
+        }
+      },
+      "q14": {
+        "title": "If those basic stats were free, which extras would make you consider paying a small monthly fee?",
+        "subtitle": "Pick up to 2",
+        "options": {
+          "player_retention": "See if players come back after joining (and when they stop)",
+          "review_themes": "See what players say about my server (review themes and trends)",
+          "tracking_links": "Custom tracking links to measure my promotions (Discord posts, Reddit, TikTok)",
+          "alerts": "Get alerts when my rating drops or traffic spikes",
+          "export_data": "Export my data to a spreadsheet",
+          "compare_servers": "Compare my stats to similar servers",
+          "none": "None — the free basics are enough for me"
+        }
+      },
+      "q14b": {
+        "title": "If those extra features cost a monthly fee, what would feel fair?",
+        "options": {
+          "under_5": "Under $5/month",
+          "5_10": "$5–10/month",
+          "10_20": "$10–20/month",
+          "free_trial": "I'd only try it if there was a free trial first",
+          "wouldnt_pay": "I wouldn't pay for analytics",
+          "depends": "Depends on how much it actually helps me grow"
+        }
+      },
+      "q15": {
+        "title": "How would you feel about player reviews on your server listing?",
+        "options": {
+          "great_feedback": "Great — honest feedback helps me improve",
+          "fine_respond": "Fine, but I want to be able to respond to reviews",
+          "worried_fake": "Worried about fake/unfair negative reviews",
+          "prefer_votes": "I'd prefer no reviews — just votes"
+        }
+      },
+      "q16": {
+        "title": "If a content creator (YouTuber/TikToker) offered to review your server, would you...",
+        "options": {
+          "welcome_free": "Welcome it — free exposure",
+          "welcome_know": "Welcome it, but want to know beforehand",
+          "see_before": "Only if I can see the review before it's published",
+          "not_interested": "Not interested in creator reviews"
+        }
+      },
+      "q17": {
+        "title": "What review format would give you the most useful feedback as an owner?",
+        "subtitle": "This helps us design the review system",
+        "options": {
+          "binary_steam": "Simple \"Recommend / Don't Recommend\" with a text comment (Steam style)",
+          "stars_amazon": "1–5 star rating with a text comment (Amazon/Google style)",
+          "multi_criteria": "Rate specific aspects separately — community, performance, content, fairness",
+          "no_reviews": "I don't want reviews on my listing"
+        }
+      },
+      "q18": {
+        "title": "What ONE thing would make you immediately list your server on a new directory?",
+        "subtitle": "Tell us in your own words"
+      }
     }
   }
 }

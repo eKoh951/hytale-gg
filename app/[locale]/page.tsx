@@ -1,12 +1,12 @@
-import { Hero } from "@/components/landing/hero";
-import { Reviews } from "@/components/landing/reviews";
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { createClient } from '@/lib/supabase/server';
+import { getAllSurveyConfigs, getTotalQuestions } from '@/lib/surveys/get-survey';
+import { HomeSurveyList } from '@/components/landing/home-survey-list';
 import type { Metadata } from 'next';
 
-// Generate metadata using translations
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('metadata.home');
-  
+
   return {
     title: t('title'),
     description: t('description'),
@@ -20,27 +20,51 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-// Force static generation for this page with revalidation
-export const dynamic = 'force-static';
-export const revalidate = 86400; // Revalidate once per day
-
-// Generate static params for all locales
 export async function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'es' }];
 }
 
+const ESTIMATED_MINUTES: Record<string, number> = {
+  'player-discovery': 4,
+  'server-owner': 5,
+};
+
+async function getActiveSurveySlugs(): Promise<string[]> {
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from('surveys')
+    .select('slug')
+    .eq('status', 'active')
+    .order('created_at', { ascending: false });
+
+  return data?.map((s) => s.slug) ?? [];
+}
+
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  
-  // Enable static rendering
   setRequestLocale(locale);
-  
+
+  const t = await getTranslations({ locale });
+  const activeSlugs = await getActiveSurveySlugs();
+  const allConfigs = getAllSurveyConfigs();
+
+  const activeSurveys = allConfigs
+    .filter((config) => activeSlugs.includes(config.slug))
+    .map((config) => ({
+      slug: config.slug,
+      title: t(config.titleKey),
+      description: t(config.descriptionKey),
+      totalQuestions: getTotalQuestions(config),
+      estimatedMinutes: ESTIMATED_MINUTES[config.slug] ?? Math.ceil(getTotalQuestions(config) * 0.3),
+    }));
+
   return (
-    <>
-      <main>
-        <Hero />
-        <Reviews />
-      </main>
-    </>
+    <main>
+      <HomeSurveyList
+        surveys={activeSurveys}
+        title={t('survey.listing.title')}
+        subtitle={t('survey.listing.subtitle')}
+      />
+    </main>
   );
 }
