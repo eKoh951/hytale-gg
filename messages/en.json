@@ -289,17 +289,20 @@
       "next": "Next",
       "back": "Back",
       "submit": "Submit",
+      "complete": "complete",
+      "questionNumber": "Question {current} of {total}",
       "progress": "Question {current} of {total}",
       "progressSection": "Section {current} of {total}",
-      "alreadyCompleted": "You've already completed this survey. Thank you!",
+      "alreadyCompleted": {
+        "title": "Already Completed",
+        "description": "You've already completed this survey. Thank you for your time!",
+        "returnHome": "Return Home"
+      },
       "otherPlaceholder": "Please specify...",
       "optional": "(optional)",
-      "pointsRemaining": "{points} points remaining",
-      "pointsOver": "{points} points over budget",
-      "selectedCount": "{count} of {max} selected",
-      "selectedExact": "Select exactly {count}",
-      "mostImportant": "Most Important",
-      "leastImportant": "Least Important",
+      "selectUpTo": "{current} of {max} selected",
+      "selectExact": "Select exactly {count}",
+      "selectAtLeast": "Select at least {count}",
       "validation": {
         "required": "Please answer this question to continue.",
         "exactN": "Please select exactly {count} options.",
@@ -318,7 +321,34 @@
         "2": "Dissatisfied",
         "3": "Neutral",
         "4": "Satisfied",
-        "5": "Very satisfied"
+        "5": "Very satisfied",
+        "lowLabel": "Least Satisfied",
+        "highLabel": "Most Satisfied"
+      },
+      "maxdiff": {
+        "most": "Most Important",
+        "least": "Least Important",
+        "feature": "Feature"
+      },
+      "pointAllocation": {
+        "totalPoints": "Total points: {total}",
+        "remaining": "{points} remaining",
+        "exceeded": "{points} over",
+        "complete": "All points allocated"
+      },
+      "thankYou": {
+        "title": "Thank You!",
+        "description": "Your responses have been submitted successfully.",
+        "discordPrompt": "Want to join our beta testers? Leave your Discord username:",
+        "discordPlaceholder": "username#1234",
+        "save": "Save",
+        "saving": "Saving...",
+        "saved": "Saved! We'll reach out soon."
+      },
+      "screenOut": {
+        "title": "Thanks for Your Interest",
+        "description": "Based on your responses, this survey isn't the right fit. We appreciate your time!",
+        "returnHome": "Return Home"
       }
     },
     "player": {

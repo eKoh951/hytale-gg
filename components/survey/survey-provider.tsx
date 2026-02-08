@@ -220,6 +220,7 @@ export function SurveyProvider({
         isMobile,
         currentQuestions,
       },
+      survey: config,
     }),
     [state, setAnswer, nextStep, prevStep, submit, config, totalSteps, progress, canGoNext, canGoBack, isMobile, currentQuestions]
   )

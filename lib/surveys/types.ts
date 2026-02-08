@@ -154,6 +154,7 @@ export interface SurveyContextValue {
   state: SurveyContextState
   actions: SurveyContextActions
   meta: SurveyContextMeta
+  survey: SurveyConfig
 }
 
 // -- DB Row Types --
