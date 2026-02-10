@@ -36,7 +36,7 @@ export function MaxDiffChart({ data }: MaxDiffChartProps) {
     leastCount: opt.leastCount,
   }))
 
-  const maxBarHeight = Math.min(data.options.length * 36, 300)
+  const maxBarHeight = Math.min(data.options.length * 36, 1200)
 
   return (
     <div className="space-y-3">
@@ -55,16 +55,16 @@ export function MaxDiffChart({ data }: MaxDiffChartProps) {
         <BarChart
           data={chartData}
           layout="vertical"
-          margin={{ left: 0, right: 40, top: 0, bottom: 0 }}
+          margin={{ left: 0, right: 60, top: 0, bottom: 0 }}
         >
           <CartesianGrid horizontal={false} strokeDasharray="3 3" />
           <YAxis
             dataKey="name"
             type="category"
-            width={120}
+            width={250}
             tickLine={false}
             axisLine={false}
-            tick={{ fontSize: 11 }}
+            tick={{ fontSize: 11, fontWeight: 900 }}
           />
           <XAxis
             type="number"

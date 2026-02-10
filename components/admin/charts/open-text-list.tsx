@@ -39,7 +39,7 @@ export function OpenTextList({ data }: OpenTextListProps) {
         />
       </div>
 
-      <div className="max-h-[400px] space-y-2 overflow-y-auto">
+      <div className="max-h-[800px] space-y-2 overflow-y-auto">
         {filtered.length === 0 ? (
           <p className="py-4 text-center text-sm text-muted-foreground">
             No matching responses.
@@ -47,7 +47,7 @@ export function OpenTextList({ data }: OpenTextListProps) {
         ) : (
           filtered.map((text, i) => (
             <Card key={i} className="px-3 py-2">
-              <p className="text-sm">{text}</p>
+              <p className="text-sm font-bold">{text}</p>
             </Card>
           ))
         )}

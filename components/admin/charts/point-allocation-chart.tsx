@@ -34,7 +34,7 @@ export function PointAllocationChart({ data }: PointAllocationChartProps) {
     avgPoints: opt.avgPoints,
   }))
 
-  const maxBarHeight = Math.min(data.options.length * 32, 300)
+  const maxBarHeight = Math.min(data.options.length * 32, 1200)
 
   return (
     <div className="space-y-3">
@@ -52,10 +52,10 @@ export function PointAllocationChart({ data }: PointAllocationChartProps) {
           <YAxis
             dataKey="name"
             type="category"
-            width={120}
+            width={200}
             tickLine={false}
             axisLine={false}
-            tick={{ fontSize: 11 }}
+            tick={{ fontSize: 11, fontWeight: 900 }}
           />
           <XAxis
             type="number"

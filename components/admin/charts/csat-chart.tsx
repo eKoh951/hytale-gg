@@ -61,7 +61,7 @@ export function CsatChart({ data, showPercent = false }: CsatChartProps) {
       </div>
 
       {/* Distribution bar chart */}
-      <ChartContainer config={chartConfig} className="h-[140px] w-full">
+      <ChartContainer config={chartConfig} className="h-[400px] w-full">
         <BarChart
           data={chartData}
           margin={{ left: 0, right: 0, top: 0, bottom: 0 }}
@@ -71,7 +71,7 @@ export function CsatChart({ data, showPercent = false }: CsatChartProps) {
             dataKey="name"
             tickLine={false}
             axisLine={false}
-            tick={{ fontSize: 12 }}
+            tick={{ fontSize: 12, fontWeight: 900 }}
           />
           <YAxis
             tickLine={false}

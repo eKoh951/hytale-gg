@@ -40,7 +40,7 @@ export function SelectChart({ data, showPercent = false }: SelectChartProps) {
     pct: Math.round((opt.count / data.totalRespondents) * 100),
   }))
 
-  const maxBarHeight = Math.min(data.options.length * 32, 350)
+  const maxBarHeight = Math.min(data.options.length * 32, 1200)
 
   return (
     <div className="space-y-3">
@@ -61,10 +61,10 @@ export function SelectChart({ data, showPercent = false }: SelectChartProps) {
           <YAxis
             dataKey="name"
             type="category"
-            width={120}
+            width={350}
             tickLine={false}
             axisLine={false}
-            tick={{ fontSize: 11 }}
+            tick={{ fontSize: 10, fontWeight: 900 }}
           />
           <XAxis
             type="number"
