@@ -40,7 +40,7 @@ export default async function AdminSurveysPage({
           </CardContent>
         </Card>
       ) : (
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-5">
           {surveys.map((survey) => {
             const completionRate = survey.total > 0
               ? Math.round((survey.completed / survey.total) * 100)
