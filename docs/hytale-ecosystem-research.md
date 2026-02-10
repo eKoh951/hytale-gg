@@ -406,3 +406,230 @@ The Google Trends daily scraper returned **277 trending US searches** for Feb 10
 ---
 
 *Research conducted using Apify Actors (YouTube Scraper, TikTok Hashtag Scraper, Reddit Scraper, Instagram Hashtag Scraper, Facebook Groups Scraper, Google Trends Scraper) and Firecrawl (competitor site mapping and scraping).*
+
+---
+
+## 9. HYTALE KEYWORD & SEARCH TREND ANALYSIS
+
+> **Date:** February 10, 2026  
+> **Sources:** Semrush/Exploding Topics (YouTube keyword data), Google SERP analysis, Firecrawl web search  
+> **Purpose:** Identify high-value Hytale keywords for SEO content strategy in English and Spanish/LATAM
+
+---
+
+### 9A. YouTube Search Volume — Hytale is a TOP 3 US Search
+
+Per Semrush's Keyword Analytics for YouTube (January 2026 data via Exploding Topics):
+
+| # | YouTube Keyword (US) | Monthly Search Volume | Competitive Rate |
+|---|---------------------|----------------------|-----------------|
+| 1 | asmr | 38M | 99 |
+| 2 | song | 20M | 95 |
+| **3** | **hytale** | **20M** | **95** |
+| 3 | mrbeast | 20M | 95 |
+| 9 | minecraft | 14M | 93 |
+
+**Key Insight:** "Hytale" has **20 million monthly YouTube searches in the US alone** — tied with MrBeast and surpassing Minecraft (14M). This is an extraordinary level of search demand. vidIQ confirmed: "Hytale is printing views for small creators right now — channels under 7K subs hitting 100K+ views in days."
+
+**→ YouTube SEO is the #1 content discovery channel for Hytale. Any page with embedded YouTube content will benefit from this massive search volume.**
+
+---
+
+### 9B. Google Search — Hytale Hit All-Time Peak at Launch
+
+- **All-time Google Trends peak** occurred at Hytale's Early Access launch (Jan 13, 2026), surpassing even the original 2018 trailer announcement
+- X/Twitter post from @Prowl8413 confirms: "Hytale on google trends has skyrocketed the day before release!"
+- Reddit r/HytaleInfo post: "Hytale hits new all-time peak in google trends more than in its trailer"
+- Current state: sustained high baseline, not daily-trending but consistent
+
+---
+
+### 9C. English Keyword Map — High-Intent Search Terms
+
+Based on SERP analysis, these are the active Hytale keyword clusters with real content ranking:
+
+#### Tier 1: Highest Volume (Informational + Transactional)
+
+| Keyword | Intent | Ranking Content | Gap for hytale.GG |
+|---------|--------|----------------|-------------------|
+| **hytale** | Brand | hytale.com, Wikipedia, Fandom | Rank for branded long-tails |
+| **hytale servers** | Navigational | playhytale.gg, hytaletop100 | ✅ Direct competitor keyword |
+| **hytale download** / **hytale buy** | Transactional | store.hytale.com | Low priority (official store) |
+| **hytale vs minecraft** | Comparison | Apex Hosting blog, mytale.es | ✅ Easy win — create bilingual page |
+| **hytale mods** | Discovery | NexusMods, CurseForge, hytale.game | ✅ Mod directory/guide page |
+
+#### Tier 2: High-Value Long-Tail (Guide/How-To)
+
+| Keyword | Ranking Content | Opportunity |
+|---------|----------------|-------------|
+| **how to play hytale** | YouTube (200K+ views), IGN wiki | ✅ Beginner guide page |
+| **hytale beginner guide** | YouTube ("ULTIMATE Beginners Guide") | ✅ Bilingual guide |
+| **hytale crafting guide** / **progression guide** | YouTube, TheGamer | ✅ Wiki content |
+| **hytale biomes** / **hytale zones** | TheGamer ("Every Zone Explained") | ✅ Wiki content |
+| **how to join a hytale server** | IGN wiki, Reddit | ✅ Server guide |
+| **how to set up a hytale server** | YouTube (multiple 50K+ videos) | ✅ Server setup guide |
+| **best hytale servers 2026** | hytaletop100 blog | ✅ Direct competitor keyword |
+| **hytale RPG servers** / **MMO servers** | hytaletop100 blog | ✅ Category pages |
+
+#### Tier 3: Monetizable (Affiliate/Commercial)
+
+| Keyword | Ranking Content | Opportunity |
+|---------|----------------|-------------|
+| **best hytale server hosting** | hytaleguide.net, cybrancee.com, hosthavoc.com | ✅ HIGH $$ — 5+ sites already ranking |
+| **hytale server hosting comparison** | hytalerealmhosting.com, Apex Hosting | ✅ Affiliate revenue page |
+| **free hytale server hosting** | gaming4free.net | ✅ Include free tier in comparison |
+| **hytale hosting guide** | YouTube (multiple videos) | ✅ Video embed + written guide |
+
+**Notable hosting competitors already ranking:**
+- hytaleguide.net/best-server-hosting — "Compare 15 providers"
+- hytalerealmhosting.com — dedicated comparison site
+- cybrancee.com — "Top 5 Best Providers"
+- hosthavoc.com — Host Havoc, Nitrado, Apex, Shockbyte, BisectHosting
+
+---
+
+### 9D. Spanish/LATAM Keyword Map — Massive Underserved Market
+
+#### Tier 1: Core Spanish Keywords
+
+| Keyword (ES) | English Equivalent | Ranking Content | Gap |
+|--------------|--------------------|----------------|-----|
+| **hytale servidores** | hytale servers | hytaleservidores.com, mytale.es | ✅ No quality directory |
+| **mejores servidores hytale** | best hytale servers | YouTube ("Los MEJORES servidores de HYTALE en ESPAÑOL") | ✅ Zero written content |
+| **hytale vs minecraft** (ES) | hytale vs minecraft | mytale.es (only one) | ✅ Easy win |
+| **hytale descargar** / **hytale gratis** | hytale download/free | YouTube ("Como INSTALAR HYTALE en 2026 *GRATIS y FÁCIL*") | Info page opportunity |
+| **hytale requisitos** | hytale requirements | intercompras.com blog, YouTube | ✅ Requirements page |
+| **hytale precio** | hytale price | store.hytale.com | FAQ/info page |
+
+#### Tier 2: Spanish Long-Tail (Guides)
+
+| Keyword (ES) | Ranking Content | Opportunity |
+|--------------|----------------|-------------|
+| **cómo jugar hytale** | YouTube, gam3s.gg/es | ✅ Beginner guide in Spanish |
+| **cómo crear servidor hytale** | YouTube ("How to create a FREE Hytale server") | ✅ Server setup guide ES |
+| **guía principiantes hytale** | hytaleserverslist.gg/es (!) | ✅ Competitor already doing this |
+| **guía elegir servidor hytale latino** | mytale.es blog | ✅ Server selection guide |
+| **hytale mods español** | NexusMods (Spanish translation mod, 25 downloads) | ✅ Mod guide in Spanish |
+| **servidores hytale español** / **latino** | YouTube, Facebook groups | ✅ Category filter on server list |
+
+#### Tier 3: Spanish Monetizable
+
+| Keyword (ES) | Ranking Content | Opportunity |
+|--------------|----------------|-------------|
+| **hosting hytale servidor** | Olimpo Hosting (sponsor of hytaleservidores.com) | ✅ ZERO comparison content in Spanish |
+| **hytale hosting barato** | Nothing ranking | ✅ Completely open keyword |
+| **mejor hosting hytale español** | Nothing ranking | ✅ Completely open keyword |
+
+---
+
+### 9E. NEW Competitor Discovery — hytaleservidores.com
+
+**Previously unknown Spanish competitor:**
+
+| Detail | Value |
+|--------|-------|
+| URL | hytaleservidores.com |
+| Language | Spanish only |
+| Sponsor | **Olimpo Hosting** (Spanish-language hosting provider) |
+| Content | History of Hytale, FAQ section, hosting promo |
+| Server list | ❌ NOT LIVE — "Podrás agregar y buscar servidores tan pronto como esté disponible Hytale" |
+| Current state | Placeholder/info site — server list not functional |
+
+**What they have:**
+- Good Spanish SEO content (Hytale history, FAQ about price/mods/multiplayer/requirements)
+- Hosting affiliate (Olimpo Hosting)
+- Clean domain targeting "hytale servidores"
+
+**What they lack:**
+- ❌ No actual server directory (still says "coming soon")
+- ❌ No guides or tutorials
+- ❌ No English support
+- ❌ No community features
+- ❌ No wiki content
+
+**Key Insight:** hytaleservidores.com is ranking for "servidores hytale" with just a placeholder page. **This proves the keyword has demand and the competition is extremely weak in Spanish.**
+
+---
+
+### 9F. Another NEW Competitor — hytaleserverslist.gg
+
+Found during Spanish keyword research:
+
+| Detail | Value |
+|--------|-------|
+| URL | hytaleserverslist.gg/es/blog/ |
+| Languages | English + **Spanish** (bilingual!) |
+| Content | "Servidores Hytale: Guía Completa para Principiantes" |
+
+**⚠️ This is a direct bilingual competitor with the same .gg TLD pattern.** They already have a Spanish beginner guide for servers. Need to monitor closely.
+
+---
+
+### 9G. SEO KEYWORD PRIORITY MATRIX
+
+#### English — Top 15 Keywords to Target
+
+| # | Keyword | Monthly Intent | Content Type | Priority |
+|---|---------|---------------|-------------|----------|
+| 1 | best hytale servers 2026 | High | Server list + blog | 🔴 |
+| 2 | best hytale server hosting | High ($$) | Comparison/affiliate page | 🔴 |
+| 3 | hytale vs minecraft | Very High | Comparison page | 🔴 |
+| 4 | how to play hytale | High | Beginner guide | 🔴 |
+| 5 | hytale beginner guide | High | Guide page | 🔴 |
+| 6 | hytale server list | High | Server directory | 🔴 |
+| 7 | hytale mods | Very High | Mod directory/guide | 🟡 |
+| 8 | hytale crafting guide | Medium | Wiki page | 🟡 |
+| 9 | hytale zones biomes | Medium | Wiki page | 🟡 |
+| 10 | how to set up hytale server | Medium | Tutorial | 🟡 |
+| 11 | hytale RPG servers | Medium | Category page | 🟡 |
+| 12 | hytale PvP servers | Medium | Category page | 🟡 |
+| 13 | free hytale server hosting | Medium ($$) | Comparison page | 🟡 |
+| 14 | hytale server hosting comparison | Medium ($$) | Comparison page | 🟡 |
+| 15 | hytale progression guide | Medium | Wiki page | 🟢 |
+
+#### Spanish/LATAM — Top 15 Keywords to Target
+
+| # | Keyword (ES) | Monthly Intent | Content Type | Priority |
+|---|-------------|---------------|-------------|----------|
+| 1 | mejores servidores hytale | High | Server list + blog | 🔴 |
+| 2 | hytale servidores | High | Server directory | 🔴 |
+| 3 | hytale vs minecraft (ES) | Very High | Comparison page | 🔴 |
+| 4 | cómo jugar hytale | High | Beginner guide | 🔴 |
+| 5 | guía principiantes hytale | High | Guide page | 🔴 |
+| 6 | servidores hytale español | High | Category filter | 🔴 |
+| 7 | hosting hytale servidor | Medium ($$) | Comparison/affiliate | 🔴 |
+| 8 | hytale mods español | Medium | Mod guide | 🟡 |
+| 9 | cómo crear servidor hytale | Medium | Tutorial | 🟡 |
+| 10 | hytale requisitos PC | Medium | Info page | 🟡 |
+| 11 | hytale precio | Medium | FAQ/info | 🟡 |
+| 12 | mejor hosting hytale español | Low ($$) | Comparison — ZERO competition | 🟡 |
+| 13 | hytale servidores RPG | Low | Category page | 🟡 |
+| 14 | servidores hytale latino | Medium | Category filter | 🟡 |
+| 15 | guía crafteo hytale | Low | Wiki page | 🟢 |
+
+---
+
+### 9H. ACTIONABLE TAKEAWAYS
+
+1. **"Hytale" = 20M YouTube searches/month (US)** — larger than Minecraft on YouTube. This is a once-in-a-decade SEO window.
+
+2. **English hosting comparison is a gold rush** — 5+ sites already competing for "best hytale server hosting" which signals high affiliate revenue. hytale.GG needs this page ASAP.
+
+3. **Spanish hosting keywords are WIDE OPEN** — zero competition for "hosting hytale servidor", "mejor hosting hytale español", "hytale hosting barato". This is free money with affiliate content.
+
+4. **hytaleservidores.com is a paper tiger** — ranking for "servidores hytale" with literally no functional server list. Easy to outrank with actual content.
+
+5. **hytaleserverslist.gg is the real threat** — bilingual .gg domain with Spanish guides already live. Monitor and outpace.
+
+6. **Content priority for SEO:**
+   - **Week 1:** `/hytale-vs-minecraft` + `/hytale-vs-minecraft` (ES) — massive search intent, low competition
+   - **Week 1:** `/best-hytale-server-hosting` + `/mejor-hosting-hytale` — affiliate revenue from day 1
+   - **Week 2:** `/how-to-play-hytale` + `/como-jugar-hytale` — capture beginner traffic
+   - **Week 2:** `/best-hytale-servers` + `/mejores-servidores-hytale` — drive to server directory
+   - **Week 3:** Category pages (RPG, PvP, Survival, Economy) in both languages
+
+7. **YouTube embed strategy validated:** With 20M monthly YouTube searches, embedding creator videos on server/guide pages creates a content flywheel — creators get traffic, hytale.GG gets engagement + dwell time + SEO signals.
+
+---
+
+*Keyword research conducted February 10, 2026 using Firecrawl web search, Semrush/Exploding Topics YouTube keyword data, and Google SERP analysis across US, MX, and ES markets.*
