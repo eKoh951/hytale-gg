@@ -1,13 +1,12 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
-import { setRequestLocale } from 'next-intl/server'
+import { setRequestLocale, getTranslations } from 'next-intl/server'
 
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { getSurveyResults } from '@/lib/admin/survey-analytics'
-import { QuestionCard } from '@/components/admin/charts/question-card'
 import { SurveyResultsClient } from './results-client'
 
 export default async function AdminSurveyResultsPage({
@@ -18,7 +17,16 @@ export default async function AdminSurveyResultsPage({
   const { locale, slug } = await params
   setRequestLocale(locale)
 
-  const results = await getSurveyResults(slug)
+  const t = await getTranslations({ locale })
+  const resolve = (key: string) => {
+    try {
+      return t(key as any)
+    } catch {
+      return key.split('.').pop() ?? key
+    }
+  }
+
+  const results = await getSurveyResults(slug, resolve)
   if (!results) notFound()
 
   const completionRate = results.meta.totalStarted > 0

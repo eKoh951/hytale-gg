@@ -2,6 +2,8 @@ import { createClient } from '@/lib/supabase/server'
 import { getSurveyConfig, getAllSurveyConfigs } from '@/lib/surveys/get-survey'
 import type { Question, QuestionType, SurveyConfig } from '@/lib/surveys/types'
 
+export type TranslationFn = (key: string) => string
+
 // ── Aggregated Data Types ──
 
 export interface SurveyListItem {
@@ -124,7 +126,7 @@ export async function getSurveyListStats(): Promise<SurveyListItem[]> {
 
 // ── Per-Survey Results ──
 
-export async function getSurveyResults(slug: string): Promise<SurveyResultsData | null> {
+export async function getSurveyResults(slug: string, t: TranslationFn): Promise<SurveyResultsData | null> {
   const config = getSurveyConfig(slug)
   if (!config) return null
 
@@ -160,7 +162,7 @@ export async function getSurveyResults(slug: string): Promise<SurveyResultsData 
         totalCompleted: 0,
         screenedOut,
       },
-      questions: buildEmptyResults(config),
+      questions: buildEmptyResults(config, t),
     }
   }
 
@@ -184,13 +186,13 @@ export async function getSurveyResults(slug: string): Promise<SurveyResultsData 
   for (const section of config.sections) {
     for (const question of section.questions) {
       const rawAnswers = answersByQuestion.get(question.key) ?? []
-      const chartData = aggregateQuestion(question, rawAnswers, totalCompleted)
+      const chartData = aggregateQuestion(question, rawAnswers, totalCompleted, t)
       questions.push({
         questionKey: question.key,
-        title: question.titleKey,
-        subtitle: question.subtitleKey,
+        title: t(question.titleKey),
+        subtitle: question.subtitleKey ? t(question.subtitleKey) : undefined,
         sectionKey: section.key,
-        sectionTitle: section.titleKey,
+        sectionTitle: t(section.titleKey),
         chartData,
       })
     }
@@ -213,19 +215,20 @@ export async function getSurveyResults(slug: string): Promise<SurveyResultsData 
 function aggregateQuestion(
   question: Question,
   rawAnswers: { answer: unknown }[],
-  totalCompleted: number
+  totalCompleted: number,
+  t: TranslationFn
 ): QuestionChartData {
   switch (question.type) {
     case 'single_select':
-      return aggregateSingleSelect(question, rawAnswers)
+      return aggregateSingleSelect(question, rawAnswers, t)
     case 'multi_select':
-      return aggregateMultiSelect(question, rawAnswers)
+      return aggregateMultiSelect(question, rawAnswers, t)
     case 'csat_scale':
       return aggregateCsat(rawAnswers)
     case 'maxdiff':
-      return aggregateMaxDiff(question, rawAnswers)
+      return aggregateMaxDiff(question, rawAnswers, t)
     case 'point_allocation':
-      return aggregatePointAllocation(question, rawAnswers)
+      return aggregatePointAllocation(question, rawAnswers, t)
     case 'open_text':
       return aggregateOpenText(rawAnswers)
     default:
@@ -235,7 +238,8 @@ function aggregateQuestion(
 
 function aggregateSingleSelect(
   question: Question,
-  rawAnswers: { answer: unknown }[]
+  rawAnswers: { answer: unknown }[],
+  t: TranslationFn
 ): SelectChartData {
   const counts = new Map<string, number>()
   const otherTexts: string[] = []
@@ -251,7 +255,7 @@ function aggregateSingleSelect(
 
   const options: SelectOptionData[] = (question.options ?? []).map((opt) => ({
     key: opt.key,
-    label: opt.labelKey,
+    label: t(opt.labelKey),
     count: counts.get(opt.key) ?? 0,
   }))
 
@@ -268,7 +272,8 @@ function aggregateSingleSelect(
 
 function aggregateMultiSelect(
   question: Question,
-  rawAnswers: { answer: unknown }[]
+  rawAnswers: { answer: unknown }[],
+  t: TranslationFn
 ): SelectChartData {
   const counts = new Map<string, number>()
   const otherTexts: string[] = []
@@ -286,7 +291,7 @@ function aggregateMultiSelect(
 
   const options: SelectOptionData[] = (question.options ?? []).map((opt) => ({
     key: opt.key,
-    label: opt.labelKey,
+    label: t(opt.labelKey),
     count: counts.get(opt.key) ?? 0,
   }))
 
@@ -327,7 +332,8 @@ function aggregateCsat(rawAnswers: { answer: unknown }[]): CsatChartData {
 
 function aggregateMaxDiff(
   question: Question,
-  rawAnswers: { answer: unknown }[]
+  rawAnswers: { answer: unknown }[],
+  t: TranslationFn
 ): MaxDiffChartData {
   const mostCounts = new Map<string, number>()
   const leastCounts = new Map<string, number>()
@@ -344,7 +350,7 @@ function aggregateMaxDiff(
     const leastCount = leastCounts.get(opt.key) ?? 0
     return {
       key: opt.key,
-      label: opt.labelKey,
+      label: t(opt.labelKey),
       mostCount,
       leastCount,
       netScore: Math.round(((mostCount - leastCount) / total) * 100),
@@ -363,7 +369,8 @@ function aggregateMaxDiff(
 
 function aggregatePointAllocation(
   question: Question,
-  rawAnswers: { answer: unknown }[]
+  rawAnswers: { answer: unknown }[],
+  t: TranslationFn
 ): PointAllocationChartData {
   const totals = new Map<string, number>()
 
@@ -378,7 +385,7 @@ function aggregatePointAllocation(
   const count = rawAnswers.length || 1
   const options = (question.options ?? []).map((opt) => ({
     key: opt.key,
-    label: opt.labelKey,
+    label: t(opt.labelKey),
     avgPoints: Math.round((totals.get(opt.key) ?? 0) / count),
   }))
 
@@ -406,16 +413,16 @@ function aggregateOpenText(rawAnswers: { answer: unknown }[]): OpenTextChartData
 
 // ── Helper: Empty results when no completed responses ──
 
-function buildEmptyResults(config: SurveyConfig): QuestionResult[] {
+function buildEmptyResults(config: SurveyConfig, t: TranslationFn): QuestionResult[] {
   const questions: QuestionResult[] = []
   for (const section of config.sections) {
     for (const question of section.questions) {
       questions.push({
         questionKey: question.key,
-        title: question.titleKey,
-        subtitle: question.subtitleKey,
+        title: t(question.titleKey),
+        subtitle: question.subtitleKey ? t(question.subtitleKey) : undefined,
         sectionKey: section.key,
-        sectionTitle: section.titleKey,
+        sectionTitle: t(section.titleKey),
         chartData: getEmptyChartData(question.type),
       })
     }

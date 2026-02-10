@@ -32,7 +32,7 @@ export function SelectChart({ data, showPercent = false }: SelectChartProps) {
   }
 
   const chartData = data.options.map((opt) => ({
-    name: opt.label.split(".").pop() ?? opt.key,
+    name: opt.label,
     value: showPercent
       ? Math.round((opt.count / data.totalRespondents) * 100)
       : opt.count,
@@ -40,7 +40,7 @@ export function SelectChart({ data, showPercent = false }: SelectChartProps) {
     pct: Math.round((opt.count / data.totalRespondents) * 100),
   }))
 
-  const maxBarHeight = Math.min(data.options.length * 44, 500)
+  const maxBarHeight = Math.min(data.options.length * 32, 350)
 
   return (
     <div className="space-y-3">
@@ -61,16 +61,16 @@ export function SelectChart({ data, showPercent = false }: SelectChartProps) {
           <YAxis
             dataKey="name"
             type="category"
-            width={160}
+            width={120}
             tickLine={false}
             axisLine={false}
-            tick={{ fontSize: 12 }}
+            tick={{ fontSize: 11 }}
           />
           <XAxis
             type="number"
             tickLine={false}
             axisLine={false}
-            tick={{ fontSize: 11 }}
+            tick={{ fontSize: 10 }}
             tickFormatter={(v) => (showPercent ? `${v}%` : String(v))}
           />
           <ChartTooltip
@@ -89,7 +89,7 @@ export function SelectChart({ data, showPercent = false }: SelectChartProps) {
             dataKey="value"
             fill="var(--chart-1)"
             radius={[0, 4, 4, 0]}
-            barSize={28}
+            barSize={20}
           />
         </BarChart>
       </ChartContainer>

@@ -59,28 +59,30 @@ export function SurveyResultsClient({ questions }: SurveyResultsClientProps) {
           {sectionIdx > 0 && <Separator />}
 
           <h2 className="text-lg font-semibold tracking-tight">
-            {section.title.split(".").pop()?.replaceAll("_", " ") ?? section.key}
+            {section.title}
           </h2>
 
-          {section.questions.map((q) => {
-            const responseCount =
-              q.chartData.type === "open_text"
-                ? q.chartData.responses.length
-                : "totalRespondents" in q.chartData
-                  ? q.chartData.totalRespondents
-                  : 0
+          <div className="grid gap-4 md:grid-cols-3">
+            {section.questions.map((q) => {
+              const responseCount =
+                q.chartData.type === "open_text"
+                  ? q.chartData.responses.length
+                  : "totalRespondents" in q.chartData
+                    ? q.chartData.totalRespondents
+                    : 0
 
-            return (
-              <QuestionCard
-                key={q.questionKey}
-                title={q.title.split(".").pop()?.replaceAll("_", " ") ?? q.questionKey}
-                subtitle={q.subtitle?.split(".").pop()?.replaceAll("_", " ")}
-                responseCount={responseCount}
-              >
-                <ChartRenderer data={q.chartData} showPercent={showPercent} />
-              </QuestionCard>
-            )
-          })}
+              return (
+                <QuestionCard
+                  key={q.questionKey}
+                  title={q.title}
+                  subtitle={q.subtitle}
+                  responseCount={responseCount}
+                >
+                  <ChartRenderer data={q.chartData} showPercent={showPercent} />
+                </QuestionCard>
+              )
+            })}
+          </div>
         </div>
       ))}
     </div>

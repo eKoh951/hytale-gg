@@ -30,13 +30,13 @@ export function MaxDiffChart({ data }: MaxDiffChartProps) {
   }
 
   const chartData = data.options.map((opt) => ({
-    name: opt.label.split(".").pop() ?? opt.key,
+    name: opt.label,
     netScore: opt.netScore,
     mostCount: opt.mostCount,
     leastCount: opt.leastCount,
   }))
 
-  const maxBarHeight = Math.min(data.options.length * 52, 400)
+  const maxBarHeight = Math.min(data.options.length * 36, 300)
 
   return (
     <div className="space-y-3">
@@ -61,16 +61,16 @@ export function MaxDiffChart({ data }: MaxDiffChartProps) {
           <YAxis
             dataKey="name"
             type="category"
-            width={160}
+            width={120}
             tickLine={false}
             axisLine={false}
-            tick={{ fontSize: 12 }}
+            tick={{ fontSize: 11 }}
           />
           <XAxis
             type="number"
             tickLine={false}
             axisLine={false}
-            tick={{ fontSize: 11 }}
+            tick={{ fontSize: 10 }}
             tickFormatter={(v) => `${v > 0 ? "+" : ""}${v}%`}
           />
           <ReferenceLine x={0} stroke="var(--border)" strokeWidth={1} />
@@ -86,7 +86,7 @@ export function MaxDiffChart({ data }: MaxDiffChartProps) {
               />
             }
           />
-          <Bar dataKey="netScore" radius={[0, 4, 4, 0]} barSize={28}>
+          <Bar dataKey="netScore" radius={[0, 4, 4, 0]} barSize={20}>
             {chartData.map((entry, index) => (
               <Cell
                 key={index}

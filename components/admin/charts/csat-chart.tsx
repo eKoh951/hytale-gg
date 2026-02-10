@@ -61,7 +61,7 @@ export function CsatChart({ data, showPercent = false }: CsatChartProps) {
       </div>
 
       {/* Distribution bar chart */}
-      <ChartContainer config={chartConfig} className="h-[180px] w-full">
+      <ChartContainer config={chartConfig} className="h-[140px] w-full">
         <BarChart
           data={chartData}
           margin={{ left: 0, right: 0, top: 0, bottom: 0 }}

@@ -30,11 +30,11 @@ export function PointAllocationChart({ data }: PointAllocationChartProps) {
   }
 
   const chartData = data.options.map((opt) => ({
-    name: opt.label.split(".").pop() ?? opt.key,
+    name: opt.label,
     avgPoints: opt.avgPoints,
   }))
 
-  const maxBarHeight = Math.min(data.options.length * 44, 400)
+  const maxBarHeight = Math.min(data.options.length * 32, 300)
 
   return (
     <div className="space-y-3">
@@ -52,16 +52,16 @@ export function PointAllocationChart({ data }: PointAllocationChartProps) {
           <YAxis
             dataKey="name"
             type="category"
-            width={160}
+            width={120}
             tickLine={false}
             axisLine={false}
-            tick={{ fontSize: 12 }}
+            tick={{ fontSize: 11 }}
           />
           <XAxis
             type="number"
             tickLine={false}
             axisLine={false}
-            tick={{ fontSize: 11 }}
+            tick={{ fontSize: 10 }}
             tickFormatter={(v) => `${v} pts`}
           />
           <ChartTooltip
@@ -76,7 +76,7 @@ export function PointAllocationChart({ data }: PointAllocationChartProps) {
             dataKey="avgPoints"
             fill="var(--chart-2)"
             radius={[0, 4, 4, 0]}
-            barSize={28}
+            barSize={20}
           />
         </BarChart>
       </ChartContainer>
