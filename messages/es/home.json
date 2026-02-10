@@ -1,11 +1,13 @@
 {
-  "hero": {
-    "title": "Encuentra tu servidor de Hytale",
-    "description": "Busca por modo de juego, región o idioma. Prueba tu ping antes de unirte.",
-    "searchPlaceholder": "Buscar servidores por nombre, IP o descripción...",
-    "browseAll": "Ver todos los servidores",
-    "listServer": "Agregar un servidor que conoces",
-    "anyoneCanAdd": "Cualquiera puede agregar servidores al directorio. Ayuda a otros a descubrir grandes comunidades."
+  "home": {
+    "hero": {
+      "title": "Encuentra tu servidor de Hytale",
+      "description": "Busca por modo de juego, región o idioma. Prueba tu ping antes de unirte.",
+      "searchPlaceholder": "Buscar servidores por nombre, IP o descripción...",
+      "browseAll": "Ver todos los servidores",
+      "listServer": "Agregar un servidor que conoces",
+      "anyoneCanAdd": "Cualquiera puede agregar servidores al directorio. Ayuda a otros a descubrir grandes comunidades."
+    }
   },
   "reviews": {
     "title": "Lo que dicen los jugadores",
