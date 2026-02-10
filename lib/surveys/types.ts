@@ -40,6 +40,7 @@ export interface Question {
   constraints?: QuestionConstraints
   dependsOn?: QuestionDependency
   hasOtherOption?: boolean
+  optional?: boolean
 }
 
 export interface Section {
@@ -145,6 +146,7 @@ export interface SurveyContextMeta {
   totalSteps: number
   progress: number
   canGoNext: boolean
+  validationError: string | null
   canGoBack: boolean
   isMobile: boolean
   currentQuestions: Question[]

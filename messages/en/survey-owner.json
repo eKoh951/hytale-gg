@@ -33,6 +33,9 @@
         },
         "final": {
           "title": "One Last Thing"
+        },
+        "survey_feedback": {
+          "title": "How Was This Survey?"
         }
       },
       "q1": {
@@ -183,8 +186,8 @@
         }
       },
       "q13": {
-        "title": "Imagine a server directory gives you a free dashboard. You have 100 points to spend on what info matters most to you.",
-        "subtitle": "Distribute 100 points — more points = more important to you",
+        "title": "You have 10 tokens to spend on what info matters most to you.",
+        "subtitle": "Tap to assign tokens — more tokens = more important to you",
         "options": {
           "traffic_sources": "Where your players come from (which sites, searches, or links bring people to your listing)",
           "listing_conversion": "How well your listing converts (how many people see it vs. how many actually click to join)",
@@ -240,7 +243,7 @@
         "title": "What review format would give you the most useful feedback as an owner?",
         "subtitle": "This helps us design the review system",
         "options": {
-          "binary_steam": "Simple \"Recommend / Don't Recommend\" with a text comment (Steam style)",
+          "binary_steam": "Thumbs up / Thumbs down with a text comment, shown as an aggregate label (Steam style — e.g., \"Very Positive\", \"Mixed\")",
           "stars_amazon": "1–5 star rating with a text comment (Amazon/Google style)",
           "multi_criteria": "Rate specific aspects separately — community, performance, content, fairness",
           "no_reviews": "I don't want reviews on my listing"
@@ -249,6 +252,14 @@
       "q18": {
         "title": "What ONE thing would make you immediately list your server on a new directory?",
         "subtitle": "Tell us in your own words"
+      },
+      "q_feedback_rating": {
+        "title": "How was your experience taking this survey?",
+        "subtitle": "1 = terrible, 5 = great"
+      },
+      "q_feedback_text": {
+        "title": "Any suggestions to improve this survey?",
+        "subtitle": "What would you change, add, or remove?"
       }
     }
   }

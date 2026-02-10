@@ -328,5 +328,26 @@ export const serverOwnerSurvey: SurveyConfig = {
         },
       ],
     },
+
+    // ── Section 7: Survey Feedback ──
+    {
+      key: 'survey_feedback',
+      titleKey: 'survey.owner.sections.survey_feedback.title',
+      questions: [
+        {
+          key: 'q_feedback_rating',
+          type: 'csat_scale',
+          titleKey: 'survey.owner.q_feedback_rating.title',
+          subtitleKey: 'survey.owner.q_feedback_rating.subtitle',
+        },
+        {
+          key: 'q_feedback_text',
+          type: 'open_text',
+          titleKey: 'survey.owner.q_feedback_text.title',
+          subtitleKey: 'survey.owner.q_feedback_text.subtitle',
+          optional: true,
+        },
+      ],
+    },
   ],
 }

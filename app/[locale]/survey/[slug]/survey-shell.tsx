@@ -6,6 +6,7 @@ import * as m from 'motion/react-m'
 import { AnimatePresence } from 'motion/react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { getSurveyConfig, getTotalQuestions, getTotalSections } from '@/lib/surveys/get-survey'
+import { validateAnswer } from '@/lib/surveys/validation'
 import { SurveyProvider, useSurvey } from '@/components/survey/survey-provider'
 import { QuestionRenderer } from '@/components/survey/question-renderer'
 import { SurveyThankYou } from '@/components/survey/survey-thank-you'
@@ -44,10 +45,18 @@ function SurveyContent() {
   const { state, meta, actions, survey } = useSurvey()
   const t = useTranslations()
   const [direction, setDirection] = useState(0)
+  const [showError, setShowError] = useState(false)
+
+  // Clear error when answers change (user is fixing the issue)
+  useEffect(() => {
+    if (showError && meta.canGoNext) {
+      setShowError(false)
+    }
+  }, [meta.canGoNext, showError])
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.key === 'Enter' && meta.canGoNext) {
+      if (e.key === 'Enter') {
         handleNext()
       }
     }
@@ -55,7 +64,26 @@ function SurveyContent() {
     return () => window.removeEventListener('keydown', handleKeyPress)
   }, [meta.canGoNext])
 
+  const scrollToFirstError = () => {
+    for (const question of meta.currentQuestions) {
+      const result = validateAnswer(question, state.answers[question.key])
+      if (!result.valid) {
+        const el = document.querySelector(`[data-question-key="${question.key}"]`)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        }
+        break
+      }
+    }
+  }
+
   const handleNext = async () => {
+    if (!meta.canGoNext) {
+      setShowError(true)
+      requestAnimationFrame(scrollToFirstError)
+      return
+    }
+    setShowError(false)
     setDirection(1)
     if (state.currentStep === meta.totalSteps - 1) {
       await actions.submit()
@@ -127,36 +155,43 @@ function SurveyContent() {
                   opacity: { duration: 0.2 },
                 }}
               >
-                {meta.currentQuestions.map((question) => (
-                  <div key={question.key} className="flex flex-col gap-6">
-                    {/* Question Number */}
-                    {meta.totalSteps > 1 && (
-                      <div className="text-sm font-medium text-muted-foreground">
-                        {t('survey.common.questionNumber', {
-                          current: state.currentStep + 1,
-                          total: meta.totalSteps,
-                        })}
-                      </div>
-                    )}
+                {meta.currentQuestions.map((question) => {
+                  const qError = showError
+                    ? validateAnswer(question, state.answers[question.key])
+                    : null
+                  const errorMsg = qError && !qError.valid ? t(qError.error!) : null
 
-                    {/* Question Title */}
-                    <div className="flex flex-col gap-2">
-                      <h2 className="text-balance text-2xl font-bold leading-tight md:text-3xl">
-                        {t(question.titleKey)}
-                      </h2>
-                      {question.subtitleKey && (
-                        <p className="text-pretty text-muted-foreground">
-                          {t(question.subtitleKey)}
-                        </p>
+                  return (
+                    <div key={question.key} data-question-key={question.key} className="flex flex-col gap-6">
+                      {/* Question Number */}
+                      {meta.totalSteps > 1 && (
+                        <div className="text-sm font-medium text-muted-foreground">
+                          {t('survey.common.questionNumber', {
+                            current: state.currentStep + 1,
+                            total: meta.totalSteps,
+                          })}
+                        </div>
                       )}
-                    </div>
 
-                    {/* Question Input */}
-                    <div className="mt-2">
-                      <QuestionRenderer question={question} />
+                      {/* Question Title */}
+                      <div className="flex flex-col gap-2">
+                        <h2 className="text-balance text-2xl font-bold leading-tight md:text-3xl">
+                          {t(question.titleKey)}
+                        </h2>
+                        {question.subtitleKey && (
+                          <p className="text-pretty text-muted-foreground">
+                            {t(question.subtitleKey)}
+                          </p>
+                        )}
+                      </div>
+
+                      {/* Question Input */}
+                      <div className="mt-2">
+                        <QuestionRenderer question={question} validationError={errorMsg} />
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  )
+                })}
               </m.div>
             </AnimatePresence>
           </CardContent>
@@ -180,7 +215,7 @@ function SurveyContent() {
 
           <Button
             onClick={handleNext}
-            disabled={!meta.canGoNext}
+            disabled={state.isSubmitting}
             className="gap-2"
           >
             {state.currentStep === meta.totalSteps - 1

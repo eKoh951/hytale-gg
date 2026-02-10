@@ -27,7 +27,7 @@
       "selectExact": "Select exactly {count}",
       "selectAtLeast": "Select at least {count}",
       "validation": {
-        "required": "Please answer this question to continue.",
+        "required": "Please answer this question before continuing.",
         "exactN": "Please select exactly {count} options.",
         "minN": "Please select at least {count} options.",
         "maxN": "You can select up to {count} options.",
@@ -35,8 +35,8 @@
         "invalidScale": "Please select a rating.",
         "maxdiffBoth": "Please select both a most and least important option.",
         "maxdiffSame": "Most and least important cannot be the same option.",
-        "pointsSum": "Your points must add up to exactly {sum}.",
-        "pointsNegative": "Points cannot be negative.",
+        "pointsSum": "Please assign all your tokens before continuing.",
+        "pointsNegative": "Token values cannot be negative.",
         "unknownType": "Unknown question type."
       },
       "csat": {
@@ -54,10 +54,12 @@
         "feature": "Feature"
       },
       "pointAllocation": {
-        "totalPoints": "Total points: {total}",
-        "remaining": "{points} remaining",
+        "totalPoints": "You have {total} tokens to spend",
+        "remaining": "{points} left",
         "exceeded": "{points} over",
-        "complete": "All points allocated"
+        "complete": "All tokens spent!",
+        "addToken": "Add token",
+        "removeToken": "Remove token"
       },
       "thankYou": {
         "title": "Thank You!",

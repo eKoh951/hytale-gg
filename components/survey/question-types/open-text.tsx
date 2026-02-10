@@ -28,7 +28,7 @@ export function OpenText({ question, value, onChange }: OpenTextProps) {
         onChange={(e) => onChange(e.target.value)}
         maxLength={maxLength}
         rows={6}
-        className="resize-none"
+        className="resize-none bg-muted border-border"
       />
       <div className="flex justify-end text-xs text-muted-foreground">
         {currentLength} / {maxLength}

@@ -27,7 +27,7 @@
       "selectExact": "Selecciona exactamente {count}",
       "selectAtLeast": "Selecciona al menos {count}",
       "validation": {
-        "required": "Por favor responde esta pregunta para continuar.",
+        "required": "Por favor responde esta pregunta antes de continuar.",
         "exactN": "Por favor selecciona exactamente {count} opciones.",
         "minN": "Por favor selecciona al menos {count} opciones.",
         "maxN": "Puedes seleccionar hasta {count} opciones.",
@@ -35,7 +35,7 @@
         "invalidScale": "Por favor selecciona una calificación.",
         "maxdiffBoth": "Por favor selecciona una opción más importante y una menos importante.",
         "maxdiffSame": "La más importante y la menos importante no pueden ser la misma opción.",
-        "pointsSum": "Tus puntos deben sumar exactamente {sum}.",
+        "pointsSum": "Por favor asigna todas tus fichas antes de continuar.",
         "pointsNegative": "Los puntos no pueden ser negativos.",
         "unknownType": "Tipo de pregunta desconocido."
       },
@@ -54,10 +54,12 @@
         "feature": "Característica"
       },
       "pointAllocation": {
-        "totalPoints": "Puntos totales: {total}",
+        "totalPoints": "Tienes {total} fichas para gastar",
         "remaining": "{points} restantes",
         "exceeded": "{points} de más",
-        "complete": "Todos los puntos asignados"
+        "complete": "¡Todas las fichas gastadas!",
+        "addToken": "Agregar ficha",
+        "removeToken": "Quitar ficha"
       },
       "thankYou": {
         "title": "¡Gracias!",

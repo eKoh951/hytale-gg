@@ -33,6 +33,9 @@
         },
         "final": {
           "title": "Una Última Cosa"
+        },
+        "survey_feedback": {
+          "title": "¿Qué te pareció esta encuesta?"
         }
       },
       "q1": {
@@ -183,8 +186,8 @@
         }
       },
       "q13": {
-        "title": "Imagina que un directorio de servidores te da un panel gratuito. Tienes 100 puntos para gastar en qué información te importa más.",
-        "subtitle": "Distribuye 100 puntos — más puntos = más importante para ti",
+        "title": "Tienes 10 fichas para gastar en qué información te importa más.",
+        "subtitle": "Toca para asignar fichas — más fichas = más importante para ti",
         "options": {
           "traffic_sources": "De dónde vienen tus jugadores (qué sitios, búsquedas o links traen gente a tu listado)",
           "listing_conversion": "Qué tan bien convierte tu listado (cuántas personas lo ven vs. cuántas hacen clic para unirse)",
@@ -240,15 +243,23 @@
         "title": "¿Qué formato de reseña te daría la retroalimentación más útil como dueño?",
         "subtitle": "Esto nos ayuda a diseñar el sistema de reseñas",
         "options": {
-          "binary_steam": "Simple \"Recomendado / No Recomendado\" con un comentario (estilo Steam)",
+          "binary_steam": "Pulgar arriba / Pulgar abajo con un comentario, mostrado como etiqueta agregada (estilo Steam — ej., \"Muy Positivas\", \"Variadas\")",
           "stars_amazon": "Calificación de 1–5 estrellas con un comentario (estilo Amazon/Google)",
           "multi_criteria": "Calificar aspectos específicos por separado — comunidad, rendimiento, contenido, justicia",
           "no_reviews": "No quiero reseñas en mi listado"
         }
       },
       "q18": {
-        "title": "¿Qué UNA cosa te haría listar tu servidor inmediatamente en un nuevo directorio?",
+        "title": "Escribe UNA cosa te haría listar tu servidor inmediatamente en un nuevo directorio",
         "subtitle": "Cuéntanos en tus propias palabras"
+      },
+      "q_feedback_rating": {
+        "title": "¿Cómo fue tu experiencia respondiendo esta encuesta?",
+        "subtitle": "1 = terrible, 5 = excelente"
+      },
+      "q_feedback_text": {
+        "title": "¿Alguna sugerencia para mejorar esta encuesta?",
+        "subtitle": "¿Qué cambiarías, agregarías o quitarías?"
       }
     }
   }

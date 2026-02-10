@@ -132,9 +132,9 @@ export function SurveyProvider({
 
   const isLastStep = state.currentStep >= totalSteps - 1
 
-  const canGoNext = useMemo(() => {
+  const { canGoNext, validationError } = useMemo(() => {
     const result = validateStep(currentQuestions, state.answers)
-    return result.valid
+    return { canGoNext: result.valid, validationError: result.valid ? null : (result.error ?? null) }
   }, [currentQuestions, state.answers])
 
   const canGoBack = state.currentStep > 0
@@ -216,13 +216,14 @@ export function SurveyProvider({
         totalSteps,
         progress,
         canGoNext,
+        validationError,
         canGoBack,
         isMobile,
         currentQuestions,
       },
       survey: config,
     }),
-    [state, setAnswer, nextStep, prevStep, submit, config, totalSteps, progress, canGoNext, canGoBack, isMobile, currentQuestions]
+    [state, setAnswer, nextStep, prevStep, submit, config, totalSteps, progress, canGoNext, validationError, canGoBack, isMobile, currentQuestions]
   )
 
   return <SurveyContext value={value}>{children}</SurveyContext>

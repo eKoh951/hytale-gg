@@ -12,6 +12,7 @@ import type { Question, SurveyAnswer, Option } from '@/lib/surveys/types'
 
 interface QuestionRendererProps {
   question: Question
+  validationError?: string | null
 }
 
 function useResolvedQuestion(question: Question): Question {
@@ -50,7 +51,7 @@ function useResolvedQuestion(question: Question): Question {
   }, [question, state.answers, survey.sections])
 }
 
-export function QuestionRenderer({ question }: QuestionRendererProps) {
+export function QuestionRenderer({ question, validationError }: QuestionRendererProps) {
   const { state, actions } = useSurvey()
   const resolvedQuestion = useResolvedQuestion(question)
 
@@ -60,35 +61,40 @@ export function QuestionRenderer({ question }: QuestionRendererProps) {
     actions.setAnswer(question.key, newValue)
   }
 
+  let content: React.ReactNode
+
   switch (question.type) {
     case 'single_select':
-      return (
+      content = (
         <SingleSelect
           question={resolvedQuestion}
           value={value as { selected: string; other?: string } | null}
           onChange={handleChange}
         />
       )
+      break
 
     case 'multi_select':
-      return (
+      content = (
         <MultiSelect
           question={question}
           value={value as { selected: string[]; other?: string } | null}
           onChange={handleChange}
         />
       )
+      break
 
     case 'csat_scale':
-      return (
+      content = (
         <CsatScale
           value={(value as unknown as { value: number } | null)?.value ?? null}
           onChange={(v: number) => handleChange({ value: v })}
         />
       )
+      break
 
     case 'maxdiff':
-      return (
+      content = (
         <Maxdiff
           question={question}
           value={
@@ -97,30 +103,42 @@ export function QuestionRenderer({ question }: QuestionRendererProps) {
           onChange={handleChange}
         />
       )
+      break
 
     case 'point_allocation':
-      return (
+      content = (
         <PointAllocation
           question={question}
           value={(value as unknown as { points: Record<string, number> } | null)?.points ?? null}
           onChange={(v: Record<string, number>) => handleChange({ points: v })}
         />
       )
+      break
 
     case 'open_text':
-      return (
+      content = (
         <OpenText
           question={question}
           value={(value as unknown as { text: string } | null)?.text ?? null}
           onChange={(v: string) => handleChange({ text: v })}
         />
       )
+      break
 
     default:
-      return (
+      content = (
         <div className="rounded-lg border border-destructive bg-destructive/10 p-4 text-sm text-destructive">
           Unknown question type: {question.type}
         </div>
       )
   }
+
+  return (
+    <div>
+      {content}
+      {validationError && (
+        <p className="mt-2 text-sm text-destructive">{validationError}</p>
+      )}
+    </div>
+  )
 }

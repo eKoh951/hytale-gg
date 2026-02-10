@@ -19,6 +19,7 @@ export function validateAnswer(
   answer: SurveyAnswer | undefined
 ): ValidationResult {
   if (!answer) {
+    if (question.optional) return { valid: true }
     return { valid: false, error: 'survey.common.validation.required' }
   }
 
@@ -118,7 +119,7 @@ function validatePointAllocation(
     return { valid: false, error: 'survey.common.validation.required' }
   }
 
-  const total = Object.values(answer.points).reduce((sum, v) => sum + v, 0)
+  const total = Math.round(Object.values(answer.points).reduce((sum, v) => sum + v, 0))
   const targetSum = question.constraints?.sum ?? 100
 
   if (total !== targetSum) {
