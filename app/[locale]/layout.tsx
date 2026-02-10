@@ -1,8 +1,6 @@
 import React, { type ReactNode } from "react";
 import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
-import { Header } from "@/components/landing/header";
-import { Footer } from "@/components/landing/footer";
 
 import { AuthProvider } from "@/components/auth/auth-provider";
 import { MotionProvider } from "@/components/motion-provider";
@@ -34,16 +32,12 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <>
-      <AuthProvider>
-        <MotionProvider>
-          <NextIntlClientProvider messages={null}>
-            <Header />
-            {children}
-            <Footer />
-          </NextIntlClientProvider>
-        </MotionProvider>
-      </AuthProvider>
-    </>
+    <AuthProvider>
+      <MotionProvider>
+        <NextIntlClientProvider messages={null}>
+          {children}
+        </NextIntlClientProvider>
+      </MotionProvider>
+    </AuthProvider>
   );
 }

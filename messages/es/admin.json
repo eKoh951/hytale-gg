@@ -1,0 +1,18 @@
+{
+  "admin": {
+    "nav": {
+      "dashboard": "Panel",
+      "surveys": "Encuestas",
+      "surveyResults": "Resultados de Encuestas",
+      "responses": "Respuestas",
+      "backToSite": "Volver al Sitio"
+    },
+    "overview": {
+      "title": "Panel",
+      "totalSurveys": "Total de Encuestas",
+      "totalResponses": "Total de Respuestas",
+      "completedResponses": "Completadas",
+      "screenedOut": "Descartadas"
+    }
+  }
+}

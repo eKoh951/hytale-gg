@@ -1,0 +1,18 @@
+{
+  "admin": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "surveys": "Surveys",
+      "surveyResults": "Survey Results",
+      "responses": "Responses",
+      "backToSite": "Back to Site"
+    },
+    "overview": {
+      "title": "Dashboard",
+      "totalSurveys": "Total Surveys",
+      "totalResponses": "Total Responses",
+      "completedResponses": "Completed",
+      "screenedOut": "Screened Out"
+    }
+  }
+}

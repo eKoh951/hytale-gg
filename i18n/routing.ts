@@ -41,6 +41,7 @@ export const routing = defineRouting({
       en: '/survey/[slug]',
       es: '/encuesta/[slug]'
     },
+    '/admin': '/admin',
     // Additional footer pages
     '/mods': '/mods',
     '/events': '/events',
