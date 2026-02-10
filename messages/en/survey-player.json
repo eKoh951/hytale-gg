@@ -33,6 +33,9 @@
         },
         "research_demographics": {
           "title": "Almost Done"
+        },
+        "survey_feedback": {
+          "title": "How Was This Survey?"
         }
       },
       "q1": {
@@ -220,6 +223,43 @@
           "german": "German",
           "other": "Other"
         }
+      },
+      "q18": {
+        "title": "What country are you based in?",
+        "options": {
+          "us": "United States",
+          "canada": "Canada",
+          "mexico": "Mexico",
+          "brazil": "Brazil",
+          "argentina": "Argentina",
+          "colombia": "Colombia",
+          "chile": "Chile",
+          "uk": "United Kingdom",
+          "germany": "Germany",
+          "france": "France",
+          "spain": "Spain",
+          "portugal": "Portugal",
+          "netherlands": "Netherlands",
+          "poland": "Poland",
+          "sweden": "Sweden",
+          "italy": "Italy",
+          "australia": "Australia",
+          "japan": "Japan",
+          "south_korea": "South Korea",
+          "philippines": "Philippines",
+          "india": "India",
+          "russia": "Russia",
+          "turkey": "Turkey",
+          "other": "Other"
+        }
+      },
+      "q_feedback_rating": {
+        "title": "How was your experience taking this survey?",
+        "subtitle": "1 = terrible, 5 = great"
+      },
+      "q_feedback_text": {
+        "title": "Any suggestions to improve this survey?",
+        "subtitle": "What would you change, add, or remove?"
       }
     }
   }

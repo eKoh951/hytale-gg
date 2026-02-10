@@ -98,7 +98,7 @@
       },
       "q6": {
         "title": "¿Cuánto gastas mensualmente en tu servidor?",
-        "subtitle": "Incluyendo hosting, plugins, etc.",
+        "subtitle": "Incluyendo hosting, plugins, etc. (USD)",
         "options": {
           "free": "$0 (tier gratuito / auto-alojado)",
           "1_10": "$1–10/mes",
@@ -211,7 +211,7 @@
         }
       },
       "q14b": {
-        "title": "Si esas funciones extra costaran una cuota mensual, ¿qué te parecería justo?",
+        "title": "Si esas funciones extra costaran una cuota mensual, ¿qué te parecería justo? (USD)",
         "options": {
           "under_5": "Menos de $5/mes",
           "5_10": "$5–10/mes",
@@ -252,6 +252,35 @@
       "q18": {
         "title": "Escribe UNA cosa te haría listar tu servidor inmediatamente en un nuevo directorio",
         "subtitle": "Cuéntanos en tus propias palabras"
+      },
+      "q19": {
+        "title": "¿En qué país te encuentras?",
+        "options": {
+          "us": "Estados Unidos",
+          "canada": "Canadá",
+          "mexico": "México",
+          "brazil": "Brasil",
+          "argentina": "Argentina",
+          "colombia": "Colombia",
+          "chile": "Chile",
+          "uk": "Reino Unido",
+          "germany": "Alemania",
+          "france": "Francia",
+          "spain": "España",
+          "portugal": "Portugal",
+          "netherlands": "Países Bajos",
+          "poland": "Polonia",
+          "sweden": "Suecia",
+          "italy": "Italia",
+          "australia": "Australia",
+          "japan": "Japón",
+          "south_korea": "Corea del Sur",
+          "philippines": "Filipinas",
+          "india": "India",
+          "russia": "Rusia",
+          "turkey": "Turquía",
+          "other": "Otro"
+        }
       },
       "q_feedback_rating": {
         "title": "¿Cómo fue tu experiencia respondiendo esta encuesta?",

@@ -33,6 +33,9 @@
         },
         "research_demographics": {
           "title": "Casi Listo"
+        },
+        "survey_feedback": {
+          "title": "¿Qué te pareció esta encuesta?"
         }
       },
       "q1": {
@@ -220,6 +223,43 @@
           "german": "Alemán",
           "other": "Otro"
         }
+      },
+      "q18": {
+        "title": "¿En qué país te encuentras?",
+        "options": {
+          "us": "Estados Unidos",
+          "canada": "Canadá",
+          "mexico": "México",
+          "brazil": "Brasil",
+          "argentina": "Argentina",
+          "colombia": "Colombia",
+          "chile": "Chile",
+          "uk": "Reino Unido",
+          "germany": "Alemania",
+          "france": "Francia",
+          "spain": "España",
+          "portugal": "Portugal",
+          "netherlands": "Países Bajos",
+          "poland": "Polonia",
+          "sweden": "Suecia",
+          "italy": "Italia",
+          "australia": "Australia",
+          "japan": "Japón",
+          "south_korea": "Corea del Sur",
+          "philippines": "Filipinas",
+          "india": "India",
+          "russia": "Rusia",
+          "turkey": "Turquía",
+          "other": "Otro"
+        }
+      },
+      "q_feedback_rating": {
+        "title": "¿Cómo fue tu experiencia respondiendo esta encuesta?",
+        "subtitle": "1 = terrible, 5 = excelente"
+      },
+      "q_feedback_text": {
+        "title": "¿Alguna sugerencia para mejorar esta encuesta?",
+        "subtitle": "¿Qué cambiarías, agregarías o quitarías?"
       }
     }
   }

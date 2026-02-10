@@ -78,6 +78,8 @@ export interface SurveyResultsData {
     totalStarted: number
     totalCompleted: number
     screenedOut: number
+    availableLocales: string[]
+    activeLocale: string | null
   }
   questions: QuestionResult[]
 }
@@ -126,7 +128,11 @@ export async function getSurveyListStats(): Promise<SurveyListItem[]> {
 
 // ── Per-Survey Results ──
 
-export async function getSurveyResults(slug: string, t: TranslationFn): Promise<SurveyResultsData | null> {
+export async function getSurveyResults(
+  slug: string,
+  t: TranslationFn,
+  localeFilter?: string | null
+): Promise<SurveyResultsData | null> {
   const config = getSurveyConfig(slug)
   if (!config) return null
 
@@ -141,17 +147,28 @@ export async function getSurveyResults(slug: string, t: TranslationFn): Promise<
 
   if (!survey) return null
 
-  // Get response-level stats in one query
+  // Get response-level stats in one query (include locale for filtering)
   const { data: responses } = await supabase
     .from('survey_responses')
-    .select('id, completed_at, screened_out')
+    .select('id, completed_at, screened_out, locale')
     .eq('survey_id', survey.id)
 
   const allResponses = responses ?? []
-  const completedIds = allResponses.filter((r) => r.completed_at).map((r) => r.id)
-  const totalStarted = allResponses.length
+
+  // Compute available locales from all completed responses
+  const availableLocales = [...new Set(
+    allResponses.filter((r) => r.completed_at).map((r) => r.locale)
+  )].sort()
+
+  // Apply locale filter if specified
+  const filteredResponses = localeFilter
+    ? allResponses.filter((r) => r.locale === localeFilter)
+    : allResponses
+
+  const completedIds = filteredResponses.filter((r) => r.completed_at).map((r) => r.id)
+  const totalStarted = filteredResponses.length
   const totalCompleted = completedIds.length
-  const screenedOut = allResponses.filter((r) => r.screened_out).length
+  const screenedOut = filteredResponses.filter((r) => r.screened_out).length
 
   if (completedIds.length === 0) {
     return {
@@ -161,6 +178,8 @@ export async function getSurveyResults(slug: string, t: TranslationFn): Promise<
         totalStarted,
         totalCompleted: 0,
         screenedOut,
+        availableLocales,
+        activeLocale: localeFilter ?? null,
       },
       questions: buildEmptyResults(config, t),
     }
@@ -237,6 +256,8 @@ export async function getSurveyResults(slug: string, t: TranslationFn): Promise<
       totalStarted,
       totalCompleted,
       screenedOut,
+      availableLocales,
+      activeLocale: localeFilter ?? null,
     },
     questions,
   }

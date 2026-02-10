@@ -11,10 +11,13 @@ import { SurveyResultsClient } from './results-client'
 
 export default async function AdminSurveyResultsPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string; slug: string }>
+  searchParams: Promise<{ lang?: string }>
 }) {
   const { locale, slug } = await params
+  const { lang } = await searchParams
   setRequestLocale(locale)
 
   const t = await getTranslations({ locale })
@@ -26,7 +29,8 @@ export default async function AdminSurveyResultsPage({
     }
   }
 
-  const results = await getSurveyResults(slug, resolve)
+  const localeFilter = lang || null
+  const results = await getSurveyResults(slug, resolve, localeFilter)
   if (!results) notFound()
 
   const completionRate = results.meta.totalStarted > 0
@@ -66,8 +70,12 @@ export default async function AdminSurveyResultsPage({
 
       <Separator />
 
-      {/* Question-by-question results — client component for # / % toggle */}
-      <SurveyResultsClient questions={results.questions} />
+      {/* Question-by-question results — client component for # / % toggle + locale filter */}
+      <SurveyResultsClient
+        questions={results.questions}
+        availableLocales={results.meta.availableLocales}
+        activeLocale={results.meta.activeLocale}
+      />
     </div>
   )
 }
