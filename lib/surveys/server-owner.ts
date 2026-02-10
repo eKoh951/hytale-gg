@@ -328,7 +328,7 @@ export const serverOwnerSurvey: SurveyConfig = {
         },
         {
           key: 'q19',
-          type: 'single_select',
+          type: 'dropdown_select',
           titleKey: 'survey.owner.q19.title',
           hasOtherOption: true,
           options: [

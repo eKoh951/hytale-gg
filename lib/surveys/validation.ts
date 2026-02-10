@@ -25,6 +25,7 @@ export function validateAnswer(
 
   switch (question.type) {
     case 'single_select':
+    case 'dropdown_select':
       return validateSingleSelect(question, answer as SingleSelectAnswer)
     case 'multi_select':
       return validateMultiSelect(question, answer as MultiSelectAnswer)
@@ -159,7 +160,7 @@ export function isScreenedOut(
   question: Question,
   answer: SurveyAnswer | undefined
 ): boolean {
-  if (!answer || question.type !== 'single_select') return false
+  if (!answer || (question.type !== 'single_select' && question.type !== 'dropdown_select')) return false
 
   const selected = (answer as SingleSelectAnswer).selected
   const option = question.options?.find((o) => o.key === selected)

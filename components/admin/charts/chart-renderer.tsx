@@ -15,6 +15,7 @@ interface ChartRendererProps {
 export function ChartRenderer({ data, showPercent = false }: ChartRendererProps) {
   switch (data.type) {
     case "single_select":
+    case "dropdown_select":
     case "multi_select":
       return <SelectChart data={data} showPercent={showPercent} />
     case "csat_scale":

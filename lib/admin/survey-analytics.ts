@@ -24,7 +24,7 @@ export interface SelectOptionData {
 }
 
 export interface SelectChartData {
-  type: 'single_select' | 'multi_select'
+  type: 'single_select' | 'dropdown_select' | 'multi_select'
   options: SelectOptionData[]
   totalRespondents: number
   otherTexts: string[]
@@ -296,6 +296,7 @@ function aggregateQuestion(
 ): QuestionChartData {
   switch (question.type) {
     case 'single_select':
+    case 'dropdown_select':
       return aggregateSingleSelect(question, rawAnswers, t)
     case 'multi_select':
       return aggregateMultiSelect(question, rawAnswers, t)
@@ -509,6 +510,7 @@ function buildEmptyResults(config: SurveyConfig, t: TranslationFn): QuestionResu
 function getEmptyChartData(type: QuestionType): QuestionChartData {
   switch (type) {
     case 'single_select':
+    case 'dropdown_select':
     case 'multi_select':
       return { type, options: [], totalRespondents: 0, otherTexts: [] }
     case 'csat_scale':

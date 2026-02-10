@@ -3,6 +3,7 @@
 import { useMemo } from 'react'
 import { useSurvey } from './survey-provider'
 import { SingleSelect } from './question-types/single-select'
+import { DropdownSelect } from './question-types/dropdown-select'
 import { MultiSelect } from './question-types/multi-select'
 import { CsatScale } from './question-types/csat-scale'
 import { Maxdiff } from './question-types/maxdiff'
@@ -67,6 +68,16 @@ export function QuestionRenderer({ question, validationError }: QuestionRenderer
     case 'single_select':
       content = (
         <SingleSelect
+          question={resolvedQuestion}
+          value={value as { selected: string; other?: string } | null}
+          onChange={handleChange}
+        />
+      )
+      break
+
+    case 'dropdown_select':
+      content = (
+        <DropdownSelect
           question={resolvedQuestion}
           value={value as { selected: string; other?: string } | null}
           onChange={handleChange}

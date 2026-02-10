@@ -22,6 +22,7 @@
         "returnHome": "Return Home"
       },
       "otherPlaceholder": "Please specify...",
+      "selectPlaceholder": "Select an option...",
       "optional": "(optional)",
       "selectUpTo": "{current} of {max} selected",
       "selectExact": "Select exactly {count}",

@@ -7,6 +7,7 @@
 
 export type QuestionType =
   | 'single_select'
+  | 'dropdown_select'
   | 'multi_select'
   | 'csat_scale'
   | 'maxdiff'

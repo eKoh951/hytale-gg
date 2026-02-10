@@ -296,7 +296,7 @@ export const playerDiscoverySurvey: SurveyConfig = {
         },
         {
           key: 'q18',
-          type: 'single_select',
+          type: 'dropdown_select',
           titleKey: 'survey.player.q18.title',
           hasOtherOption: true,
           options: [

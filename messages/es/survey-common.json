@@ -22,6 +22,7 @@
         "returnHome": "Volver al Inicio"
       },
       "otherPlaceholder": "Por favor especifica...",
+      "selectPlaceholder": "Selecciona una opción...",
       "optional": "(opcional)",
       "selectUpTo": "{current} de {max} seleccionados",
       "selectExact": "Selecciona exactamente {count}",
