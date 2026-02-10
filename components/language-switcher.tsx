@@ -1,6 +1,6 @@
 'use client';
 
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from '@/i18n/navigation';
 import { useTransition } from 'react';
 import { createClient } from '@/lib/supabase/client';
@@ -14,8 +14,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { SUPPORTED_LOCALES, getLocaleMetadata, type Locale } from '@/i18n/locales';
 
-export function LanguageSwitcher() {
-  const t = useTranslations('navigation');
+export function LanguageSwitcher({ changeLanguageLabel }: { changeLanguageLabel?: string }) {
   const locale = useLocale() as Locale;
   const router = useRouter();
   const pathname = usePathname();
@@ -65,7 +64,7 @@ export function LanguageSwitcher() {
           size="sm"
           disabled={isPending}
           className="gap-2"
-          aria-label={t('changeLanguage')}
+          aria-label={changeLanguageLabel ?? 'Change language'}
         >
           <Globe className="h-4 w-4" />
           <span className="hidden sm:inline">{currentLocaleMetadata.nativeName}</span>

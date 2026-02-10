@@ -1,0 +1,13 @@
+{
+  "submit": {
+    "title": "Agregar un Servidor",
+    "description": "Comparte tu servidor de Hytale con nuestra comunidad y ayuda a los jugadores a descubrir experiencias de juego increíbles.",
+    "serverInfo": "Información del Servidor",
+    "serverName": "Nombre del Servidor",
+    "serverNamePlaceholder": "Ingresa el nombre de tu servidor",
+    "serverIP": "IP del Servidor",
+    "serverDescription": "Descripción",
+    "descriptionPlaceholder": "Describe las características y el juego de tu servidor",
+    "submitServer": "Enviar Servidor"
+  }
+}

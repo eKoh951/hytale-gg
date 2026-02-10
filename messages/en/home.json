@@ -1,0 +1,21 @@
+{
+  "home": {
+    "hero": {
+      "title": "Find your Hytale server",
+      "description": "Search by game mode, region, or language. Test your ping before you join.",
+      "searchPlaceholder": "Search servers by name, IP, or description...",
+      "browseAll": "Browse all servers",
+      "listServer": "List a server you know",
+      "anyoneCanAdd": "Anyone can add servers to the directory. Help others discover great communities."
+    }
+  },
+  "reviews": {
+    "title": "What players are saying",
+    "description": "Real reviews from creators and players in the community.",
+    "creatorReviews": "Creator Reviews",
+    "playerReviews": "Player Reviews",
+    "viewAll": "View all reviews",
+    "helpful": "helpful",
+    "reply": "Reply"
+  }
+}

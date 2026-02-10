@@ -1,0 +1,78 @@
+{
+  "survey": {
+    "listing": {
+      "title": "Encuestas Activas",
+      "subtitle": "Ayúdanos a construir una mejor experiencia Hytale. Tu opinión da forma directamente a lo que construimos.",
+      "estimatedTime": "~{minutes} min",
+      "questions": "{count} preguntas",
+      "takeSurvey": "Tomar Encuesta",
+      "noSurveys": "No hay encuestas activas en este momento. ¡Vuelve pronto!"
+    },
+    "common": {
+      "next": "Siguiente",
+      "back": "Atrás",
+      "submit": "Enviar",
+      "complete": "completado",
+      "questionNumber": "Pregunta {current} de {total}",
+      "progress": "Pregunta {current} de {total}",
+      "progressSection": "Sección {current} de {total}",
+      "alreadyCompleted": {
+        "title": "Ya Completado",
+        "description": "¡Ya completaste esta encuesta. Gracias por tu tiempo!",
+        "returnHome": "Volver al Inicio"
+      },
+      "otherPlaceholder": "Por favor especifica...",
+      "optional": "(opcional)",
+      "selectUpTo": "{current} de {max} seleccionados",
+      "selectExact": "Selecciona exactamente {count}",
+      "selectAtLeast": "Selecciona al menos {count}",
+      "validation": {
+        "required": "Por favor responde esta pregunta para continuar.",
+        "exactN": "Por favor selecciona exactamente {count} opciones.",
+        "minN": "Por favor selecciona al menos {count} opciones.",
+        "maxN": "Puedes seleccionar hasta {count} opciones.",
+        "otherRequired": "Por favor especifica tu respuesta en el campo de texto.",
+        "invalidScale": "Por favor selecciona una calificación.",
+        "maxdiffBoth": "Por favor selecciona una opción más importante y una menos importante.",
+        "maxdiffSame": "La más importante y la menos importante no pueden ser la misma opción.",
+        "pointsSum": "Tus puntos deben sumar exactamente {sum}.",
+        "pointsNegative": "Los puntos no pueden ser negativos.",
+        "unknownType": "Tipo de pregunta desconocido."
+      },
+      "csat": {
+        "1": "Muy insatisfecho",
+        "2": "Insatisfecho",
+        "3": "Neutral",
+        "4": "Satisfecho",
+        "5": "Muy satisfecho",
+        "lowLabel": "Menos Satisfecho",
+        "highLabel": "Más Satisfecho"
+      },
+      "maxdiff": {
+        "most": "Más Importante",
+        "least": "Menos Importante",
+        "feature": "Característica"
+      },
+      "pointAllocation": {
+        "totalPoints": "Puntos totales: {total}",
+        "remaining": "{points} restantes",
+        "exceeded": "{points} de más",
+        "complete": "Todos los puntos asignados"
+      },
+      "thankYou": {
+        "title": "¡Gracias!",
+        "description": "Tus respuestas se han enviado exitosamente.",
+        "discordPrompt": "¿Quieres unirte a nuestros beta testers? Deja tu nombre de usuario de Discord:",
+        "discordPlaceholder": "usuario#1234",
+        "save": "Guardar",
+        "saving": "Guardando...",
+        "saved": "¡Guardado! Te contactaremos pronto."
+      },
+      "screenOut": {
+        "title": "Gracias por tu Interés",
+        "description": "Basado en tus respuestas, esta encuesta no es la adecuada. ¡Apreciamos tu tiempo!",
+        "returnHome": "Volver al Inicio"
+      }
+    }
+  }
+}

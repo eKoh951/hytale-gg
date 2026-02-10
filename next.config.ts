@@ -46,6 +46,15 @@ const nextConfig: NextConfig = {
   },
 };
 
-const withNextIntl = createNextIntlPlugin();
+const withNextIntl = createNextIntlPlugin({
+  experimental: {
+    messages: {
+      path: './messages',
+      format: 'json',
+      locales: 'infer',
+      precompile: true,
+    },
+  },
+});
 
 export default withNextIntl(nextConfig);

@@ -1,0 +1,78 @@
+{
+  "survey": {
+    "listing": {
+      "title": "Active Surveys",
+      "subtitle": "Help us build a better Hytale experience. Your feedback directly shapes what we build next.",
+      "estimatedTime": "~{minutes} min",
+      "questions": "{count} questions",
+      "takeSurvey": "Take Survey",
+      "noSurveys": "No active surveys right now. Check back soon!"
+    },
+    "common": {
+      "next": "Next",
+      "back": "Back",
+      "submit": "Submit",
+      "complete": "complete",
+      "questionNumber": "Question {current} of {total}",
+      "progress": "Question {current} of {total}",
+      "progressSection": "Section {current} of {total}",
+      "alreadyCompleted": {
+        "title": "Already Completed",
+        "description": "You've already completed this survey. Thank you for your time!",
+        "returnHome": "Return Home"
+      },
+      "otherPlaceholder": "Please specify...",
+      "optional": "(optional)",
+      "selectUpTo": "{current} of {max} selected",
+      "selectExact": "Select exactly {count}",
+      "selectAtLeast": "Select at least {count}",
+      "validation": {
+        "required": "Please answer this question to continue.",
+        "exactN": "Please select exactly {count} options.",
+        "minN": "Please select at least {count} options.",
+        "maxN": "You can select up to {count} options.",
+        "otherRequired": "Please specify your answer in the text field.",
+        "invalidScale": "Please select a rating.",
+        "maxdiffBoth": "Please select both a most and least important option.",
+        "maxdiffSame": "Most and least important cannot be the same option.",
+        "pointsSum": "Your points must add up to exactly {sum}.",
+        "pointsNegative": "Points cannot be negative.",
+        "unknownType": "Unknown question type."
+      },
+      "csat": {
+        "1": "Very dissatisfied",
+        "2": "Dissatisfied",
+        "3": "Neutral",
+        "4": "Satisfied",
+        "5": "Very satisfied",
+        "lowLabel": "Least Satisfied",
+        "highLabel": "Most Satisfied"
+      },
+      "maxdiff": {
+        "most": "Most Important",
+        "least": "Least Important",
+        "feature": "Feature"
+      },
+      "pointAllocation": {
+        "totalPoints": "Total points: {total}",
+        "remaining": "{points} remaining",
+        "exceeded": "{points} over",
+        "complete": "All points allocated"
+      },
+      "thankYou": {
+        "title": "Thank You!",
+        "description": "Your responses have been submitted successfully.",
+        "discordPrompt": "Want to join our beta testers? Leave your Discord username:",
+        "discordPlaceholder": "username#1234",
+        "save": "Save",
+        "saving": "Saving...",
+        "saved": "Saved! We'll reach out soon."
+      },
+      "screenOut": {
+        "title": "Thanks for Your Interest",
+        "description": "Based on your responses, this survey isn't the right fit. We appreciate your time!",
+        "returnHome": "Return Home"
+      }
+    }
+  }
+}

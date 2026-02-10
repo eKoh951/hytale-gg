@@ -7,7 +7,7 @@ import { Footer } from "@/components/landing/footer";
 import { AuthProvider } from "@/components/auth/auth-provider";
 import { MotionProvider } from "@/components/motion-provider";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import "@/app/globals.css";
 
@@ -33,14 +33,11 @@ export default async function LocaleLayout({
   // Enable static rendering
   setRequestLocale(locale);
 
-  // Load messages for the current locale
-  const messages = await getMessages({ locale });
-
   return (
     <>
       <AuthProvider>
         <MotionProvider>
-          <NextIntlClientProvider messages={messages}>
+          <NextIntlClientProvider messages={null}>
             <Header />
             {children}
             <Footer />

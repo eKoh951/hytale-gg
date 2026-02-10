@@ -1,0 +1,226 @@
+{
+  "survey": {
+    "player": {
+      "title": "Encuesta de Descubrimiento de Servidores",
+      "description": "Ayúdanos a construir una mejor forma de encontrar servidores de Hytale. Toma ~4 minutos.",
+      "thankYou": {
+        "title": "¡Gracias por ayudarnos a construir una mejor forma de encontrar servidores de Hytale!",
+        "description": "Sigue a @pixelkoh para actualizaciones. Deja tu nombre de usuario de Discord para unirte a nuestros beta testers."
+      },
+      "screenOut": {
+        "title": "¡Gracias por tu interés!",
+        "description": "Esta encuesta es para jugadores que han probado el multijugador de Hytale. ¡Vuelve cuando hayas jugado!"
+      },
+      "sections": {
+        "screening": {
+          "title": "Sobre Ti"
+        },
+        "discovery": {
+          "title": "Encontrando Servidores",
+          "description": "¿Cómo encuentras servidores hoy?"
+        },
+        "what_matters": {
+          "title": "Lo Que Importa",
+          "description": "¿Qué buscas en un servidor?"
+        },
+        "feature_prioritization": {
+          "title": "Funciones",
+          "description": "¿Qué funciones usarías realmente?"
+        },
+        "reviews_trust": {
+          "title": "Reseñas y Confianza",
+          "description": "¿Qué hace útiles las reseñas?"
+        },
+        "research_demographics": {
+          "title": "Casi Listo"
+        }
+      },
+      "q1": {
+        "title": "¿Cuánto tiempo llevas jugando Hytale multijugador?",
+        "options": {
+          "not_played": "Aún no he jugado multijugador",
+          "less_1_week": "Menos de 1 semana",
+          "1_2_weeks": "1–2 semanas",
+          "3_4_weeks": "3–4 semanas",
+          "more_than_month": "Más de un mes"
+        }
+      },
+      "q2": {
+        "title": "¿Cuántos servidores diferentes de Hytale has probado?",
+        "options": {
+          "1": "1",
+          "2_3": "2–3",
+          "4_6": "4–6",
+          "7_10": "7–10",
+          "more_than_10": "Más de 10"
+        }
+      },
+      "q3": {
+        "title": "¿Qué modo de juego juegas principalmente?",
+        "subtitle": "Elige el que más juegas",
+        "options": {
+          "survival_smp": "Supervivencia / SMP",
+          "pvp_factions": "PvP / Facciones",
+          "rpg_adventure": "RPG / Aventura",
+          "creative_building": "Creativo / Construcción",
+          "minigames": "Minijuegos",
+          "multiple_equally": "Juego varios modos por igual",
+          "other": "Otro"
+        }
+      },
+      "q4": {
+        "title": "¿Cómo encontraste los servidores en los que juegas?",
+        "subtitle": "Selecciona hasta 3",
+        "options": {
+          "friend_wom": "Amigo / boca a boca",
+          "youtube": "Video o tutorial de YouTube",
+          "tiktok": "TikTok o video corto",
+          "twitch": "Stream de Twitch",
+          "discord": "Servidor de Discord",
+          "reddit": "Post de Reddit",
+          "server_listing": "Sitio web de listas de servidores (ej., HytaleTop100, HyServers)",
+          "ingame_browser": "Buscador de servidores del juego",
+          "twitter": "Twitter/X",
+          "other": "Otro"
+        }
+      },
+      "q5": {
+        "title": "¿Qué tan satisfecho estás con lo fácil que es encontrar buenos servidores de Hytale?"
+      },
+      "q6": {
+        "title": "¿Cuál es la MAYOR frustración al buscar un servidor?",
+        "subtitle": "Elige la que más te molesta",
+        "options": {
+          "too_many_options": "Demasiadas opciones, difícil saber cuál es bueno",
+          "cant_tell_active": "No puedo saber si un servidor está activo o muerto",
+          "dont_match_description": "Los servidores no coinciden con su descripción",
+          "cant_find_playstyle": "No encuentro servidores para mi estilo de juego",
+          "same_servers_top": "Siempre los mismos servidores en el top de las listas",
+          "no_reviews": "Sin reseñas ni información confiable antes de unirme",
+          "listings_outdated": "Las listas de servidores se sienten desactualizadas o abandonadas",
+          "too_laggy": "El servidor tiene mucho lag después de unirme",
+          "dont_know_anyone": "No conozco a nadie en el servidor",
+          "other": "Otro"
+        }
+      },
+      "q7": {
+        "title": "Al elegir un servidor, elige tus 3 factores MÁS importantes:",
+        "subtitle": "Selecciona exactamente 3",
+        "options": {
+          "friendly_community": "Comunidad amigable y staff servicial",
+          "low_lag": "Poco lag y rendimiento estable",
+          "unique_gameplay": "Jugabilidad única o contenido personalizado",
+          "mod_variety": "Variedad de mods/plugins y soporte",
+          "no_p2w": "Sin mecánicas pay-to-win",
+          "active_players": "Cantidad activa de jugadores (que haya gente conectada)",
+          "good_moderation": "Buena moderación (sin hackers/griefers)",
+          "close_region": "Servidor en mi región (bajo ping)",
+          "regular_updates": "Actualizaciones regulares y contenido nuevo",
+          "other": "Otro"
+        }
+      },
+      "q8": {
+        "title": "De tus 3 elegidos, ¿cuál te haría DEJAR un servidor si fuera malo?",
+        "subtitle": "Elige el factor decisivo"
+      },
+      "q9": {
+        "title": "¿Con qué frecuencia cambias de servidor?",
+        "options": {
+          "stick_with_one": "Me quedo con un solo servidor",
+          "every_few_weeks": "Cada pocas semanas",
+          "every_few_days": "Cada pocos días",
+          "multiple_regularly": "Juego en varios servidores regularmente",
+          "havent_found": "Aún no he encontrado un servidor que me guste"
+        }
+      },
+      "q10": {
+        "title": "Información antes de unirte",
+        "subtitle": "¿Cuál es MÁS importante y MENOS importante para ti?",
+        "options": {
+          "text_reviews": "Leer reseñas de jugadores con calificaciones específicas (comunidad, rendimiento, justicia)",
+          "video_review": "Ver una reseña en video mostrando gameplay real del servidor",
+          "realtime_count": "Ver cantidad de jugadores en tiempo real y horas pico",
+          "vibe_tags": "Etiquetas de \"ambiente\" del servidor (ej., \"Constructores tranquilos\", \"PvP Hardcore\", \"Para principiantes\")"
+        }
+      },
+      "q11": {
+        "title": "Cómo deberían mostrarte los servidores",
+        "subtitle": "¿Cuál es MÁS importante y MENOS importante para ti?",
+        "options": {
+          "server_of_day": "\"Servidor del Día\" rotativo (no siempre los mismos servidores arriba)",
+          "difficulty_filter": "Filtrar servidores por nivel de dificultad (principiante vs. experto)",
+          "lfg_board": "Tablón de \"Buscando Grupo\" para encontrar compañeros",
+          "friends_play": "Ver en qué servidores juegan tus amigos"
+        }
+      },
+      "q12": {
+        "title": "Señales de confianza y calidad",
+        "subtitle": "¿Cuál es MÁS importante y MENOS importante para ti?",
+        "options": {
+          "reviewer_hours": "Las reseñas muestran cuántas horas jugó el reseñador en ese servidor",
+          "owner_responds": "El dueño del servidor puede responder a las reseñas",
+          "retention_rate": "Ver la tasa de retención de jugadores (¿la gente vuelve?)",
+          "hide_p2w": "Filtro para ocultar servidores pay-to-win",
+          "actively_updated": "El servidor se actualiza activamente con nuevo contenido o eventos"
+        }
+      },
+      "q13": {
+        "title": "¿Qué tan probable es que escribas una reseña de un servidor en el que hayas jugado?",
+        "options": {
+          "very_likely": "Muy probable — me gusta compartir mi experiencia",
+          "strong_experience": "Solo si tuve una experiencia fuerte (muy buena o muy mala)",
+          "unlikely": "Poco probable — leería reseñas pero no las escribiría",
+          "not_interested": "No me interesan las reseñas"
+        }
+      },
+      "q14": {
+        "title": "¿Qué hace confiable una reseña de servidor?",
+        "subtitle": "Elige las 2 principales",
+        "options": {
+          "hours_played": "Muestra cuántas horas jugó el reseñador en ese servidor",
+          "specific_aspects": "Califica aspectos específicos por separado (comunidad, rendimiento, justicia)",
+          "screenshots_video": "Incluye capturas de pantalla o video del gameplay real",
+          "recent_review": "La reseña es reciente (menos de 2 semanas)",
+          "helpful_votes": "Otros jugadores votaron la reseña como \"útil\"",
+          "sentiment_summary": "Un resumen general como \"Mayormente Positivo\" o \"Mixto\"",
+          "username_visible": "El nombre de usuario y tiempo de juego del reseñador son visibles (no anónimo)",
+          "recent_vs_alltime": "Puntuaciones separadas de reseñas \"recientes\" y \"de todos los tiempos\""
+        }
+      },
+      "q15": {
+        "title": "¿Qué formato de reseña sería más útil para evaluar un servidor?",
+        "options": {
+          "binary_steam": "Simple \"Recomendado / No Recomendado\" con un comentario (estilo Steam)",
+          "stars_amazon": "Calificación de 1–5 estrellas con un comentario (estilo Amazon/Google)",
+          "multi_criteria": "Calificar aspectos específicos por separado — comunidad, rendimiento, contenido, justicia",
+          "just_label": "Solo muéstrame una etiqueta general como \"Mayormente Positivo\" — no leo reseñas individuales"
+        }
+      },
+      "q16": {
+        "title": "Después de escuchar sobre un servidor, ¿qué haces antes de unirte?",
+        "subtitle": "Elige las 2 principales",
+        "options": {
+          "just_join": "Simplemente me uno y veo por mí mismo",
+          "check_listing": "Reviso la página del servidor (jugadores, descripción, reseñas)",
+          "join_discord": "Me uno a su Discord para conocer la comunidad",
+          "youtube_twitch": "Busco contenido de YouTube/Twitch sobre el servidor",
+          "ask_friends": "Pregunto a amigos u otros jugadores",
+          "mobile_browse": "Navego sitios de servidores en mi celular, luego me uno desde PC",
+          "save_bookmark": "Lo guardo/marco para probarlo después cuando tenga tiempo",
+          "follow_updates": "Sigo al servidor para recibir notificaciones de actualizaciones o eventos"
+        }
+      },
+      "q17": {
+        "title": "¿Qué idioma prefieres para contenido de gaming?",
+        "options": {
+          "english": "Inglés",
+          "spanish": "Español",
+          "portuguese": "Portugués",
+          "french": "Francés",
+          "german": "Alemán",
+          "other": "Otro"
+        }
+      }
+    }
+  }
+}

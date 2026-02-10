@@ -16,13 +16,16 @@ import {
 import { useAuth } from './auth-provider'
 import { getDisplayName, getInitials } from '@/lib/utils/user'
 import { createClient } from '@/lib/supabase/client'
-import { useTranslations } from 'next-intl'
+export interface UserProfileMenuLabels {
+  userMenu: string;
+  profile: string;
+  signOut: string;
+}
 
-export function UserProfileMenu() {
+export function UserProfileMenu({ labels }: { labels?: UserProfileMenuLabels }) {
   const { state: { user }, actions: { signOut } } = useAuth()
   const [profileAvatarUrl, setProfileAvatarUrl] = useState<string | null>(null)
   const [profileDisplayName, setProfileDisplayName] = useState<string | null>(null)
-  const t = useTranslations('navigation')
 
   useEffect(() => {
     if (!user) return
@@ -69,7 +72,7 @@ export function UserProfileMenu() {
           variant="ghost"
           size="icon"
           className="h-8 w-8 rounded-full focus-visible:ring-2 focus-visible:ring-offset-2"
-          aria-label={t('userMenu')}
+          aria-label={labels?.userMenu ?? 'User menu'}
         >
           <Avatar className="h-8 w-8">
             {avatarUrl ? (
@@ -93,7 +96,7 @@ export function UserProfileMenu() {
         <DropdownMenuItem asChild>
           <Link href="/profile" className="flex items-center gap-2 cursor-pointer">
             <User className="h-4 w-4" />
-            <span>{t('profile')}</span>
+            <span>{labels?.profile ?? 'Profile'}</span>
           </Link>
         </DropdownMenuItem>
 
@@ -105,7 +108,7 @@ export function UserProfileMenu() {
           className="flex items-center gap-2 cursor-pointer"
         >
           <LogOut className="h-4 w-4" />
-          <span>{t('signOut')}</span>
+          <span>{labels?.signOut ?? 'Sign Out'}</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

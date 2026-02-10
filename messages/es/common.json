@@ -1,0 +1,77 @@
+{
+  "navigation": {
+    "servers": "Servidores",
+    "creators": "Creadores",
+    "listServer": "Agregar un Servidor",
+    "signIn": "Iniciar Sesión",
+    "signOut": "Cerrar Sesión",
+    "profile": "Perfil",
+    "settings": "Configuración",
+    "branding": "Guías de Marca",
+    "surveys": "Encuestas",
+    "changeLanguage": "Cambiar idioma",
+    "userMenu": "Menú de usuario"
+  },
+  "footer": {
+    "platform": "Plataforma",
+    "resources": "Recursos",
+    "serverOwners": "Dueños de Servidores",
+    "legal": "Legal",
+    "description": "El directorio de servidores móvil líder para la comunidad de Hytale.",
+    "copyright": " {year} hytale.GG. Todos los derechos reservados. No afiliado con Hypixel Studios.",
+    "servers": "Servidores",
+    "creators": "Creadores",
+    "mods": "Mods",
+    "events": "Eventos",
+    "branding": "Guías de Marca",
+    "gettingStarted": "Guía de Inicio",
+    "api": "API",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "listServer": "Listar tu Servidor",
+    "dashboard": "Panel de Control",
+    "analytics": "Analíticas",
+    "verification": "Verificación",
+    "surveys": "Encuestas",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "contact": "Contacto",
+    "twitter": "Twitter",
+    "github": "GitHub",
+    "discord": "Discord"
+  },
+  "metadata": {
+    "home": {
+      "title": "hytale.GG - Encuentra tu Servidor Perfecto",
+      "description": "Descubre los mejores servidores de Hytale con pruebas de ping en tiempo real, reseñas de creadores y navegación optimizada para móviles. Encuentra tu comunidad de juego perfecta hoy."
+    },
+    "branding": {
+      "title": "Guías de Marca | hytale.GG",
+      "description": "Recursos esenciales y estándares para la identidad de marca de hytale.GG"
+    },
+    "profile": {
+      "title": "Perfil | hytale.GG",
+      "description": "Ver y administrar tu perfil de servidor Hytale, favoritos y logros."
+    },
+    "settings": {
+      "title": "Configuración | hytale.GG",
+      "description": "Administra la configuración de tu cuenta, preferencias y opciones de privacidad."
+    },
+    "servers": {
+      "title": "Servidores | hytale.GG",
+      "description": "Descubre los mejores servidores de Hytale con pruebas de ping en tiempo real e información detallada."
+    },
+    "creators": {
+      "title": "Creadores | hytale.GG",
+      "description": "Encuentra creadores de contenido de Hytale talentosos y sus increíbles construcciones, tutoriales y videos de juego."
+    },
+    "submit": {
+      "title": "Agregar un Servidor | hytale.GG",
+      "description": "Comparte tu servidor de Hytale con nuestra comunidad y ayuda a los jugadores a descubrir experiencias de juego increíbles."
+    },
+    "surveys": {
+      "title": "Encuestas | hytale.GG",
+      "description": "Comparte tu opinión y ayuda a dar forma al futuro del directorio de servidores de Hytale."
+    }
+  }
+}

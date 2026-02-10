@@ -1,0 +1,38 @@
+{
+  "server": {
+    "copied": "¡Copiado!",
+    "players": "jugadores",
+    "language": "Idioma",
+    "ping": "Ping",
+    "status": {
+      "online": "En línea",
+      "offline": "Desconectado",
+      "maintenance": "Mantenimiento"
+    },
+    "actions": {
+      "copy": "Copiar IP",
+      "join": "Unirse al Servidor",
+      "favorite": "Agregar a Favoritos"
+    }
+  },
+  "categories": {
+    "all": "Todos",
+    "survival": "Supervivencia",
+    "pvp": "PvP",
+    "creative": "Creativo",
+    "rpg": "RPG",
+    "minigames": "Minijuegos"
+  },
+  "regions": {
+    "all": "Cualquier Región",
+    "na": "Norteamérica",
+    "eu": "Europa",
+    "asia": "Asia",
+    "latam": "Latinoamérica",
+    "oce": "Oceanía"
+  },
+  "servers": {
+    "title": "Servidores",
+    "description": "Descubre los mejores servidores de Hytale con pruebas de ping en tiempo real e información detallada."
+  }
+}

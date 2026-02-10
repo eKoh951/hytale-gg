@@ -1,0 +1,255 @@
+{
+  "survey": {
+    "owner": {
+      "title": "Encuesta para Dueños de Servidores",
+      "description": "Ayúdanos a entender lo que necesitan los dueños de servidores. Toma ~5 minutos.",
+      "thankYou": {
+        "title": "¡Gracias por ayudarnos a entender lo que necesitan los dueños de servidores!",
+        "description": "Tus respuestas darán forma directamente a las herramientas que construyamos. Deja tu nombre de usuario de Discord si quieres que te notifiquemos cuando se publiquen los resultados."
+      },
+      "screenOut": {
+        "title": "¡Gracias por tu interés!",
+        "description": "Esta encuesta es para personas que administran un servidor de Hytale."
+      },
+      "sections": {
+        "screening_profile": {
+          "title": "Sobre Tu Servidor"
+        },
+        "discovery_pain": {
+          "title": "Descubrimiento y Desafíos",
+          "description": "¿Dónde estás listado y qué es difícil?"
+        },
+        "listing_friction": {
+          "title": "Experiencia de Listado",
+          "description": "¿Qué hace doloroso el proceso de listar?"
+        },
+        "feature_prioritization": {
+          "title": "Funciones y Analíticas",
+          "description": "¿Qué te haría listar en un nuevo directorio?"
+        },
+        "reviews_trust": {
+          "title": "Reseñas y Confianza",
+          "description": "¿Cómo te sientes sobre las reseñas de jugadores?"
+        },
+        "final": {
+          "title": "Una Última Cosa"
+        }
+      },
+      "q1": {
+        "title": "¿Cuál es tu rol?",
+        "subtitle": "Esta encuesta es para dueños y administradores de servidores",
+        "options": {
+          "owner": "Dueño del servidor",
+          "admin_coowner": "Admin / co-dueño del servidor",
+          "staff_moderator": "Staff / moderador",
+          "not_managing": "No administro ni manejo un servidor"
+        }
+      },
+      "q2": {
+        "title": "¿Cuánto tiempo lleva funcionando tu servidor de Hytale?",
+        "options": {
+          "less_1_week": "Menos de 1 semana",
+          "1_2_weeks": "1–2 semanas",
+          "3_4_weeks": "3–4 semanas",
+          "more_than_month": "Más de un mes",
+          "before_ea": "Desde antes del Early Access (pruebas/pre-lanzamiento)"
+        }
+      },
+      "q3": {
+        "title": "¿Cuál es el promedio diario de jugadores de tu servidor?",
+        "options": {
+          "1_5": "1–5 jugadores",
+          "6_20": "6–20 jugadores",
+          "21_50": "21–50 jugadores",
+          "51_100": "51–100 jugadores",
+          "100_plus": "100+ jugadores"
+        }
+      },
+      "q4": {
+        "title": "¿Cuál es tu modo de juego principal?",
+        "options": {
+          "survival_smp": "Supervivencia / SMP",
+          "pvp_factions": "PvP / Facciones",
+          "rpg_adventure": "RPG / Aventura",
+          "creative_building": "Creativo / Construcción",
+          "minigames": "Minijuegos",
+          "multiple_modes": "Múltiples modos (Supervivencia + PvP, etc.)",
+          "other": "Otro"
+        }
+      },
+      "q5": {
+        "title": "¿Qué proveedor de hosting usas?",
+        "subtitle": "Esto nos ayuda a entender el panorama de hosting",
+        "options": {
+          "self_hosted": "Auto-alojado (hardware propio o VPS)",
+          "oracle_free": "Oracle Free Tier",
+          "gportal": "GPORTAL",
+          "ghostcap": "Ghostcap",
+          "game_host_bros": "Game Host Bros",
+          "dathost": "DatHost",
+          "pine_hosting": "Pine Hosting",
+          "wasabi_hosting": "Wasabi Hosting",
+          "no_disclose": "Prefiero no decirlo",
+          "other": "Otro"
+        }
+      },
+      "q6": {
+        "title": "¿Cuánto gastas mensualmente en tu servidor?",
+        "subtitle": "Incluyendo hosting, plugins, etc.",
+        "options": {
+          "free": "$0 (tier gratuito / auto-alojado)",
+          "1_10": "$1–10/mes",
+          "11_25": "$11–25/mes",
+          "26_50": "$26–50/mes",
+          "50_plus": "$50+/mes",
+          "no_disclose": "Prefiero no decirlo"
+        }
+      },
+      "q7": {
+        "title": "¿Dónde está listado tu servidor actualmente?",
+        "subtitle": "Selecciona todos los que apliquen",
+        "options": {
+          "hytaletop100": "HytaleTop100",
+          "hyservers": "HyServers.gg",
+          "hytale_universe": "Hytale Universe",
+          "hytale_servers_com": "hytale-servers.com",
+          "serverlist_gg": "serverlist.gg",
+          "reddit": "Posts de Reddit",
+          "discord": "Servidores de Discord",
+          "ingame_browser": "Buscador de servidores del juego",
+          "own_website": "Mi propio sitio web / landing page",
+          "not_listed": "No está listado en ningún lado",
+          "other": "Otro"
+        }
+      },
+      "q8": {
+        "title": "¿Qué tan satisfecho estás con tu(s) plataforma(s) actual(es) de listado de servidores?"
+      },
+      "q9": {
+        "title": "¿Cuáles son tus 3 MAYORES desafíos para hacer crecer tu servidor?",
+        "subtitle": "Selecciona exactamente 3",
+        "options": {
+          "getting_new_players": "Conseguir que nuevos jugadores encuentren mi servidor",
+          "keeping_players": "Mantener a los jugadores volviendo después de unirse",
+          "standing_out": "Destacar entre otros servidores",
+          "getting_feedback": "Obtener retroalimentación honesta de los jugadores",
+          "competing_paid": "Competir con servidores que compran votos o pagan por los primeros puestos",
+          "figuring_wants": "Descifrar qué quieren realmente los jugadores",
+          "technical_problems": "Problemas técnicos (lag, hosting, DDoS)",
+          "managing_staff": "Administrar staff y moderadores",
+          "other": "Otro"
+        }
+      },
+      "q10": {
+        "title": "¿Qué es lo más molesto de listar o publicitar tu servidor en directorios?",
+        "subtitle": "Elige lo que más te molesta",
+        "options": {
+          "writing_description": "Escribir una descripción atractiva",
+          "creating_banners": "Crear banners, imágenes o gráficos promocionales",
+          "vote_rewards": "Configurar recompensas de votos (Votifier, links de votos, etc.)",
+          "multiple_sites": "Listar en múltiples sitios con diferentes requisitos",
+          "keeping_updated": "Mantener la información actualizada en todas las plataformas",
+          "initial_visibility": "Obtener visibilidad inicial antes de que alguien conozca mi servidor",
+          "verification": "El proceso de verificación / reclamar propiedad",
+          "not_listed": "No estoy listado en ningún lado, así que no he experimentado esto",
+          "other": "Otro"
+        }
+      },
+      "q11": {
+        "title": "Imagina que un nuevo directorio encontró automáticamente tu servidor de tus listados existentes y creó un listado para ti. ¿Cómo te sentirías?",
+        "subtitle": "Esto tomaría info de sitios como HytaleTop100, HyServers, etc.",
+        "options": {
+          "love_it": "Me encanta — un sitio menos que tengo que configurar manualmente",
+          "great_can_edit": "Genial, siempre que pueda reclamarlo y editarlo después",
+          "approve_first": "OK, pero querría aprobarlo antes de que se publique",
+          "rather_myself": "Prefiero agregar mi servidor yo mismo",
+          "not_listed_elsewhere": "No estoy listado en ningún otro lado, así que esto no aplica para mí"
+        }
+      },
+      "q12": {
+        "title": "Elige tus 3 funciones MÁS importantes en un directorio de servidores:",
+        "subtitle": "Selecciona exactamente 3",
+        "options": {
+          "fair_ranking": "Ranking justo que no favorezca servidores grandes/que pagan",
+          "detailed_analytics": "Analíticas detalladas (quién visita, de dónde vienen)",
+          "player_reviews": "Reseñas de jugadores visibles en mi listado",
+          "respond_reviews": "Capacidad de responder a reseñas de jugadores públicamente",
+          "creator_reviews": "Reseñas de creadores/YouTubers de mi servidor",
+          "status_monitoring": "Monitoreo automático del estado del servidor",
+          "discord_notifications": "Notificaciones de Discord (alertas de nuevas reseñas, estado del servidor)",
+          "easy_claiming": "Reclamación fácil del servidor e insignia de dueño verificado",
+          "auto_imported": "Listado auto-importado de otros directorios (cero configuración)",
+          "other": "Otro"
+        }
+      },
+      "q13": {
+        "title": "Imagina que un directorio de servidores te da un panel gratuito. Tienes 100 puntos para gastar en qué información te importa más.",
+        "subtitle": "Distribuye 100 puntos — más puntos = más importante para ti",
+        "options": {
+          "traffic_sources": "De dónde vienen tus jugadores (qué sitios, búsquedas o links traen gente a tu listado)",
+          "listing_conversion": "Qué tan bien convierte tu listado (cuántas personas lo ven vs. cuántas hacen clic para unirse)",
+          "player_retention": "Si los jugadores se quedan (cuántos vuelven después de su primera vez en tu servidor)",
+          "review_themes": "Qué dicen los jugadores de ti (temas comunes de reseñas — qué les gusta y de qué se quejan)",
+          "competitor_comparison": "Cómo te comparas con servidores similares (ver tus estadísticas junto a servidores de tu misma categoría)",
+          "promotion_tracking": "Rastrear qué promociones funcionan (links personalizados para Discord/Reddit/TikTok para saber qué posts traen jugadores)"
+        }
+      },
+      "q14": {
+        "title": "Si esas estadísticas básicas fueran gratis, ¿qué extras te harían considerar pagar una pequeña cuota mensual?",
+        "subtitle": "Elige hasta 2",
+        "options": {
+          "player_retention": "Ver si los jugadores vuelven después de unirse (y cuándo dejan de hacerlo)",
+          "review_themes": "Ver qué dicen los jugadores de mi servidor (temas y tendencias de reseñas)",
+          "tracking_links": "Links de rastreo personalizados para medir mis promociones (posts de Discord, Reddit, TikTok)",
+          "alerts": "Recibir alertas cuando mi calificación baje o el tráfico aumente",
+          "export_data": "Exportar mis datos a una hoja de cálculo",
+          "compare_servers": "Comparar mis estadísticas con servidores similares",
+          "none": "Ninguno — las estadísticas básicas gratuitas son suficientes para mí"
+        }
+      },
+      "q14b": {
+        "title": "Si esas funciones extra costaran una cuota mensual, ¿qué te parecería justo?",
+        "options": {
+          "under_5": "Menos de $5/mes",
+          "5_10": "$5–10/mes",
+          "10_20": "$10–20/mes",
+          "free_trial": "Solo lo probaría si hubiera una prueba gratuita primero",
+          "wouldnt_pay": "No pagaría por analíticas",
+          "depends": "Depende de cuánto me ayude realmente a crecer"
+        }
+      },
+      "q15": {
+        "title": "¿Cómo te sentirías sobre reseñas de jugadores en el listado de tu servidor?",
+        "options": {
+          "great_feedback": "Genial — la retroalimentación honesta me ayuda a mejorar",
+          "fine_respond": "Bien, pero quiero poder responder a las reseñas",
+          "worried_fake": "Preocupado por reseñas negativas falsas/injustas",
+          "prefer_votes": "Preferiría no tener reseñas — solo votos"
+        }
+      },
+      "q16": {
+        "title": "Si un creador de contenido (YouTuber/TikToker) ofreciera reseñar tu servidor, ¿tú...",
+        "options": {
+          "welcome_free": "Lo recibiría bien — exposición gratuita",
+          "welcome_know": "Lo recibiría bien, pero quiero saber de antemano",
+          "see_before": "Solo si puedo ver la reseña antes de que se publique",
+          "not_interested": "No me interesan las reseñas de creadores"
+        }
+      },
+      "q17": {
+        "title": "¿Qué formato de reseña te daría la retroalimentación más útil como dueño?",
+        "subtitle": "Esto nos ayuda a diseñar el sistema de reseñas",
+        "options": {
+          "binary_steam": "Simple \"Recomendado / No Recomendado\" con un comentario (estilo Steam)",
+          "stars_amazon": "Calificación de 1–5 estrellas con un comentario (estilo Amazon/Google)",
+          "multi_criteria": "Calificar aspectos específicos por separado — comunidad, rendimiento, contenido, justicia",
+          "no_reviews": "No quiero reseñas en mi listado"
+        }
+      },
+      "q18": {
+        "title": "¿Qué UNA cosa te haría listar tu servidor inmediatamente en un nuevo directorio?",
+        "subtitle": "Cuéntanos en tus propias palabras"
+      }
+    }
+  }
+}

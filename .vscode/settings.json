@@ -1,7 +1,7 @@
 {
   "i18n-ally.localesPaths": [
-    "i18n",
-    "messages",
-    "app/api/preferences/language"
-  ]
+    "messages/en",
+    "messages/es"
+  ],
+  "i18n-ally.keystyle": "nested"
 }

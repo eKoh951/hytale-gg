@@ -1,0 +1,26 @@
+{
+  "profile": {
+    "title": "Perfil",
+    "edit": "Editar Perfil",
+    "stats": {
+      "serversJoined": "Servidores Unidos",
+      "favorites": "Favoritos",
+      "reviews": "Reseñas"
+    },
+    "achievements": {
+      "title": "Logros",
+      "unlocked": "Desbloqueados",
+      "locked": "Bloqueados"
+    }
+  },
+  "settings": {
+    "title": "Configuración",
+    "profile": "Configuración del Perfil",
+    "account": "Configuración de la Cuenta",
+    "preferences": "Preferencias",
+    "notifications": "Notificaciones",
+    "privacy": "Privacidad",
+    "language": "Idioma",
+    "theme": "Tema"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "submit": {
+    "title": "List a Server",
+    "serverInfo": "Server Information",
+    "serverName": "Server Name",
+    "serverNamePlaceholder": "Enter your server name",
+    "serverIP": "Server IP",
+    "description": "Description",
+    "descriptionPlaceholder": "Describe your server features and gameplay",
+    "submitServer": "Submit Server"
+  }
+}
