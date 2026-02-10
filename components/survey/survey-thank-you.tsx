@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { motion } from 'framer-motion'
+import * as m from 'motion/react-m'
 import { CheckCircle2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -38,19 +38,19 @@ export function SurveyThankYou({
 
   return (
     <div className="flex min-h-[60vh] items-center justify-center">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
         className="flex flex-col items-center gap-6 text-center"
       >
-        <motion.div
+        <m.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
         >
           <CheckCircle2 className="h-20 w-20 text-primary" />
-        </motion.div>
+        </m.div>
 
         <div className="flex flex-col gap-3">
           <h1 className="text-balance text-3xl font-bold">
@@ -66,7 +66,7 @@ export function SurveyThankYou({
         </div>
 
         {survey.thankYou?.showDiscordInput && !saved && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
@@ -91,19 +91,19 @@ export function SurveyThankYou({
                   : t('survey.common.thankYou.save')}
               </Button>
             </div>
-          </motion.div>
+          </m.div>
         )}
 
         {saved && (
-          <motion.p
+          <m.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="text-sm text-primary"
           >
             {t('survey.common.thankYou.saved')}
-          </motion.p>
+          </m.p>
         )}
-      </motion.div>
+      </m.div>
     </div>
   )
 }

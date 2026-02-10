@@ -1,7 +1,7 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import { motion } from 'framer-motion'
+import * as m from 'motion/react-m'
 import { XCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
@@ -16,19 +16,19 @@ export function SurveyScreenOut({ survey }: SurveyScreenOutProps) {
 
   return (
     <div className="flex min-h-[60vh] items-center justify-center">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
         className="flex flex-col items-center gap-6 text-center"
       >
-        <motion.div
+        <m.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
         >
           <XCircle className="h-20 w-20 text-muted-foreground" />
-        </motion.div>
+        </m.div>
 
         <div className="flex flex-col gap-3">
           <h1 className="text-balance text-3xl font-bold">
@@ -46,7 +46,7 @@ export function SurveyScreenOut({ survey }: SurveyScreenOutProps) {
         <Button asChild>
           <Link href="/">{t('survey.common.screenOut.returnHome')}</Link>
         </Button>
-      </motion.div>
+      </m.div>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import { motion } from 'framer-motion'
+import * as m from 'motion/react-m'
 import { ThumbsUp, ThumbsDown } from 'lucide-react'
 import type { Question } from '@/lib/surveys/types'
 
@@ -50,9 +50,8 @@ export function Maxdiff({ question, value, onChange }: MaxdiffProps) {
         const leastDisabled = most === option.key
 
         return (
-          <motion.div
+          <m.div
             key={option.key}
-            layout
             className={`flex items-center gap-3 rounded-lg border-2 p-3 sm:p-4 transition-colors ${
               isMost
                 ? 'border-emerald-500/50 bg-emerald-500/5'
@@ -69,7 +68,7 @@ export function Maxdiff({ question, value, onChange }: MaxdiffProps) {
             {/* Action buttons — right side */}
             <div className="flex shrink-0 items-center gap-2">
               {/* Most Important */}
-              <motion.button
+              <m.button
                 type="button"
                 onClick={() => handleMostClick(option.key)}
                 disabled={mostDisabled}
@@ -87,10 +86,10 @@ export function Maxdiff({ question, value, onChange }: MaxdiffProps) {
                 whileTap={!mostDisabled ? { scale: 0.92 } : {}}
               >
                 <ThumbsUp className="h-4 w-4" />
-              </motion.button>
+              </m.button>
 
               {/* Least Important */}
-              <motion.button
+              <m.button
                 type="button"
                 onClick={() => handleLeastClick(option.key)}
                 disabled={leastDisabled}
@@ -108,9 +107,9 @@ export function Maxdiff({ question, value, onChange }: MaxdiffProps) {
                 whileTap={!leastDisabled ? { scale: 0.92 } : {}}
               >
                 <ThumbsDown className="h-4 w-4" />
-              </motion.button>
+              </m.button>
             </div>
-          </motion.div>
+          </m.div>
         )
       })}
     </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import * as m from "motion/react-m";
 import { Play, Star, CheckCircle, ThumbsUp, MessageSquare, User } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -97,7 +97,7 @@ type ReviewTab = "creator" | "player";
 
 function CreatorReviewCard({ review, index }: { review: typeof creatorReviews[0]; index: number }) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
@@ -140,13 +140,13 @@ function CreatorReviewCard({ review, index }: { review: typeof creatorReviews[0]
         <p className="mt-2 text-xs text-muted-foreground">{review.views} views</p>
       </div>
       </StoneCard>
-    </motion.div>
+    </m.div>
   );
 }
 
 function PlayerReviewCard({ review, index }: { review: typeof playerReviews[0]; index: number }) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
@@ -201,7 +201,7 @@ function PlayerReviewCard({ review, index }: { review: typeof playerReviews[0]; 
         </Button>
       </div>
       </StoneCard>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -217,7 +217,7 @@ export function Reviews() {
         {/* Icon divider at top */}
         <IconDivider icon="sword" className="mb-12" />
         {/* Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -230,10 +230,10 @@ export function Reviews() {
           <p className="mt-2 text-muted-foreground">
             Real reviews from creators and players in the community.
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Tabs */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -269,10 +269,10 @@ export function Reviews() {
               </div>
             </TabsContent>
           </Tabs>
-        </motion.div>
+        </m.div>
 
         {/* CTA */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -282,7 +282,7 @@ export function Reviews() {
           <Button variant="outline">
             View all reviews
           </Button>
-        </motion.div>
+        </m.div>
       </div>
     </DirtBackground>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import * as m from "motion/react-m";
 import { cn } from "@/lib/utils";
 
 /**
@@ -1031,7 +1031,7 @@ export function MagicParticles({ count = 20, className }: { count?: number; clas
         const startX = Math.random() * 100;
         
         return (
-          <motion.div
+          <m.div
             key={i}
             className="absolute rounded-full"
             style={{
@@ -1199,7 +1199,7 @@ export function PixelCorner({
 
   const icons = {
     torch: (
-      <motion.div
+      <m.div
         className="relative"
         animate={{
           filter: ["brightness(1)", "brightness(1.3)", "brightness(1)"],
@@ -1214,10 +1214,10 @@ export function PixelCorner({
         <div className="h-2 w-2 bg-secondary rounded-sm shadow-[0_0_8px_rgba(255,184,0,0.6)]" />
         {/* Torch stick */}
         <div className="mx-auto mt-0.5 h-3 w-1 bg-dirt" />
-      </motion.div>
+      </m.div>
     ),
     crystal: (
-      <motion.div
+      <m.div
         animate={{
           filter: ["brightness(1)", "brightness(1.5)", "brightness(1)"],
           rotate: [0, 5, 0, -5, 0],
@@ -1234,10 +1234,10 @@ export function PixelCorner({
           <path d="M8 2L12 6L8 8L4 6L8 2Z" fill="#A855F7" />
           <path d="M8 2L8 8" stroke="#C084FC" strokeWidth="0.5" />
         </svg>
-      </motion.div>
+      </m.div>
     ),
     gem: (
-      <motion.div
+      <m.div
         animate={{
           scale: [1, 1.1, 1],
         }}
@@ -1255,7 +1255,7 @@ export function PixelCorner({
           {/* Shine effect */}
           <rect x="5" y="1" width="2" height="2" fill="#FFFFFF" opacity="0.6" />
         </svg>
-      </motion.div>
+      </m.div>
     ),
   };
 
@@ -1277,7 +1277,7 @@ export function TorchGlow({
   className?: string;
 }) {
   return (
-    <motion.div
+    <m.div
       className={cn(
         "pointer-events-none absolute top-1/2 h-48 w-48 -translate-y-1/2 rounded-full",
         position === "left" ? "-left-24" : "-right-24",

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import * as m from "motion/react-m";
 import { Clock, ArrowRight, ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -38,7 +38,7 @@ export function HomeSurveyList({ surveys, title, subtitle }: HomeSurveyListProps
 
       <div className="relative z-10 mx-auto max-w-3xl px-4 pt-28 pb-16 sm:px-6 lg:px-8">
         {/* Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -50,11 +50,11 @@ export function HomeSurveyList({ surveys, title, subtitle }: HomeSurveyListProps
           <p className="mx-auto mt-3 max-w-lg text-muted-foreground">
             {subtitle}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Survey Cards */}
         {surveys.length === 0 ? (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -65,11 +65,11 @@ export function HomeSurveyList({ surveys, title, subtitle }: HomeSurveyListProps
                 {t("survey.listing.noSurveys")}
               </p>
             </StoneCard>
-          </motion.div>
+          </m.div>
         ) : (
           <div className="flex flex-col gap-5">
             {surveys.map((survey, index) => (
-              <motion.div
+              <m.div
                 key={survey.slug}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -116,7 +116,7 @@ export function HomeSurveyList({ surveys, title, subtitle }: HomeSurveyListProps
                     </div>
                   </div>
                 </StoneCard>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         )}

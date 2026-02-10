@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import * as m from "motion/react-m";
 import {
   Search,
   Users,
@@ -124,7 +124,7 @@ function ServerCard({ server, index }: { server: typeof mockServers[0]; index: n
   };
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
@@ -211,7 +211,7 @@ function ServerCard({ server, index }: { server: typeof mockServers[0]; index: n
           </div>
         </div>
       </StoneCard>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -230,7 +230,7 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 pt-24 pb-8 sm:px-6 sm:pb-12 lg:px-8">
         {/* Minimal header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -242,10 +242,10 @@ export function Hero() {
           <p className="mx-auto mt-3 max-w-lg text-muted-foreground">
             Search by game mode, region, or language. Test your ping before you join.
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Search and filters */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
@@ -299,10 +299,10 @@ export function Hero() {
               </Button>
             ))}
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Server results */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -311,10 +311,10 @@ export function Hero() {
           {mockServers.map((server, index) => (
             <ServerCard key={server.id} server={server} index={index} />
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Browse all + submit server */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -326,7 +326,7 @@ export function Hero() {
           <Button size="lg" variant="outline" className="border-[#3A3A3A] hover:border-[#4A4A4A] hover:bg-muted">
             List a server you know
           </Button>
-        </motion.div>
+        </m.div>
 
         <p className="mt-4 text-center text-sm text-muted-foreground">
           Anyone can add servers to the directory. Help others discover great communities.

@@ -1,7 +1,7 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import { motion } from 'framer-motion'
+import * as m from 'motion/react-m'
 
 interface CsatScaleProps {
   value: number | null
@@ -21,7 +21,7 @@ export function CsatScale({ value, onChange }: CsatScaleProps) {
           const labelKey = `survey.common.csat.${num}` as const
 
           return (
-            <motion.button
+            <m.button
               key={num}
               onClick={() => onChange(num)}
               className={`flex flex-col items-center gap-2 rounded-lg border-2 p-3 md:p-4 transition-all hover:border-primary/60 ${
@@ -46,7 +46,7 @@ export function CsatScale({ value, onChange }: CsatScaleProps) {
               >
                 {t(labelKey)}
               </span>
-            </motion.button>
+            </m.button>
           )
         })}
       </div>

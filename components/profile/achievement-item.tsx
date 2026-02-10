@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import * as m from 'motion/react-m'
 import { cn } from '@/lib/utils'
 import * as Icons from 'lucide-react'
 import type { Database } from '@/lib/types/database.types'
@@ -26,7 +26,7 @@ export function AchievementItem({ achievement }: AchievementItemProps) {
   const Icon = getIcon(achievement.icon)
 
   return (
-    <motion.div
+    <m.div
       whileHover={{ scale: 1.05 }}
       className="flex flex-col items-center gap-2 rounded-lg border border-border bg-card p-4 text-center"
     >
@@ -38,6 +38,6 @@ export function AchievementItem({ achievement }: AchievementItemProps) {
         <Icon className={cn('h-6 w-6', achievement.color)} />
       </div>
       <span className="text-xs font-medium">{achievement.name}</span>
-    </motion.div>
+    </m.div>
   )
 }

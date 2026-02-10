@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import { useTranslations } from 'next-intl'
-import { motion } from 'framer-motion'
+import * as m from 'motion/react-m'
 import { Check } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
@@ -81,7 +81,7 @@ export function MultiSelect({ question, value, onChange }: MultiSelectProps) {
         const isDisabled = !isSelected && isLimitReached
 
         return (
-          <motion.button
+          <m.button
             key={option.key}
             onClick={() => handleToggle(option.key)}
             disabled={isDisabled}
@@ -105,13 +105,13 @@ export function MultiSelect({ question, value, onChange }: MultiSelectProps) {
               }`}
             >
               {isSelected && (
-                <motion.div
+                <m.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                 >
                   <Check className="h-3 w-3 text-primary-foreground" />
-                </motion.div>
+                </m.div>
               )}
             </div>
             <span
@@ -121,12 +121,12 @@ export function MultiSelect({ question, value, onChange }: MultiSelectProps) {
             >
               {t(option.labelKey)}
             </span>
-          </motion.button>
+          </m.button>
         )
       })}
 
       {hasOther && (
-        <motion.div
+        <m.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
@@ -138,7 +138,7 @@ export function MultiSelect({ question, value, onChange }: MultiSelectProps) {
             onChange={(e) => handleOtherChange(e.target.value)}
             autoFocus
           />
-        </motion.div>
+        </m.div>
       )}
     </div>
   )

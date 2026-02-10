@@ -2,7 +2,8 @@
 
 import { useEffect, useState, useCallback } from 'react'
 import { useTranslations } from 'next-intl'
-import { motion, AnimatePresence } from 'framer-motion'
+import * as m from 'motion/react-m'
+import { AnimatePresence } from 'motion/react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { getSurveyConfig, getTotalQuestions, getTotalSections } from '@/lib/surveys/get-survey'
 import { SurveyProvider, useSurvey } from '@/components/survey/survey-provider'
@@ -99,7 +100,7 @@ function SurveyContent() {
     <div className="flex min-h-screen flex-col items-center justify-center bg-background p-4">
       <div className="w-full max-w-2xl">
         {/* Progress Bar */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           className="mb-6"
@@ -108,13 +109,13 @@ function SurveyContent() {
           <p className="mt-2 text-right text-xs text-muted-foreground">
             {Math.round(meta.progress)}% {t('survey.common.complete')}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Question Card */}
         <Card className="border-2">
           <CardContent className="p-6 md:p-8">
             <AnimatePresence mode="wait" custom={direction}>
-              <motion.div
+              <m.div
                 key={state.currentStep}
                 custom={direction}
                 variants={slideVariants}
@@ -156,13 +157,13 @@ function SurveyContent() {
                     </div>
                   </div>
                 ))}
-              </motion.div>
+              </m.div>
             </AnimatePresence>
           </CardContent>
         </Card>
 
         {/* Navigation Footer */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="mt-6 flex items-center justify-between"
@@ -187,7 +188,7 @@ function SurveyContent() {
               : t('survey.common.next')}
             <ChevronRight className="h-4 w-4" />
           </Button>
-        </motion.div>
+        </m.div>
       </div>
     </div>
   )

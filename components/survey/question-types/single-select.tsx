@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { motion } from 'framer-motion'
+import * as m from 'motion/react-m'
 import { Input } from '@/components/ui/input'
 import type { Question } from '@/lib/surveys/types'
 
@@ -37,7 +37,7 @@ export function SingleSelect({ question, value, onChange }: SingleSelectProps) {
       {question.options?.map((option) => {
         const isSelected = value?.selected === option.key
         return (
-          <motion.button
+          <m.button
             key={option.key}
             onClick={() => handleSelect(option.key)}
             className={`relative flex items-center gap-3 rounded-lg border-2 p-4 text-left transition-all hover:border-primary/60 ${
@@ -56,7 +56,7 @@ export function SingleSelect({ question, value, onChange }: SingleSelectProps) {
               }`}
             >
               {isSelected && (
-                <motion.div
+                <m.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   className="h-2 w-2 rounded-full bg-primary-foreground"
@@ -70,12 +70,12 @@ export function SingleSelect({ question, value, onChange }: SingleSelectProps) {
             >
               {t(option.labelKey)}
             </span>
-          </motion.button>
+          </m.button>
         )
       })}
 
       {showOther && (
-        <motion.div
+        <m.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
@@ -87,7 +87,7 @@ export function SingleSelect({ question, value, onChange }: SingleSelectProps) {
             onChange={(e) => handleOtherChange(e.target.value)}
             autoFocus
           />
-        </motion.div>
+        </m.div>
       )}
     </div>
   )

@@ -5,6 +5,7 @@ import { Header } from "@/components/landing/header";
 import { Footer } from "@/components/landing/footer";
 
 import { AuthProvider } from "@/components/auth/auth-provider";
+import { MotionProvider } from "@/components/motion-provider";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
@@ -38,11 +39,13 @@ export default async function LocaleLayout({
   return (
     <>
       <AuthProvider>
-        <NextIntlClientProvider messages={messages}>
-          <Header />
-          {children}
-          <Footer />
-        </NextIntlClientProvider>
+        <MotionProvider>
+          <NextIntlClientProvider messages={messages}>
+            <Header />
+            {children}
+            <Footer />
+          </NextIntlClientProvider>
+        </MotionProvider>
       </AuthProvider>
     </>
   );
