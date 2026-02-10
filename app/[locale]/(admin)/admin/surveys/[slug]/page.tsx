@@ -14,10 +14,10 @@ export default async function AdminSurveyResultsPage({
   searchParams,
 }: {
   params: Promise<{ locale: string; slug: string }>
-  searchParams: Promise<{ lang?: string }>
+  searchParams: Promise<{ lang?: string; country?: string }>
 }) {
   const { locale, slug } = await params
-  const { lang } = await searchParams
+  const { lang, country } = await searchParams
   setRequestLocale(locale)
 
   const t = await getTranslations({ locale })
@@ -30,7 +30,8 @@ export default async function AdminSurveyResultsPage({
   }
 
   const localeFilter = lang || null
-  const results = await getSurveyResults(slug, resolve, localeFilter)
+  const countryFilter = country || null
+  const results = await getSurveyResults(slug, resolve, localeFilter, countryFilter)
   if (!results) notFound()
 
   const completionRate = results.meta.totalStarted > 0
@@ -75,6 +76,8 @@ export default async function AdminSurveyResultsPage({
         questions={results.questions}
         availableLocales={results.meta.availableLocales}
         activeLocale={results.meta.activeLocale}
+        availableCountries={results.meta.availableCountries}
+        activeCountry={results.meta.activeCountry}
       />
     </div>
   )

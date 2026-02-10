@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useRouter, usePathname, useSearchParams } from "next/navigation"
-import { Hash, Percent, Globe } from "lucide-react"
+import { Hash, Percent, Globe, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { QuestionCard } from "@/components/admin/charts/question-card"
@@ -17,28 +17,58 @@ const LOCALE_LABELS: Record<string, string> = {
   de: "Deutsch",
 }
 
+const COUNTRY_LABELS: Record<string, string> = {
+  US: "United States",
+  CA: "Canada",
+  MX: "Mexico",
+  BR: "Brazil",
+  AR: "Argentina",
+  CO: "Colombia",
+  CL: "Chile",
+  GB: "United Kingdom",
+  DE: "Germany",
+  FR: "France",
+  ES: "Spain",
+  PT: "Portugal",
+  NL: "Netherlands",
+  PL: "Poland",
+  SE: "Sweden",
+  IT: "Italy",
+  AU: "Australia",
+  JP: "Japan",
+  KR: "South Korea",
+  PH: "Philippines",
+  IN: "India",
+  RU: "Russia",
+  TR: "Turkey",
+}
+
 interface SurveyResultsClientProps {
   questions: QuestionResult[]
   availableLocales: string[]
   activeLocale: string | null
+  availableCountries: string[]
+  activeCountry: string | null
 }
 
 export function SurveyResultsClient({
   questions,
   availableLocales,
   activeLocale,
+  availableCountries,
+  activeCountry,
 }: SurveyResultsClientProps) {
   const [showPercent, setShowPercent] = useState(false)
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
-  const handleLocaleChange = (locale: string | null) => {
+  const handleFilterChange = (key: string, value: string | null) => {
     const params = new URLSearchParams(searchParams.toString())
-    if (locale) {
-      params.set("lang", locale)
+    if (value) {
+      params.set(key, value)
     } else {
-      params.delete("lang")
+      params.delete(key)
     }
     router.push(`${pathname}?${params.toString()}`)
   }
@@ -91,7 +121,7 @@ export function SurveyResultsClient({
                 variant={!activeLocale ? "secondary" : "ghost"}
                 size="sm"
                 className="h-8 px-3"
-                onClick={() => handleLocaleChange(null)}
+                onClick={() => handleFilterChange("lang", null)}
               >
                 All
               </Button>
@@ -101,9 +131,37 @@ export function SurveyResultsClient({
                   variant={activeLocale === loc ? "secondary" : "ghost"}
                   size="sm"
                   className="h-8 px-3"
-                  onClick={() => handleLocaleChange(loc)}
+                  onClick={() => handleFilterChange("lang", loc)}
                 >
                   {LOCALE_LABELS[loc] ?? loc.toUpperCase()}
+                </Button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {availableCountries.length > 0 && (
+          <div className="flex items-center gap-2">
+            <MapPin className="size-4 text-muted-foreground" />
+            <span className="text-sm text-muted-foreground">Country:</span>
+            <div className="flex flex-wrap rounded-md border">
+              <Button
+                variant={!activeCountry ? "secondary" : "ghost"}
+                size="sm"
+                className="h-8 px-3"
+                onClick={() => handleFilterChange("country", null)}
+              >
+                All
+              </Button>
+              {availableCountries.map((code) => (
+                <Button
+                  key={code}
+                  variant={activeCountry === code ? "secondary" : "ghost"}
+                  size="sm"
+                  className="h-8 px-3"
+                  onClick={() => handleFilterChange("country", code)}
+                >
+                  {COUNTRY_LABELS[code] ?? code}
                 </Button>
               ))}
             </div>

@@ -80,6 +80,8 @@ export interface SurveyResultsData {
     screenedOut: number
     availableLocales: string[]
     activeLocale: string | null
+    availableCountries: string[]
+    activeCountry: string | null
   }
   questions: QuestionResult[]
 }
@@ -131,7 +133,8 @@ export async function getSurveyListStats(): Promise<SurveyListItem[]> {
 export async function getSurveyResults(
   slug: string,
   t: TranslationFn,
-  localeFilter?: string | null
+  localeFilter?: string | null,
+  countryFilter?: string | null
 ): Promise<SurveyResultsData | null> {
   const config = getSurveyConfig(slug)
   if (!config) return null
@@ -147,10 +150,10 @@ export async function getSurveyResults(
 
   if (!survey) return null
 
-  // Get response-level stats in one query (include locale for filtering)
+  // Get response-level stats in one query (include locale + metadata for filtering)
   const { data: responses } = await supabase
     .from('survey_responses')
-    .select('id, completed_at, screened_out, locale')
+    .select('id, completed_at, screened_out, locale, metadata')
     .eq('survey_id', survey.id)
 
   const allResponses = responses ?? []
@@ -160,10 +163,26 @@ export async function getSurveyResults(
     allResponses.filter((r) => r.completed_at).map((r) => r.locale)
   )].sort()
 
+  // Compute available countries from geo_country metadata
+  const availableCountries = [...new Set(
+    allResponses
+      .filter((r) => r.completed_at)
+      .map((r) => (r.metadata as Record<string, unknown>)?.geo_country as string)
+      .filter(Boolean)
+  )].sort()
+
   // Apply locale filter if specified
-  const filteredResponses = localeFilter
+  let filteredResponses = localeFilter
     ? allResponses.filter((r) => r.locale === localeFilter)
     : allResponses
+
+  // Apply country filter if specified
+  if (countryFilter) {
+    filteredResponses = filteredResponses.filter((r) => {
+      const meta = r.metadata as Record<string, unknown> | null
+      return meta?.geo_country === countryFilter
+    })
+  }
 
   const completedIds = filteredResponses.filter((r) => r.completed_at).map((r) => r.id)
   const totalStarted = filteredResponses.length
@@ -180,6 +199,8 @@ export async function getSurveyResults(
         screenedOut,
         availableLocales,
         activeLocale: localeFilter ?? null,
+        availableCountries,
+        activeCountry: countryFilter ?? null,
       },
       questions: buildEmptyResults(config, t),
     }
@@ -258,6 +279,8 @@ export async function getSurveyResults(
       screenedOut,
       availableLocales,
       activeLocale: localeFilter ?? null,
+      availableCountries,
+      activeCountry: countryFilter ?? null,
     },
     questions,
   }

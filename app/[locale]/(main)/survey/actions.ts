@@ -1,5 +1,6 @@
 'use server'
 
+import { headers } from 'next/headers'
 import { createClient } from '@/lib/supabase/server'
 import type { SurveyAnswer } from '@/lib/surveys/types'
 
@@ -39,6 +40,12 @@ export async function startSurveyResponse(
     return { responseId: existing.id }
   }
 
+  // Capture geo metadata from request headers (Vercel provides these automatically)
+  const headersList = await headers()
+  const country = headersList.get('x-vercel-ip-country') ?? null
+  const region = headersList.get('x-vercel-ip-country-region') ?? null
+  const city = headersList.get('x-vercel-ip-city') ?? null
+
   // Try to get current user for optional linking
   const { data: { user } } = await supabase.auth.getUser()
 
@@ -51,6 +58,11 @@ export async function startSurveyResponse(
       total_steps: totalSteps,
       current_step: 0,
       respondent_id: user?.id ?? null,
+      metadata: {
+        geo_country: country,
+        geo_region: region,
+        geo_city: city,
+      },
     })
     .select('id')
     .single()
