@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { getSurveyConfig, getAllSurveyConfigs } from '@/lib/surveys/get-survey'
-import type { Question, QuestionType, SurveyConfig } from '@/lib/surveys/types'
+import type { Question, QuestionType, SurveyConfig, Option } from '@/lib/surveys/types'
 
 export type TranslationFn = (key: string) => string
 
@@ -181,12 +181,44 @@ export async function getSurveyResults(slug: string, t: TranslationFn): Promise<
     answersByQuestion.set(a.question_key, list)
   }
 
+  // Build a flat map of all questions for dependsOn lookups
+  const allQuestions = new Map<string, Question>()
+  for (const section of config.sections) {
+    for (const q of section.questions) {
+      allQuestions.set(q.key, q)
+    }
+  }
+
   // Aggregate per question using config
   const questions: QuestionResult[] = []
   for (const section of config.sections) {
     for (const question of section.questions) {
+      // Resolve dynamic options for dependsOn questions
+      let resolvedQuestion = question
+      if (question.dependsOn?.useSelectedAsOptions && (!question.options || question.options.length === 0)) {
+        const parentQuestion = allQuestions.get(question.dependsOn.questionKey)
+        const parentAnswers = answersByQuestion.get(question.dependsOn.questionKey) ?? []
+        // Collect all unique selected keys from parent answers
+        const selectedKeys = new Set<string>()
+        for (const { answer } of parentAnswers) {
+          const a = answer as { selected?: string | string[] }
+          if (Array.isArray(a?.selected)) {
+            for (const key of a.selected) if (key !== 'other') selectedKeys.add(key)
+          } else if (typeof a?.selected === 'string' && a.selected !== 'other') {
+            selectedKeys.add(a.selected)
+          }
+        }
+        // Build options from parent question's option labels
+        const parentOptions = parentQuestion?.options ?? []
+        const dynamicOptions: Option[] = [...selectedKeys].map((key) => {
+          const source = parentOptions.find((o) => o.key === key)
+          return source ?? { key, labelKey: key }
+        })
+        resolvedQuestion = { ...question, options: dynamicOptions }
+      }
+
       const rawAnswers = answersByQuestion.get(question.key) ?? []
-      const chartData = aggregateQuestion(question, rawAnswers, totalCompleted, t)
+      const chartData = aggregateQuestion(resolvedQuestion, rawAnswers, totalCompleted, t)
       questions.push({
         questionKey: question.key,
         title: t(question.titleKey),
