@@ -1,7 +1,7 @@
 'use client'
 
 import { createContext, useEffect, useState, useCallback, use } from 'react'
-import type { User } from '@supabase/supabase-js'
+import type { Session, User } from '@supabase/supabase-js'
 import { createClient } from '@/lib/supabase/client'
 
 interface AuthState {
@@ -16,6 +16,7 @@ interface AuthActions {
 
 interface AuthMeta {
   isAuthenticated: boolean
+  isAdmin: boolean
 }
 
 interface AuthContextValue {
@@ -35,6 +36,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     user: null,
     isLoading: true,
   })
+  const [isAdmin, setIsAdmin] = useState(false)
 
   const signIn = useCallback(async () => {
     const response = await fetch('/auth/signin', { method: 'POST' })
@@ -60,9 +62,21 @@ export function AuthProvider({ children }: AuthProviderProps) {
   useEffect(() => {
     const supabase = createClient()
 
+    const extractAdminRole = (session: Session | null) => {
+      if (!session?.access_token) return false
+      try {
+        const payload = JSON.parse(atob(session.access_token.split('.')[1]))
+        return payload.user_role === 'admin'
+      } catch {
+        return false
+      }
+    }
+
     const checkAuth = async () => {
       try {
         const { data: { user } } = await supabase.auth.getUser()
+        const { data: { session } } = await supabase.auth.getSession()
+        setIsAdmin(extractAdminRole(session))
         setState((prev) => ({
           ...prev,
           user,
@@ -81,6 +95,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (_event, session) => {
+        setIsAdmin(extractAdminRole(session))
         setState((prev) => ({
           ...prev,
           user: session?.user ?? null,
@@ -102,6 +117,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     },
     meta: {
       isAuthenticated: state.user !== null,
+      isAdmin,
     },
   }
 

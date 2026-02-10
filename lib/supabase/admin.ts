@@ -13,12 +13,17 @@ export async function getUserRole(): Promise<AppRole | null> {
 
   if (error || !user) return null
 
-  // Read from JWT custom claim (set by auth hook)
-  const role = (user as any).app_metadata?.user_role
-    ?? (user as any).user_metadata?.user_role
-    ?? null
-
-  if (role) return role as AppRole
+  // Primary: decode JWT access token for user_role claim
+  // (injected by custom_access_token_hook, lives in JWT payload — not in app_metadata)
+  const { data: { session } } = await supabase.auth.getSession()
+  if (session?.access_token) {
+    try {
+      const payload = JSON.parse(atob(session.access_token.split('.')[1]))
+      if (payload.user_role) return payload.user_role as AppRole
+    } catch {
+      // Token decode failed — fall through to DB
+    }
+  }
 
   // Fallback: query user_roles table directly
   const { data } = await supabase

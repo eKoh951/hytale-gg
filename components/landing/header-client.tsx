@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
@@ -77,7 +77,7 @@ function AnimatedLogo() {
 
 export function HeaderClient({ labels }: { labels: HeaderLabels }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { state: { user, isLoading }, actions: { signIn, signOut } } = useAuth();
+  const { state: { user, isLoading }, actions: { signIn, signOut }, meta: { isAdmin } } = useAuth();
 
   const navItems = [
     { label: labels.surveys, href: "/survey" as const },
@@ -117,6 +117,15 @@ export function HeaderClient({ labels }: { labels: HeaderLabels }) {
 
         {/* Desktop Auth Buttons */}
         <div className="hidden items-center gap-3 md:flex">
+          {isAdmin && (
+            <I18nLink
+              href="/admin"
+              className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              <Shield className="size-3.5" />
+              Admin
+            </I18nLink>
+          )}
           <LanguageSwitcher changeLanguageLabel={labels.changeLanguage} />
           {isLoading ? (
             <Skeleton className="h-8 w-8 rounded-full" />
@@ -164,6 +173,16 @@ export function HeaderClient({ labels }: { labels: HeaderLabels }) {
             </I18nLink>
           ))}
           <div className="mt-4 flex flex-col gap-2 border-t border-border pt-4">
+            {isAdmin && (
+              <I18nLink
+                href="/admin"
+                className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <Shield className="size-3.5" />
+                Admin
+              </I18nLink>
+            )}
             <div className="px-3 py-2">
               <LanguageSwitcher changeLanguageLabel={labels.changeLanguage} />
             </div>
