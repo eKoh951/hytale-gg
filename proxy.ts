@@ -3,6 +3,7 @@ import createMiddleware from 'next-intl/middleware';
 import { routing } from './i18n/routing';
 import { updateSession } from "./lib/supabase/proxy"
 import { createClient } from '@/lib/supabase/server';
+import { createServerClient } from '@supabase/ssr';
 import { getUserPreferences } from '@/lib/utils/preferences';
 import { isSupportedLocale, detectLocaleFromBrowserCode, DEFAULT_LOCALE, type Locale } from '@/i18n/locales';
 
@@ -84,6 +85,13 @@ export async function proxy(request: NextRequest) {
     }
   }
   
+  // Protect admin routes
+  const isAdminRoute = /^\/[a-z]{2}\/admin(\/|$)/.test(pathname)
+  if (isAdminRoute) {
+    const adminCheck = await checkAdminAccess(request)
+    if (adminCheck) return adminCheck
+  }
+
   // Normal routing with i18n
   const i18nResponse = handleI18nRouting(request);
   
@@ -98,6 +106,60 @@ export async function proxy(request: NextRequest) {
   
   // Handle Supabase session management
   return await updateSession(request);
+}
+
+/**
+ * Check if the current request is from an admin user.
+ * Reads the user_role claim from the JWT (injected by custom_access_token_hook).
+ * Returns a redirect response if not admin, or null if access is allowed.
+ */
+async function checkAdminAccess(request: NextRequest): Promise<NextResponse | null> {
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return request.cookies.getAll()
+        },
+        setAll() {
+          // Read-only in proxy — no need to set cookies here
+        },
+      },
+    }
+  )
+
+  const { data: { user } } = await supabase.auth.getUser()
+
+  if (!user) {
+    // Not authenticated — redirect to home
+    const url = request.nextUrl.clone()
+    url.pathname = '/'
+    return NextResponse.redirect(url)
+  }
+
+  // Read user_role from the JWT access token claims
+  const { data: { session } } = await supabase.auth.getSession()
+  let userRole: string | null = null
+
+  if (session?.access_token) {
+    try {
+      const payload = JSON.parse(atob(session.access_token.split('.')[1]))
+      userRole = payload.user_role ?? null
+    } catch {
+      userRole = null
+    }
+  }
+
+  if (userRole !== 'admin') {
+    // Authenticated but not admin — redirect to home
+    const url = request.nextUrl.clone()
+    url.pathname = '/'
+    return NextResponse.redirect(url)
+  }
+
+  // Admin access granted
+  return null
 }
 
 // Helper function for smart locale detection (scalable for any language)
@@ -123,7 +185,7 @@ function detectLocaleFromBrowser(acceptLanguage: string): Locale {
   return DEFAULT_LOCALE;
 }
 
-export const config = {
+export const proxyConfig = {
   matcher: [
     /*
      * Match all request paths except for the ones starting with:
