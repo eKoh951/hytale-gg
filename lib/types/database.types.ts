@@ -365,203 +365,252 @@ export type Database = {
           },
         ]
       }
-      reviews: {
+      review_votes: {
         Row: {
-          content: string | null
           created_at: string | null
-          helpful_count: number | null
           id: string
-          ip_address: string | null
-          is_featured: boolean | null
-          is_verified_purchase: boolean | null
-          language: string | null
-          last_updated: string | null
-          owner_response_at: string | null
-          playtime_hours: number | null
-          playtime_hours_approx: string | null
-          rating: number | null
-          server_id: string
-          status: Database["public"]["Enums"]["review_status"]
-          tags: string[] | null
-          type: Database["public"]["Enums"]["review_type"]
-          updated_at: string | null
+          review_id: string
           user_id: string
-          version: string | null
+          vote_type: string
         }
         Insert: {
-          content?: string | null
           created_at?: string | null
-          helpful_count?: number | null
           id?: string
-          ip_address?: string | null
-          is_featured?: boolean | null
-          is_verified_purchase?: boolean | null
-          language?: string | null
-          last_updated?: string | null
-          owner_response_at?: string | null
-          playtime_hours?: number | null
-          playtime_hours_approx?: string | null
-          rating?: number | null
-          server_id: string
-          status?: Database["public"]["Enums"]["review_status"]
-          tags?: string[] | null
-          type?: Database["public"]["Enums"]["review_type"]
-          updated_at?: string | null
+          review_id: string
           user_id: string
-          version?: string | null
+          vote_type: string
         }
         Update: {
-          content?: string | null
           created_at?: string | null
-          helpful_count?: number | null
           id?: string
-          ip_address?: string | null
-          is_featured?: boolean | null
-          is_verified_purchase?: boolean | null
-          language?: string | null
-          last_updated?: string | null
-          owner_response_at?: string | null
-          playtime_hours?: number | null
-          playtime_hours_approx?: string | null
-          rating?: number | null
-          server_id?: string
-          status?: Database["public"]["Enums"]["review_status"]
-          tags?: string[] | null
-          type?: Database["public"]["Enums"]["review_type"]
-          updated_at?: string | null
+          review_id?: string
           user_id?: string
-          version?: string | null
+          vote_type?: string
         }
         Relationships: [
           {
-            foreignKeyName: "reviews_server_id_fkey"
+            foreignKeyName: "review_votes_review_id_fkey"
+            columns: ["review_id"]
+            isOneToOne: false
+            referencedRelation: "reviews"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      reviews: {
+        Row: {
+          created_at: string | null
+          entity_id: string
+          entity_type: string
+          funny_count: number | null
+          helpful_count: number | null
+          id: string
+          is_creator_review: boolean | null
+          is_recommended: boolean | null
+          play_duration_text: string | null
+          rating_overall: number
+          review_text: string | null
+          review_type: Database["public"]["Enums"]["review_type"]
+          status: Database["public"]["Enums"]["review_status"] | null
+          updated_at: string | null
+          user_id: string
+          video_platform: string | null
+          video_url: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          entity_id: string
+          entity_type?: string
+          funny_count?: number | null
+          helpful_count?: number | null
+          id?: string
+          is_creator_review?: boolean | null
+          is_recommended?: boolean | null
+          play_duration_text?: string | null
+          rating_overall: number
+          review_text?: string | null
+          review_type?: Database["public"]["Enums"]["review_type"]
+          status?: Database["public"]["Enums"]["review_status"] | null
+          updated_at?: string | null
+          user_id: string
+          video_platform?: string | null
+          video_url?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          entity_id?: string
+          entity_type?: string
+          funny_count?: number | null
+          helpful_count?: number | null
+          id?: string
+          is_creator_review?: boolean | null
+          is_recommended?: boolean | null
+          play_duration_text?: string | null
+          rating_overall?: number
+          review_text?: string | null
+          review_type?: Database["public"]["Enums"]["review_type"]
+          status?: Database["public"]["Enums"]["review_status"] | null
+          updated_at?: string | null
+          user_id?: string
+          video_platform?: string | null
+          video_url?: string | null
+        }
+        Relationships: []
+      }
+      server_media: {
+        Row: {
+          aspect_ratio: string | null
+          created_at: string | null
+          id: string
+          server_id: string
+          sort_order: number | null
+          source: string | null
+          thumbnail_url: string | null
+          type: string
+          uploaded_by: string | null
+          url: string
+        }
+        Insert: {
+          aspect_ratio?: string | null
+          created_at?: string | null
+          id?: string
+          server_id: string
+          sort_order?: number | null
+          source?: string | null
+          thumbnail_url?: string | null
+          type: string
+          uploaded_by?: string | null
+          url: string
+        }
+        Update: {
+          aspect_ratio?: string | null
+          created_at?: string | null
+          id?: string
+          server_id?: string
+          sort_order?: number | null
+          source?: string | null
+          thumbnail_url?: string | null
+          type?: string
+          uploaded_by?: string | null
+          url?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "server_media_server_id_fkey"
             columns: ["server_id"]
             isOneToOne: false
             referencedRelation: "servers"
             referencedColumns: ["id"]
           },
+        ]
+      }
+      server_metrics: {
+        Row: {
+          checked_at: string
+          id: string
+          latency_ms: number | null
+          player_count: number | null
+          server_id: string
+          status: string
+        }
+        Insert: {
+          checked_at?: string
+          id?: string
+          latency_ms?: number | null
+          player_count?: number | null
+          server_id: string
+          status: string
+        }
+        Update: {
+          checked_at?: string
+          id?: string
+          latency_ms?: number | null
+          player_count?: number | null
+          server_id?: string
+          status?: string
+        }
+        Relationships: [
           {
-            foreignKeyName: "reviews_user_id_fkey"
-            columns: ["user_id"]
+            foreignKeyName: "server_metrics_server_id_fkey"
+            columns: ["server_id"]
             isOneToOne: false
-            referencedRelation: "profiles"
+            referencedRelation: "servers"
             referencedColumns: ["id"]
           },
         ]
       }
-      servers: {
+      server_metrics_2026_02: {
         Row: {
-          address: string | null
-          category: string | null
-          created_at: string | null
-          description: string | null
-          discord_invite: string | null
-          featured_description: string | null
+          checked_at: string
           id: string
-          ip_address: string | null
-          is_featured: boolean | null
-          is_premium: boolean | null
-          last_seen: string | null
-          logo_url: string | null
-          max_players: number | null
-          name: string
-          owner_id: string | null
+          latency_ms: number | null
           player_count: number | null
-          port: number | null
-          quality_score: number | null
-          region: string | null
-          server_version: string | null
-          status: string | null
-          tags: string[] | null
-          updated_at: string | null
-          uptime: number | null
-          verification_status: string | null
-          website: string | null
+          server_id: string
+          status: string
         }
         Insert: {
-          address?: string | null
-          category?: string | null
-          created_at?: string | null
-          description?: string | null
-          discord_invite?: string | null
-          featured_description?: string | null
+          checked_at?: string
           id?: string
-          ip_address?: string | null
-          is_featured?: boolean | null
-          is_premium?: boolean | null
-          last_seen?: string | null
-          logo_url?: string | null
-          max_players?: number | null
-          name: string
-          owner_id?: string | null
+          latency_ms?: number | null
           player_count?: number | null
-          port?: number | null
-          quality_score?: number | null
-          region?: string | null
-          server_version?: string | null
-          status?: string | null
-          tags?: string[] | null
-          updated_at?: string | null
-          uptime?: number | null
-          verification_status?: string | null
-          website?: string | null
+          server_id: string
+          status: string
         }
         Update: {
-          address?: string | null
-          category?: string | null
-          created_at?: string | null
-          description?: string | null
-          discord_invite?: string | null
-          featured_description?: string | null
+          checked_at?: string
           id?: string
-          ip_address?: string | null
-          is_featured?: boolean | null
-          is_premium?: boolean | null
-          last_seen?: string | null
-          logo_url?: string | null
-          max_players?: number | null
-          name?: string
-          owner_id?: string | null
+          latency_ms?: number | null
           player_count?: number | null
-          port?: number | null
-          quality_score?: number | null
-          region?: string | null
-          server_version?: string | null
-          status?: string | null
-          tags?: string[] | null
-          updated_at?: string | null
-          uptime?: number | null
-          verification_status?: string | null
-          website?: string | null
+          server_id?: string
+          status?: string
         }
-        Relationships: [
-          {
-            foreignKeyName: "servers_owner_id_fkey"
-            columns: ["owner_id"]
-            isOneToOne: false
-            referencedRelation: "profiles"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
+      }
+      server_metrics_2026_03: {
+        Row: {
+          checked_at: string
+          id: string
+          latency_ms: number | null
+          player_count: number | null
+          server_id: string
+          status: string
+        }
+        Insert: {
+          checked_at?: string
+          id?: string
+          latency_ms?: number | null
+          player_count?: number | null
+          server_id: string
+          status: string
+        }
+        Update: {
+          checked_at?: string
+          id?: string
+          latency_ms?: number | null
+          player_count?: number | null
+          server_id?: string
+          status?: string
+        }
+        Relationships: []
       }
       server_tags: {
         Row: {
           created_at: string | null
-          id: string
           server_id: string
           tag_id: string
+          user_id: string
         }
         Insert: {
           created_at?: string | null
-          id?: string
           server_id: string
           tag_id: string
+          user_id: string
         }
         Update: {
           created_at?: string | null
-          id?: string
           server_id?: string
           tag_id?: string
+          user_id?: string
         }
         Relationships: [
           {
@@ -580,30 +629,173 @@ export type Database = {
           },
         ]
       }
-      survey_responses: {
+      servers: {
         Row: {
+          category: string
+          cover_url: string | null
           created_at: string | null
+          current_status: string | null
+          description: string
+          discord_url: string | null
+          hosting_provider: string | null
+          icon_url: string | null
           id: string
-          response_data: Json
-          survey_id: string
+          ip_address: string
+          language: string | null
+          last_featured_at: string | null
+          listed_by: string
+          name: string
+          owner_id: string | null
+          port: number | null
+          quality_score: number | null
+          rating_avg: number | null
+          recommend_pct: number | null
+          region: string
+          review_count: number | null
+          slug: string
           updated_at: string | null
-          user_id: string
+          verification_code: string | null
+          verification_expires_at: string | null
+          verification_status: string | null
+          video_url: string | null
+          website_url: string | null
         }
         Insert: {
+          category: string
+          cover_url?: string | null
           created_at?: string | null
+          current_status?: string | null
+          description: string
+          discord_url?: string | null
+          hosting_provider?: string | null
+          icon_url?: string | null
           id?: string
-          response_data: Json
-          survey_id: string
+          ip_address: string
+          language?: string | null
+          last_featured_at?: string | null
+          listed_by: string
+          name: string
+          owner_id?: string | null
+          port?: number | null
+          quality_score?: number | null
+          rating_avg?: number | null
+          recommend_pct?: number | null
+          region: string
+          review_count?: number | null
+          slug: string
           updated_at?: string | null
-          user_id: string
+          verification_code?: string | null
+          verification_expires_at?: string | null
+          verification_status?: string | null
+          video_url?: string | null
+          website_url?: string | null
         }
         Update: {
+          category?: string
+          cover_url?: string | null
           created_at?: string | null
+          current_status?: string | null
+          description?: string
+          discord_url?: string | null
+          hosting_provider?: string | null
+          icon_url?: string | null
           id?: string
-          response_data?: Json
-          survey_id?: string
+          ip_address?: string
+          language?: string | null
+          last_featured_at?: string | null
+          listed_by?: string
+          name?: string
+          owner_id?: string | null
+          port?: number | null
+          quality_score?: number | null
+          rating_avg?: number | null
+          recommend_pct?: number | null
+          region?: string
+          review_count?: number | null
+          slug?: string
           updated_at?: string | null
-          user_id?: string
+          verification_code?: string | null
+          verification_expires_at?: string | null
+          verification_status?: string | null
+          video_url?: string | null
+          website_url?: string | null
+        }
+        Relationships: []
+      }
+      survey_answers: {
+        Row: {
+          answer: Json
+          answered_at: string | null
+          id: number
+          question_key: string
+          response_id: number
+        }
+        Insert: {
+          answer: Json
+          answered_at?: string | null
+          id?: never
+          question_key: string
+          response_id: number
+        }
+        Update: {
+          answer?: Json
+          answered_at?: string | null
+          id?: never
+          question_key?: string
+          response_id?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "survey_answers_response_id_fkey"
+            columns: ["response_id"]
+            isOneToOne: false
+            referencedRelation: "survey_responses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      survey_responses: {
+        Row: {
+          completed_at: string | null
+          created_at: string | null
+          current_step: number
+          id: number
+          locale: string
+          metadata: Json | null
+          respondent_id: string | null
+          screened_out: boolean | null
+          session_token: string
+          started_at: string | null
+          survey_id: number
+          total_steps: number
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string | null
+          current_step?: number
+          id?: never
+          locale?: string
+          metadata?: Json | null
+          respondent_id?: string | null
+          screened_out?: boolean | null
+          session_token: string
+          started_at?: string | null
+          survey_id: number
+          total_steps: number
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string | null
+          current_step?: number
+          id?: never
+          locale?: string
+          metadata?: Json | null
+          respondent_id?: string | null
+          screened_out?: boolean | null
+          session_token?: string
+          started_at?: string | null
+          survey_id?: number
+          total_steps?: number
         }
         Relationships: [
           {
@@ -613,79 +805,116 @@ export type Database = {
             referencedRelation: "surveys"
             referencedColumns: ["id"]
           },
-          {
-            foreignKeyName: "survey_responses_user_id_fkey"
-            columns: ["user_id"]
-            isOneToOne: false
-            referencedRelation: "profiles"
-            referencedColumns: ["id"]
-          },
         ]
       }
       surveys: {
         Row: {
           created_at: string | null
           description: string | null
-          id: string
-          is_active: boolean | null
-          questions: Json
+          id: number
+          slug: string
+          status: string
           title: string
-          type: string | null
           updated_at: string | null
         }
         Insert: {
           created_at?: string | null
           description?: string | null
-          id?: string
-          is_active?: boolean | null
-          questions: Json
+          id?: never
+          slug: string
+          status?: string
           title: string
-          type?: string | null
           updated_at?: string | null
         }
         Update: {
           created_at?: string | null
           description?: string | null
-          id?: string
-          is_active?: boolean | null
-          questions?: Json
+          id?: never
+          slug?: string
+          status?: string
           title?: string
-          type?: string | null
           updated_at?: string | null
         }
         Relationships: []
       }
-      tags: {
+      tag_suggestions: {
         Row: {
-          color: string | null
           created_at: string | null
           description: string | null
-          icon: string | null
+          id: string
+          merged_into_tag_id: string | null
+          name: string
+          reviewed_by: string | null
+          status: string | null
+          suggested_by: string
+          type: Database["public"]["Enums"]["tag_type"]
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          merged_into_tag_id?: string | null
+          name: string
+          reviewed_by?: string | null
+          status?: string | null
+          suggested_by: string
+          type: Database["public"]["Enums"]["tag_type"]
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          merged_into_tag_id?: string | null
+          name?: string
+          reviewed_by?: string | null
+          status?: string | null
+          suggested_by?: string
+          type?: Database["public"]["Enums"]["tag_type"]
+        }
+        Relationships: [
+          {
+            foreignKeyName: "tag_suggestions_merged_into_tag_id_fkey"
+            columns: ["merged_into_tag_id"]
+            isOneToOne: false
+            referencedRelation: "tags"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      tags: {
+        Row: {
+          approved_by: string | null
+          created_at: string | null
+          created_by: string | null
+          description: string | null
           id: string
           name: string
-          status: Database["public"]["Enums"]["tag_status"]
+          slug: string
+          status: Database["public"]["Enums"]["tag_status"] | null
+          type: Database["public"]["Enums"]["tag_type"]
+          use_count: number | null
+        }
+        Insert: {
+          approved_by?: string | null
+          created_at?: string | null
+          created_by?: string | null
+          description?: string | null
+          id?: string
+          name: string
+          slug: string
+          status?: Database["public"]["Enums"]["tag_status"] | null
           type: Database["public"]["Enums"]["tag_type"]
           use_count?: number | null
         }
-        Insert: {
-          color?: string | null
-          created_at?: string | null
-          description?: string | null
-          icon?: string | null
-          id?: string
-          name: string
-          status?: Database["public"]["Enums"]["tag_status"]
-          type?: Database["public"]["Enums"]["tag_type"]
-          use_count?: number | null
-        }
         Update: {
-          color?: string | null
+          approved_by?: string | null
           created_at?: string | null
+          created_by?: string | null
           description?: string | null
-          icon?: string | null
           id?: string
           name?: string
-          status?: Database["public"]["Enums"]["tag_status"]
+          slug?: string
+          status?: Database["public"]["Enums"]["tag_status"] | null
           type?: Database["public"]["Enums"]["tag_type"]
           use_count?: number | null
         }
@@ -797,7 +1026,7 @@ export type Database = {
         Insert: {
           created_at?: string
           id?: number
-          role?: Database["public"]["Enums"]["app_role"]
+          role: Database["public"]["Enums"]["app_role"]
           updated_at?: string
           user_id: string
         }
@@ -922,11 +1151,11 @@ export type TablesInsert<
     ? I
     : never
   : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]
-  ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
-      Insert: infer I
-    }
-    ? I
-    : never
+    ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
+        Insert: infer I
+      }
+      ? I
+      : never
     : never
 
 export type TablesUpdate<
@@ -947,11 +1176,11 @@ export type TablesUpdate<
     ? U
     : never
   : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]
-  ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
-      Update: infer U
-    }
-    ? U
-    : never
+    ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
+        Update: infer U
+      }
+      ? U
+      : never
     : never
 
 export type Enums<
@@ -985,8 +1214,8 @@ export type CompositeTypes<
 }
   ? DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
   : PublicCompositeTypeNameOrOptions extends keyof DefaultSchema["CompositeTypes"]
-  ? DefaultSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
-  : never
+    ? DefaultSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
+    : never
 
 export const Constants = {
   public: {

@@ -1,5 +1,7 @@
 # PRD: Hytale Server Hosting Reviews
 
+> **⛔ SUPERSEDED** — This PRD is superseded by the polymorphic `reviews` table in `docs/server-card-design.md` and `docs/plans/server-card-engineering-plan.md`. The `reviews.entity_type` column supports `'host'` entities natively — no separate `hosting_reviews` table needed. Do not implement from this PRD.
+
 ## Introduction
 
 The Hosting Reviews System helps players compare and evaluate Hytale server hosting providers. This addresses a validated pain point: a 48-comment Reddit thread "Best hytale server host?" showed players are confused about hosting options and actively seeking guidance.
