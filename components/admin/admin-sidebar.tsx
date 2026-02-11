@@ -4,6 +4,8 @@ import {
   ClipboardList,
   ExternalLink,
   LayoutDashboard,
+  Tags,
+  MessageSquareWarning,
 } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -45,6 +47,16 @@ export function AdminSidebar() {
       title: "Surveys",
       href: `${basePath}/surveys`,
       icon: <ClipboardList className="size-4" />,
+    },
+    {
+      title: "Tags",
+      href: `${basePath}/tags`,
+      icon: <Tags className="size-4" />,
+    },
+    {
+      title: "Reviews",
+      href: `${basePath}/reviews`,
+      icon: <MessageSquareWarning className="size-4" />,
     },
   ]
 
