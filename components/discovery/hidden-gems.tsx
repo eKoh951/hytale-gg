@@ -1,10 +1,10 @@
-import { useTranslations } from 'next-intl'
 import { getHiddenGems } from '@/lib/data/discovery'
 import { ExpandedCard } from '@/components/servers/server-card/expanded-card'
+import { getTranslations } from 'next-intl/server'
 
 export async function HiddenGems() {
   const servers = await getHiddenGems()
-  const t = useTranslations('server')
+  const t = await getTranslations('server')
 
   if (servers.length === 0) return null
 

@@ -1,10 +1,10 @@
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { getFeaturedServers } from '@/lib/data/discovery'
 import { ExpandedCard } from '@/components/servers/server-card/expanded-card'
 
 export async function FeaturedServers() {
   const servers = await getFeaturedServers()
-  const t = useTranslations('server')
+  const t = await getTranslations('server')
 
   if (servers.length === 0) return null
 

@@ -1,10 +1,10 @@
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { getNewServers } from '@/lib/data/discovery'
 import { CompactCard } from '@/components/servers/server-card/compact-card'
 
 export async function NewServers() {
   const servers = await getNewServers()
-  const t = useTranslations('server')
+  const t = await getTranslations('server')
 
   if (servers.length === 0) return null
 
