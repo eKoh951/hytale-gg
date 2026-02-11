@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
 import { Card } from '@/components/ui/card'
 import { CardStatus } from './card-status'
@@ -20,7 +20,7 @@ export function CompactCard({ server }: { server: ServerWithTags }) {
   return (
     <Card className="group relative gap-3 p-4 transition-colors hover:border-primary/30">
       <Link
-        href={`/servers/${server.slug}`}
+        href={{ pathname: '/servers/[slug]', params: { slug: server.slug } }}
         className="absolute inset-0 z-10"
         aria-label={server.name}
       />
