@@ -1,8 +1,15 @@
+import { Suspense } from 'react'
 import { notFound } from 'next/navigation'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
-import { getServerBySlug } from '@/lib/data/servers'
+import { getServerBySlug, getTags } from '@/lib/data/servers'
+import { getReviewsForEntity, getReviewSummary, getDimensionAverages, getUserSavedReviews } from '@/lib/data/reviews'
+import { createClient } from '@/lib/supabase/server'
 import { DetailHeader } from '@/components/servers/server-card/detail-header'
+import { ReviewSummary } from '@/components/reviews/review-summary'
+import { ReviewList } from '@/components/reviews/review-list'
+import { ReviewModal } from '@/components/reviews/review-modal'
+import { Skeleton } from '@/components/ui/skeleton'
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>
@@ -83,12 +90,11 @@ export default async function ServerDetailPage({ params }: Props) {
             </section>
           )}
 
-          {/* Reviews placeholder */}
+          {/* Reviews */}
           <section>
-            <h2 className="text-xl font-semibold mb-3">{t('reviews')}</h2>
-            <p className="text-muted-foreground text-sm">
-              Reviews will be available in Phase 3.
-            </p>
+            <Suspense fallback={<Skeleton className="h-[200px] rounded-xl" />}>
+              <ReviewsSection serverId={server.id} />
+            </Suspense>
           </section>
         </div>
 
@@ -159,6 +165,85 @@ export default async function ServerDetailPage({ params }: Props) {
           )}
         </aside>
       </div>
+    </div>
+  )
+}
+
+async function ReviewsSection({ serverId }: { serverId: string }) {
+  const tReviews = await getTranslations('reviews')
+  const tForm = await getTranslations('reviews.form')
+  const tModal = await getTranslations('reviews.modal')
+  const tCard = await getTranslations('reviews.card')
+
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+
+  const [{ reviews, total }, summary, dimensionAverages, dimensions] = await Promise.all([
+    getReviewsForEntity('server', serverId),
+    getReviewSummary('server', serverId),
+    getDimensionAverages('server', serverId),
+    getTags('dimension'),
+  ])
+
+  const savedIds = user ? await getUserSavedReviews(user.id) : new Set<string>()
+
+  const modalLabels = {
+    title: tModal('title'),
+    writeReview: tReviews('writeReview'),
+    quickTab: tModal('quickTab'),
+    detailedTab: tModal('detailedTab'),
+    quickDescription: tModal('quickDescription'),
+    detailedDescription: tModal('detailedDescription'),
+    form: {
+      overallRating: tForm('overallRating'),
+      dimensionRatings: tForm('dimensionRatings'),
+      reviewText: tForm('reviewText'),
+      reviewTextPlaceholder: tForm('reviewTextPlaceholder'),
+      recommend: tForm('recommend'),
+      recommendYes: tForm('recommendYes'),
+      recommendNo: tForm('recommendNo'),
+      playDuration: tForm('playDuration'),
+      playDurationPlaceholder: tForm('playDurationPlaceholder'),
+      videoUrl: tForm('videoUrl'),
+      videoUrlPlaceholder: tForm('videoUrlPlaceholder'),
+      videoPlatform: tForm('videoPlatform'),
+      submit: tForm('submit'),
+      submitting: tForm('submitting'),
+      success: tForm('success'),
+      charCount: tForm('charCount'),
+    },
+  }
+
+  const actionLabels = {
+    helpful: tCard('helpful'),
+    notHelpful: tCard('notHelpful'),
+    funny: tCard('funny'),
+    save: tCard('save'),
+    saved: tCard('saved'),
+    comment: tCard('comment'),
+  }
+
+  return (
+    <div className="space-y-6">
+      <div className="flex items-center justify-between">
+        <h2 className="text-xl font-semibold">{tReviews('title')}</h2>
+        <ReviewModal
+          entityType="server"
+          entityId={serverId}
+          dimensions={dimensions.map((d) => ({ id: d.id, name: d.name }))}
+          labels={modalLabels}
+          disabled={!user}
+          disabledReason={!user ? tReviews('signInToReview') : undefined}
+        />
+      </div>
+
+      <ReviewSummary summary={summary} dimensionAverages={dimensionAverages} />
+
+      <ReviewList
+        reviews={reviews}
+        savedReviewIds={savedIds}
+        labels={{ actionLabels }}
+      />
     </div>
   )
 }

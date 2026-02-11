@@ -19,6 +19,7 @@ export default getRequestConfig(async ({requestLocale}) => {
     branding,
     profile,
     submit,
+    reviews,
     surveyCommon,
     surveyPlayer,
     surveyOwner,
@@ -32,6 +33,7 @@ export default getRequestConfig(async ({requestLocale}) => {
     import(`../messages/${locale}/branding.json`),
     import(`../messages/${locale}/profile.json`),
     import(`../messages/${locale}/submit.json`),
+    import(`../messages/${locale}/reviews.json`),
     import(`../messages/${locale}/survey-common.json`),
     import(`../messages/${locale}/survey-player.json`),
     import(`../messages/${locale}/survey-owner.json`),
@@ -49,6 +51,7 @@ export default getRequestConfig(async ({requestLocale}) => {
       ...branding.default,
       ...profile.default,
       ...submit.default,
+      ...reviews.default,
       // Deep-merge survey sub-keys from 3 files
       survey: {
         ...surveyCommon.default.survey,
