@@ -1,12 +1,31 @@
 {
   "submit": {
     "title": "List a Server",
-    "serverInfo": "Server Information",
-    "serverName": "Server Name",
-    "serverNamePlaceholder": "Enter your server name",
-    "serverIP": "Server IP",
-    "description": "Description",
-    "descriptionPlaceholder": "Describe your server features and gameplay",
-    "submitServer": "Submit Server"
+    "subtitle": "Share your Hytale server with the community",
+    "nameLabel": "Server Name",
+    "namePlaceholder": "My Awesome Server",
+    "slugLabel": "URL Slug",
+    "slugPlaceholder": "my-awesome-server",
+    "slugHint": "This will be your server's URL: hytale.gg/servers/{slug}",
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "Tell players what makes your server special... (50-500 characters)",
+    "ipLabel": "IP Address",
+    "ipPlaceholder": "play.myserver.com",
+    "portLabel": "Port",
+    "categoryLabel": "Category",
+    "categoryPlaceholder": "Select a category",
+    "regionLabel": "Region",
+    "regionPlaceholder": "Select a region",
+    "languageLabel": "Language",
+    "discordLabel": "Discord URL",
+    "discordPlaceholder": "https://discord.gg/...",
+    "websiteLabel": "Website URL",
+    "websitePlaceholder": "https://...",
+    "hostingLabel": "Hosting Provider",
+    "hostingPlaceholder": "e.g. GPORTAL, Oracle",
+    "submitButton": "List Server",
+    "submitting": "Submitting...",
+    "success": "Server listed successfully!",
+    "authRequired": "You must be signed in to list a server."
   }
 }
