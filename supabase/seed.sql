@@ -8,6 +8,25 @@
 --   c1000000-...-01 thru 28 = reviews
 --   d1000000-...-01 thru 04 = review comments
 -- =============================================================
+-- PREREQUISITE: Run the add_user_profile_foreign_keys migration first.
+-- PostgREST needs FK from reviews.user_id -> profiles.id (and similar)
+-- to resolve joins like `profiles:user_id (display_name, ...)`.
+-- =============================================================
+
+-- Temporarily disable RLS for bulk inserts
+ALTER TABLE profiles DISABLE ROW LEVEL SECURITY;
+ALTER TABLE servers DISABLE ROW LEVEL SECURITY;
+ALTER TABLE server_tags DISABLE ROW LEVEL SECURITY;
+ALTER TABLE reviews DISABLE ROW LEVEL SECURITY;
+ALTER TABLE review_ratings DISABLE ROW LEVEL SECURITY;
+ALTER TABLE review_votes DISABLE ROW LEVEL SECURITY;
+ALTER TABLE review_reactions DISABLE ROW LEVEL SECURITY;
+ALTER TABLE review_comments DISABLE ROW LEVEL SECURITY;
+ALTER TABLE owner_responses DISABLE ROW LEVEL SECURITY;
+ALTER TABLE server_metrics DISABLE ROW LEVEL SECURITY;
+ALTER TABLE featured_servers DISABLE ROW LEVEL SECURITY;
+ALTER TABLE server_media DISABLE ROW LEVEL SECURITY;
+ALTER TABLE tags DISABLE ROW LEVEL SECURITY;
 
 -- =====================
 -- 0. AUTH USERS (profiles FK requires auth.users)
@@ -601,3 +620,23 @@ INSERT INTO review_comments (id, review_id, user_id, comment_text, parent_commen
    'How often are the build competitions? I want to participate!', NULL, '2026-01-17T10:00:00Z'),
   ('d1000000-0000-0000-0000-000000000004', 'c1000000-0000-0000-0000-000000000007', 'a1000000-0000-0000-0000-000000000001',
    'Every Saturday at 6 PM UTC! There is a themed one this weekend.', 'd1000000-0000-0000-0000-000000000003', '2026-01-17T12:00:00Z');
+
+-- =====================
+-- 11. RE-ENABLE RLS
+-- =====================
+ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
+ALTER TABLE servers ENABLE ROW LEVEL SECURITY;
+ALTER TABLE server_tags ENABLE ROW LEVEL SECURITY;
+ALTER TABLE reviews ENABLE ROW LEVEL SECURITY;
+ALTER TABLE review_ratings ENABLE ROW LEVEL SECURITY;
+ALTER TABLE review_votes ENABLE ROW LEVEL SECURITY;
+ALTER TABLE review_reactions ENABLE ROW LEVEL SECURITY;
+ALTER TABLE review_comments ENABLE ROW LEVEL SECURITY;
+ALTER TABLE owner_responses ENABLE ROW LEVEL SECURITY;
+ALTER TABLE server_metrics ENABLE ROW LEVEL SECURITY;
+ALTER TABLE featured_servers ENABLE ROW LEVEL SECURITY;
+ALTER TABLE server_media ENABLE ROW LEVEL SECURITY;
+ALTER TABLE tags ENABLE ROW LEVEL SECURITY;
+
+-- Notify PostgREST to reload schema cache (picks up new FK relationships)
+NOTIFY pgrst, 'reload schema';
