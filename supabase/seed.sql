@@ -264,6 +264,8 @@ INSERT INTO servers (
 -- =====================
 -- 2b. TAGS (ensure tags exist even if seed_tags migration didn't carry over)
 -- =====================
+-- Truncate first so this is idempotent (CASCADE clears server_tags, review_ratings refs)
+TRUNCATE tags CASCADE;
 INSERT INTO tags (name, slug, type, status, created_at) VALUES
   -- Categories
   ('Survival', 'survival', 'category', 'predefined', NOW()),
@@ -286,8 +288,7 @@ INSERT INTO tags (name, slug, type, status, created_at) VALUES
   -- Dimensions (for review ratings)
   ('Fun', 'fun', 'dimension', 'predefined', NOW()),
   ('Community', 'community', 'dimension', 'predefined', NOW()),
-  ('Stability', 'stability', 'dimension', 'predefined', NOW())
-ON CONFLICT (name) DO NOTHING;
+  ('Stability', 'stability', 'dimension', 'predefined', NOW());
 
 -- =====================
 -- 3. SERVER TAGS (vibe tags applied by users)
