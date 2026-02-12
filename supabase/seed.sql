@@ -27,6 +27,7 @@ ALTER TABLE server_metrics DISABLE ROW LEVEL SECURITY;
 ALTER TABLE featured_servers DISABLE ROW LEVEL SECURITY;
 ALTER TABLE server_media DISABLE ROW LEVEL SECURITY;
 ALTER TABLE tags DISABLE ROW LEVEL SECURITY;
+ALTER TABLE user_roles DISABLE ROW LEVEL SECURITY;
 
 -- =====================
 -- 0. AUTH USERS (profiles FK requires auth.users)
@@ -58,6 +59,13 @@ UPDATE profiles SET display_name = 'EchoFrost', bio = 'Survival specialist.' WHE
 UPDATE profiles SET display_name = 'NeonVortex', bio = 'Modding enthusiast.' WHERE id = 'a1000000-0000-0000-0000-000000000008';
 UPDATE profiles SET display_name = 'TerraWolf', bio = 'Community leader.' WHERE id = 'a1000000-0000-0000-0000-000000000009';
 UPDATE profiles SET display_name = 'AquaSpark', bio = 'Casual player, serious reviewer.' WHERE id = 'a1000000-0000-0000-0000-000000000010';
+
+-- =====================
+-- 1b. ADMIN ROLE (for preview/staging branches where real pixelkoh user doesn't exist)
+-- =====================
+INSERT INTO public.user_roles (user_id, role)
+VALUES ('a1000000-0000-0000-0000-000000000001', 'admin')
+ON CONFLICT (user_id, role) DO NOTHING;
 
 -- =====================
 -- 2. SERVERS (18 servers)
@@ -637,6 +645,7 @@ ALTER TABLE server_metrics ENABLE ROW LEVEL SECURITY;
 ALTER TABLE featured_servers ENABLE ROW LEVEL SECURITY;
 ALTER TABLE server_media ENABLE ROW LEVEL SECURITY;
 ALTER TABLE tags ENABLE ROW LEVEL SECURITY;
+ALTER TABLE user_roles ENABLE ROW LEVEL SECURITY;
 
 -- Notify PostgREST to reload schema cache (picks up new FK relationships)
 NOTIFY pgrst, 'reload schema';
