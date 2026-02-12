@@ -28,6 +28,7 @@ ALTER TABLE featured_servers DISABLE ROW LEVEL SECURITY;
 ALTER TABLE server_media DISABLE ROW LEVEL SECURITY;
 ALTER TABLE tags DISABLE ROW LEVEL SECURITY;
 ALTER TABLE user_roles DISABLE ROW LEVEL SECURITY;
+ALTER TABLE server_sources DISABLE ROW LEVEL SECURITY;
 
 -- =====================
 -- 0. AUTH USERS (profiles FK requires auth.users)
@@ -71,7 +72,7 @@ ON CONFLICT (user_id, role) DO NOTHING;
 -- 2. SERVERS (18 servers)
 -- =====================
 INSERT INTO servers (
-  id, name, slug, description, ip_address, port, category, region, language,
+  id, name, slug, description, address, port, category, region, language,
   current_status, verification_status, rating_avg, review_count, quality_score,
   listed_by, owner_id, cover_url, icon_url, discord_url, website_url, hosting_provider, created_at
 ) VALUES
@@ -646,6 +647,7 @@ ALTER TABLE featured_servers ENABLE ROW LEVEL SECURITY;
 ALTER TABLE server_media ENABLE ROW LEVEL SECURITY;
 ALTER TABLE tags ENABLE ROW LEVEL SECURITY;
 ALTER TABLE user_roles ENABLE ROW LEVEL SECURITY;
+ALTER TABLE server_sources ENABLE ROW LEVEL SECURITY;
 
 -- Notify PostgREST to reload schema cache (picks up new FK relationships)
 NOTIFY pgrst, 'reload schema';
