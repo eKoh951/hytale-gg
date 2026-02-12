@@ -262,13 +262,37 @@ INSERT INTO servers (
    '2026-01-19T14:00:00Z');
 
 -- =====================
+-- 2b. TAGS (ensure tags exist even if seed_tags migration didn't carry over)
+-- =====================
+INSERT INTO tags (name, slug, type, status, created_at) VALUES
+  -- Categories
+  ('Survival', 'survival', 'category', 'predefined', NOW()),
+  ('PvP', 'pvp', 'category', 'predefined', NOW()),
+  ('Creative', 'creative', 'category', 'predefined', NOW()),
+  ('Minigames', 'minigames', 'category', 'predefined', NOW()),
+  ('Modded', 'modded', 'category', 'predefined', NOW()),
+  ('Roleplay', 'roleplay', 'category', 'predefined', NOW()),
+  -- Vibes
+  ('Friendly', 'friendly', 'vibe', 'predefined', NOW()),
+  ('Competitive', 'competitive', 'vibe', 'predefined', NOW()),
+  ('Chill', 'chill', 'vibe', 'predefined', NOW()),
+  ('Sweaty', 'sweaty', 'vibe', 'predefined', NOW()),
+  ('Active', 'active', 'vibe', 'predefined', NOW()),
+  ('Casual', 'casual', 'vibe', 'predefined', NOW()),
+  ('Lore-Rich', 'lore-rich', 'vibe', 'predefined', NOW()),
+  ('Creative Freedom', 'creative-freedom', 'vibe', 'predefined', NOW()),
+  ('Hardcore', 'hardcore', 'vibe', 'predefined', NOW()),
+  ('Pay-to-Win', 'pay-to-win', 'vibe', 'predefined', NOW()),
+  -- Dimensions (for review ratings)
+  ('Fun', 'fun', 'dimension', 'predefined', NOW()),
+  ('Community', 'community', 'dimension', 'predefined', NOW()),
+  ('Stability', 'stability', 'dimension', 'predefined', NOW())
+ON CONFLICT (name) DO NOTHING;
+
+-- =====================
 -- 3. SERVER TAGS (vibe tags applied by users)
 -- =====================
--- First, get the tag IDs. Since they were seeded by migration 7, we reference by slug.
 -- We need 3+ votes on some tags for them to display on cards.
-
--- Helper: insert server_tags referencing tag slugs
--- We'll use subqueries to resolve tag IDs
 
 -- Emerald Peaks: "friendly", "chill", "active" (3+ votes each)
 INSERT INTO server_tags (server_id, tag_id, user_id, created_at) VALUES
