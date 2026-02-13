@@ -1,9 +1,15 @@
+import { Suspense } from 'react';
 import { pick } from 'es-toolkit';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { createClient } from '@/lib/supabase/server';
 import { getAllSurveyConfigs, getTotalQuestions } from '@/lib/surveys/get-survey';
 import { HomeSurveyList } from '@/components/landing/home-survey-list';
+import { FeaturedServers } from '@/components/discovery/featured-servers';
+import { HiddenGems } from '@/components/discovery/hidden-gems';
+import { NewServers } from '@/components/discovery/new-servers';
+import { ServerSearch } from '@/components/discovery/server-search';
+import { Skeleton } from '@/components/ui/skeleton';
 import type { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -63,8 +69,46 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       estimatedMinutes: ESTIMATED_MINUTES[config.slug] ?? Math.ceil(getTotalQuestions(config) * 0.3),
     }));
 
+  const tFilters = await getTranslations('filters');
+
+  function DiscoverySkeleton({ count, height }: { count: number; height: string }) {
+    return (
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {Array.from({ length: count }).map((_, i) => (
+          <Skeleton key={i} className={`${height} rounded-xl`} />
+        ))}
+      </div>
+    );
+  }
+
   return (
-    <main>
+    <main className="container mx-auto px-4 py-8 space-y-12">
+      {/* Search */}
+      <section className="flex flex-col items-center gap-4 py-8">
+        <h1 className="text-4xl font-bold text-center">{t('metadata.home.title')}</h1>
+        <p className="text-muted-foreground text-center max-w-lg">{t('metadata.home.description')}</p>
+        <ServerSearch
+          placeholder={tFilters('search')}
+          serversPath={`/${locale}/servers`}
+        />
+      </section>
+
+      {/* Featured Servers */}
+      <Suspense fallback={<DiscoverySkeleton count={3} height="h-[280px]" />}>
+        <FeaturedServers />
+      </Suspense>
+
+      {/* Hidden Gems */}
+      <Suspense fallback={<DiscoverySkeleton count={4} height="h-[280px]" />}>
+        <HiddenGems />
+      </Suspense>
+
+      {/* New Servers */}
+      <Suspense fallback={<DiscoverySkeleton count={6} height="h-[140px]" />}>
+        <NewServers />
+      </Suspense>
+
+      {/* Surveys */}
       <NextIntlClientProvider messages={pick(messages as Record<string, unknown>, ['survey'])}>
         <HomeSurveyList
           surveys={activeSurveys}

@@ -1,0 +1,83 @@
+{
+  "reviews": {
+    "title": "Reseñas",
+    "writeReview": "Escribir una Reseña",
+    "editReview": "Editar Reseña",
+    "alreadyReviewed": "Ya has reseñado este servidor.",
+    "signInToReview": "Inicia sesión para escribir una reseña",
+    "noReviews": "Sin reseñas aún. ¡Sé el primero!",
+    "showing": "Mostrando {from}-{to} de {total} reseñas",
+    "sort": {
+      "label": "Ordenar por",
+      "newest": "Más Recientes",
+      "helpful": "Más Útiles",
+      "ratingHigh": "Mejor Valoradas",
+      "ratingLow": "Peor Valoradas"
+    },
+    "summary": {
+      "title": "Resumen de Valoraciones",
+      "overall": "Valoración General",
+      "recommend": "{pct}% recomiendan este servidor",
+      "basedOn": "Basado en {count} reseñas",
+      "stars": "{count} estrellas"
+    },
+    "dimensions": {
+      "title": "Valoraciones por Categoría"
+    },
+    "modal": {
+      "title": "Valorar Este Servidor",
+      "quickTab": "Valoración Rápida",
+      "detailedTab": "Reseña Detallada",
+      "quickDescription": "Valora las dimensiones principales en ~10 segundos",
+      "detailedDescription": "Escribe una reseña completa con texto y multimedia"
+    },
+    "form": {
+      "overallRating": "Valoración General",
+      "dimensionRatings": "Valora Cada Dimensión",
+      "reviewText": "Tu Reseña",
+      "reviewTextPlaceholder": "Comparte tu experiencia... ¿Qué te gustó? ¿Qué se podría mejorar? (mín 50 caracteres)",
+      "recommend": "¿Recomendarías este servidor?",
+      "recommendYes": "Sí, lo recomiendo",
+      "recommendNo": "No, no lo recomendaría",
+      "playDuration": "¿Cuánto tiempo has jugado?",
+      "playDurationPlaceholder": "ej. 2 semanas, 100 horas",
+      "videoUrl": "URL de Video Reseña",
+      "videoUrlPlaceholder": "https://youtube.com/watch?v=...",
+      "videoPlatform": "Plataforma",
+      "submit": "Enviar Reseña",
+      "submitting": "Enviando...",
+      "success": "¡Reseña enviada exitosamente!",
+      "charCount": "{count}/50 caracteres mínimos"
+    },
+    "card": {
+      "helpful": "Útil",
+      "notHelpful": "No Útil",
+      "funny": "Gracioso",
+      "based": "Based",
+      "insightful": "Perspicaz",
+      "save": "Guardar",
+      "saved": "Guardado",
+      "reply": "Responder",
+      "comment": "Comentar",
+      "comments": "{count} comentarios",
+      "ownerResponse": "Respuesta del Dueño",
+      "creatorReview": "Reseña de Creador",
+      "verified": "Jugador Verificado",
+      "played": "Jugó {duration}",
+      "postedOn": "Publicado {date}",
+      "editedOn": "Editado {date}"
+    },
+    "comments": {
+      "title": "Comentarios",
+      "placeholder": "Escribe un comentario...",
+      "submit": "Publicar",
+      "noComments": "Sin comentarios aún."
+    },
+    "ownerResponse": {
+      "title": "Responder a la Reseña",
+      "placeholder": "Escribe tu respuesta... (máx 500 caracteres)",
+      "submit": "Publicar Respuesta",
+      "alreadyResponded": "Ya has respondido a esta reseña."
+    }
+  }
+}

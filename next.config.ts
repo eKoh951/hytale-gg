@@ -19,6 +19,10 @@ const nextConfig: NextConfig = {
         destination: '/es/servers',
       },
       {
+        source: '/es/servidores/:slug',
+        destination: '/es/servers/:slug',
+      },
+      {
         source: '/es/creadores',
         destination: '/es/creators',
       },

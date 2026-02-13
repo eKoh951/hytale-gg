@@ -1,0 +1,83 @@
+{
+  "reviews": {
+    "title": "Reviews",
+    "writeReview": "Write a Review",
+    "editReview": "Edit Review",
+    "alreadyReviewed": "You've already reviewed this server.",
+    "signInToReview": "Sign in to write a review",
+    "noReviews": "No reviews yet. Be the first!",
+    "showing": "Showing {from}-{to} of {total} reviews",
+    "sort": {
+      "label": "Sort by",
+      "newest": "Newest",
+      "helpful": "Most Helpful",
+      "ratingHigh": "Highest Rated",
+      "ratingLow": "Lowest Rated"
+    },
+    "summary": {
+      "title": "Rating Summary",
+      "overall": "Overall Rating",
+      "recommend": "{pct}% recommend this server",
+      "basedOn": "Based on {count} reviews",
+      "stars": "{count} stars"
+    },
+    "dimensions": {
+      "title": "Ratings by Category"
+    },
+    "modal": {
+      "title": "Rate This Server",
+      "quickTab": "Quick Rate",
+      "detailedTab": "Detailed Review",
+      "quickDescription": "Rate core dimensions in ~10 seconds",
+      "detailedDescription": "Write a full review with text and media"
+    },
+    "form": {
+      "overallRating": "Overall Rating",
+      "dimensionRatings": "Rate Each Dimension",
+      "reviewText": "Your Review",
+      "reviewTextPlaceholder": "Share your experience... What did you like? What could be improved? (min 50 characters)",
+      "recommend": "Would you recommend this server?",
+      "recommendYes": "Yes, I recommend it",
+      "recommendNo": "No, I wouldn't recommend it",
+      "playDuration": "How long have you played?",
+      "playDurationPlaceholder": "e.g. 2 weeks, 100 hours",
+      "videoUrl": "Video Review URL",
+      "videoUrlPlaceholder": "https://youtube.com/watch?v=...",
+      "videoPlatform": "Platform",
+      "submit": "Submit Review",
+      "submitting": "Submitting...",
+      "success": "Review submitted successfully!",
+      "charCount": "{count}/50 minimum characters"
+    },
+    "card": {
+      "helpful": "Helpful",
+      "notHelpful": "Not Helpful",
+      "funny": "Funny",
+      "based": "Based",
+      "insightful": "Insightful",
+      "save": "Save",
+      "saved": "Saved",
+      "reply": "Reply",
+      "comment": "Comment",
+      "comments": "{count} comments",
+      "ownerResponse": "Owner Response",
+      "creatorReview": "Creator Review",
+      "verified": "Verified Player",
+      "played": "Played {duration}",
+      "postedOn": "Posted {date}",
+      "editedOn": "Edited {date}"
+    },
+    "comments": {
+      "title": "Comments",
+      "placeholder": "Write a comment...",
+      "submit": "Post",
+      "noComments": "No comments yet."
+    },
+    "ownerResponse": {
+      "title": "Respond to Review",
+      "placeholder": "Write your response... (max 500 characters)",
+      "submit": "Post Response",
+      "alreadyResponded": "You've already responded to this review."
+    }
+  }
+}

@@ -4,6 +4,16 @@
     "players": "players",
     "language": "Language",
     "ping": "Ping",
+    "reviews": "{count} reviews",
+    "reviewsSingular": "1 review",
+    "noReviews": "No reviews yet",
+    "recommend": "{pct}% recommend",
+    "verified": "Verified",
+    "unclaimed": "Unclaimed",
+    "pending": "Pending",
+    "new": "New",
+    "featured": "Featured",
+    "hiddenGem": "Hidden Gem",
     "status": {
       "online": "Online",
       "offline": "Offline",
@@ -12,7 +22,11 @@
     "actions": {
       "copy": "Copy IP",
       "join": "Join Server",
-      "favorite": "Add to Favorites"
+      "favorite": "Add to Favorites",
+      "claim": "Claim Server",
+      "edit": "Edit Server",
+      "share": "Share",
+      "report": "Report"
     }
   },
   "categories": {
@@ -20,8 +34,9 @@
     "survival": "Survival",
     "pvp": "PvP",
     "creative": "Creative",
-    "rpg": "RPG",
-    "minigames": "Minigames"
+    "roleplay": "Roleplay",
+    "minigames": "Minigames",
+    "modded": "Modded"
   },
   "regions": {
     "all": "Any Region",
@@ -31,8 +46,60 @@
     "latam": "Latin America",
     "oce": "Oceania"
   },
+  "filters": {
+    "search": "Search servers...",
+    "category": "Category",
+    "region": "Region",
+    "status": "Status",
+    "sort": "Sort by",
+    "sortOptions": {
+      "quality": "Top Rated",
+      "newest": "Newest",
+      "name": "Name A-Z",
+      "players": "Most Reviewed"
+    },
+    "statusOptions": {
+      "all": "Any Status",
+      "online": "Online Only"
+    },
+    "noResults": "No servers found matching your filters.",
+    "clearFilters": "Clear Filters"
+  },
   "servers": {
     "title": "Servers",
-    "description": "Discover the best Hytale servers with real-time ping testing and detailed information."
+    "description": "Discover the best Hytale servers with real-time ping testing and detailed information.",
+    "showing": "Showing {from}-{to} of {total} servers",
+    "loadMore": "Load More"
+  },
+  "detail": {
+    "about": "About",
+    "media": "Media",
+    "reviews": "Reviews",
+    "info": "Server Info",
+    "ip": "IP Address",
+    "port": "Port",
+    "category": "Category",
+    "region": "Region",
+    "language": "Language",
+    "discord": "Discord",
+    "website": "Website",
+    "hostingProvider": "Hosting",
+    "listedBy": "Listed by",
+    "createdAt": "Listed on",
+    "vibes": "Vibes"
+  },
+  "claim": {
+    "title": "Claim This Server",
+    "description": "Verify ownership to manage your server listing.",
+    "methods": {
+      "console": "Console File",
+      "dns": "DNS TXT Record"
+    },
+    "consoleInstructions": "Create a file named hytale-verify.txt in your server directory with the verification code.",
+    "dnsInstructions": "Add a TXT record to your domain with the verification code.",
+    "verificationCode": "Verification Code",
+    "expires": "Expires in 24 hours",
+    "verifyButton": "Verify Ownership",
+    "alreadyClaimed": "This server has already been claimed."
   }
 }

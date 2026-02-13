@@ -1,5 +1,7 @@
 # PRD: Review System
 
+> **⛔ SUPERSEDED** — This PRD is superseded by `docs/server-card-design.md` and the engineering plan at `docs/plans/server-card-engineering-plan.md`. Key changes: flexible review dimensions via junction table (not hardcoded columns), dual-path reviews (Quick + Detailed, no Private Feedback), polymorphic `reviews` table supporting future hosting reviews. Do not implement from this PRD.
+
 > ⚠️ **SURVEY DEPENDENCY**: This PRD assumes multi-criteria 1-5 star ratings. Player survey Q15 tests whether players prefer Steam-style binary (Recommend/Don't Recommend), Amazon-style stars, or our multi-criteria approach. **Do NOT begin implementation until Q15 results are in.** If binary wins, the schema, weighted formula, and all acceptance criteria need restructuring.
 >
 > Additionally, survey Q14 tests whether "reviewer's username and playtime are visible" is a top trust signal. If it is, reviews MUST show identity (not anonymous) — see Open Question #3.

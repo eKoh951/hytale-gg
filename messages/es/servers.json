@@ -4,6 +4,16 @@
     "players": "jugadores",
     "language": "Idioma",
     "ping": "Ping",
+    "reviews": "{count} reseñas",
+    "reviewsSingular": "1 reseña",
+    "noReviews": "Sin reseñas aún",
+    "recommend": "{pct}% recomiendan",
+    "verified": "Verificado",
+    "unclaimed": "Sin reclamar",
+    "pending": "Pendiente",
+    "new": "Nuevo",
+    "featured": "Destacado",
+    "hiddenGem": "Joya Oculta",
     "status": {
       "online": "En línea",
       "offline": "Desconectado",
@@ -12,7 +22,11 @@
     "actions": {
       "copy": "Copiar IP",
       "join": "Unirse al Servidor",
-      "favorite": "Agregar a Favoritos"
+      "favorite": "Agregar a Favoritos",
+      "claim": "Reclamar Servidor",
+      "edit": "Editar Servidor",
+      "share": "Compartir",
+      "report": "Reportar"
     }
   },
   "categories": {
@@ -20,8 +34,9 @@
     "survival": "Supervivencia",
     "pvp": "PvP",
     "creative": "Creativo",
-    "rpg": "RPG",
-    "minigames": "Minijuegos"
+    "roleplay": "Roleplay",
+    "minigames": "Minijuegos",
+    "modded": "Modded"
   },
   "regions": {
     "all": "Cualquier Región",
@@ -31,8 +46,60 @@
     "latam": "Latinoamérica",
     "oce": "Oceanía"
   },
+  "filters": {
+    "search": "Buscar servidores...",
+    "category": "Categoría",
+    "region": "Región",
+    "status": "Estado",
+    "sort": "Ordenar por",
+    "sortOptions": {
+      "quality": "Mejor Valorados",
+      "newest": "Más Nuevos",
+      "name": "Nombre A-Z",
+      "players": "Más Reseñas"
+    },
+    "statusOptions": {
+      "all": "Cualquier Estado",
+      "online": "Solo En Línea"
+    },
+    "noResults": "No se encontraron servidores con esos filtros.",
+    "clearFilters": "Limpiar Filtros"
+  },
   "servers": {
     "title": "Servidores",
-    "description": "Descubre los mejores servidores de Hytale con pruebas de ping en tiempo real e información detallada."
+    "description": "Descubre los mejores servidores de Hytale con pruebas de ping en tiempo real e información detallada.",
+    "showing": "Mostrando {from}-{to} de {total} servidores",
+    "loadMore": "Cargar Más"
+  },
+  "detail": {
+    "about": "Acerca de",
+    "media": "Medios",
+    "reviews": "Reseñas",
+    "info": "Info del Servidor",
+    "ip": "Dirección IP",
+    "port": "Puerto",
+    "category": "Categoría",
+    "region": "Región",
+    "language": "Idioma",
+    "discord": "Discord",
+    "website": "Sitio Web",
+    "hostingProvider": "Hosting",
+    "listedBy": "Publicado por",
+    "createdAt": "Publicado el",
+    "vibes": "Vibes"
+  },
+  "claim": {
+    "title": "Reclamar Este Servidor",
+    "description": "Verifica la propiedad para administrar tu listado de servidor.",
+    "methods": {
+      "console": "Archivo de Consola",
+      "dns": "Registro DNS TXT"
+    },
+    "consoleInstructions": "Crea un archivo llamado hytale-verify.txt en el directorio de tu servidor con el código de verificación.",
+    "dnsInstructions": "Agrega un registro TXT a tu dominio con el código de verificación.",
+    "verificationCode": "Código de Verificación",
+    "expires": "Expira en 24 horas",
+    "verifyButton": "Verificar Propiedad",
+    "alreadyClaimed": "Este servidor ya ha sido reclamado."
   }
 }
