@@ -46,6 +46,14 @@ const nextConfig: NextConfig = {
         source: '/es/encuesta/:slug',
         destination: '/es/survey/:slug',
       },
+      {
+        source: '/es/politica-de-privacidad',
+        destination: '/es/policy',
+      },
+      {
+        source: '/es/terminos',
+        destination: '/es/terms',
+      },
     ];
   },
 };

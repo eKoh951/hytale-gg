@@ -1,0 +1,170 @@
+{
+  "legal": {
+    "policy": {
+      "title": "Política de Privacidad",
+      "lastUpdated": "Última actualización: {date}",
+      "intro": "En hytale.GG, respetamos tu privacidad y estamos comprometidos con la protección de tus datos personales. Esta Política de Privacidad explica cómo recopilamos, usamos y protegemos tu información cuando utilizas nuestra plataforma.",
+      "sections": {
+        "informationWeCollect": {
+          "title": "1. Información que Recopilamos",
+          "accountData": {
+            "title": "Datos de Cuenta",
+            "description": "Cuando creas una cuenta a través de Google OAuth, recibimos tu nombre, dirección de correo electrónico y foto de perfil. No almacenamos tu contraseña de Google."
+          },
+          "usageData": {
+            "title": "Datos de Uso",
+            "description": "Recopilamos automáticamente información sobre cómo interactúas con nuestra plataforma, incluyendo páginas visitadas, funciones utilizadas y tiempo de uso. Esto nos ayuda a mejorar la experiencia."
+          },
+          "serverData": {
+            "title": "Listados de Servidores",
+            "description": "Si listas un servidor, recopilamos el nombre del servidor, dirección IP, descripción y cualquier medio que subas. Esta información se muestra públicamente en la plataforma."
+          },
+          "reviewData": {
+            "title": "Reseñas y Contenido",
+            "description": "Las reseñas, comentarios, calificaciones y otro contenido generado por el usuario que envías se almacenan y muestran públicamente junto con tu nombre de usuario."
+          }
+        },
+        "howWeUse": {
+          "title": "2. Cómo Usamos tu Información",
+          "items": {
+            "provide": "Para proporcionar, mantener y mejorar nuestra plataforma",
+            "account": "Para crear y administrar tu cuenta",
+            "communicate": "Para comunicarnos contigo sobre actualizaciones y cambios",
+            "security": "Para detectar y prevenir fraudes o abusos",
+            "analytics": "Para analizar patrones de uso y mejorar la experiencia del usuario",
+            "legal": "Para cumplir con obligaciones legales"
+          }
+        },
+        "dataSharing": {
+          "title": "3. Compartición de Datos",
+          "description": "No vendemos tus datos personales. Podemos compartir información con:",
+          "items": {
+            "providers": "Proveedores de servicios que ayudan a operar nuestra plataforma (ej. alojamiento, analítica)",
+            "legal": "Fuerzas del orden cuando lo requiera la ley o para proteger nuestros derechos",
+            "consent": "Terceros con tu consentimiento explícito"
+          }
+        },
+        "cookies": {
+          "title": "4. Cookies y Seguimiento",
+          "description": "Utilizamos cookies esenciales para mantener tu sesión y preferencias. Podemos usar herramientas de analítica para comprender el uso de la plataforma. Puedes controlar la configuración de cookies a través de tu navegador."
+        },
+        "dataSecurity": {
+          "title": "5. Seguridad de Datos",
+          "description": "Implementamos medidas de seguridad estándar de la industria para proteger tus datos, incluyendo conexiones cifradas (HTTPS), autenticación segura mediante OAuth y auditorías de seguridad regulares. Sin embargo, ningún método de transmisión por Internet es 100% seguro."
+        },
+        "yourRights": {
+          "title": "6. Tus Derechos",
+          "description": "Dependiendo de tu ubicación, puedes tener derecho a:",
+          "items": {
+            "access": "Acceder a los datos personales que tenemos sobre ti",
+            "correct": "Solicitar la corrección de datos inexactos",
+            "delete": "Solicitar la eliminación de tus datos",
+            "export": "Exportar tus datos en un formato portable",
+            "withdraw": "Retirar el consentimiento para el procesamiento de datos"
+          },
+          "contact": "Para ejercer estos derechos, contáctanos al correo a continuación."
+        },
+        "children": {
+          "title": "7. Privacidad de Menores",
+          "description": "Nuestra plataforma no está dirigida a menores de 13 años. No recopilamos intencionalmente información personal de niños. Si crees que un menor nos ha proporcionado datos personales, por favor contáctanos."
+        },
+        "changes": {
+          "title": "8. Cambios a Esta Política",
+          "description": "Podemos actualizar esta Política de Privacidad de vez en cuando. Te notificaremos de cualquier cambio importante publicando la política actualizada en esta página con una fecha revisada de \"Última actualización\"."
+        },
+        "contact": {
+          "title": "9. Contáctanos",
+          "description": "Si tienes preguntas sobre esta Política de Privacidad, comunícate con nosotros:",
+          "email": "Correo: {email}"
+        }
+      }
+    },
+    "terms": {
+      "title": "Términos de Servicio",
+      "lastUpdated": "Última actualización: {date}",
+      "intro": "Bienvenido a hytale.GG. Al acceder o usar nuestra plataforma, aceptas estar sujeto a estos Términos de Servicio. Si no estás de acuerdo, por favor no uses la plataforma.",
+      "sections": {
+        "acceptance": {
+          "title": "1. Aceptación de Términos",
+          "description": "Al crear una cuenta o usar hytale.GG, confirmas que tienes al menos 13 años y aceptas cumplir con estos términos. Si eres menor de 18 años, debes contar con el consentimiento de tus padres."
+        },
+        "accountResponsibilities": {
+          "title": "2. Responsabilidades de la Cuenta",
+          "description": "Eres responsable de:",
+          "items": {
+            "accurate": "Proporcionar información de cuenta precisa",
+            "security": "Mantener la seguridad de tus credenciales de cuenta",
+            "activity": "Toda la actividad que ocurra bajo tu cuenta",
+            "notify": "Notificarnos de inmediato sobre cualquier acceso no autorizado"
+          }
+        },
+        "userContent": {
+          "title": "3. Contenido del Usuario",
+          "description": "Cuando envías contenido (reseñas, listados de servidores, comentarios, medios), tú:",
+          "items": {
+            "own": "Conservas la propiedad de tu contenido original",
+            "grant": "Otorgas a hytale.GG una licencia no exclusiva, mundial, para mostrar, distribuir y promocionar tu contenido en la plataforma",
+            "responsible": "Eres el único responsable de la exactitud y legalidad de tu contenido",
+            "noInfringe": "Aceptas no publicar contenido que infrinja la propiedad intelectual de otros"
+          }
+        },
+        "prohibitedConduct": {
+          "title": "4. Conducta Prohibida",
+          "description": "Aceptas no:",
+          "items": {
+            "false": "Enviar información falsa o engañosa sobre servidores o reseñas",
+            "harass": "Acosar, abusar o amenazar a otros usuarios",
+            "spam": "Hacer spam, manipular calificaciones o participar en manipulación de votos",
+            "impersonate": "Hacerse pasar por otra persona o entidad",
+            "scrape": "Extraer datos sin autorización",
+            "interfere": "Interferir o interrumpir el funcionamiento de la plataforma",
+            "illegal": "Usar la plataforma para cualquier propósito ilegal"
+          }
+        },
+        "serverListings": {
+          "title": "5. Listados de Servidores",
+          "description": "Los propietarios de servidores que listan sus servidores aceptan que:",
+          "items": {
+            "accurate": "Toda la información del servidor debe ser precisa y mantenerse actualizada",
+            "ownership": "Tienen el derecho de listar el servidor",
+            "compliance": "Su servidor cumple con las leyes y regulaciones aplicables",
+            "removal": "hytale.GG se reserva el derecho de eliminar cualquier listado a su discreción"
+          }
+        },
+        "moderation": {
+          "title": "6. Moderación de Contenido",
+          "description": "Nos reservamos el derecho de eliminar contenido, suspender cuentas o tomar otras acciones si determinamos, a nuestro exclusivo criterio, que el contenido o comportamiento viola estos términos o es perjudicial para la comunidad."
+        },
+        "intellectualProperty": {
+          "title": "7. Propiedad Intelectual",
+          "description": "El nombre, logotipo, diseño y contenido original de hytale.GG son propiedad de hytale.GG. Hytale es una marca registrada de Hypixel Studios. hytale.GG no está afiliado, respaldado ni patrocinado por Hypixel Studios."
+        },
+        "disclaimer": {
+          "title": "8. Renuncia de Garantías",
+          "description": "La plataforma se proporciona \"tal cual\" y \"según disponibilidad\" sin garantías de ningún tipo, expresas o implícitas. No garantizamos la exactitud, integridad o confiabilidad de los listados de servidores, reseñas o contenido generado por usuarios."
+        },
+        "limitation": {
+          "title": "9. Limitación de Responsabilidad",
+          "description": "En la máxima medida permitida por la ley, hytale.GG no será responsable de ningún daño indirecto, incidental, especial o consecuente que surja del uso de la plataforma, incluyendo pero no limitado a la pérdida de datos, ingresos o beneficios."
+        },
+        "termination": {
+          "title": "10. Terminación",
+          "description": "Podemos suspender o terminar tu cuenta en cualquier momento por violación de estos términos. Tras la terminación, tu derecho a usar la plataforma cesa inmediatamente. Las secciones sobre propiedad intelectual, renuncias y limitación de responsabilidad sobreviven a la terminación."
+        },
+        "governing": {
+          "title": "11. Ley Aplicable",
+          "description": "Estos términos se regirán e interpretarán de acuerdo con las leyes aplicables. Cualquier disputa se resolverá mediante negociación de buena fe antes de buscar otros remedios."
+        },
+        "changes": {
+          "title": "12. Cambios a Estos Términos",
+          "description": "Podemos modificar estos términos en cualquier momento. El uso continuado de la plataforma después de los cambios constituye la aceptación de los términos revisados. Los cambios importantes se comunicarán a través de la plataforma."
+        },
+        "contact": {
+          "title": "13. Contáctanos",
+          "description": "Para preguntas sobre estos Términos de Servicio, comunícate con nosotros:",
+          "email": "Correo: {email}"
+        }
+      }
+    }
+  }
+}

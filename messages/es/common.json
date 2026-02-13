@@ -72,6 +72,14 @@
     "surveys": {
       "title": "Encuestas | hytale.GG",
       "description": "Comparte tu opinión y ayuda a dar forma al futuro del directorio de servidores de Hytale."
+    },
+    "policy": {
+      "title": "Política de Privacidad | hytale.GG",
+      "description": "Conoce cómo hytale.GG recopila, usa y protege tus datos personales. Lee nuestra Política de Privacidad."
+    },
+    "terms": {
+      "title": "Términos de Servicio | hytale.GG",
+      "description": "Lee los Términos de Servicio de hytale.GG. Comprende tus derechos y responsabilidades al usar nuestra plataforma."
     }
   }
 }

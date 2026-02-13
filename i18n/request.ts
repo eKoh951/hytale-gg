@@ -24,6 +24,7 @@ export default getRequestConfig(async ({requestLocale}) => {
     surveyPlayer,
     surveyOwner,
     admin,
+    legal,
   ] = await Promise.all([
     import(`../messages/${locale}/common.json`),
     import(`../messages/${locale}/auth.json`),
@@ -38,6 +39,7 @@ export default getRequestConfig(async ({requestLocale}) => {
     import(`../messages/${locale}/survey-player.json`),
     import(`../messages/${locale}/survey-owner.json`),
     import(`../messages/${locale}/admin.json`),
+    import(`../messages/${locale}/legal.json`),
   ]);
 
   return {
@@ -59,6 +61,7 @@ export default getRequestConfig(async ({requestLocale}) => {
         ...surveyOwner.default.survey,
       },
       ...admin.default,
+      ...legal.default,
     },
   };
 });

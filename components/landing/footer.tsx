@@ -14,7 +14,7 @@ export function Footer() {
       { label: t('branding'), href: "/branding" as const },
     ],
     legal: [
-      { label: t('privacy'), href: "/privacy" as const },
+      { label: t('privacy'), href: "/policy" as const },
       { label: t('terms'), href: "/terms" as const },
       { label: t('contact'), href: "/contact" as const },
     ],

@@ -1,0 +1,170 @@
+{
+  "legal": {
+    "policy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "Last updated: {date}",
+      "intro": "At hytale.GG, we respect your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you use our platform.",
+      "sections": {
+        "informationWeCollect": {
+          "title": "1. Information We Collect",
+          "accountData": {
+            "title": "Account Data",
+            "description": "When you create an account via Google OAuth, we receive your name, email address, and profile picture. We do not store your Google password."
+          },
+          "usageData": {
+            "title": "Usage Data",
+            "description": "We automatically collect information about how you interact with our platform, including pages visited, features used, and time spent. This helps us improve the experience."
+          },
+          "serverData": {
+            "title": "Server Listings",
+            "description": "If you list a server, we collect the server name, IP address, description, and any media you upload. This information is displayed publicly on the platform."
+          },
+          "reviewData": {
+            "title": "Reviews & Content",
+            "description": "Reviews, comments, ratings, and other user-generated content you submit are stored and displayed publicly along with your display name."
+          }
+        },
+        "howWeUse": {
+          "title": "2. How We Use Your Information",
+          "items": {
+            "provide": "To provide, maintain, and improve our platform",
+            "account": "To create and manage your account",
+            "communicate": "To communicate with you about updates and changes",
+            "security": "To detect and prevent fraud or abuse",
+            "analytics": "To analyze usage patterns and improve user experience",
+            "legal": "To comply with legal obligations"
+          }
+        },
+        "dataSharing": {
+          "title": "3. Data Sharing",
+          "description": "We do not sell your personal data. We may share information with:",
+          "items": {
+            "providers": "Service providers who help operate our platform (e.g., hosting, analytics)",
+            "legal": "Law enforcement when required by law or to protect our rights",
+            "consent": "Third parties with your explicit consent"
+          }
+        },
+        "cookies": {
+          "title": "4. Cookies & Tracking",
+          "description": "We use essential cookies to maintain your session and preferences. We may use analytics tools to understand platform usage. You can control cookie settings through your browser."
+        },
+        "dataSecurity": {
+          "title": "5. Data Security",
+          "description": "We implement industry-standard security measures to protect your data, including encrypted connections (HTTPS), secure authentication via OAuth, and regular security audits. However, no method of transmission over the Internet is 100% secure."
+        },
+        "yourRights": {
+          "title": "6. Your Rights",
+          "description": "Depending on your location, you may have the right to:",
+          "items": {
+            "access": "Access the personal data we hold about you",
+            "correct": "Request correction of inaccurate data",
+            "delete": "Request deletion of your data",
+            "export": "Export your data in a portable format",
+            "withdraw": "Withdraw consent for data processing"
+          },
+          "contact": "To exercise these rights, contact us at the email below."
+        },
+        "children": {
+          "title": "7. Children's Privacy",
+          "description": "Our platform is not directed to children under 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal data, please contact us."
+        },
+        "changes": {
+          "title": "8. Changes to This Policy",
+          "description": "We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the updated policy on this page with a revised \"Last updated\" date."
+        },
+        "contact": {
+          "title": "9. Contact Us",
+          "description": "If you have questions about this Privacy Policy, please reach out:",
+          "email": "Email: {email}"
+        }
+      }
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "lastUpdated": "Last updated: {date}",
+      "intro": "Welcome to hytale.GG. By accessing or using our platform, you agree to be bound by these Terms of Service. If you do not agree, please do not use the platform.",
+      "sections": {
+        "acceptance": {
+          "title": "1. Acceptance of Terms",
+          "description": "By creating an account or using hytale.GG, you confirm that you are at least 13 years old and agree to comply with these terms. If you are under 18, you must have parental consent."
+        },
+        "accountResponsibilities": {
+          "title": "2. Account Responsibilities",
+          "description": "You are responsible for:",
+          "items": {
+            "accurate": "Providing accurate account information",
+            "security": "Maintaining the security of your account credentials",
+            "activity": "All activity that occurs under your account",
+            "notify": "Promptly notifying us of any unauthorized access"
+          }
+        },
+        "userContent": {
+          "title": "3. User Content",
+          "description": "When you submit content (reviews, server listings, comments, media), you:",
+          "items": {
+            "own": "Retain ownership of your original content",
+            "grant": "Grant hytale.GG a non-exclusive, worldwide license to display, distribute, and promote your content on the platform",
+            "responsible": "Are solely responsible for the accuracy and legality of your content",
+            "noInfringe": "Agree not to post content that infringes on others' intellectual property"
+          }
+        },
+        "prohibitedConduct": {
+          "title": "4. Prohibited Conduct",
+          "description": "You agree not to:",
+          "items": {
+            "false": "Submit false or misleading server information or reviews",
+            "harass": "Harass, abuse, or threaten other users",
+            "spam": "Spam, manipulate ratings, or engage in vote manipulation",
+            "impersonate": "Impersonate another person or entity",
+            "scrape": "Scrape or extract data without authorization",
+            "interfere": "Interfere with or disrupt the platform's operation",
+            "illegal": "Use the platform for any illegal purpose"
+          }
+        },
+        "serverListings": {
+          "title": "5. Server Listings",
+          "description": "Server owners who list their servers agree that:",
+          "items": {
+            "accurate": "All server information must be accurate and kept up to date",
+            "ownership": "They have the right to list the server",
+            "compliance": "Their server complies with applicable laws and regulations",
+            "removal": "hytale.GG reserves the right to remove any listing at its discretion"
+          }
+        },
+        "moderation": {
+          "title": "6. Content Moderation",
+          "description": "We reserve the right to remove content, suspend accounts, or take other action if we determine, at our sole discretion, that content or behavior violates these terms or is harmful to the community."
+        },
+        "intellectualProperty": {
+          "title": "7. Intellectual Property",
+          "description": "The hytale.GG name, logo, design, and original content are the property of hytale.GG. Hytale is a trademark of Hypixel Studios. hytale.GG is not affiliated with, endorsed by, or sponsored by Hypixel Studios."
+        },
+        "disclaimer": {
+          "title": "8. Disclaimer of Warranties",
+          "description": "The platform is provided \"as is\" and \"as available\" without warranties of any kind, express or implied. We do not guarantee the accuracy, completeness, or reliability of any server listings, reviews, or user-generated content."
+        },
+        "limitation": {
+          "title": "9. Limitation of Liability",
+          "description": "To the fullest extent permitted by law, hytale.GG shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the platform, including but not limited to loss of data, revenue, or profits."
+        },
+        "termination": {
+          "title": "10. Termination",
+          "description": "We may suspend or terminate your account at any time for violation of these terms. Upon termination, your right to use the platform ceases immediately. Sections regarding intellectual property, disclaimers, and limitation of liability survive termination."
+        },
+        "governing": {
+          "title": "11. Governing Law",
+          "description": "These terms shall be governed by and construed in accordance with applicable laws. Any disputes shall be resolved through good-faith negotiation before pursuing other remedies."
+        },
+        "changes": {
+          "title": "12. Changes to These Terms",
+          "description": "We may modify these terms at any time. Continued use of the platform after changes constitutes acceptance of the revised terms. Material changes will be communicated via the platform."
+        },
+        "contact": {
+          "title": "13. Contact Us",
+          "description": "For questions about these Terms of Service, please reach out:",
+          "email": "Email: {email}"
+        }
+      }
+    }
+  }
+}

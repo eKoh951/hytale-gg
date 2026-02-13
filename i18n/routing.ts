@@ -56,8 +56,14 @@ export const routing = defineRouting({
     '/dashboard': '/dashboard',
     '/analytics': '/analytics',
     '/verify': '/verify',
-    '/privacy': '/privacy',
-    '/terms': '/terms',
+    '/policy': {
+      en: '/policy',
+      es: '/politica-de-privacidad'
+    },
+    '/terms': {
+      en: '/terms',
+      es: '/terminos'
+    },
     '/contact': '/contact'
   }
 });

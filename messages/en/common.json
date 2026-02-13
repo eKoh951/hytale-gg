@@ -72,6 +72,14 @@
     "surveys": {
       "title": "Surveys | hytale.GG",
       "description": "Share your feedback and help shape the future of the Hytale server directory."
+    },
+    "policy": {
+      "title": "Privacy Policy | hytale.GG",
+      "description": "Learn how hytale.GG collects, uses, and protects your personal data. Read our Privacy Policy."
+    },
+    "terms": {
+      "title": "Terms of Service | hytale.GG",
+      "description": "Read the hytale.GG Terms of Service. Understand your rights and responsibilities when using our platform."
     }
   }
 }
