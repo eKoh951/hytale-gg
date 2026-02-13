@@ -1,5 +1,58 @@
+project_id = "adkjqnhytspczubeqvnc"
+
+[db]
+port = 54322
+
+[db.seed]
+enabled = true
+sql_paths = ["./seed.sql"]
+
+[auth]
+enabled = true
+site_url = "https://hytale.gg"
+additional_redirect_urls = ["https://localhost:3000", "https://hytale.gg"]
+jwt_expiry = 3600
+enable_signup = true
+enable_refresh_token_rotation = true
+refresh_token_reuse_interval = 10
+
+[auth.email]
+enable_signup = true
+double_confirm_changes = true
+enable_confirmations = false
+
 [auth.external.google]
 enabled = true
-client_id = "<client-id>"
-secret = "env(SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_SECRET)"
+client_id = "env(GOOGLE_CLIENT_ID)"
+secret = "env(GOOGLE_CLIENT_SECRET)"
 skip_nonce_check = false
+
+[storage]
+enabled = true
+file_size_limit = "50MiB"
+
+[storage.buckets.server-icons]
+public = true
+file_size_limit = "500KiB"
+allowed_mime_types = ["image/png", "image/jpeg", "image/webp", "image/gif"]
+
+[storage.buckets.server-covers]
+public = true
+file_size_limit = "2MiB"
+allowed_mime_types = ["image/png", "image/jpeg", "image/webp"]
+
+[storage.buckets.server-screenshots]
+public = true
+file_size_limit = "5MiB"
+allowed_mime_types = ["image/png", "image/jpeg", "image/webp"]
+
+[storage.buckets.review-media]
+public = true
+file_size_limit = "10MiB"
+allowed_mime_types = ["image/png", "image/jpeg", "image/webp", "image/gif"]
+
+[remotes.production]
+project_id = "adkjqnhytspczubeqvnc"
+
+[remotes.server-listing]
+project_id = "siilkqolkprgritynzrl"
